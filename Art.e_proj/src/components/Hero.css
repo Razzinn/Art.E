@@ -1,0 +1,39 @@
+.hero {
+  background: radial-gradient(1200px 500px at -10% -20%, #5ba4ff 0%, rgba(30,102,255,0) 60%),
+              radial-gradient(800px 400px at 120% 10%, #1e66ff 0%, rgba(30,102,255,0) 60%),
+              linear-gradient(180deg, #2f6ea0 0%, #24679a 100%);
+  color: #fff;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px 70px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 88px;
+  line-height: 1;
+  margin: 10px 0 18px;
+  font-weight: 800;
+}
+
+.hero-sub {
+  font-weight: 500;
+  font-size: 36px;
+  margin: 0 0 20px;
+}
+
+.hero-desc {
+  font-size: 26px;
+  line-height: 1.6;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .hero-title { font-size: 54px; }
+  .hero-sub { font-size: 24px; }
+  .hero-desc { font-size: 18px; }
+}
