@@ -1,0 +1,40 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 55vw, 520px);
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 450ms ease, transform 1200ms ease;
+}
+
+.slide.active { opacity: 1; transform: scale(1); }
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  text-shadow: 0 3px 18px rgba(0,0,0,0.6);
+  padding: 14px 18px;
+  max-width: 70ch;
+}
+.overlay h2 {
+  font-size: clamp(22px, 4vw, 40px);
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 800;
+}
+.overlay.left { left: 4vw; text-align: left; }
+.overlay.right { right: 4vw; text-align: right; }
+.overlay.center { left: 50%; transform: translate(-50%, -50%); text-align: center; }
+
+/* subtle gradient at top for readability under nav */
+.carousel::before { content:""; position:absolute; inset:0 0 auto 0; height:70px; background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,0)); pointer-events:none; }

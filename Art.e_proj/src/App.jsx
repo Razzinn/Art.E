@@ -1,14 +1,16 @@
 
 import './App.css'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import Carousel from './components/Carousel'
+import Offers from './components/Offers'
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Hero />
+  <Navbar />
+  <Carousel />
+  <Offers />
     </>
   )
 }
