@@ -117,7 +117,7 @@ const Footer = ({
       setStatusMessage('Iscrizione completata. Benvenuto!');
       setEmail('');
       setTimeout(() => setIsSubscribed(false), 3000);
-    } catch (err) {
+    } catch {
       setSubmitError('Si è verificato un errore. Riprova.');
       setStatusMessage('');
     } finally {

@@ -1,0 +1,45 @@
+/* App.css - Global app styles */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure proper spacing between sections */
+.navbar + .hero-carousel {
+  margin-top: 0;
+}
+
+.hero-carousel + .footer {
+  margin-top: 0;
+}
+
+/* Global link styles */
+a {
+  color: #2563EB;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1e40af;
+}
+
+/* Button reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Input reset */
+input, textarea {
+  font-family: inherit;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+

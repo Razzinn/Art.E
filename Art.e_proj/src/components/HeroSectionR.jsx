@@ -11,15 +11,13 @@ const HeroSectionR = () => {
       image: '/progettazione3d.jpeg',
       alt: 'Progettazione 3D',
       title: '3D Design & Stampa 3D',
-      description: 'Diamo forma alle tue idee in 3D',
-      description: 'Dal modello digitale all oggetto reale: creazioni uniche, rpototipi, gadget e design personalizzati.',
+      description: 'Dal modello digitale all\'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.',
     },
     {
       id: 2,
       image: '/abbigliamentopersonalizzato.jpeg',
       alt: 'Abbigliamento personalizzato',
       title: 'Abbigliamento Personalizzato',
-      description: 'Indossa la tua creativita',
       description: 'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
     },
     {
@@ -27,7 +25,6 @@ const HeroSectionR = () => {
       image: '/webdevelopement.jpeg',
       alt: 'Web development/design',
       title: 'Web & App Design',
-      description: 'Costruiamo la tua identita digitale',
       description: 'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
     },
     {
@@ -35,8 +32,7 @@ const HeroSectionR = () => {
       image: '/prankservice.jpeg',
       alt: 'Prank service',
       title: 'Idee Regalo',
-      description: 'Un regalo che parla di te',
-      description: 'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occazione.',
+      description: 'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
     },
   ];
 
@@ -114,7 +110,13 @@ const HeroSectionR = () => {
             tabIndex={index === currentSlide ? 0 : -1}
           >
 
-            <img src={slide.image} alt={slide.alt} style={{ display: 'none' }} />
+            <img 
+              src={slide.image} 
+              alt={slide.alt} 
+              style={{ display: 'none' }} 
+              loading="lazy"
+              decoding="async"
+            />
             <div className="slide-overlay"></div>
             {index === currentSlide && (
               <div className="hero-title spectacular-title" aria-live="polite">
