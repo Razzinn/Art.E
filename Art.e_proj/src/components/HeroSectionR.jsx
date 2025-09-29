@@ -4,7 +4,7 @@ import './HeroSectionR.css';
 const HeroSectionR = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Array immagini carosello hero (path corretto per Vite: /nomefile.ext)
+  // Array immagini carosello hero
   const slides = [
     {
       id: 1,
@@ -70,7 +70,7 @@ const HeroSectionR = () => {
   }, [prevSlide, nextSlide]);
 
 
-  // Create particles (più varietà e dimensioni)
+  // Create particles
   const createParticles = () => {
     const particles = [];
     const particleCount = 28;
@@ -108,7 +108,7 @@ const HeroSectionR = () => {
     <section className="hero-carousel" aria-label="Hero con carosello immagini">
       <div className="carousel-container">
         {slides.map((slide, index) => {
-          // Applica una classe speciale per centrare meglio le teste nelle slide 1 e 2
+          // Applicata una classe per centrare meglio le teste nelle slide 1 e 2
           let extraClass = '';
           if (slide.id === 1) extraClass = ' hero-center-top';
           if (slide.id === 2) extraClass = ' hero-center-mid';

@@ -281,7 +281,7 @@ body.high-contrast .hero-cta-btn {
 .slide.hero-center-mid {
   background-position: center 32%;
 }
-/* Miglioramento per immagini "verticali" su mobile: mostra più area sopra */
+/* Miglioramento per immagini */
 @media (max-width: 768px) {
   .slide {
     height: 60vh;
