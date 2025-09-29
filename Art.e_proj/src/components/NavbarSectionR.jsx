@@ -6,6 +6,9 @@ const NavbarSectionR = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [cartCount] = useState(3);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const [isSuggestOpen, setIsSuggestOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const categories = {
@@ -15,27 +18,22 @@ const NavbarSectionR = () => {
       'Miniature Personalizzate',
       'Gadget Aziendali',
       'Oggetti Decorativi',
-      'Spare Parts',
-      'Prodotti Industriali',
       'Tutti i Prodotti 3D'
     ],
     'Abbigliamento': [
-      'T-shirt Personalizzate',
-      'Felpe Custom',
-      'Cappellini Ricamati',
-      'Polo Aziendali',
-      'Magliette Eventi',
-      'Abbigliamento Sport',
+      'Felpe personalizzate',
+      'Cappellini personalizzati',
+      'Polo personalizzate',
       'Merchandising',
-      'Catalogo Tessile'
+      'Tutti i Prodotti'
     ],
     'Servizi Digital': [
       'Creazione Siti Web',
+      'Creazione App Intuitive',
       'E-commerce',
       'Restyling Logo',
       'Brand Identity',
       'Social Media Marketing',
-      'SEO & SEM',
       'Graphic Design',
       'Consulenza Digital'
     ]
@@ -44,27 +42,50 @@ const NavbarSectionR = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log('Searching for:', searchTerm);
-    // Aggiungere in seguito qui la logica di ricerca
+    setIsSuggestOpen(false);
   };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // Focus management per dropdown
-  useEffect(() => {
-    if (isDropdownOpen && dropdownRef.current) {
-      const firstMenuItem = dropdownRef.current.querySelector('.dropdown-item');
-      if (firstMenuItem) {
-        firstMenuItem.focus();
-      }
-    }
-  }, [isDropdownOpen]);
+  // Rimosso l'autofocus per evitare il bordo fisso sul primo elemento
 
   const handleCategoryClick = (mainCategory, subCategory) => {
     console.log('Selected category:', mainCategory, '-', subCategory);
+    setSelectedCategory(subCategory);
     setIsDropdownOpen(false);
     // Qui puoi aggiungere la logica per gestire la selezione della categoria
+  };
+
+  // Suggerimenti di ricerca basati sulle categorie
+  useEffect(() => {
+    const term = (searchTerm || '').trim().toLowerCase();
+    if (!term) {
+      setSearchSuggestions([]);
+      setIsSuggestOpen(false);
+      return;
+    }
+
+    const results = [];
+    Object.entries(categories).forEach(([mainCategory, subCategories]) => {
+      subCategories.forEach((subCategory) => {
+        const sub = String(subCategory);
+        if (sub.toLowerCase().includes(term)) {
+          results.push({ mainCategory, subCategory: sub });
+        }
+      });
+    });
+
+    setSearchSuggestions(results.slice(0, 8));
+    setIsSuggestOpen(results.length > 0);
+  }, [searchTerm]);
+
+  const handleSuggestionClick = (suggestion) => {
+    setSelectedCategory(suggestion.subCategory);
+    setSearchTerm('');
+    setIsSuggestOpen(false);
+    console.log('Selected from search:', suggestion.mainCategory, '-', suggestion.subCategory);
   };
 
   // Chiude il dropdown quando si clicca fuori o si preme ESC
@@ -111,7 +132,7 @@ const NavbarSectionR = () => {
               aria-labelledby="categories-label"
               aria-controls="categories-menu"
             >
-              Tutte le Categorie
+              {selectedCategory || 'Tutte le Categorie'}
               <span className={`dropdown-arrow ${isDropdownOpen ? 'rotated' : ''}`} aria-hidden="true"></span>
             </button>
             
@@ -158,24 +179,33 @@ const NavbarSectionR = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Cerca prodotti nel marketplace"
               autoComplete="off"
+              onFocus={() => { if (searchSuggestions.length > 0) setIsSuggestOpen(true); }}
             />
             <button type="submit" className="search-btn" aria-label="Esegui ricerca">
               <span aria-hidden="true">🔍</span>
               <span className="sr-only">Cerca</span>
             </button>
           </form>
+          {isSuggestOpen && searchSuggestions.length > 0 && (
+            <div className="search-suggestions" role="listbox" aria-label="Suggerimenti di ricerca">
+              {searchSuggestions.map((s) => (
+                <button
+                  key={`${s.mainCategory}-${s.subCategory}`}
+                  type="button"
+                  className="search-suggestion-item"
+                  role="option"
+                  onClick={() => handleSuggestionClick(s)}
+                >
+                  <span className="suggest-main">{s.mainCategory}</span>
+                  <span className="suggest-sep">·</span>
+                  <span className="suggest-sub">{s.subCategory}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Cart */}
-        <a href="/cart" className="cart-link" aria-label={`Carrello con ${cartCount} articoli`}>
-          <span aria-hidden="true">🛒</span>
-          <span className="sr-only">Carrello</span>
-          {cartCount > 0 && (
-            <span className="cart-count" aria-label={`${cartCount} articoli nel carrello`}>
-              {cartCount}
-            </span>
-          )}
-        </a>
+        {/* Carrello rimosso */}
       </div>
     </nav>
   );

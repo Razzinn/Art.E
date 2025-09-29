@@ -11,6 +11,7 @@ const HeroSectionR = () => {
       image: '/progettazione3d.jpeg',
       alt: 'Progettazione 3D',
       title: '3D Design & Stampa 3D',
+      subtitle: 'Dal concept al pezzo finito',
       description: 'Dal modello digitale all\'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.',
     },
     {
@@ -18,6 +19,7 @@ const HeroSectionR = () => {
       image: '/abbigliamentopersonalizzato.jpeg',
       alt: 'Abbigliamento personalizzato',
       title: 'Abbigliamento Personalizzato',
+      subtitle: 'Indossa la tua idea',
       description: 'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
     },
     {
@@ -25,6 +27,7 @@ const HeroSectionR = () => {
       image: '/webdevelopement.jpeg',
       alt: 'Web development/design',
       title: 'Web & App Design',
+      subtitle: 'Esperienze digitali efficaci',
       description: 'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
     },
     {
@@ -32,6 +35,7 @@ const HeroSectionR = () => {
       image: '/prankservice.jpeg',
       alt: 'Prank service',
       title: 'Idee Regalo',
+      subtitle: 'Sorprendi con originalità',
       description: 'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
     },
   ];
@@ -50,7 +54,7 @@ const HeroSectionR = () => {
 
   // Auto-play functionality
   useEffect(() => {
-    const interval = setInterval(nextSlide, 6000);
+    const interval = setInterval(nextSlide, 3500);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
@@ -66,13 +70,14 @@ const HeroSectionR = () => {
   }, [prevSlide, nextSlide]);
 
 
-  // Create particles
+  // Create particles (più varietà e dimensioni)
   const createParticles = () => {
     const particles = [];
-    const particleCount = 15;
-    const colors = ['#2563EB', '#60A5FA', '#F97316', '#FACC15'];
-
+    const particleCount = 28;
+    const colors = ['#2563EB', '#60A5FA', '#F97316', '#FACC15', '#fff', '#ffe066'];
+    const sizes = [4, 6, 8, 10];
     for (let i = 0; i < particleCount; i++) {
+      const size = sizes[Math.floor(Math.random() * sizes.length)];
       particles.push(
         <div
           key={i}
@@ -80,8 +85,11 @@ const HeroSectionR = () => {
           style={{
             left: Math.random() * 100 + '%',
             animationDelay: Math.random() * 8 + 's',
-            animationDuration: (8 + Math.random() * 4) + 's',
-            background: colors[Math.floor(Math.random() * colors.length)]
+            animationDuration: (7 + Math.random() * 5) + 's',
+            background: colors[Math.floor(Math.random() * colors.length)],
+            width: size + 'px',
+            height: size + 'px',
+            opacity: 0.7 + Math.random() * 0.3
           }}
         />
       );
@@ -99,32 +107,49 @@ const HeroSectionR = () => {
   return (
     <section className="hero-carousel" aria-label="Hero con carosello immagini">
       <div className="carousel-container">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={getSlideClass(index)}
-            style={{ backgroundImage: `url(${slide.image})` }}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${slide.alt} (${index + 1} di ${slides.length})`}
-            tabIndex={index === currentSlide ? 0 : -1}
-          >
-
-            <img 
-              src={slide.image} 
-              alt={slide.alt} 
-              style={{ display: 'none' }} 
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="slide-overlay"></div>
-            {index === currentSlide && (
-              <div className="hero-title spectacular-title" aria-live="polite">
-                <span>{slide.title}</span>
-              </div>
-            )}
-          </div>
-        ))}
+        {slides.map((slide, index) => {
+          // Applica una classe speciale per centrare meglio le teste nelle slide 1 e 2
+          let extraClass = '';
+          if (slide.id === 1) extraClass = ' hero-center-top';
+          if (slide.id === 2) extraClass = ' hero-center-mid';
+          return (
+            <div
+              key={slide.id}
+              className={getSlideClass(index) + extraClass}
+              style={{ backgroundImage: `url(${slide.image})` }}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${slide.alt} (${index + 1} di ${slides.length})`}
+              tabIndex={index === currentSlide ? 0 : -1}
+            >
+              <img 
+                src={slide.image} 
+                alt={slide.alt} 
+                style={{ display: 'none', objectFit: 'cover', width: '100vw', height: '88vh' }} 
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="slide-overlay"></div>
+              {index === currentSlide && (
+                <div 
+                  className={`slide-content${(slide.id === 2 ? ' align-right slide-content-gift' : '')}${(slide.id === 4 ? ' align-right slide-content-gift' : '')}${(slide.id !== 2 && slide.id !== 4 ? ' align-left' : '')}`}
+                  aria-live="polite"
+                >
+                  <h2 className={"slide-title" + (slide.id === 2 ? " slide-title-abbl" : "")}
+                    >
+                    <span className="hero-decor-line" aria-hidden="true"></span>
+                    {slide.title}
+                  </h2>
+                  {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
+                  {slide.description && <p className="slide-description">{slide.description}</p>}
+                  <button className="hero-cta-btn" tabIndex={0} aria-label="Scopri di più">
+                    Scopri di più
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <div className="floating-particles" aria-hidden="true">
@@ -144,18 +169,7 @@ const HeroSectionR = () => {
         ))}
       </nav>
 
-      <div className="carousel-arrows">
-        <button className="carousel-arrow prev-arrow" onClick={prevSlide} aria-label="Slide precedente">
-          ‹
-        </button>
-        <button className="carousel-arrow next-arrow" onClick={nextSlide} aria-label="Slide successiva">
-          ›
-        </button>
-      </div>
-
-      <div className="slide-indicator" aria-live="polite">
-        <span>{String(currentSlide + 1).padStart(2, '0')}</span> / {String(slides.length).padStart(2, '0')}
-      </div>
+      {/* Frecce e counter immagini rimossi temporaneamente */}
 
       <div className="progress-bar" key={currentSlide} aria-hidden="true"></div>
     </section>
