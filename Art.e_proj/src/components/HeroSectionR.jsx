@@ -1,8 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import './HeroSectionR.css';
 
-const HeroSectionR = () => {
+const zoomImages = [
+  { src: '/slie1zoom.png', bg: '#23272e' },
+  { src: '/abbigliamentozoom.png', bg: '#2a2a2a' },
+  { src: '/computerdevzoom.png', bg: '#1e232b' },
+  { src: '/bimbozoom.png', bg: '#23272e' },
+];
+
+const HeroSectionR = ({ onOpenSubsection }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isZooming, setIsZooming] = useState(false);
+  const [zoomImg, setZoomImg] = useState(null);
+  const [zoomBg, setZoomBg] = useState('#18181b');
+  const [hideHero, setHideHero] = useState(false);
 
   // Array immagini carosello hero
   const slides = [
@@ -104,11 +116,41 @@ const HeroSectionR = () => {
     return 'slide';
   };
 
+  // Funzione per animazione e navigazione
+  const handleCtaClick = async () => {
+    setIsZooming(true);
+    setZoomImg(zoomImages[currentSlide].src);
+    setZoomBg(zoomImages[currentSlide].bg);
+    await new Promise((res) => setTimeout(res, 2000));
+    setHideHero(true);
+    setTimeout(() => {
+      setIsZooming(false);
+      setZoomImg(null);
+      setZoomBg('#18181b');
+      setHideHero(false);
+    }, 1000);
+    if (onOpenSubsection) onOpenSubsection('3DDesignStampa3D');
+  };
+
+  // Render zoom overlay
+  const ZoomOverlay = () => (
+    <div className="hero-zoom-bg" style={{ background: zoomBg }}>
+      <img
+        src={zoomImg}
+        alt="Zoom slide"
+        className="hero-zoom-img"
+        style={{ animation: 'zoomOutSingle 2s cubic-bezier(.33,1.02,.47,.98) forwards' }}
+      />
+    </div>
+  );
+
+  if (hideHero) return null;
+
   return (
     <section className="hero-carousel" aria-label="Hero con carosello immagini">
+      {isZooming && zoomImg && createPortal(<ZoomOverlay />, document.body)}
       <div className="carousel-container">
         {slides.map((slide, index) => {
-          // Applicata una classe per centrare meglio le teste nelle slide 1 e 2
           let extraClass = '';
           if (slide.id === 1) extraClass = ' hero-center-top';
           if (slide.id === 2) extraClass = ' hero-center-mid';
@@ -130,22 +172,52 @@ const HeroSectionR = () => {
                 decoding="async"
               />
               <div className="slide-overlay"></div>
-              {index === currentSlide && (
-                <div 
-                  className={`slide-content${(slide.id === 2 ? ' align-right slide-content-gift' : '')}${(slide.id === 4 ? ' align-right slide-content-gift' : '')}${(slide.id !== 2 && slide.id !== 4 ? ' align-left' : '')}`}
-                  aria-live="polite"
-                >
-                  <h2 className={"slide-title" + (slide.id === 2 ? " slide-title-abbl" : "")}
-                    >
-                    <span className="hero-decor-line" aria-hidden="true"></span>
-                    {slide.title}
-                  </h2>
-                  {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
-                  {slide.description && <p className="slide-description">{slide.description}</p>}
-                  <button className="hero-cta-btn" tabIndex={0} aria-label="Scopri di più">
-                    Scopri di più
-                  </button>
-                </div>
+              {index === currentSlide && !isZooming && (
+                <>
+                  {slide.id === 1 && (
+                    <img 
+                      src="/ominoslide1.png" 
+                      alt="Omino Slide 1" 
+                      className="hero-side-img-full right ominoabb" 
+                    />
+                  )}
+                  {slide.id === 2 && (
+                    <img 
+                      src="/ominoabbigliamento.png" 
+                      alt="Omino Abbigliamento Personalizzato" 
+                      className="hero-side-img-full left ominoabb" 
+                    />
+                  )}
+                  {slide.id === 3 && (
+                    <img 
+                      src="/computerdev.png" 
+                      alt="Computer Dev" 
+                      className="hero-side-img-full right pc" 
+                    />
+                  )}
+                  {slide.id === 4 && (
+                    <img 
+                      src="/bimboideeregzerosfondo.png" 
+                      alt="Bimbo Idee Regalo Sfondo" 
+                      className="hero-side-img-full left bimbo" 
+                    />
+                  )}
+                  <div 
+                    className={`slide-content${(slide.id === 2 ? ' align-right slide-content-gift' : '')}${(slide.id === 4 ? ' align-right' : '')}${(slide.id !== 2 && slide.id !== 4 ? ' align-left' : '')}`}
+                    aria-live="polite"
+                  >
+                    <h2 className={"slide-title" + (slide.id === 2 ? " slide-title-abbl" : "")}
+                      >
+                      <span className="hero-decor-line" aria-hidden="true"></span>
+                      {slide.title}
+                    </h2>
+                    {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
+                    {slide.description && <p className="slide-description">{slide.description}</p>}
+                    <button className="hero-cta-btn" tabIndex={0} aria-label="Scopri di più" onClick={handleCtaClick}>
+                      Scopri di più
+                    </button>
+                  </div>
+                </>
               )}
             </div>
           );
@@ -168,8 +240,6 @@ const HeroSectionR = () => {
           />
         ))}
       </nav>
-
-      {/* Frecce e counter immagini rimossi temporaneamente */}
 
       <div className="progress-bar" key={currentSlide} aria-hidden="true"></div>
     </section>

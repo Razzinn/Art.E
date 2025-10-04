@@ -1,3 +1,99 @@
+/* Overlay nero per animazione zoom */
+.hero-black-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 9999;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Immagine zoomata animata */
+
+.hero-zoom-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  pointer-events: none;
+  transition: background 0.3s;
+}
+
+
+.hero-zoom-img {
+  max-width: 60vw;
+  max-height: 80vh;
+  border-radius: 32px;
+  box-shadow: 0 8px 48px 0 #000a, 0 2px 24px 0 #fff2;
+  opacity: 1;
+  background: transparent;
+  animation: zoomOutSingle 2s cubic-bezier(.33,1.02,.47,.98) forwards;
+}
+
+
+@keyframes zoomOutSingle {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.5) translateY(0);
+    opacity: 1;
+  }
+}
+.hero-side-img-full.right.pc {
+  height: 54vh;
+  bottom: 0;
+  top: auto;
+  transform: none;
+}
+.hero-side-img-full.left.bimbo {
+  height: 78vh;
+  bottom: 0;
+  top: auto;
+  transform: none;
+}
+.hero-side-img-full.left.ominoabb {
+  height: 88vh;
+  bottom: 0;
+  top: auto;
+  transform: none;
+}
+.hero-side-img-full {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 82vh;
+  max-height: 88vh;
+  width: auto;
+  object-fit: contain;
+  z-index: 6;
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 24px rgba(30,41,59,0.18));
+  transition: opacity 0.3s, transform 0.3s;
+}
+.hero-side-img-full.left {
+  left: 2vw;
+}
+.hero-side-img-full.right {
+  right: 2vw;
+}
+.hero-side-img.left.hero-abbl {
+  width: auto;
+  height: 82vh;
+  max-height: 88vh;
+  left: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .hero-decor-line {
   display: inline-block;
   vertical-align: middle;
@@ -485,6 +581,46 @@ body.high-contrast .hero-cta-btn {
 .nav-dot:focus {
   outline: 2px solid var(--lime-yellow);
   outline-offset: 2px;
+}
+
+/* Immagini laterali Hero slides */
+.hero-side-img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 180px;
+  max-width: 28vw;
+  height: auto;
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 24px rgba(30,41,59,0.18));
+  transition: opacity 0.3s, transform 0.3s;
+}
+.hero-side-img.left {
+  left: 2vw;
+}
+.hero-side-img.right {
+  right: 2vw;
+}
+
+@media (max-width: 768px) {
+  .hero-side-img {
+    width: 110px;
+    max-width: 38vw;
+  }
+  .hero-side-img.left {
+    left: 1vw;
+  }
+  .hero-side-img.right {
+    right: 1vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-side-img {
+    width: 70px;
+    max-width: 48vw;
+  }
 }
 
 /* Reduced motion accessibility */
