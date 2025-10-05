@@ -13,19 +13,23 @@ export default function Offers() {
         clearTimeout(transitionTimeoutRef.current);
       }
       
-      setIsTransitioning(true);
-      
-      // Usa requestAnimationFrame per sincronizzare con il refresh rate
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setCurrentSlide(event.detail.slide);
-          
-          // Termina la transizione dopo che il background è cambiato
-          transitionTimeoutRef.current = setTimeout(() => {
-            setIsTransitioning(false);
-          }, 150);
-        });
-      });
+      // Programma l'aggiornamento per il prossimo frame per evitare conflitti di render
+      transitionTimeoutRef.current = setTimeout(() => {
+        setIsTransitioning(true);
+        
+        // Delay più lungo per iniziare la transizione in modo più graduale
+        setTimeout(() => {
+          // Usa requestAnimationFrame per sincronizzare con il refresh rate
+          requestAnimationFrame(() => {
+            setCurrentSlide(event.detail.slide);
+            
+            // Termina la transizione dopo un periodo più lungo per effetto più graduale
+            setTimeout(() => {
+              setIsTransitioning(false);
+            }, 1800); // Aumentato da 500ms a 1800ms per transizione più lunga
+          });
+        }, 300); // Delay iniziale di 300ms per transizione più dolce
+      }, 0);
     };
     
     window.addEventListener('carousel-change', handleCarouselChange);
