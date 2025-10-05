@@ -1,6 +1,15 @@
 .offers {
-  background: var(--bg);
   padding: 80px 0;
+  position: relative;
+  transition: background 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: background;
+  transform: translateZ(0); /* Forza GPU acceleration */
+  backface-visibility: hidden; /* Migliora performance */
+}
+
+.offers.transitioning {
+  transition: background 1.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
+              opacity 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .offers-container {
@@ -13,7 +22,8 @@
   text-align: center;
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 700;
-  color: var(--text);
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
   margin: 0 0 60px;
   line-height: 1.3;
   max-width: 900px;
@@ -28,6 +38,7 @@
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto;
+  will-change: auto; /* Evita GPU acceleration non necessaria */
 }
 
 .service-card {
@@ -36,8 +47,11 @@
   padding: 32px 24px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  transform: translateZ(0); /* Promuove a layer composito */
+  backface-visibility: hidden;
 }
 
 .service-card:hover {
