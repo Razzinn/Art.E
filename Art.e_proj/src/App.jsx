@@ -1,20 +1,27 @@
-
-import './App.css'
-import Navbar from './components/Navbar'
-import Carousel from './components/Carousel'
+import React from 'react';
+import NavbarSectionR from './components/NavbarSectionR';
+import Footer from './components/footer';
+import HeroSectionR from './components/HeroSectionR';
 import Offers from './components/Offers'
-import Footer from './components/Footer'
+import './App.css';
+import Design3D from './componentisecondarisezioni/3DDesignStampa3D.jsx';
+
 
 function App() {
+  const [showSubsection, setShowSubsection] = React.useState(null);
+
+  const handleOpenSubsection = (sub) => {
+    setShowSubsection(sub);
+  };
 
   return (
     <>
-  <Navbar />
-  <Carousel />
-  <Offers />
-  <Footer />
-    </>
-  )
+      <NavbarSectionR />
+      {!showSubsection && <HeroSectionR onOpenSubsection={handleOpenSubsection} />}
+      {showSubsection === '3DDesignStampa3D' && <Design3D />}
+      <Offers />
+     <Footer />    </>
+  );
 }
 
-export default App
+export default App;
