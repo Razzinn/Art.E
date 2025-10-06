@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import './HeroSectionR.css';
 
@@ -17,7 +17,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
   const [hideHero, setHideHero] = useState(false);
 
   // Array immagini carosello hero
-  const slides = [
+  const slides = useMemo(() => [
     {
       id: 1,
       image: '/progettazione3d.jpeg',
@@ -25,6 +25,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       title: '3D Design & Stampa 3D',
       subtitle: 'Dal concept al pezzo finito',
       description: 'Dal modello digitale all\'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.',
+      colors: ['#F8C8C8', '#F5B7B7', '#F2A6A6'] // Pale pink gradient for 3D print
     },
     {
       id: 2,
@@ -33,6 +34,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       title: 'Abbigliamento Personalizzato',
       subtitle: 'Indossa la tua idea',
       description: 'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
+      colors: ['#7DD3C0', '#B794F6', '#FBB040'] // Green aqua → purple → orange gradient for dressing
     },
     {
       id: 3,
@@ -41,6 +43,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       title: 'Web & App Design',
       subtitle: 'Esperienze digitali efficaci',
       description: 'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
+      colors: ['#8A2BE2', '#9370DB', '#BA55D3'] // Deep purple/violet tones from computer background
     },
     {
       id: 4,
@@ -49,8 +52,9 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       title: 'Idee Regalo',
       subtitle: 'Sorprendi con originalità',
       description: 'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
+      colors: ['#1A4A66', '#2E5D7A', '#426F8C'] // Darker blue gradient matching baby background bottom edge
     },
-  ];
+  ], []);
 
   const goToSlide = useCallback((index) => {
     setCurrentSlide(index);
@@ -64,11 +68,33 @@ const HeroSectionR = ({ onOpenSubsection }) => {
     setCurrentSlide((prev) => prev === 0 ? slides.length - 1 : prev - 1);
   }, [slides.length]);
 
-  // Auto-play functionality
+  // Auto-play functionality - rallentato per sincronizzarsi con transizioni fluide
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3500);
+    const interval = setInterval(nextSlide, 5000); // Aumentato da 3500ms a 5000ms
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+  // Dispatch evento per comunicare il cambio slide alle altre sezioni
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('carousel-change', {
+        detail: { slide: slides[currentSlide] }
+      }));
+    }, 0);
+    
+    return () => clearTimeout(timeoutId);
+  }, [currentSlide, slides]);
+
+  // Dispatch iniziale al mount del componente
+  useEffect(() => {
+    const initialTimeout = setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('carousel-change', {
+        detail: { slide: slides[0] }
+      }));
+    }, 100);
+    
+    return () => clearTimeout(initialTimeout);
+  }, [slides]);
 
   // Keyboard navigation
   useEffect(() => {

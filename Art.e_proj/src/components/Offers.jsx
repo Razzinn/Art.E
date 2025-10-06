@@ -2,36 +2,33 @@
 import './Offers.css';
 
 export default function Offers() {
-  const [currentSlide, setCurrentSlide] = useState({ colors: ['#8B5CF6', '#A855F7', '#C084FC'] });
+  const [currentColors, setCurrentColors] = useState(['#8B5CF6', '#A855F7', '#C084FC']);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const transitionTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleCarouselChange = (event) => {
-      // Cancella transizioni precedenti se in corso
-      if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current);
-      }
+      const newColors = event.detail.slide?.colors;
       
-      // Programma l'aggiornamento per il prossimo frame per evitare conflitti di render
-      transitionTimeoutRef.current = setTimeout(() => {
+      if (newColors && !isTransitioning) {
+        // Previene cambi troppo rapidi
         setIsTransitioning(true);
         
-        // Delay più lungo per iniziare la transizione in modo più graduale
-        setTimeout(() => {
-          // Usa requestAnimationFrame per sincronizzare con il refresh rate
-          requestAnimationFrame(() => {
-            setCurrentSlide(event.detail.slide);
-            
-            // Termina la transizione dopo un periodo più lungo per effetto più graduale
-            setTimeout(() => {
-              setIsTransitioning(false);
-            }, 1800); // Aumentato da 500ms a 1800ms per transizione più lunga
-          });
-        }, 300); // Delay iniziale di 300ms per transizione più dolce
-      }, 0);
+        // Cancella eventuali timeout precedenti
+        if (transitionTimeoutRef.current) {
+          clearTimeout(transitionTimeoutRef.current);
+        }
+        
+        // Applica il nuovo colore immediatamente
+        setCurrentColors(newColors);
+        
+        // Reset del flag dopo la durata della transizione CSS (4s + buffer)
+        transitionTimeoutRef.current = setTimeout(() => {
+          setIsTransitioning(false);
+        }, 4200);
+      }
     };
-    
+
     window.addEventListener('carousel-change', handleCarouselChange);
     return () => {
       window.removeEventListener('carousel-change', handleCarouselChange);
@@ -39,14 +36,14 @@ export default function Offers() {
         clearTimeout(transitionTimeoutRef.current);
       }
     };
-  }, []);
+  }, []); // Rimuovo isTransitioning dalle dipendenze per evitare l'errore
 
   const dynamicBackground = {
-    background: `linear-gradient(135deg, ${currentSlide.colors?.[0] || '#8B5CF6'} 0%, ${currentSlide.colors?.[1] || '#A855F7'} 50%, ${currentSlide.colors?.[2] || '#C084FC'} 100%)`
+    background: `linear-gradient(135deg, ${currentColors[0]} 0%, ${currentColors[1] || currentColors[0]} 50%, ${currentColors[2] || currentColors[0]} 100%)`
   };
 
   return (
-    <section className={`offers ${isTransitioning ? 'transitioning' : ''}`} style={dynamicBackground}>
+    <section className="offers" style={dynamicBackground}>
       <div className="offers-container">
         <h2 className="offers-title">
           Prodotti personalizzati di qualità e servizi digitali all'avanguardia
