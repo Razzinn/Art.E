@@ -1,26 +1,22 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavbarSectionR from './components/NavbarSectionR';
 import Footer from './components/footer';
-import HeroSectionR from './components/HeroSectionR';
-import Offers from './components/Offers'
+import HomePage from './pages/HomePage';
+import ServiceRequestPage from './pages/ServiceRequestPage';
+import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
-import Design3D from './componentisecondarisezioni/3DDesignStampa3D.jsx';
-
 
 function App() {
-  const [showSubsection, setShowSubsection] = React.useState(null);
-
-  const handleOpenSubsection = (sub) => {
-    setShowSubsection(sub);
-  };
-
   return (
-    <>
+    <BrowserRouter>
       <NavbarSectionR />
-      {!showSubsection && <HeroSectionR onOpenSubsection={handleOpenSubsection} />}
-      {showSubsection === '3DDesignStampa3D' && <Design3D />}
-      <Offers />
-     <Footer />    </>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/servizi/:serviceSlug" element={<ServiceRequestPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
