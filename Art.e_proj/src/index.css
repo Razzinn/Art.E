@@ -1,4 +1,22 @@
 /* Reset e base styles */
+:root {
+	/* Brand palette */
+	--blue-600: #2563EB; /* Electric Blue */
+	--blue-400: #60A5FA; /* Light Blue */
+	--orange-500: #F97316; /* Energetic Orange */
+	--yellow-400: #FACC15; /* Lime Yellow */
+	--gray-900: #1E293B; /* Dark Gray */
+	--white: #FFFFFF;
+
+	/* Semantic shortcuts */
+	--brand: var(--blue-600);
+	--brand-light: var(--blue-400);
+	--accent-warm: var(--orange-500);
+	--accent-sunny: var(--yellow-400);
+	--text: var(--gray-900);
+	--bg: var(--white);
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -1,47 +1,56 @@
 // NavbarSection.jsx
 import React, { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './NavbarSectionR.css';
+
+const NAV_CATEGORIES = {
+  Prodotti: [
+    'Stampa 3D',
+    'Prototipi Rapidi',
+    'Miniature Personalizzate',
+    'Gadget Aziendali',
+    'Oggetti Decorativi',
+    'Tutti i Prodotti 3D',
+  ],
+  Abbigliamento: [
+    'Felpe personalizzate',
+    'Cappellini personalizzati',
+    'Polo personalizzate',
+    'Merchandising',
+    'Abbigliamento Custom',
+    'Tutti i Prodotti',
+  ],
+  'Servizi Digital': [
+    'Creazione Siti Web',
+    'Creazione App Intuitive',
+    'E-commerce',
+    'Restyling Logo',
+    'Brand Identity',
+    'Social Media Marketing',
+    'Graphic Design',
+    'Servizi Digitali',
+    'Consulenza Digital',
+  ],
+};
+
+const SERVICE_ROUTE_MAP = {
+  'Restyling Logo': '/servizi/restyling-logo',
+  'Regali e Prank': '/servizi/regali-e-prank',
+  'Abbigliamento Custom': '/servizi/abbigliamento-e-custom',
+  'Servizi Digitali': '/servizi/servizi-digitali',
+};
 
 const NavbarSectionR = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [cartCount] = useState(3);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   const [isSuggestOpen, setIsSuggestOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  const categories = {
-    'Prodotti': [
-      'Stampa 3D',
-      'Prototipi Rapidi',
-      'Miniature Personalizzate',
-      'Gadget Aziendali',
-      'Oggetti Decorativi',
-      'Tutti i Prodotti 3D'
-    ],
-    'Abbigliamento': [
-      'Felpe personalizzate',
-      'Cappellini personalizzati',
-      'Polo personalizzate',
-      'Merchandising',
-      'Tutti i Prodotti'
-    ],
-    'Servizi Digital': [
-      'Creazione Siti Web',
-      'Creazione App Intuitive',
-      'E-commerce',
-      'Restyling Logo',
-      'Brand Identity',
-      'Social Media Marketing',
-      'Graphic Design',
-      'Consulenza Digital'
-    ]
-  };
+  const navigate = useNavigate();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log('Searching for:', searchTerm);
     setIsSuggestOpen(false);
   };
 
@@ -52,10 +61,12 @@ const NavbarSectionR = () => {
   // Rimosso l'autofocus per evitare il bordo fisso sul primo elemento
 
   const handleCategoryClick = (mainCategory, subCategory) => {
-    console.log('Selected category:', mainCategory, '-', subCategory);
     setSelectedCategory(subCategory);
     setIsDropdownOpen(false);
-    // Qui puoi aggiungere la logica per gestire la selezione della categoria
+    const targetRoute = SERVICE_ROUTE_MAP[subCategory];
+    if (targetRoute) {
+      navigate(targetRoute);
+    }
   };
 
   // Suggerimenti di ricerca basati sulle categorie
@@ -68,7 +79,7 @@ const NavbarSectionR = () => {
     }
 
     const results = [];
-    Object.entries(categories).forEach(([mainCategory, subCategories]) => {
+    Object.entries(NAV_CATEGORIES).forEach(([mainCategory, subCategories]) => {
       subCategories.forEach((subCategory) => {
         const sub = String(subCategory);
         if (sub.toLowerCase().includes(term)) {
@@ -85,7 +96,10 @@ const NavbarSectionR = () => {
     setSelectedCategory(suggestion.subCategory);
     setSearchTerm('');
     setIsSuggestOpen(false);
-    console.log('Selected from search:', suggestion.mainCategory, '-', suggestion.subCategory);
+    const targetRoute = SERVICE_ROUTE_MAP[suggestion.subCategory];
+    if (targetRoute) {
+      navigate(targetRoute);
+    }
   };
 
   // Chiude il dropdown quando si clicca fuori o si preme ESC
@@ -115,10 +129,10 @@ const NavbarSectionR = () => {
     <nav className="navbar" role="navigation" aria-label="Navigazione principale">
       <div className="navbar-container">
         {/* Logo */}
-        <a href="/" className="logo" aria-label="CREO - Torna alla homepage">
+        <Link to="/" className="logo" aria-label="CREO - Torna alla homepage">
           <span aria-hidden="true">CREO😊</span>
           <span className="sr-only">CREO Marketplace</span>
-        </a>
+        </Link>
 
         {/* Categories */}
         <div className="categories" ref={dropdownRef}>
@@ -143,7 +157,7 @@ const NavbarSectionR = () => {
                 role="menu"
                 aria-labelledby="categories-label"
               >
-                {Object.entries(categories).map(([mainCategory, subCategories]) => (
+                {Object.entries(NAV_CATEGORIES).map(([mainCategory, subCategories]) => (
                   <div key={mainCategory} className="dropdown-section">
                     <h3 className="dropdown-section-title">{mainCategory}</h3>
                     <div className="dropdown-section-items" role="group" aria-label={mainCategory}>
