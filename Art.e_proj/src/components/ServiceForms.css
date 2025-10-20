@@ -215,6 +215,25 @@
   background-position: calc(100% - 18px) calc(1.2em + 2px), calc(100% - 13px) calc(1.2em + 2px);
   background-size: 5px 5px;
   background-repeat: no-repeat;
+  background-color: rgba(15, 23, 42, 0.82);
+  color: #f8fafc;
+}
+
+.service-form__field select option {
+  background-color: #11173a;
+  color: #f8fafc;
+}
+
+.service-form__field select option:checked,
+.service-form__field select option:hover {
+  background-color: #1e1b4b;
+  color: #38bdf8;
+}
+
+.service-form__field select:focus-visible {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 8px 28px rgba(56, 189, 248, 0.18);
 }
 
 .service-form__field input[type="file"] {
