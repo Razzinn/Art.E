@@ -1,31 +1,21 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState, useEffect, useCallback } from 'react';
 import './HeroSectionR.css';
-
-const zoomImages = [
-  { src: '/slie1zoom.png', bg: '#23272e' },
-  { src: '/abbigliamentozoom.png', bg: '#2a2a2a' },
-  { src: '/computerdevzoom.png', bg: '#1e232b' },
-  { src: '/bimbozoom.png', bg: '#23272e' },
-];
 
 const HeroSectionR = ({ onOpenSubsection }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isZooming, setIsZooming] = useState(false);
-  const [zoomImg, setZoomImg] = useState(null);
-  const [zoomBg, setZoomBg] = useState('#18181b');
-  const [hideHero, setHideHero] = useState(false);
+  const heroRef = React.useRef(null);
 
-  // Array immagini carosello hero
-  const slides = useMemo(() => [
+
+  const slides = [
     {
       id: 1,
-      image: '/progettazione3d.jpeg',
+      image: '/sfondoslide1creo.jpeg',
       alt: 'Progettazione 3D',
       title: '3D Design & Stampa 3D',
-      subtitle: 'Dal concept al pezzo finito',
-      description: 'Dal modello digitale all\'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.',
-      colors: ['#F8C8C8', '#F5B7B7', '#F2A6A6'] // Pale pink gradient for 3D print
+      subtitle: 'Dall’idea alla realizzazione del prodotto finito',
+      description:
+        "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.",
+      section: '3DDesignStampa3D',
     },
     {
       id: 2,
@@ -33,8 +23,9 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       alt: 'Abbigliamento personalizzato',
       title: 'Abbigliamento Personalizzato',
       subtitle: 'Indossa la tua idea',
-      description: 'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
-      colors: ['#7DD3C0', '#B794F6', '#FBB040'] // Green aqua → purple → orange gradient for dressing
+      description:
+        'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
+      section: 'Abbigliamento',
     },
     {
       id: 3,
@@ -42,8 +33,9 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       alt: 'Web development/design',
       title: 'Web & App Design',
       subtitle: 'Esperienze digitali efficaci',
-      description: 'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
-      colors: ['#8A2BE2', '#9370DB', '#BA55D3'] // Deep purple/violet tones from computer background
+      description:
+        'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
+      section: 'WebAppDesign',
     },
     {
       id: 4,
@@ -51,70 +43,35 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       alt: 'Prank service',
       title: 'Idee Regalo',
       subtitle: 'Sorprendi con originalità',
-      description: 'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
-      colors: ['#1A4A66', '#2E5D7A', '#426F8C'] // Darker blue gradient matching baby background bottom edge
+      description:
+        'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
+      section: 'IdeeRegalo',
     },
-  ], []);
+  ];
 
-  const goToSlide = useCallback((index) => {
-    setCurrentSlide(index);
-  }, []);
+  const goToSlide = useCallback((index) => setCurrentSlide(index), []);
+  const nextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % slides.length), [slides.length]);
+  const prevSlide = useCallback(() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1)), [slides.length]);
 
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => prev === 0 ? slides.length - 1 : prev - 1);
-  }, [slides.length]);
-
-  // Auto-play functionality - rallentato per sincronizzarsi con transizioni fluide
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000); // Aumentato da 3500ms a 5000ms
+    const interval = setInterval(nextSlide, 3500);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  // Dispatch evento per comunicare il cambio slide alle altre sezioni
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      window.dispatchEvent(new CustomEvent('carousel-change', {
-        detail: { slide: slides[currentSlide] }
-      }));
-    }, 0);
-    
-    return () => clearTimeout(timeoutId);
-  }, [currentSlide, slides]);
-
-  // Dispatch iniziale al mount del componente
-  useEffect(() => {
-    const initialTimeout = setTimeout(() => {
-      window.dispatchEvent(new CustomEvent('carousel-change', {
-        detail: { slide: slides[0] }
-      }));
-    }, 100);
-    
-    return () => clearTimeout(initialTimeout);
-  }, [slides]);
-
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === 'ArrowLeft') prevSlide();
       if (e.key === 'ArrowRight') nextSlide();
     };
-
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [prevSlide, nextSlide]);
 
-
-  // Create particles
   const createParticles = () => {
     const particles = [];
-    const particleCount = 28;
     const colors = ['#2563EB', '#60A5FA', '#F97316', '#FACC15', '#fff', '#ffe066'];
     const sizes = [4, 6, 8, 10];
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < 28; i++) {
       const size = sizes[Math.floor(Math.random() * sizes.length)];
       particles.push(
         <div
@@ -123,11 +80,11 @@ const HeroSectionR = ({ onOpenSubsection }) => {
           style={{
             left: Math.random() * 100 + '%',
             animationDelay: Math.random() * 8 + 's',
-            animationDuration: (7 + Math.random() * 5) + 's',
+            animationDuration: 7 + Math.random() * 5 + 's',
             background: colors[Math.floor(Math.random() * colors.length)],
             width: size + 'px',
             height: size + 'px',
-            opacity: 0.7 + Math.random() * 0.3
+            opacity: 0.7 + Math.random() * 0.3,
           }}
         />
       );
@@ -142,104 +99,73 @@ const HeroSectionR = ({ onOpenSubsection }) => {
     return 'slide';
   };
 
-  // Funzione per animazione e navigazione
-  const handleCtaClick = async () => {
-    setIsZooming(true);
-    setZoomImg(zoomImages[currentSlide].src);
-    setZoomBg(zoomImages[currentSlide].bg);
-    await new Promise((res) => setTimeout(res, 2000));
-    setHideHero(true);
+  const handleCtaClick = (sectionName) => {
+    const activeSlide = document.querySelector('.slide.active');
+    const sideImg = activeSlide?.querySelector('.hero-side-img-full');
+    const content = activeSlide?.querySelector('.slide-content');
+    if (!sideImg) return;
+    content?.classList.add('fade-out');
+    sideImg.classList.add('zoom-center');
     setTimeout(() => {
-      setIsZooming(false);
-      setZoomImg(null);
-      setZoomBg('#18181b');
-      setHideHero(false);
-    }, 1000);
-    if (onOpenSubsection) onOpenSubsection('3DDesignStampa3D');
+      if (onOpenSubsection && sectionName) onOpenSubsection(sectionName);
+    }, 1200);
   };
 
-  // Render zoom overlay
-  const ZoomOverlay = () => (
-    <div className="hero-zoom-bg" style={{ background: zoomBg }}>
-      <img
-        src={zoomImg}
-        alt="Zoom slide"
-        className="hero-zoom-img"
-        style={{ animation: 'zoomOutSingle 2s cubic-bezier(.33,1.02,.47,.98) forwards' }}
-      />
-    </div>
-  );
-
-  if (hideHero) return null;
-
   return (
-    <section className="hero-carousel" aria-label="Hero con carosello immagini">
-      {isZooming && zoomImg && createPortal(<ZoomOverlay />, document.body)}
+    <section ref={heroRef} className="hero-carousel" aria-label="Hero con carosello immagini">
       <div className="carousel-container">
         {slides.map((slide, index) => {
           let extraClass = '';
           if (slide.id === 1) extraClass = ' hero-center-top';
           if (slide.id === 2) extraClass = ' hero-center-mid';
           return (
-            <div
-              key={slide.id}
-              className={getSlideClass(index) + extraClass}
-              style={{ backgroundImage: `url(${slide.image})` }}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`${slide.alt} (${index + 1} di ${slides.length})`}
-              tabIndex={index === currentSlide ? 0 : -1}
-            >
-              <img 
-                src={slide.image} 
-                alt={slide.alt} 
-                style={{ display: 'none', objectFit: 'cover', width: '100vw', height: '88vh' }} 
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="slide-overlay"></div>
-              {index === currentSlide && !isZooming && (
+            <div key={slide.id} className={getSlideClass(index) + extraClass} style={{ backgroundImage: `url(${slide.image})` }}>
+              {index === currentSlide && (
                 <>
+                  {/* 🗿 Slide 1 – Statua 3D */}
                   {slide.id === 1 && (
-                    <img 
-                      src="/ominoslide1.png" 
-                      alt="Omino Slide 1" 
-                      className="hero-side-img-full right ominoabb" 
+                    <img
+                      src="/statua1slide.png"
+                      alt="Statua 3D Design"
+                      className="hero-side-img-full right statua3d"
                     />
                   )}
+
+                  {/* 👕 Slide 2 – Omino Abbigliamento */}
                   {slide.id === 2 && (
-                    <img 
-                      src="/ominoabbigliamento.png" 
-                      alt="Omino Abbigliamento Personalizzato" 
-                      className="hero-side-img-full left ominoabb" 
+                    <img
+                      src="/ominoabbigliamento.png"
+                      alt="Omino Abbigliamento Personalizzato"
+                      className="hero-side-img-full left ominoabb"
                     />
                   )}
+
+                  {/* 💻 Slide 3 – PC Developer */}
                   {slide.id === 3 && (
-                    <img 
-                      src="/computerdev.png" 
-                      alt="Computer Dev" 
-                      className="hero-side-img-full right pc" 
+                    <img
+                      src="/pcdevnuovo.png"
+                      alt="Computer Dev"
+                      className="hero-side-img-full right pc"
                     />
                   )}
+
+                  {/* 👶 Slide 4 – Bimbo Idee Regalo */}
                   {slide.id === 4 && (
-                    <img 
-                      src="/bimboideeregzerosfondo.png" 
-                      alt="Bimbo Idee Regalo Sfondo" 
-                      className="hero-side-img-full left bimbo" 
+                    <img
+                      src="/bimboideeregzerosfondo.png"
+                      alt="Bimbo Idee Regalo"
+                      className="hero-side-img-full left bimbo"
                     />
                   )}
-                  <div 
-                    className={`slide-content${(slide.id === 2 ? ' align-right slide-content-gift' : '')}${(slide.id === 4 ? ' align-right' : '')}${(slide.id !== 2 && slide.id !== 4 ? ' align-left' : '')}`}
-                    aria-live="polite"
-                  >
-                    <h2 className={"slide-title" + (slide.id === 2 ? " slide-title-abbl" : "")}
-                      >
+
+                  <div className={`slide-content${slide.id === 2 || slide.id === 4 ? ' align-right' : ' align-left'}`}>
+                    <h2 className="slide-title">
                       <span className="hero-decor-line" aria-hidden="true"></span>
                       {slide.title}
                     </h2>
                     {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
                     {slide.description && <p className="slide-description">{slide.description}</p>}
-                    <button className="hero-cta-btn" tabIndex={0} aria-label="Scopri di più" onClick={handleCtaClick}>
+                    <button className="hero-cta-btn" onClick={() => handleCtaClick(slide.section)}>
                       Scopri di più
                     </button>
                   </div>
@@ -250,25 +176,21 @@ const HeroSectionR = ({ onOpenSubsection }) => {
         })}
       </div>
 
-      <div className="floating-particles" aria-hidden="true">
-        {createParticles()}
-      </div>
+      <div className="floating-particles">{createParticles()}</div>
 
-      <nav className="carousel-nav" aria-label="Navigazione carosello">
+      <nav className="carousel-nav">
         {slides.map((_, index) => (
           <button
             key={index}
             className={`nav-dot ${index === currentSlide ? 'active' : ''}`}
             onClick={() => goToSlide(index)}
-            aria-label={`Vai alla slide ${index + 1}`}
-            aria-current={index === currentSlide ? 'true' : undefined}
-            tabIndex={0}
           />
         ))}
       </nav>
 
-      <div className="progress-bar" key={currentSlide} aria-hidden="true"></div>
+      <div className="progress-bar" key={currentSlide}></div>
     </section>
   );
 };
+
 export default HeroSectionR;

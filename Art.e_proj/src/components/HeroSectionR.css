@@ -663,3 +663,90 @@ body.high-contrast .hero-cta-btn {
     background: rgba(0, 0, 0, 0.8);
   }
 }
+
+/* --- ANIMAZIONE ZOOM PULITA E CENTRATA --- */
+
+/* Nasconde la descrizione */
+.slide-content.fade-out {
+  opacity: 0 !important;
+  transform: scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Immagine laterale che si centra e si ingrandisce */
+.hero-side-img-full.zoom-center {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(1.4) !important;
+  z-index: 99999 !important;
+  transition: transform 1.2s cubic-bezier(.33,1.02,.47,.98),
+              top 1.2s cubic-bezier(.33,1.02,.47,.98),
+              left 1.2s cubic-bezier(.33,1.02,.47,.98);
+  
+  /* 🔥 Rimuove ogni forma di box o bordo */
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+
+  /* Mantiene proporzioni perfette */
+  height: auto !important;
+  width: auto !important;
+  max-width: 85vw !important;
+  max-height: 85vh !important;
+  object-fit: contain !important;
+
+  /* Evita riflessi o bordi del browser */
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+
+/* --- REGOLAZIONI FINALI INDIVIDUALI PER ZOOM CENTRATO --- */
+
+/* 💻 PC - più piccolo e più verso sinistra */
+.hero-side-img-full.right.pc.zoom-center {
+  transform: translate(-50%, -50%) scale(1.15) !important;
+  left: 46% !important;
+  top: 52% !important;
+}
+
+/* 👶 Bimbo (ultima slide) - più grande e leggermente a destra */
+.hero-side-img-full.left.bimbo.zoom-center {
+  transform: translate(-50%, -50%) scale(1.25) !important;
+  left: 54% !important;
+  top: 50% !important;
+}
+
+/* 👕 Omino Abbigliamento - molto più grande e più verso destra */
+.hero-side-img-full.left.ominoabb.zoom-center {
+  transform: translate(-50%, -50%) scale(1.35) !important;
+  left: 58% !important;
+  top: 50% !important;
+}
+
+
+/* 🗿 Statua 3D – inizialmente a destra */
+.hero-side-img-full.right.statua3d {
+  right: 8%;
+  bottom: 0;
+  width: auto;
+  height: 90vh;
+  object-fit: contain;
+  transition: all 1.2s cubic-bezier(.33,1.02,.47,.98);
+}
+
+/* Effetto zoom e movimento verso sinistra */
+.hero-side-img-full.right.statua3d.zoom-center {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-55%, -50%) scale(1.35) !important;
+  z-index: 9999 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
