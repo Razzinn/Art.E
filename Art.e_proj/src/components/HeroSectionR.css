@@ -753,17 +753,17 @@ body.high-contrast .hero-cta-btn {
 
 /* 💻 PC - Effetto tech con leggera rotazione */
 .hero-side-img-full.right.pc.zoom-center {
-  transform: translate(-50%, -50%) scale(1.15) rotate(-2deg) !important;
-  left: 46% !important;
-  top: 52% !important;
+  transform: translate(-50%, -50%) scale(1.25) rotate(-2deg) !important;
+  left: 45% !important;
+  top: 50% !important;
   animation: professional-glow 1.5s ease-in-out forwards,
              subtle-float 3s ease-in-out infinite 1.5s;
 }
 
 /* 👶 Bimbo - Effetto playful con bounce */
 .hero-side-img-full.left.bimbo.zoom-center {
-  transform: translate(-50%, -50%) scale(1.25) !important;
-  left: 54% !important;
+  transform: translate(-50%, -50%) scale(1.95) !important;
+  left: 95% !important;
   top: 50% !important;
   animation: professional-glow 1.5s ease-in-out forwards,
              gentle-bounce 2s ease-in-out infinite 1.5s;
@@ -771,8 +771,8 @@ body.high-contrast .hero-cta-btn {
 
 /* 👕 Omino Abbigliamento - Effetto fashion con subtle swing */
 .hero-side-img-full.left.ominoabb.zoom-center {
-  transform: translate(-50%, -50%) scale(1.35) !important;
-  left: 58% !important;
+  transform: translate(-50%, -50%) scale(1.65) !important;
+  left: 55% !important;
   top: 50% !important;
   animation: professional-glow 1.5s ease-in-out forwards,
              fashion-swing 3s ease-in-out infinite 1.5s;
@@ -783,7 +783,7 @@ body.high-contrast .hero-cta-btn {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
-  transform: translate(-55%, -50%) scale(1.35) !important;
+  transform: translate(-80%, -50%) scale(1.70) !important;
   z-index: 9999 !important;
   background: none !important;
   border: none !important;
