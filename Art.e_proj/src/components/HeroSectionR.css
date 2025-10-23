@@ -1,15 +1,4 @@
-/* Overlay nero per animazione zoom */
-.hero-black-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  z-index: 9999;
-  opacity: 1;
-  pointer-events: none;
-}
+
 
 /* Immagine zoomata animata */
 
@@ -753,17 +742,15 @@ body.high-contrast .hero-cta-btn {
 
 /* 💻 PC - Effetto tech con leggera rotazione */
 .hero-side-img-full.right.pc.zoom-center {
-  transform: translate(-50%, -50%) scale(1.25) rotate(-2deg) !important;
-  left: 45% !important;
+  transform: translate(-50%, -50%) scale(1.20) !important;
+  left: 38% !important;
   top: 50% !important;
-  animation: professional-glow 1.5s ease-in-out forwards,
-             subtle-float 3s ease-in-out infinite 1.5s;
 }
 
 /* 👶 Bimbo - Effetto playful con bounce */
 .hero-side-img-full.left.bimbo.zoom-center {
-  transform: translate(-50%, -50%) scale(1.95) !important;
-  left: 85% !important;
+  transform: translate(-50%, -50%) scale(1.98) !important;
+  left: 75% !important;
   top: 50% !important;
   animation: professional-glow 1.5s ease-in-out forwards,
              gentle-bounce 2s ease-in-out infinite 1.5s;
@@ -772,7 +759,7 @@ body.high-contrast .hero-cta-btn {
 /* 👕 Omino Abbigliamento - Effetto fashion con subtle swing */
 .hero-side-img-full.left.ominoabb.zoom-center {
   transform: translate(-50%, -50%) scale(1.65) !important;
-  left: 55% !important;
+  left: 50% !important;
   top: 50% !important;
   animation: professional-glow 1.5s ease-in-out forwards,
              fashion-swing 3s ease-in-out infinite 1.5s;
@@ -830,5 +817,17 @@ body.high-contrast .hero-cta-btn {
   width: auto;
   height: 90vh;
   object-fit: contain;
-  transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 1.2s cubic-bezier(.33,1.02,.47,.98);
+}
+
+/* Effetto zoom e movimento verso sinistra */
+.hero-side-img-full.right.statua3d.zoom-center {
+  position: fixed !important;
+  top: 45% !important;
+  left: 30% !important;
+  transform: translate(-55%, -50%) scale(1.90) !important;
+  z-index: 9999 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
