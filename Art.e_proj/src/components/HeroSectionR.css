@@ -738,27 +738,75 @@ body.high-contrast .hero-cta-btn {
 }
 
 
-/* --- REGOLAZIONI FINALI INDIVIDUALI PER ZOOM CENTRATO --- */
+/* --- REGOLAZIONI INDIVIDUALI CON EFFETTI CINEMATOGRAFICI --- */
 
-/* 💻 PC - più piccolo e più verso sinistra */
+/* 💻 PC - Effetto tech con leggera rotazione */
 .hero-side-img-full.right.pc.zoom-center {
   transform: translate(-50%, -50%) scale(1.20) !important;
   left: 38% !important;
   top: 50% !important;
 }
 
-/* 👶 Bimbo (ultima slide) - più grande e leggermente a destra */
+/* 👶 Bimbo - Effetto playful con bounce */
 .hero-side-img-full.left.bimbo.zoom-center {
   transform: translate(-50%, -50%) scale(1.98) !important;
   left: 75% !important;
   top: 50% !important;
+  animation: professional-glow 1.5s ease-in-out forwards,
+             gentle-bounce 2s ease-in-out infinite 1.5s;
 }
 
-/* 👕 Omino Abbigliamento - molto più grande e più verso destra */
+/* 👕 Omino Abbigliamento - Effetto fashion con subtle swing */
 .hero-side-img-full.left.ominoabb.zoom-center {
   transform: translate(-50%, -50%) scale(1.65) !important;
   left: 50% !important;
   top: 50% !important;
+  animation: professional-glow 1.5s ease-in-out forwards,
+             fashion-swing 3s ease-in-out infinite 1.5s;
+}
+
+/* 🗿 Statua 3D - Effetto monumentale con slow rotation */
+.hero-side-img-full.right.statua3d.zoom-center {
+  position: fixed !important;
+  top: 45% !important;
+  left: 45% !important;
+  transform: translate(-80%, -50%) scale(1.85) !important;
+  z-index: 9999 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  animation: professional-glow 1.5s ease-in-out forwards,
+             monument-presence 4s ease-in-out infinite 1.5s;
+}
+
+/* Animazioni secondarie per dare vita alle immagini */
+@keyframes subtle-float {
+  0%, 100% { transform: translate(-50%, -50%) scale(1.15) rotate(-2deg); }
+  50% { transform: translate(-50%, -52%) scale(1.17) rotate(-1deg); }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translate(-50%, -50%) scale(1.25); }
+  50% { transform: translate(-50%, -48%) scale(1.27); }
+}
+
+@keyframes fashion-swing {
+  0%, 100% { transform: translate(-50%, -50%) scale(1.35) rotate(0deg); }
+  25% { transform: translate(-50%, -50%) scale(1.36) rotate(-1deg); }
+  75% { transform: translate(-50%, -50%) scale(1.36) rotate(1deg); }
+}
+
+@keyframes monument-presence {
+  0%, 100% { 
+    transform: translate(-55%, -50%) scale(1.35);
+    filter: drop-shadow(0 0 50px rgba(37, 99, 235, 0.5)) 
+            drop-shadow(0 0 80px rgba(250, 204, 21, 0.4));
+  }
+  50% { 
+    transform: translate(-55%, -50%) scale(1.37);
+    filter: drop-shadow(0 0 60px rgba(37, 99, 235, 0.6)) 
+            drop-shadow(0 0 100px rgba(250, 204, 21, 0.5));
+  }
 }
 
 
