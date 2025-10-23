@@ -763,7 +763,7 @@ body.high-contrast .hero-cta-btn {
 /* 👶 Bimbo - Effetto playful con bounce */
 .hero-side-img-full.left.bimbo.zoom-center {
   transform: translate(-50%, -50%) scale(1.95) !important;
-  left: 95% !important;
+  left: 85% !important;
   top: 50% !important;
   animation: professional-glow 1.5s ease-in-out forwards,
              gentle-bounce 2s ease-in-out infinite 1.5s;
@@ -781,9 +781,9 @@ body.high-contrast .hero-cta-btn {
 /* 🗿 Statua 3D - Effetto monumentale con slow rotation */
 .hero-side-img-full.right.statua3d.zoom-center {
   position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-80%, -50%) scale(1.70) !important;
+  top: 45% !important;
+  left: 45% !important;
+  transform: translate(-80%, -50%) scale(1.85) !important;
   z-index: 9999 !important;
   background: none !important;
   border: none !important;
