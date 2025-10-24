@@ -1,5 +1,14 @@
 export const SERVICE_SECTIONS = [
   {
+    id: 'stampa3d',
+    slug: 'stampa-3d',
+    title: 'Stampa 3D',
+    subtitle: 'Oggetti personalizzati stampati in 3D',
+    description:
+      'Descrivi l\'oggetto che vorresti stampare, le dimensioni desiderate e l\'utilizzo previsto. Possiamo lavorare con i tuoi file 3D o creare il modello da zero.',
+    heroNote: 'Carica file STL, OBJ o immagini di riferimento per il tuo progetto.',
+  },
+  {
     id: 'logo',
     slug: 'restyling-logo',
     title: 'Restyling Logo',
@@ -25,6 +34,15 @@ export const SERVICE_SECTIONS = [
     description:
       'Indica tipologia, quantità, colori, taglie e qualsiasi riferimento grafico per sviluppare il tuo progetto personalizzato.',
     heroNote: 'Accettiamo mockup, loghi e tabelle taglie in PDF, PNG, SVG o AI.',
+  },
+  {
+    id: 'websites',
+    slug: 'siti-web',
+    title: 'Siti Web',
+    subtitle: 'Siti e app professionali',
+    description:
+      'Descrivi il tipo di sito web o applicazione che desideri, le funzionalità principali e il tuo pubblico di riferimento. Creiamo soluzioni responsive e ottimizzate SEO.',
+    heroNote: 'Carica documenti di brief, sitemap, wireframe o esempi di siti che ti ispirano.',
   },
   {
     id: 'digital',

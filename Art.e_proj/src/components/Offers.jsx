@@ -6,7 +6,7 @@ const SERVICE_ITEMS = [
   {
     title: 'Stampa 3D',
     description: 'Oggetti personalizzati stampati 3D con materiali di qualità.',
-    slug: null,
+    slug: 'stampa-3d',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -56,7 +56,7 @@ const SERVICE_ITEMS = [
   {
     title: 'Siti Web',
     description: 'Siti e app professionali responsive e ottimizzati SEO.',
-    slug: null,
+    slug: 'siti-web',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -92,7 +92,15 @@ export default function Offers() {
   const services = useMemo(() => SERVICE_ITEMS, []);
 
   const goToService = (slug) => {
-    navigate(`/servizi/${slug}`);
+    if (!slug) return;
+    
+    // Solo "Stampa 3D" ha una pagina dedicata, tutti gli altri usano il ServiceRequestPage
+    if (slug === 'stampa-3d') {
+      navigate('/stampa-3d');
+    } else {
+      // Tutti gli altri servizi (inclusi regali-e-prank) usano il form
+      navigate(`/servizi/${slug}`);
+    }
   };
 
   const handleCardKeyDown = (event, slug) => {
