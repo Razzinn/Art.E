@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* import { useState } from 'react';
 import HeroSectionR from '../components/HeroSectionR';
 import Offers from '../components/Offers';
 import Design3D from '../componentisecondarisezioni/3DDesignStampa3D.jsx';
@@ -17,4 +17,4 @@ export default function HomePage() {
       <Offers />
     </>
   );
-}
+} */
