@@ -356,9 +356,21 @@
   margin-top: 12px;
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(34, 197, 94, 0.16);
-  color: #bbf7d0;
   font-size: 14px;
+  backdrop-filter: blur(6px);
+  color: rgba(248, 250, 252, 0.85);
+}
+
+.service-form__feedback--success {
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #bbf7d0;
+}
+
+.service-form__feedback--error {
+  background: rgba(248, 113, 113, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #fecaca;
 }
 
 .service-forms--not-found {

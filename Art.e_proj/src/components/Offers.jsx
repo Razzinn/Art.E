@@ -16,7 +16,7 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Regali e Prank',
+    title: 'Idee Regalo',
     description: 'Regali di compleanno originali e scherzi divertenti.',
     slug: 'regali-e-prank',
     icon: (
@@ -44,7 +44,7 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Abbigliamento Custom',
+    title: 'Abbigliamento & Custom',
     description: 'T-Shirt, felpe e accessori personalizzabili.',
     slug: 'abbigliamento-e-custom',
     icon: (

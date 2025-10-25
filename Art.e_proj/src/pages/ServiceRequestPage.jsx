@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getServiceBySlug } from '../data/serviceSections';
+import { sendServiceFormEmail } from '../services/emailClient';
 import '../components/ServiceForms.css';
 
 const BUDGET_RANGES = [
@@ -27,17 +28,10 @@ export default function ServiceRequestPage() {
   const [formData, setFormData] = useState(createInitialState);
   const [fileName, setFileName] = useState('');
   const [status, setStatus] = useState('idle');
-  const submitTimeoutRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [serviceSlug]);
-
-  useEffect(() => () => {
-    if (submitTimeoutRef.current) {
-      clearTimeout(submitTimeoutRef.current);
-    }
-  }, []);
 
   useEffect(() => {
     setFormData(createInitialState());
@@ -75,13 +69,25 @@ export default function ServiceRequestPage() {
     setFileName(file ? file.name : '');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('🔵 [ServiceRequestPage] handleSubmit chiamato per servizio:', service.id);
+    console.log('🔵 [ServiceRequestPage] Dati form:', formData);
+    
     setStatus('submitting');
 
-    submitTimeoutRef.current = setTimeout(() => {
+    try {
+      console.log('🔵 [ServiceRequestPage] Chiamata sendServiceFormEmail in corso...');
+      await sendServiceFormEmail({ service, formData });
+      console.log('🟢 [ServiceRequestPage] Email inviata con successo!');
+      
       setStatus('success');
-    }, 600);
+      setFormData(createInitialState());
+      setFileName('');
+    } catch (error) {
+      console.error('🔴 [ServiceRequestPage] Errore durante invio:', error);
+      setStatus('error');
+    }
   };
 
   const handleReset = () => {
@@ -204,8 +210,14 @@ export default function ServiceRequestPage() {
           </div>
 
           {status === 'success' && (
-            <div className="service-form__feedback" role="status">
+            <div className="service-form__feedback service-form__feedback--success" role="status">
               Richiesta ricevuta! Ti ricontatteremo entro 24 ore lavorative.
+            </div>
+          )}
+          
+          {status === 'error' && (
+            <div className="service-form__feedback service-form__feedback--error" role="alert">
+              Si è verificato un problema durante l'invio. Riprova più tardi o contattaci direttamente.
             </div>
           )}
         </form>

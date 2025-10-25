@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './ServiceForms.css';
+import { sendServiceFormEmail } from '../services/emailClient';
 
 const SERVICES = [
   {
@@ -11,7 +12,7 @@ const SERVICES = [
   },
   {
     id: 'pranks',
-    title: 'Regali e Prank',
+    title: 'Idee Regalo',
     subtitle: 'Sorprese personalizzate per ogni occasione',
     description:
       'Descrivi il tipo di regalo o scherzo, il destinatario e il tono desiderato. Possiamo partire da un tuo concept o crearne uno da zero.',
@@ -43,10 +44,13 @@ const createInitialState = () => ({
 });
 
 function ServiceForm({ service }) {
+  console.log('🔷 [ServiceForm] Componente montato per servizio:', service.id);
+  
   const [formData, setFormData] = useState(createInitialState);
   const [fileName, setFileName] = useState('');
   const [status, setStatus] = useState('idle');
-  const submitTimeoutRef = useRef(null);
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const isMountedRef = useRef(true);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -59,27 +63,49 @@ function ServiceForm({ service }) {
     setFileName(file ? file.name : '');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('🔵 [ServiceForm] handleSubmit chiamato per servizio:', service.id);
+    console.log('🔵 [ServiceForm] Dati form:', formData);
+    
     setStatus('submitting');
+    setFeedbackMessage('');
 
-    // Simuliamo una chiamata asincrona
-    submitTimeoutRef.current = setTimeout(() => {
+    try {
+      console.log('🔵 [ServiceForm] Chiamata sendServiceFormEmail in corso...');
+      await sendServiceFormEmail({ service, formData });
+      console.log('🟢 [ServiceForm] Email inviata con successo!');
+      
+      if (!isMountedRef.current) return;
+
       setStatus('success');
-    }, 600);
+      setFeedbackMessage('Richiesta ricevuta! Ti ricontatteremo entro 24 ore lavorative.');
+      setFormData(createInitialState());
+      setFileName('');
+    } catch (error) {
+      console.error('🔴 [ServiceForm] Errore durante invio:', error);
+      
+      if (!isMountedRef.current) return;
+
+      setStatus('error');
+      setFeedbackMessage(
+        error instanceof Error
+          ? error.message
+          : 'Si è verificato un problema durante l\'invio. Riprova più tardi.'
+      );
+    }
   };
 
   const handleReset = () => {
     setFormData(createInitialState());
     setFileName('');
     setStatus('idle');
+    setFeedbackMessage('');
   };
 
   useEffect(() => {
     return () => {
-      if (submitTimeoutRef.current) {
-        clearTimeout(submitTimeoutRef.current);
-      }
+      isMountedRef.current = false;
     };
   }, []);
 
@@ -191,9 +217,12 @@ function ServiceForm({ service }) {
           </button>
         </div>
 
-        {status === 'success' && (
-          <div className="service-form__feedback" role="status">
-            Richiesta ricevuta! Ti ricontatteremo entro 24 ore lavorative.
+        {status !== 'idle' && status !== 'submitting' && (
+          <div
+            className={`service-form__feedback service-form__feedback--${status}`}
+            role={status === 'error' ? 'alert' : 'status'}
+          >
+            {feedbackMessage}
           </div>
         )}
       </form>
