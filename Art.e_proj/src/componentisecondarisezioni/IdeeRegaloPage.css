@@ -1,0 +1,21 @@
+/* Idee Regalo subsection background (mappa alla slide 4) */
+.idee-regalo-page {
+  min-height: 60vh;
+  padding: 6rem 0;
+  color: #111;
+  background-image: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), url('/prankservice.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.idee-regalo-page .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.idee-regalo-page h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
+}
