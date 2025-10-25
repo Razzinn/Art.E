@@ -6,10 +6,8 @@ const AbbigliamentoPage = () => {
     <section className="abbigliamento-page">
       <div className="container">
         <h1>👕 Abbigliamento Custom</h1>
-        <p className="subtitle">
-          Personalizza il tuo stile con T-shirt, felpe e accessori unici!
-        </p>
-        
+        <p className="subtitle">Personalizza il tuo stile con T-shirt, felpe e accessori unici!</p>
+
         <div className="content-grid">
           <div className="info-card">
             <h2>🎨 Cosa Offriamo</h2>
@@ -21,7 +19,7 @@ const AbbigliamentoPage = () => {
               <li>Stampe di alta qualità</li>
             </ul>
           </div>
-          
+
           <div className="info-card">
             <h2>⚡ Processo Veloce</h2>
             <ol>

@@ -9,7 +9,7 @@ const WebAppDesignPage = () => {
         <p className="subtitle">
           Sviluppiamo siti web professionali e applicazioni moderne responsive e ottimizzate SEO
         </p>
-        
+
         <div className="services-grid">
           <div className="service-card">
             <h3>🌐 Siti Web</h3>
@@ -21,7 +21,7 @@ const WebAppDesignPage = () => {
               <li>Performance elevate</li>
             </ul>
           </div>
-          
+
           <div className="service-card">
             <h3>📱 Web App</h3>
             <p>Applicazioni web interattive e funzionali</p>
@@ -32,7 +32,7 @@ const WebAppDesignPage = () => {
               <li>Sicurezza avanzata</li>
             </ul>
           </div>
-          
+
           <div className="service-card">
             <h3>🎨 UI/UX Design</h3>
             <p>Design centrato sull'utente per esperienze coinvolgenti</p>

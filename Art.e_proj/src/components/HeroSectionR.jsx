@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HeroSectionR.css';
 
 const HeroSectionR = ({ onOpenSubsection }) => {
@@ -107,9 +108,30 @@ const HeroSectionR = ({ onOpenSubsection }) => {
     content?.classList.add('fade-out');
     sideImg.classList.add('zoom-center');
     setTimeout(() => {
-      if (onOpenSubsection && sectionName) onOpenSubsection(sectionName);
+      // Se è passato un callback esterno, mantenerlo per retrocompatibilità
+      if (onOpenSubsection && sectionName) {
+        onOpenSubsection(sectionName);
+        return;
+      }
+
+      // Altrimenti mappiamo la sezione alla rotta corrispondente
+      const routeMap = {
+        '3DDesignStampa3D': '/stampa-3d',
+        'Abbigliamento': '/abbigliamento',
+        'WebAppDesign': '/webapp-design',
+        'IdeeRegalo': '/idee-regalo',
+      };
+
+      const navigate = _navigateRef.current;
+      const target = routeMap[sectionName];
+      if (target && navigate) navigate(target);
     }, 1200);
   };
+
+  // useNavigate inside callbacks: manteniamo un ref per evitarne la ricreazione nelle dipendenze
+  const _navigateRef = React.useRef(null);
+  const navigate = useNavigate();
+  React.useEffect(() => { _navigateRef.current = navigate; }, [navigate]);
 
   return (
     <section ref={heroRef} className="hero-carousel" aria-label="Hero con carosello immagini">
