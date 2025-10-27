@@ -4,7 +4,7 @@
   min-height: 440px;
   max-height: 900px;
   overflow: hidden;
-    background-color: #1E293B;
+  background-color: #1E293B;
 }
 
 .abbigliamento-hero-slide {
@@ -19,7 +19,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   box-shadow: 0 8px 32px 0 rgba(30,41,59,0.25);
-    background-image: url('/abbigliamentopersonalizzato.jpeg');
+  background-image: url('/abbigliamentopersonalizzato.jpeg');
 }
 
 .abbigliamento-content {

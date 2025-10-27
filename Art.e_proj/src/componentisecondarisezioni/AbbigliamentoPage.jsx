@@ -1,18 +1,16 @@
-import React from "react";
+import React from 'react';
 import './AbbigliamentoPage.css';
 
 export default function AbbigliamentoPage() {
   return (
     <div className="abbigliamento-hero">
-      <div 
-        className="abbigliamento-hero-slide"
-      >
+      <div className="abbigliamento-hero-slide">
         <div className="abbigliamento-content">
           <h1 className="abbigliamento-title">Abbigliamento Personalizzato</h1>
           <h2 className="abbigliamento-subtitle">Distinguiti con ciò che indossi.</h2>
           <p className="abbigliamento-description">
-          Con CREO puoi trasformare un semplice capo in un mezzo di espressione o promozione unica. 
-          Personalizziamo T-shirt, felpe, cappellini e abbigliamento da lavoro con stampe di alta qualità e materiali selezionati.
+            Con CREO puoi trasformare un semplice capo in un mezzo di espressione o promozione unica.
+            Personalizziamo T-shirt, felpe, cappellini e abbigliamento da lavoro con stampe di alta qualità e materiali selezionati.
           </p>
           <p className="abbigliamento-description-two">
             Che tu voglia creare divise aziendali professionali, merchandising per eventi, o semplicemente regali personalizzati, curiamo ogni dettaglio: dalla grafica alla stampa finale.
