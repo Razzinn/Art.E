@@ -5,6 +5,15 @@ export default function Design3DPage() {
 	return (
 		<div className="design3d-hero">
 			<div className="design3d-hero-slide">
+				{/* video posizionato a sinistra */}
+				<video
+					className="design3d-video"
+					src="/videosezionisingole/3dvideo.mp4"
+					autoPlay
+					loop
+					muted
+					playsInline
+				/>
 				<div className="design3d-content">
 					<h1 className="design3d-title">STAMPA 3D</h1>
 					<h2 className="design3d-subtitle">Dal prototipo all’oggetto finito: diamo forma all’immaginazione.</h2>

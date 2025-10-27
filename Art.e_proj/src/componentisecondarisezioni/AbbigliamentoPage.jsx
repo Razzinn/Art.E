@@ -20,6 +20,15 @@ export default function AbbigliamentoPage() {
             ➡️ Mostra la tua identità. Indossa le tue idee.
           </p>
         </div>
+        {/* video posizionato a destra */}
+        <video
+          className="abbigliamento-video"
+          src="/videosezionisingole/abbigliamentopersonalizzato.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
     </div>
   );

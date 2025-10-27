@@ -5,6 +5,15 @@ export default function IdeeRegaloPage() {
   return (
     <div className="ideeregalo-hero">
       <div className="ideeregalo-hero-slide">
+        {/* video posizionato a sinistra */}
+        <video
+          className="ideeregalo-video"
+          src="/videosezionisingole/ideeregalo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
         <div className="ideeregalo-content">
           <h1 className="ideeregalo-title">Idee Regalo</h1>
           <h2 className="ideeregalo-subtitle">Regala qualcosa che non esiste da nessun’altra parte.</h2>

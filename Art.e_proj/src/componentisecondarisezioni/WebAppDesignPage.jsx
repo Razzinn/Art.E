@@ -31,6 +31,15 @@ const WebAppDesignPage = () => {
               ➡️ Non limitarti a essere online. Fatti notare, con stile.
             </p>
           </div>
+          {/* video posizionato a destra */}
+          <video
+            className="webapp-video"
+            src="/videosezionisingole/webapp.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </div>
       </div>
     </>
