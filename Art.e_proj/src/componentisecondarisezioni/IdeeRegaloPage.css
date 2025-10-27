@@ -24,8 +24,8 @@
 
 .ideeregalo-content {
   position: absolute;
-  top: 50%;
-  left: 6%;
+  top: 25%;
+  left: 55%;
   transform: translateY(-50%);
   z-index: 7;
   color: #fff;

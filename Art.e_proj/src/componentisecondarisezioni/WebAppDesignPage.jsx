@@ -10,52 +10,29 @@ const WebAppDesignPage = () => {
         >
           <div className="webapp-content">
             <h1 className="webapp-title">Web & App Design</h1>
-            <h2 className="webapp-subtitle">Soluzioni digitali su misura</h2>
+            <h2 className="webapp-subtitle">Costruiamo esperienze digitali che lasciano il segno.</h2>
             <p className="webapp-description">
-              Sviluppiamo siti web professionali e applicazioni moderne,
-              con un focus su design responsivo, ottimizzazione SEO e
-              user experience di alto livello.
+             In un mondo sempre più connesso, la tua presenza online è la chiave per farti conoscere, 
+             vendere e crescere. In CREO realizziamo siti web moderni, responsive e ottimizzati SEO, 
+             pensati per attirare e convertire i tuoi visitatori.
+            </p>
+            <p className="webapp-description-two">
+              Dalla vetrina aziendale all’e-commerce, fino ad arrivare allo sviluppo di app personalizzate, 
+              il nostro obiettivo è tradurre la tua idea in una piattaforma funzionale, sicura e dal design curato nei minimi dettagli.
+            </p>
+            <p className="webapp-description-three">
+              Offriamo soluzioni su misura per aziende, 
+              freelance e start-up, garantendo assistenza, aggiornamenti e scalabilità nel tempo.
+            </p>
+            <p className="webapp-description-important">
+              ➡️ Non limitarti a essere online. Fatti notare, con stile.
             </p>
           </div>
         </div>
       </div>
 
-      <section className="services-grid">
-        <div className="service-card">
-          <h3>🌐 Siti Web</h3>
-          <p>Siti responsive, veloci e ottimizzati per i motori di ricerca</p>
-          <ul>
-            <li>Design moderno e professionale</li>
-            <li>Ottimizzazione SEO</li>
-            <li>Mobile-first approach</li>
-            <li>Performance elevate</li>
-          </ul>
-        </div>
+      </>
+    );
+  };
 
-        <div className="service-card">
-          <h3>📱 Web App</h3>
-          <p>Applicazioni web interattive e funzionali</p>
-          <ul>
-            <li>Interfacce intuitive</li>
-            <li>Backend robusto</li>
-            <li>Database ottimizzati</li>
-            <li>Sicurezza avanzata</li>
-          </ul>
-        </div>
-
-        <div className="service-card">
-          <h3>🎨 UI/UX Design</h3>
-          <p>Design centrato sull'utente per esperienze coinvolgenti</p>
-          <ul>
-            <li>User research</li>
-            <li>Wireframing e prototyping</li>
-            <li>Test di usabilità</li>
-            <li>Design system</li>
-          </ul>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default WebAppDesignPage;
+  export default WebAppDesignPage;

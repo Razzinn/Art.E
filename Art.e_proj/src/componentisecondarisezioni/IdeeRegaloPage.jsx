@@ -7,12 +7,20 @@ const IdeeRegalo = () => (
       className="ideeregalo-hero-slide"
     >
       <div className="ideeregalo-content">
-        <h1 className="ideeregalo-title">Idee Regalo Creative</h1>
-        <h2 className="ideeregalo-subtitle">Regali unici per momenti speciali</h2>
+        <h1 className="ideeregalo-title">Idee Regalo</h1>
+        <h2 className="ideeregalo-subtitle">Regala qualcosa che non esiste da nessun’altra parte.</h2>
         <p className="ideeregalo-description">
-          Scopri la nostra selezione di regali personalizzati e creativi
-          per ogni occasione. Rendi indimenticabile ogni momento con
-          le nostre idee regalo uniche e originali.
+          Le nostre idee regalo sono create per sorprendere. 
+          Da oggetti decorativi a creazioni personalizzate stampate in 3D, 
+          ogni articolo nasce per trasmettere emozione, originalità e attenzione al dettaglio.
+          Perfette per compleanni, anniversari, festività o eventi aziendali, le nostre proposte uniscono creatività e tecnologia.
+        </p>
+        <p className="ideeregalo-description-two">
+          Puoi scegliere tra design già pronti o richiedere la creazione su misura, 
+          trasformando un’idea in un regalo unico e irripetibile.
+        </p>
+        <p className="ideeregalo-description-important">
+          ➡️ Non regalare qualcosa di comune. Crea un ricordo che resta.
         </p>
       </div>
     </div>
