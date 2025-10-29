@@ -4,125 +4,175 @@
   min-height: 440px;
   max-height: 900px;
   overflow: hidden;
-  background-color: #1E293B;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hero slide dinamica con effetto movimento luce */
 .abbigliamento-hero-slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 88vh;
-  min-height: 440px;
-  max-height: 900px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  box-shadow: 0 8px 32px 0 rgba(30,41,59,0.25);
   background-image: url('/abbigliamentopersonalizzato.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.85) contrast(1.1) saturate(1.2);
+  transform: scale(1.04);
+  animation: hero-zoom 14s ease-in-out infinite alternate;
 }
 
+@keyframes hero-zoom {
+  from { transform: scale(1); filter: brightness(0.85) contrast(1.1); }
+  to { transform: scale(1.06); filter: brightness(0.95) contrast(1.2); }
+}
+
+/* Effetto luce in movimento */
+.abbigliamento-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 70%);
+  mix-blend-mode: overlay;
+  animation: hero-light-move 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes hero-light-move {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(10%, -8%) rotate(12deg); }
+}
+
+/* Contenuto */
 .abbigliamento-content {
   position: absolute;
-  top: 30%;
-  left: 55%;
+  top: 12%;
+  left: 50%;
   transform: translateY(-50%);
   z-index: 7;
-  color: #fff;
-  max-width: min(640px, 48%);
-  padding: 18px 22px;
-  background: linear-gradient(120deg, rgba(30,41,59,0.88) 70%, rgba(96,165,250,0.18) 100%);
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(30,41,59,0.32);
+  max-width: min(680px, 52%);
+  padding: 28px 36px;
+  background: rgba(15, 23, 42, 0.78);
+  border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.18);
-  backdrop-filter: blur(3.5px);
-  animation: content-fadein 0.7s cubic-bezier(.33,1.02,.47,.98) 0.15s forwards;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  opacity: 0;
+  animation: content-appear 1.1s cubic-bezier(.19,1,.22,1) 0.2s forwards;
 }
 
+
+@keyframes content-appear {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.abbigliamento-content:hover {
+  transform: translateY(-4px) scale(1.015);
+  transition: transform 0.6s cubic-bezier(.19,1,.22,1);
+}
+
+/* Titolo con gradiente in movimento */
 .abbigliamento-title {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 900;
-  letter-spacing: 0.02em;
-  margin: 0 0 8px 0;
-  background: linear-gradient(90deg, #2563EB 0%, #60A5FA 25%, #F97316 50%, #FACC15 75%, #ffe066 100%);
+  margin: 0 0 10px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #f97316, #fde047);
+  background-size: 300%;
   -webkit-background-clip: text;
+  background-clip: text; /* ✅ aggiunto per compatibilità */
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 6px #2563eb22);
-  text-shadow: 0 2px 8px rgba(30,41,59,0.10);
+  animation: gradient-move 8s ease-in-out infinite alternate;
+  text-shadow: 0 2px 12px rgba(30,41,59,0.15);
 }
 
+
+/* Sottotitolo */
 .abbigliamento-subtitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #60A5FA;
-  margin: 0 0 8px 0;
-  letter-spacing: 0.01em;
-  text-shadow: 0 1px 4px rgba(30,41,59,0.10);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  opacity: 0;
+  animation: fade-up 1.2s ease 0.4s forwards;
 }
 
-.abbigliamento-description {
+/* Paragrafi */
+.abbigliamento-description,
+.abbigliamento-description-two {
   font-size: 1.05rem;
-  line-height: 1.6;
-  color: #F8FAFC;
-  margin: 0;
+  line-height: 1.7;
+  color: #f8fafc;
   font-weight: 400;
-  text-shadow: 0 1px 2px rgba(30,41,59,0.08);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fade-up 1.3s ease 0.6s forwards;
 }
 
-@keyframes content-fadein {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.abbigliamento-description-two {
+  animation-delay: 0.8s;
 }
 
-/* Responsive Design */
+.abbigliamento-description-important {
+  font-weight: 600;
+  color: #facc15;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.3);
+  opacity: 0;
+  animation: fade-up 1.3s ease 1s forwards;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Design --- */
 @media (max-width: 1024px) {
   .abbigliamento-content {
-    max-width: min(560px, 70%);
-    padding: 16px 18px;
+    max-width: 70%;
+    padding: 22px 26px;
   }
-  .abbigliamento-title { font-size: 2rem; }
-  .abbigliamento-subtitle { font-size: 1.08rem; }
-  .abbigliamento-description { font-size: 0.97rem; }
+  .abbigliamento-title { font-size: 2.2rem; }
+  .abbigliamento-subtitle { font-size: 1.1rem; }
 }
 
 @media (max-width: 768px) {
   .abbigliamento-hero,
   .abbigliamento-hero-slide {
-    height: 60vh;
-    min-height: 260px;
+    height: 65vh;
   }
-  
+
   .abbigliamento-content {
     max-width: 92%;
-    left: 4%;
-    padding: 12px 10px;
+    padding: 18px 20px;
+    text-align: left;
   }
-  .abbigliamento-title { font-size: 1.25rem; }
-  .abbigliamento-subtitle { font-size: 0.98rem; }
-  .abbigliamento-description { font-size: 0.87rem; }
+  .abbigliamento-title { font-size: 1.8rem; }
+  .abbigliamento-subtitle { font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
   .abbigliamento-hero,
   .abbigliamento-hero-slide {
-    height: 45vh;
-    min-height: 180px;
+    height: 50vh;
   }
-  
+
   .abbigliamento-content {
-    max-width: 98%;
-    left: 1%;
-    padding: 10px 4px;
+    padding: 12px 14px;
   }
-  .abbigliamento-title { font-size: 1.05rem; }
-  .abbigliamento-subtitle { font-size: 0.89rem; }
-  .abbigliamento-description { font-size: 0.80rem; }
+  .abbigliamento-title { font-size: 1.3rem; }
+  .abbigliamento-subtitle { font-size: 0.9rem; }
+  .abbigliamento-description { font-size: 0.83rem; }
 }
