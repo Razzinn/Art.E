@@ -1,128 +1,244 @@
+/* --- HERO BASE --- */
 .design3d-hero {
   position: relative;
   height: 88vh;
   min-height: 440px;
   max-height: 900px;
   overflow: hidden;
-  background-color: #1E293B;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* --- SFONDO CON MOVIMENTO --- */
 .design3d-hero-slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 88vh;
-  min-height: 440px;
-  max-height: 900px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  box-shadow: 0 8px 32px 0 rgba(30,41,59,0.25);
   background-image: url('/sfondoslide1creo.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.85) contrast(1.1) saturate(1.2);
+  transform: scale(1.04);
+  animation: hero-zoom 14s ease-in-out infinite alternate;
+  transition: transform 0.3s ease-out;
 }
 
+@keyframes hero-zoom {
+  from { transform: scale(1); filter: brightness(0.85) contrast(1.1); }
+  to { transform: scale(1.06); filter: brightness(0.95) contrast(1.2); }
+}
+
+/* --- LUCE IN MOVIMENTO --- */
+.design3d-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 70%);
+  mix-blend-mode: overlay;
+  animation: hero-light-move 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-light-move {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(10%, -8%) rotate(12deg); }
+}
+
+/* --- BOX CENTRALE CON AURA WOW --- */
 .design3d-content {
   position: absolute;
-  top: 25%;
-  left: 6%;
+  top: 12%;
+  left: 5%;
   transform: translateY(-50%);
   z-index: 7;
+  max-width: min(680px, 52%);
+  padding: 38px 46px;
+  background: rgba(15, 23, 42, 0.78);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    0 0 25px rgba(59, 130, 246, 0.15),
+    0 0 60px rgba(96, 165, 250, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   color: #fff;
-  max-width: min(640px, 48%);
-  padding: 18px 22px;
-  background: linear-gradient(120deg, rgba(30,41,59,0.88) 70%, rgba(96,165,250,0.18) 100%);
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(30,41,59,0.32);
-  border: 1px solid rgba(255,255,255,0.18);
-  backdrop-filter: blur(3.5px);
-  animation: content-fadein 0.7s cubic-bezier(.33,1.02,.47,.98) 0.15s forwards;
+  overflow: hidden;
+  position: relative;
+  animation: hero-glow 12s ease-in-out infinite alternate;
+  transition: transform 0.6s cubic-bezier(.19,1,.22,1), box-shadow 0.6s ease;
 }
 
+/* --- Effetto aura circolare WOW --- */
+.design3d-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.18), transparent 60%);
+  filter: blur(60px);
+  animation: aura-pulse 14s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes aura-pulse {
+  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* --- "Respiro" luminoso interno --- */
+@keyframes hero-glow {
+  0% {
+    box-shadow:
+      0 0 25px rgba(59, 130, 246, 0.15),
+      0 0 60px rgba(96, 165, 250, 0.08),
+      inset 0 0 8px rgba(255, 255, 255, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 0 35px rgba(96, 165, 250, 0.25),
+      0 0 80px rgba(59, 130, 246, 0.15),
+      inset 0 0 12px rgba(255, 255, 255, 0.08);
+  }
+  100% {
+    box-shadow:
+      0 0 25px rgba(59, 130, 246, 0.15),
+      0 0 60px rgba(96, 165, 250, 0.08),
+      inset 0 0 8px rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* --- HOVER: solo glow --- */
+.design3d-content:hover {
+  box-shadow:
+    0 0 45px rgba(96, 165, 250, 0.25),
+    0 0 85px rgba(59, 130, 246, 0.15),
+    inset 0 0 14px rgba(255, 255, 255, 0.1);
+}
+
+/* --- TESTI --- */
 .design3d-title {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 900;
-  letter-spacing: 0.02em;
-  margin: 0 0 8px 0;
-  background: linear-gradient(90deg, #2563EB 0%, #60A5FA 25%, #F97316 50%, #FACC15 75%, #ffe066 100%);
+  margin: 0 0 14px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #f97316, #fde047);
+  background-size: 300%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 6px #2563eb22);
-  text-shadow: 0 2px 8px rgba(30,41,59,0.10);
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 8s ease-in-out infinite alternate;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  line-height: 1.1;
+}
+
+@keyframes gradient-move {
+  from { background-position: 0%; }
+  to { background-position: 100%; }
 }
 
 .design3d-subtitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #60A5FA;
-  margin: 0 0 8px 0;
-  letter-spacing: 0.01em;
-  text-shadow: 0 1px 4px rgba(30,41,59,0.10);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin: 0 0 18px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  letter-spacing: 0.02em;
 }
 
 .design3d-description {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #F8FAFC;
-  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: #f8fafc;
   font-weight: 400;
-  text-shadow: 0 1px 2px rgba(30,41,59,0.08);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-@keyframes content-fadein {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.design3d-description strong {
+  color: #60a5fa;
 }
 
-/* Responsive Design */
+.design3d-description em {
+  color: #fbbf24;
+  font-style: normal;
+}
+
+.design3d-description-two,
+.design3d-description-three,
+.design3d-description-four {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: #f8fafc;
+  font-weight: 400;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+.design3d-description-two strong {
+  color: #60a5fa;
+}
+
+.design3d-description-two em {
+  color: #fbbf24;
+  font-style: normal;
+}
+
+.design3d-description-important {
+  font-weight: 600;
+  color: #fde047;
+  font-size: 1.15rem;
+  margin-top: 16px;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.4);
+}
+
+.design3d-description-important span {
+  color: #f97316;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .design3d-content {
-    max-width: min(560px, 70%);
-    padding: 16px 18px;
+    max-width: 70%;
+    padding: 26px 30px;
   }
-  .design3d-title { font-size: 2rem; }
-  .design3d-subtitle { font-size: 1.08rem; }
-  .design3d-description { font-size: 0.97rem; }
+  .design3d-title { font-size: 2.2rem; }
 }
 
 @media (max-width: 768px) {
   .design3d-hero,
   .design3d-hero-slide {
-    height: 60vh;
-    min-height: 260px;
+    height: 65vh;
   }
-  
   .design3d-content {
     max-width: 92%;
-    left: 4%;
-    padding: 12px 10px;
+    padding: 20px;
+    text-align: left;
   }
-  .design3d-title { font-size: 1.25rem; }
-  .design3d-subtitle { font-size: 0.98rem; }
-  .design3d-description { font-size: 0.87rem; }
+  .design3d-title { font-size: 1.8rem; }
+  .design3d-subtitle { font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
   .design3d-hero,
   .design3d-hero-slide {
-    height: 45vh;
-    min-height: 180px;
+    height: 50vh;
   }
-  
   .design3d-content {
-    max-width: 98%;
-    left: 1%;
-    padding: 10px 4px;
+    padding: 14px;
   }
-  .design3d-title { font-size: 1.05rem; }
-  .design3d-subtitle { font-size: 0.89rem; }
-  .design3d-description { font-size: 0.80rem; }
+  .design3d-title { font-size: 1.3rem; }
+  .design3d-subtitle { font-size: 0.9rem; }
+  .design3d-description { font-size: 0.83rem; }
 }
