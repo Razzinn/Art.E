@@ -30,20 +30,6 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Restyling Logo',
-    description: 'Rinnova la tua identità aziendale con logo moderni.',
-    slug: 'restyling-logo',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v6m0 6v6" />
-        <path d="M21 12h-6m-6 0H3" />
-        <path d="M18.36 6.64l-4.24 4.24m-4.24 0L5.64 6.64" />
-        <path d="M18.36 17.36l-4.24-4.24m-4.24 0l-4.24 4.24" />
-      </svg>
-    ),
-  },
-  {
     title: 'Abbigliamento & Custom',
     description: 'T-Shirt, felpe e accessori personalizzabili.',
     slug: 'abbigliamento-e-custom',
@@ -54,7 +40,7 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Siti Web',
+    title: 'Siti Web & App',
     description: 'Siti e app professionali responsive e ottimizzati SEO.',
     slug: null,
     icon: (
@@ -65,16 +51,6 @@ const SERVICE_ITEMS = [
         <line x1="2" y1="9" x2="22" y2="9" />
         <circle cx="6.5" cy="6.5" r=".5" />
         <circle cx="9.5" cy="6.5" r=".5" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Servizi Digitali',
-    description: 'Digital marketing, social media management e grafica pubblicitaria.',
-    slug: 'servizi-digitali',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
       </svg>
     ),
   },

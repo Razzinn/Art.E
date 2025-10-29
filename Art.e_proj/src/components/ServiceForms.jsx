@@ -4,13 +4,6 @@ import { sendServiceFormEmail } from '../services/emailClient';
 
 const SERVICES = [
   {
-    id: 'logo',
-    title: 'Restyling Logo',
-    subtitle: 'Rinnova la tua identità visiva',
-    description:
-      'Raccontaci la storia del tuo brand, gli elementi da mantenere e le nuove direzioni estetiche che vorresti esplorare.',
-  },
-  {
     id: 'pranks',
     title: 'Idee Regalo',
     subtitle: 'Sorprese personalizzate per ogni occasione',
@@ -23,13 +16,6 @@ const SERVICES = [
     subtitle: 'Capi e accessori su misura',
     description:
       'Indica tipologia, quantità, colori, taglie e qualsiasi riferimento grafico per sviluppare il tuo progetto personalizzato.',
-  },
-  {
-    id: 'digital',
-    title: 'Servizi Digitali',
-    subtitle: 'Web, app e marketing digitale',
-    description:
-      'Spiegaci gli obiettivi digitali, il pubblico di riferimento e le funzionalità chiave che desideri implementare.',
   },
 ];
 
