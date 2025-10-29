@@ -1,0 +1,254 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "submit": "Senden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "home": "Startseite",
+    "contact": "Kontakt",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "portfolio": "Portfolio"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "cta_button": "Mehr erfahren",
+    "slides": {
+      "3d_design": {
+        "title": "3D Design & 3D Druck",
+        "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
+        "description": "Vom digitalen Modell zum realen Objekt: einzigartige Kreationen, Prototypen, Gadgets und maßgeschneiderte Designs.",
+        "cta": "Mehr erfahren"
+      },
+      "apparel": {
+        "title": "Maßgeschneiderte Kleidung",
+        "subtitle": "Tragen Sie Ihre Idee",
+        "description": "T-Shirts, Bodys, Mützen und maßgeschneiderte Accessoires: jedes Kleidungsstück wird zur Botschaft, jeder Stil zu Ihrer Signatur.",
+        "cta": "Mehr erfahren"
+      },
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erlebnisse",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen für das Wachstum Ihrer Marke online.",
+        "cta": "Mehr erfahren"
+      },
+      "gifts": {
+        "title": "Geschenkideen",
+        "subtitle": "Überraschen Sie mit Originalität",
+        "description": "Originelle und personalisierte Kreationen, perfekt zum Überraschen und Eindruck hinterlassen bei jeder Gelegenheit.",
+        "cta": "Mehr erfahren"
+      }
+    }
+  },
+  "offers": {
+    "title": "Hochwertige personalisierte Produkte und modernste digitale Dienstleistungen",
+    "services": {
+      "3d_printing": {
+        "title": "3D Druck",
+        "description": "Maßgeschneiderte Objekte im 3D-Druck mit hochwertigen Materialien."
+      },
+      "gifts_pranks": {
+        "title": "Geschenke & Streiche",
+        "description": "Originelle Geburtstagsgeschenke und lustige Streiche."
+      },
+      "apparel": {
+        "title": "Kleidung & Maßanfertigung",
+        "description": "Maßgeschneiderte Kleidung und Accessoires für jeden Stil und Anlass."
+      },
+      "websites_apps": {
+        "title": "Websites & Apps",
+        "description": "Digitales Marketing, Social Media Management und Werbegrafik."
+      }
+    }
+  },
+  "forms": {
+    "title": "Fordern Sie ein maßgeschneidertes Projekt an",
+    "subtitle": "Füllen Sie das Formular für die gewünschte Dienstleistung aus. Sie können Referenzdateien, Skizzen oder Materialien anhängen, die uns helfen, Ihre Idee besser zu verstehen.",
+    "fields": {
+      "name": "Vor- und Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "company": "Unternehmen / Marke",
+      "budget": "Ungefährer Budget",
+      "details": "Projektdetails",
+      "file": "Referenzdatei anhängen",
+      "required": "Erforderlich"
+    },
+    "placeholders": {
+      "name": "Max Mustermann",
+      "email": "name@firma.de",
+      "phone": "+49 177 123 4567",
+      "company": "Markenname",
+      "details": "Beschreiben Sie Ziele, Zeitpläne, Referenzen und alle nützlichen Informationen."
+    },
+    "budget_options": {
+      "select": "Bereich auswählen",
+      "up_to_500": "Bis zu 500 €",
+      "500_1500": "500 € - 1.500 €",
+      "1500_5000": "1.500 € - 5.000 €",
+      "over_5000": "Über 5.000 €"
+    },
+    "actions": {
+      "clear": "Felder leeren",
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet...",
+      "submitted": "Anfrage erhalten! Wir werden Sie innerhalb von 24 Arbeitsstunden kontaktieren."
+    },
+    "file": {
+      "selected": "Ausgewählte Datei: {{fileName}}",
+      "accepted_formats": "Akzeptierte Formate: .pdf, .zip, .png, .jpg, .jpeg, .svg, .ai"
+    }
+  },
+  "service_pages": {
+    "not_found": {
+      "title": "Service nicht gefunden",
+      "description": "Der angeforderte Bereich ist nicht verfügbar. Kehren Sie zur Startseite zurück oder wählen Sie einen anderen verfügbaren Service.",
+      "back_to_home": "Zurück zur Startseite"
+    },
+    "breadcrumbs": {
+      "home": "Startseite"
+    },
+    "services": {
+      "logo_restyling": {
+        "title": "Logo Restyling",
+        "subtitle": "Erneuern Sie Ihre visuelle Identität",
+        "description": "Erzählen Sie uns die Geschichte Ihrer Marke, die zu behaltenden Elemente und die neuen ästhetischen Richtungen, die Sie erkunden möchten.",
+        "hero_note": "Laden Sie Ihr aktuelles Logo, eventuelle Skizzen oder Referenz-Moodboards hoch."
+      },
+      "gifts_pranks": {
+        "title": "Geschenke & Streiche",
+        "subtitle": "Personalisierte Überraschungen für jeden Anlass",
+        "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
+        "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
+      },
+      "apparel_custom": {
+        "title": "Kleidung & Maßanfertigung",
+        "subtitle": "Maßgeschneiderte Kleidung und Accessoires",
+        "description": "Geben Sie Typ, Menge, Farben, Größen und grafische Referenzen an, um Ihr personalisiertes Projekt zu entwickeln.",
+        "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF-, PNG-, SVG- oder AI-Format."
+      },
+      "digital_services": {
+        "title": "Digitale Dienstleistungen",
+        "subtitle": "Web, Apps und digitales Marketing",
+        "description": "Erklären Sie Ihre digitalen Ziele, Zielgruppe und Kernfunktionalitäten, die Sie implementieren möchten.",
+        "hero_note": "Laden Sie Briefing-Dokumente, Sitemap, Wireframes oder Referenzbeispiele hoch."
+      }
+    }
+  },
+  "service_form": {
+    "budget_placeholder": "Bereich auswählen",
+    "budget_up_to_500": "Bis zu 500 €",
+    "budget_500_1500": "500 € - 1.500 €",
+    "budget_1500_5000": "1.500 € - 5.000 €",
+    "budget_over_5000": "Über 5.000 €",
+    "not_found_title": "Service nicht gefunden",
+    "not_found_description": "Der angeforderte Bereich ist nicht verfügbar. Kehren Sie zur Startseite zurück oder wählen Sie einen anderen verfügbaren Service.",
+    "back_to_home": "Zurück zur Startseite",
+    "name_label": "Name *",
+    "name_placeholder": "Geben Sie Ihren vollständigen Namen ein",
+    "email_label": "E-Mail *",
+    "email_placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "phone_label": "Telefon",
+    "phone_placeholder": "Geben Sie Ihre Telefonnummer ein",
+    "company_label": "Unternehmen",
+    "company_placeholder": "Geben Sie Ihren Firmennamen ein",
+    "details_label": "Projektdetails *",
+    "details_placeholder": "Beschreiben Sie Ihr Projekt im Detail...",
+    "budget_label": "Budget",
+    "file_label": "Datei anhängen",
+    "file_button": "Datei auswählen",
+    "no_file": "Keine Datei ausgewählt",
+    "submit_button": "Anfrage senden",
+    "reset_button": "Formular zurücksetzen",
+    "submitting": "Wird gesendet...",
+    "success_title": "Anfrage erfolgreich gesendet!",
+    "success_message": "Wir werden Sie bald kontaktieren, um Ihr Projekt zu besprechen.",
+    "error_title": "Fehler beim Senden der Anfrage",
+    "error_message": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
+    "required_fields": "* Pflichtfelder",
+    "suggestion": "Tipp",
+    "file_selected": "Datei ausgewählt",
+    "max_files_error": "Sie können maximal 5 Dateien auswählen",
+    "remove_file": "Datei entfernen",
+    "file_info_note": "Dateien werden nach dem Absenden des Formulars per E-Mail oder anderen sicheren Kanal mit Ihnen geteilt"
+  },
+  "footer": {
+    "sections": {
+      "products": "Produkte",
+      "clothing": "Bekleidung",
+      "digital_services": "Digitale Dienste"
+    },
+    "links": {
+      "printing_3d": "3D-Druck",
+      "rapid_prototypes": "Schnelle Prototypen",
+      "custom_miniatures": "Benutzerdefinierte Miniaturen",
+      "corporate_gadgets": "Firmen-Gadgets",
+      "decorative_objects": "Dekorative Objekte",
+      "all_3d_products": "Alle 3D-Produkte",
+      "custom_hoodies": "Benutzerdefinierte Hoodies",
+      "custom_caps": "Benutzerdefinierte Kappen",
+      "custom_polos": "Benutzerdefinierte Polos",
+      "merchandising": "Merchandising",
+      "all_clothing": "Alle Produkte",
+      "website_creation": "Website-Erstellung",
+      "app_development": "Intuitive App-Erstellung",
+      "ecommerce": "E-Commerce",
+      "logo_restyling": "Logo-Restyling",
+      "brand_identity": "Markenidentität",
+      "social_media_marketing": "Social Media Marketing",
+      "graphic_design": "Grafikdesign",
+      "digital_consulting": "Digitale Beratung"
+    },
+    "newsletter": {
+      "title": "Newsletter Creo",
+      "description": "Erhalten Sie exklusive Angebote, Produktneuigkeiten und kreative Tipps direkt in Ihrem E-Mail-Postfach.",
+      "email_placeholder": "Ihre E-Mail...",
+      "subscribe_button": "Abonnieren",
+      "subscribing": "Abonnierung...",
+      "success_message": "Abonniert!",
+      "invalid_email": "Ungültige E-Mail.",
+      "enter_email": "E-Mail eingeben.",
+      "subscription_error": "Es ist ein Fehler aufgetreten. Versuchen Sie es erneut.",
+      "privacy_consent": "Mit dem Abonnement akzeptieren Sie unsere",
+      "and": "und",
+      "unsubscribe_info": "Sie können sich jederzeit abmelden.",
+      "vip_benefits": "VIP-Vorteile",
+      "exclusive_discounts": "Exklusive Rabatte bis zu 20%",
+      "early_access": "Früher Zugang zu neuen Produkten",
+      "welcome_gift": "Willkommensgeschenk",
+      "priority_support": "Prioritärer Kundensupport"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "hours": "Öffnungszeiten"
+    },
+    "legal": {
+      "all_rights_reserved": "Alle Rechte vorbehalten",
+      "privacy_policy": "Datenschutzrichtlinie",
+      "terms_of_service": "Nutzungsbedingungen",
+      "cookie_policy": "Cookie-Richtlinie",
+      "returns_refunds": "Rücksendungen & Erstattungen",
+      "shipping": "Versand",
+      "faq": "Häufig gestellte Fragen"
+    },
+    "payment": {
+      "secure_payments": "Sichere Zahlungen"
+    },
+    "back_to_top": "Nach oben"
+  }
+}

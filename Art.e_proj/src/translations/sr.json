@@ -1,0 +1,254 @@
+{
+  "common": {
+    "loading": "Učitavanje...",
+    "error": "Greška",
+    "submit": "Pošalji",
+    "cancel": "Otkaži",
+    "save": "Sačuvaj",
+    "delete": "Obriši",
+    "edit": "Izmeni",
+    "close": "Zatvori",
+    "back": "Nazad",
+    "next": "Sledeće",
+    "previous": "Prethodno",
+    "home": "Početna",
+    "contact": "Kontakt",
+    "about": "O nama",
+    "services": "Usluge",
+    "portfolio": "Portfolio"
+  },
+  "navigation": {
+    "home": "Početna",
+    "services": "Usluge",
+    "about": "O nama",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "cta_button": "Saznaj više",
+    "slides": {
+      "3d_design": {
+        "title": "3D Dizajn i 3D Štampa",
+        "subtitle": "Od ideje do realizacije gotovog proizvoda",
+        "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i prilagođeni dizajn.",
+        "cta": "Saznaj više"
+      },
+      "apparel": {
+        "title": "Prilagođena Odeća",
+        "subtitle": "Nosi svoju ideju",
+        "description": "Majice, bodiji, kačketi i prilagođeni dodaci: svaki odevni predmet postaje poruka, svaki stil tvoj potpis.",
+        "cta": "Saznaj više"
+      },
+      "web_app": {
+        "title": "Web i App Dizajn",
+        "subtitle": "Efikasna digitalna iskustva",
+        "description": "Moderni sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online.",
+        "cta": "Saznaj više"
+      },
+      "gifts": {
+        "title": "Ideje za Poklone",
+        "subtitle": "Iznenadi originalnošću",
+        "description": "Originalne i personalizovane kreacije, savršene za iznenađenja i ostavljanje traga u svakoj prilici.",
+        "cta": "Saznaj više"
+      }
+    }
+  },
+  "offers": {
+    "title": "Kvalitetni personalizovani proizvodi i digitalne usluge na najvišem nivou",
+    "services": {
+      "3d_printing": {
+        "title": "3D Štampa",
+        "description": "Prilagođeni objekti štampani 3D tehnologijom sa kvalitetnim materijalima."
+      },
+      "gifts_pranks": {
+        "title": "Pokloni i Šale",
+        "description": "Originalni rođendanski pokloni i zabavne šale."
+      },
+      "apparel": {
+        "title": "Odeća i Prilagođeni Proizvodi",
+        "description": "Prilagođena odeća i dodaci za svaki stil i priliku."
+      },
+      "websites_apps": {
+        "title": "Sajtovi i Aplikacije",
+        "description": "Digitalni marketing, upravljanje društvenim mrežama i reklamna grafika."
+      }
+    }
+  },
+  "forms": {
+    "title": "Zatraži prilagođeni projekat",
+    "subtitle": "Popuni formu za uslugu koja te zanima. Možeš priložiti referentne fajlove, skice ili materijale koji nam pomažu da bolje razumemo tvoju ideju.",
+    "fields": {
+      "name": "Ime i prezime",
+      "email": "Email",
+      "phone": "Telefon",
+      "company": "Kompanija / Brend",
+      "budget": "Orijentacioni budžet",
+      "details": "Detalji projekta",
+      "file": "Priloži referentni fajl",
+      "required": "Obavezno"
+    },
+    "placeholders": {
+      "name": "Marko Petrović",
+      "email": "ime@kompanija.rs",
+      "phone": "+381 64 123 4567",
+      "company": "Ime brenda",
+      "details": "Opiši ciljeve, vremenske rokove, reference i sve korisne informacije."
+    },
+    "budget_options": {
+      "select": "Izaberi opseg",
+      "up_to_500": "Do 500 €",
+      "500_1500": "500 € - 1.500 €",
+      "1500_5000": "1.500 € - 5.000 €",
+      "over_5000": "Preko 5.000 €"
+    },
+    "actions": {
+      "clear": "Obriši polja",
+      "submit": "Pošalji zahtev",
+      "submitting": "Šalje se...",
+      "submitted": "Zahtev je primljen! Kontaktiraćemo te u roku od 24 radna sata."
+    },
+    "file": {
+      "selected": "Izabrani fajl: {{fileName}}",
+      "accepted_formats": "Prihvaćeni formati: .pdf, .zip, .png, .jpg, .jpeg, .svg, .ai"
+    }
+  },
+  "service_pages": {
+    "not_found": {
+      "title": "Usluga nije pronađena",
+      "description": "Tražena sekcija nije dostupna. Vrati se na početnu ili izaberi drugu uslugu iz dostupnih.",
+      "back_to_home": "Nazad na početnu"
+    },
+    "breadcrumbs": {
+      "home": "Početna"
+    },
+    "services": {
+      "logo_restyling": {
+        "title": "Restyling Logoa",
+        "subtitle": "Obnovi svoj vizuelni identitet",
+        "description": "Ispričaj nam priču o svom brendu, elemente koje treba zadržati i nove estetske pravce koje bi voleo da istražimo.",
+        "hero_note": "Otpremi trenutni logo, eventualne skice ili referentne moodboard-ove."
+      },
+      "gifts_pranks": {
+        "title": "Pokloni i Šale",
+        "subtitle": "Personalizovana iznenađenja za svaku priliku",
+        "description": "Opiši tip poklona ili šale, primaoca i željeni ton. Možemo početi od tvog koncepta ili kreirati novi od nule.",
+        "hero_note": "Možeš priložiti fotografije primaoca ili primere stila koji preferirate."
+      },
+      "apparel_custom": {
+        "title": "Odeća i Prilagođeni Proizvodi",
+        "subtitle": "Odeća i dodaci po meri",
+        "description": "Navedi tip, količinu, boje, veličine i bilo koje grafičke reference za razvoj svog personalizovanog projekta.",
+        "hero_note": "Prihvatamo mockup-ove, logoe i tabele veličina u PDF, PNG, SVG ili AI formatu."
+      },
+      "digital_services": {
+        "title": "Digitalne Usluge",
+        "subtitle": "Web, aplikacije i digitalni marketing",
+        "description": "Objasni svoje digitalne ciljeve, ciljnu grupu i ključne funkcionalnosti koje želiš da implementiramo.",
+        "hero_note": "Otpremi dokumente sa briefom, sitemap, wireframe ili referentne primere."
+      }
+    }
+  },
+  "service_form": {
+    "budget_placeholder": "Izaberite opseg",
+    "budget_up_to_500": "Do 500 €",
+    "budget_500_1500": "500 € - 1.500 €",
+    "budget_1500_5000": "1.500 € - 5.000 €",
+    "budget_over_5000": "Preko 5.000 €",
+    "not_found_title": "Usluga nije pronađena",
+    "not_found_description": "Tražena sekcija nije dostupna. Vratite se na početnu stranicu ili izaberite drugu uslugu iz dostupnih.",
+    "back_to_home": "Nazad na početnu",
+    "name_label": "Ime *",
+    "name_placeholder": "Unesite vaše puno ime",
+    "email_label": "Email *",
+    "email_placeholder": "Unesite vašu email adresu",
+    "phone_label": "Telefon",
+    "phone_placeholder": "Unesite vaš broj telefona",
+    "company_label": "Kompanija",
+    "company_placeholder": "Unesite ime vaše kompanije",
+    "details_label": "Detalji Projekta *",
+    "details_placeholder": "Opišite vaš projekat detaljno...",
+    "budget_label": "Budžet",
+    "file_label": "Priložite Fajl",
+    "file_button": "Izaberite Fajl",
+    "no_file": "Nijedan fajl nije izabran",
+    "submit_button": "Pošaljite Zahtev",
+    "reset_button": "Resetujte Formu",
+    "submitting": "Slanje u toku...",
+    "success_title": "Zahtev je uspešno poslat!",
+    "success_message": "Uskoro ćemo vas kontaktirati da razgovaramo o vašem projektu.",
+    "error_title": "Greška pri slanju zahteva",
+    "error_message": "Molimo pokušajte ponovo ili nas kontaktirajte direktno.",
+    "required_fields": "* Obavezna polja",
+    "suggestion": "Savet",
+    "file_selected": "Izabran fajl",
+    "max_files_error": "Možete izabrati maksimalno 5 fajlova",
+    "remove_file": "Ukloni fajl",
+    "file_info_note": "Fajlovi će biti podeljeni sa vama preko email-a ili drugog sigurnog kanala nakon slanja forme"
+  },
+  "footer": {
+    "sections": {
+      "products": "Proizvodi",
+      "clothing": "Odeća",
+      "digital_services": "Digitalne Usluge"
+    },
+    "links": {
+      "printing_3d": "3D Štampa",
+      "rapid_prototypes": "Brzi Prototipovi",
+      "custom_miniatures": "Prilagođene Minijature",
+      "corporate_gadgets": "Korporativni Gadžeti",
+      "decorative_objects": "Dekorativni Objekti",
+      "all_3d_products": "Svi 3D Proizvodi",
+      "custom_hoodies": "Prilagođene dukserice",
+      "custom_caps": "Prilagođene kape",
+      "custom_polos": "Prilagođene polo majice",
+      "merchandising": "Merchandising",
+      "all_clothing": "Svi Proizvodi",
+      "website_creation": "Kreiranje Web Sajtova",
+      "app_development": "Kreiranje Intuitivnih Aplikacija",
+      "ecommerce": "E-commerce",
+      "logo_restyling": "Restyling Logo",
+      "brand_identity": "Brand Identitet",
+      "social_media_marketing": "Social Media Marketing",
+      "graphic_design": "Grafički Dizajn",
+      "digital_consulting": "Digitalno Konsaltovanje"
+    },
+    "newsletter": {
+      "title": "Newsletter Creo",
+      "description": "Primajte ekskluzivne ponude, vesti o proizvodima i kreativne savete direktno u vašoj email inbox.",
+      "email_placeholder": "Vaš email...",
+      "subscribe_button": "Pretplatite se",
+      "subscribing": "Pretplata...",
+      "success_message": "Pretplaćeni!",
+      "invalid_email": "Nevaži email.",
+      "enter_email": "Unesite email.",
+      "subscription_error": "Došlo je do greške. Pokušajte ponovo.",
+      "privacy_consent": "Pretplatom prihvatate našu",
+      "and": "i",
+      "unsubscribe_info": "Možete se odjaviti u bilo kom trenutku.",
+      "vip_benefits": "VIP Prednosti",
+      "exclusive_discounts": "Ekskluzivni popusti do 20%",
+      "early_access": "Rani pristup novim proizvodima",
+      "welcome_gift": "Poklon dobrodošlice",
+      "priority_support": "Prioritetna korisnička podrška"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "address": "Adresa",
+      "phone": "Telefon",
+      "email": "Email",
+      "hours": "Radno vreme"
+    },
+    "legal": {
+      "all_rights_reserved": "Sva prava zadržana",
+      "privacy_policy": "Politika Privatnosti",
+      "terms_of_service": "Uslovi Korišćenja",
+      "cookie_policy": "Cookie Politika",
+      "returns_refunds": "Povraćaj & Refundiranje",
+      "shipping": "Dostava",
+      "faq": "Često Postavljana Pitanja"
+    },
+    "payment": {
+      "secure_payments": "Sigurna plaćanja"
+    },
+    "back_to_top": "Nazad na vrh"
+  }
+}

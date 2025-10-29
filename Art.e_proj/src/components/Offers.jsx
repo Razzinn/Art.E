@@ -1,11 +1,12 @@
 ﻿import { useEffect, useState, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import './Offers.css';
 
 const SERVICE_ITEMS = [
   {
-    title: 'Stampa 3D',
-    description: 'Oggetti personalizzati stampati 3D con materiali di qualità.',
+    titleKey: 'offers.services.3d_printing.title',
+    descriptionKey: 'offers.services.3d_printing.description',
     slug: null,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -16,8 +17,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Idee Regalo',
-    description: 'Regali di compleanno originali e scherzi divertenti.',
+    titleKey: 'offers.services.gifts_pranks.title',
+    descriptionKey: 'offers.services.gifts_pranks.description',
     slug: 'regali-e-prank',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -30,8 +31,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Abbigliamento & Custom',
-    description: 'T-Shirt, felpe e accessori personalizzabili.',
+    titleKey: 'offers.services.apparel.title',
+    descriptionKey: 'offers.services.apparel.description',
     slug: 'abbigliamento-e-custom',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -40,8 +41,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Siti Web & App',
-    description: 'Siti e app professionali responsive e ottimizzati SEO.',
+    titleKey: 'offers.services.websites_apps.title',
+    descriptionKey: 'offers.services.websites_apps.description',
     slug: null,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -57,6 +58,7 @@ const SERVICE_ITEMS = [
 ];
 
 export default function Offers() {
+  const { t } = useTranslation();
   const [currentColors, setCurrentColors] = useState(['#8B5CF6', '#A855F7', '#C084FC']);
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -177,7 +179,7 @@ export default function Offers() {
     <section className="offers" style={dynamicBackground}>
       <div className="offers-container">
         <h2 className="offers-title">
-          Prodotti personalizzati di qualità e servizi digitali all'avanguardia
+          {t('offers.title')}
         </h2>
 
         <div className="services-grid">
@@ -194,7 +196,7 @@ export default function Offers() {
 
             return (
               <div
-                key={service.title}
+                key={service.titleKey}
                 className={cardClassName}
                 ref={(element) => {
                   cardRefs.current[index] = element;
@@ -203,8 +205,8 @@ export default function Offers() {
                 {...getCardProps(service.slug)}
               >
                 <div className="service-icon">{service.icon}</div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
+                <h3 className="service-title">{t(service.titleKey)}</h3>
+                <p className="service-description">{t(service.descriptionKey)}</p>
               </div>
             );
           })}

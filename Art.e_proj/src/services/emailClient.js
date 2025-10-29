@@ -2,8 +2,6 @@ import emailjs from '@emailjs/browser';
 
 let isInitialized = false;
 
-const MAX_ATTACHMENT_SIZE = 5 * 1024 * 1024; // 5 MB
-
 const getConfig = () => {
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -23,17 +21,6 @@ const ensureInitialized = (publicKey) => {
   emailjs.init({ publicKey });
   isInitialized = true;
 };
-
-const fileToBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = typeof reader.result === 'string' ? reader.result : '';
-      resolve(result);
-    };
-    reader.onerror = () => reject(new Error('Impossibile leggere il file allegato.'));
-    reader.readAsDataURL(file);
-  });
 
 export async function sendServiceFormEmail({ service, formData }) {
   const { serviceId, templateId, publicKey, toEmail, toName } = getConfig();
@@ -65,9 +52,9 @@ export async function sendServiceFormEmail({ service, formData }) {
     requester_email: formData.email || 'non-fornita@example.com',
     requester_phone: formData.phone || 'Non fornito',
     requester_company: formData.company || 'Non specificato',
-    project_budget: formData.budget || 'Non indicato',
     project_details: formData.details || 'Nessun dettaglio fornito',
-    file_name: formData.file?.name || 'Nessun file allegato',
+    files_count: formData.files?.length || 0,
+    files_names: formData.files?.map(f => f.name).join(', ') || 'Nessun file allegato',
     reply_to: formData.email || 'noreply@example.com',
     from_name: formData.name || 'Utente Anonimo',
     from_email: formData.email || 'noreply@example.com',
@@ -81,18 +68,28 @@ export async function sendServiceFormEmail({ service, formData }) {
     templateParams.to_name = toName;
   }
 
-  if (formData.file) {
-    if (formData.file.size > MAX_ATTACHMENT_SIZE) {
-      throw new Error('Il file allegato supera i 5 MB. Comprimi il file e riprova.');
-    }
-
-    templateParams.file_attachment = await fileToBase64(formData.file);
+  // Aggiungi informazioni sui file senza convertirli in base64
+  if (formData.files && formData.files.length > 0) {
+    const filesInfo = formData.files.map(file => ({
+      name: file.name,
+      size: `${(file.size / 1024).toFixed(1)} KB`,
+      type: file.type || 'sconosciuto'
+    }));
+    
+    templateParams.files_info = filesInfo.map(info => 
+      `📄 ${info.name} (${info.size}, ${info.type})`
+    ).join('\n');
+    templateParams.files_note = `⚠️ NOTA: I file allegati (${formData.files.length}) non sono inclusi in questa email per limiti di dimensione. Il cliente sarà contattato per condividere i file tramite altro canale.`;
+  } else {
+    templateParams.files_info = 'Nessun file allegato';
+    templateParams.files_note = '';
   }
 
   console.log('📤 Sending email with params:', {
     service_id: service.id,
     requester: formData.name,
-    email: formData.email
+    email: formData.email,
+    files_count: formData.files?.length || 0
   });
 
   try {

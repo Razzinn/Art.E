@@ -1,5 +1,6 @@
 // Footer.jsx
 import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 import './footer.css';
 
 const Footer = ({
@@ -17,6 +18,7 @@ const Footer = ({
   onSubscribe,
   theme = 'light',
 }) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -28,42 +30,42 @@ const Footer = ({
     () => (
       [
         {
-          title: 'Prodotti',
+          title: t('footer.sections.products'),
           links: [
-            { label: 'Stampa 3D', href: '#' },
-            { label: 'Prototipi Rapidi', href: '#' },
-            { label: 'Miniature Personalizzate', href: '#' },
-            { label: 'Gadget Aziendali', href: '#' },
-            { label: 'Oggetti Decorativi', href: '#' },
-            { label: 'Tutti i Prodotti 3D', href: '#', primary: true },
+            { label: t('footer.links.printing_3d'), href: '#' },
+            { label: t('footer.links.rapid_prototypes'), href: '#' },
+            { label: t('footer.links.custom_miniatures'), href: '#' },
+            { label: t('footer.links.corporate_gadgets'), href: '#' },
+            { label: t('footer.links.decorative_objects'), href: '#' },
+            { label: t('footer.links.all_3d_products'), href: '#', primary: true },
           ],
         },
         {
-          title: 'Abbigliamento',
+          title: t('footer.sections.clothing'),
           links: [
-            { label: 'Felpe personalizzate', href: '#' },
-            { label: 'Cappellini personalizzati', href: '#' },
-            { label: 'Polo personalizzate', href: '#' },
-            { label: 'Merchandising', href: '#' },
-            { label: 'Tutti i Prodotti', href: '#', primary: true },
+            { label: t('footer.links.custom_hoodies'), href: '#' },
+            { label: t('footer.links.custom_caps'), href: '#' },
+            { label: t('footer.links.custom_polos'), href: '#' },
+            { label: t('footer.links.merchandising'), href: '#' },
+            { label: t('footer.links.all_clothing'), href: '#', primary: true },
           ],
         },
         {
-          title: 'Servizi Digital',
+          title: t('footer.sections.digital_services'),
           links: [
-            { label: 'Creazione Siti Web', href: '#' },
-            { label: 'Creazione App Intuitive', href: '#' },
-            { label: 'E-commerce', href: '#' },
-            { label: 'Restyling Logo', href: '#' },
-            { label: 'Brand Identity', href: '#' },
-            { label: 'Social Media Marketing', href: '#' },
-            { label: 'Graphic Design', href: '#' },
-            { label: 'Consulenza Digital', href: '#', primary: true },
+            { label: t('footer.links.website_creation'), href: '#' },
+            { label: t('footer.links.app_development'), href: '#' },
+            { label: t('footer.links.ecommerce'), href: '#' },
+            { label: t('footer.links.logo_restyling'), href: '#' },
+            { label: t('footer.links.brand_identity'), href: '#' },
+            { label: t('footer.links.social_media_marketing'), href: '#' },
+            { label: t('footer.links.graphic_design'), href: '#' },
+            { label: t('footer.links.digital_consulting'), href: '#', primary: true },
           ],
         },
       ]
     ),
-    []
+    [t]
   );
 
   const effectiveSections = sections && Array.isArray(sections) ? sections : defaultSections;
@@ -91,16 +93,16 @@ const Footer = ({
     setSubmitError('');
     const trimmed = email.trim();
     if (!trimmed) {
-      setSubmitError('Inserisci un\'email.');
+      setSubmitError(t('footer.newsletter.enter_email'));
       return;
     }
     if (!isValidEmail(trimmed)) {
-      setSubmitError('Email non valida.');
+      setSubmitError(t('footer.newsletter.invalid_email'));
       return;
     }
 
     setIsSubmitting(true);
-    setStatusMessage('Iscrizione in corso...');
+    setStatusMessage(t('footer.newsletter.subscribing'));
 
     try {
       if (onSubscribe) {
@@ -109,11 +111,11 @@ const Footer = ({
         await new Promise((resolve) => setTimeout(resolve, 1200));
       }
       setIsSubscribed(true);
-      setStatusMessage('Iscrizione completata. Benvenuto!');
+      setStatusMessage(t('footer.newsletter.success_message'));
       setEmail('');
       setTimeout(() => setIsSubscribed(false), 3000);
     } catch {
-      setSubmitError('Si è verificato un errore. Riprova.');
+      setSubmitError(t('footer.newsletter.subscription_error'));
       setStatusMessage('');
     } finally {
       setIsSubmitting(false);
@@ -218,18 +220,17 @@ const Footer = ({
               {/* NEWSLETTER */}
               <div className="footer-section newsletter-section">
                 <div className="newsletter-title">
-                  📬 Newsletter Creo
+                  📬 {t('footer.newsletter.title')}
                 </div>
                 <p className="newsletter-desc">
-                  Ricevi offerte esclusive, novità prodotti e consigli creativi 
-                  direttamente nella tua casella email.
+                  {t('footer.newsletter.description')}
                 </p>
                 
                 <form className="newsletter-form" onSubmit={handleNewsletterSubmit} noValidate aria-busy={isSubmitting}>
                   <input 
                     type="email" 
                     className="newsletter-input" 
-                    placeholder="La tua email..."
+                    placeholder={t('footer.newsletter.email_placeholder')}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -246,7 +247,7 @@ const Footer = ({
                     aria-disabled={isSubmitting || isSubscribed}
                     disabled={isSubmitting || isSubscribed}
                   >
-                    {isSubmitting ? 'Iscrizione...' : isSubscribed ? '✅ Iscritto!' : 'Iscriviti'}
+                    {isSubmitting ? t('footer.newsletter.subscribing') : isSubscribed ? '✅ ' + t('footer.newsletter.success_message') : t('footer.newsletter.subscribe_button')}
                   </button>
                 </form>
                 <div id="newsletter-status" role="status" aria-live="polite" className="visually-hidden">
@@ -259,18 +260,18 @@ const Footer = ({
                 )}
                 
                 <p className="newsletter-privacy">
-                  Iscrivendoti accetti la nostra <a href="#" className="link-secondary">Privacy Policy</a> e 
-                  i <a href="#" className="link-secondary">Termini di Servizio</a>. 
-                  Puoi disiscriverti in qualsiasi momento.
+                  {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a> {t('footer.newsletter.and')} 
+                  <a href="#" className="link-secondary">{t('footer.legal.terms_of_service')}</a>. 
+                  {t('footer.newsletter.unsubscribe_info')}
                 </p>
 
                 <div className="newsletter-benefits">
-                  <h4 className="benefits-title">🏆 Vantaggi VIP:</h4>
+                  <h4 className="benefits-title">🏆 {t('footer.newsletter.vip_benefits')}:</h4>
                   <ul className="benefits-list">
-                    <li>✅ Sconti esclusivi fino al 20%</li>
-                    <li>🚀 Accesso anticipato alle novità</li>
-                    <li>🎁 Regalo di benvenuto</li>
-                    <li>📞 Supporto clienti prioritario</li>
+                    <li>✅ {t('footer.newsletter.exclusive_discounts')}</li>
+                    <li>🚀 {t('footer.newsletter.early_access')}</li>
+                    <li>🎁 {t('footer.newsletter.welcome_gift')}</li>
+                    <li>📞 {t('footer.newsletter.priority_support')}</li>
                   </ul>
                 </div>
               </div>
@@ -283,20 +284,20 @@ const Footer = ({
           <div className="footer-container">
             <div className="footer-bottom-content">
               <div className="footer-copyright">
-                © 2024 Creo Marketplace. Tutti i diritti riservati. | P.IVA: 12345678901
+                © 2024 Creo Marketplace. {t('footer.legal.all_rights_reserved')}. | P.IVA: 12345678901
               </div>
               
               <div className="footer-legal">
-                <a href="#" className="link-secondary">Privacy Policy</a>
-                <a href="#" className="link-secondary">Termini di Servizio</a>
-                <a href="#" className="link-secondary">Cookie Policy</a>
-                <a href="#" className="link-secondary">Resi & Rimborsi</a>
-                <a href="#" className="link-secondary">Spedizioni</a>
-                <a href="#" className="link-secondary">FAQ</a>
+                <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a>
+                <a href="#" className="link-secondary">{t('footer.legal.terms_of_service')}</a>
+                <a href="#" className="link-secondary">{t('footer.legal.cookie_policy')}</a>
+                <a href="#" className="link-secondary">{t('footer.legal.returns_refunds')}</a>
+                <a href="#" className="link-secondary">{t('footer.legal.shipping')}</a>
+                <a href="#" className="link-secondary">{t('footer.legal.faq')}</a>
               </div>
               
               <div className="footer-payment">
-                <span className="payment-text">Pagamenti sicuri:</span>
+                <span className="payment-text">{t('footer.payment.secure_payments')}:</span>
                 <div className="payment-icons">
                   <div className="payment-icon">VISA</div>
                   <div className="payment-icon">PayPal</div>
@@ -312,8 +313,8 @@ const Footer = ({
         className={`back-to-top ${showBackToTop ? 'is-visible' : ''}`}
         onClick={scrollToTop}
         type="button"
-        aria-label="Torna all'inizio"
-        title="Torna all'inizio"
+        aria-label={t('footer.back_to_top')}
+        title={t('footer.back_to_top')}
       >
         ↑
       </button>

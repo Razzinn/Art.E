@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import './HeroSectionR.css';
 
 const zoomImages = [
@@ -10,6 +11,7 @@ const zoomImages = [
 ];
 
 const HeroSectionR = ({ onOpenSubsection }) => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isZooming, setIsZooming] = useState(false);
   const [zoomImg, setZoomImg] = useState(null);
@@ -22,36 +24,36 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       id: 1,
       image: '/progettazione3d.jpeg',
       alt: 'Progettazione 3D',
-      title: '3D Design & Stampa 3D',
-      subtitle: 'Dal concept al pezzo finito',
-      description: 'Dal modello digitale all\'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.',
+      titleKey: 'hero.slides.3d_design.title',
+      subtitleKey: 'hero.slides.3d_design.subtitle',
+      descriptionKey: 'hero.slides.3d_design.description',
       colors: ['#F8C8C8', '#F5B7B7', '#F2A6A6'] // Pale pink gradient for 3D print
     },
     {
       id: 2,
       image: '/abbigliamentopersonalizzato.jpeg',
       alt: 'Abbigliamento personalizzato',
-      title: 'Abbigliamento Personalizzato',
-      subtitle: 'Indossa la tua idea',
-      description: 'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
+      titleKey: 'hero.slides.apparel.title',
+      subtitleKey: 'hero.slides.apparel.subtitle',
+      descriptionKey: 'hero.slides.apparel.description',
       colors: ['#7DD3C0', '#B794F6', '#FBB040'] // Green aqua → purple → orange gradient for dressing
     },
     {
       id: 3,
       image: '/webdevelopement.jpeg',
       alt: 'Web development/design',
-      title: 'Web & App Design',
-      subtitle: 'Esperienze digitali efficaci',
-      description: 'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
+      titleKey: 'hero.slides.web_app.title',
+      subtitleKey: 'hero.slides.web_app.subtitle',
+      descriptionKey: 'hero.slides.web_app.description',
       colors: ['#8A2BE2', '#9370DB', '#BA55D3'] // Deep purple/violet tones from computer background
     },
     {
       id: 4,
       image: '/prankservice.jpeg',
       alt: 'Prank service',
-      title: 'Idee Regalo',
-      subtitle: 'Sorprendi con originalità',
-      description: 'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
+      titleKey: 'hero.slides.gifts.title',
+      subtitleKey: 'hero.slides.gifts.subtitle',
+      descriptionKey: 'hero.slides.gifts.description',
       colors: ['#1A4A66', '#2E5D7A', '#426F8C'] // Darker blue gradient matching baby background bottom edge
     },
   ], []);
@@ -235,12 +237,12 @@ const HeroSectionR = ({ onOpenSubsection }) => {
                     <h2 className={"slide-title" + (slide.id === 2 ? " slide-title-abbl" : "")}
                       >
                       <span className="hero-decor-line" aria-hidden="true"></span>
-                      {slide.title}
+                      {t(slide.titleKey)}
                     </h2>
-                    {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
-                    {slide.description && <p className="slide-description">{slide.description}</p>}
+                    {slide.subtitleKey && <h3 className="slide-subtitle">{t(slide.subtitleKey)}</h3>}
+                    {slide.descriptionKey && <p className="slide-description">{t(slide.descriptionKey)}</p>}
                     <button className="hero-cta-btn" tabIndex={0} aria-label="Scopri di più" onClick={handleCtaClick}>
-                      Scopri di più
+                      {t('hero.cta_button')}
                     </button>
                   </div>
                 </>

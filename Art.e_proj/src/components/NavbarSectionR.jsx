@@ -1,6 +1,7 @@
 // NavbarSection.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import LanguageSwitcher from './LanguageSwitcher';
 import './NavbarSectionR.css';
 
 const NAV_CATEGORIES = {
@@ -218,6 +219,9 @@ const NavbarSectionR = () => {
             </div>
           )}
         </div>
+
+        {/* Language Switcher */}
+        <LanguageSwitcher />
 
         {/* Carrello rimosso */}
       </div>
