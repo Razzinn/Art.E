@@ -21,13 +21,16 @@ export default function Design3DPage() {
 
 	return (
 		<div className="design3d-hero">
-			<div className="design3d-hero-slide">
-				<motion.div
-					className="design3d-content"
-					initial={{ opacity: 0, y: 40, scale: 0.96 }}
-					animate={{ opacity: 1, y: 0, scale: 1 }}
-					transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-				>
+			<div className="design3d-hero-slide"></div>
+
+			<motion.div
+				className="design3d-content-wrapper"
+				initial={{ opacity: 0, y: 40, scale: 0.96 }}
+				animate={{ opacity: 1, y: 0, scale: 1 }}
+				transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+			>
+				{/* --- BOX TESTO --- */}
+				<div className="design3d-content">
 					<motion.h1
 						className="design3d-title"
 						initial={{ opacity: 0, y: 20 }}
@@ -52,8 +55,8 @@ export default function Design3DPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1, delay: 0.7 }}
 					>
-						La stampa 3D è il cuore di CREO. Realizziamo prototipi, gadget,
-						accessori e componenti tecnici con precisione e materiali di qualità.
+						La stampa 3D è il cuore di <strong>CREO</strong>. Realizziamo prototipi,
+						gadget, accessori e componenti tecnici con precisione e materiali di qualità.
 					</motion.p>
 
 					<motion.p
@@ -62,8 +65,8 @@ export default function Design3DPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1, delay: 0.9 }}
 					>
-						Utilizziamo tecnologie avanzate FDM e resin-based per garantire ottima resistenza,
-						dettagli perfetti e finiture curate.
+						Utilizziamo tecnologie avanzate <strong>FDM</strong> e <strong>resin-based</strong> 
+						per garantire ottima resistenza, dettagli perfetti e finiture curate.
 					</motion.p>
 
 					<motion.p
@@ -72,9 +75,8 @@ export default function Design3DPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1, delay: 1.1 }}
 					>
-						Collaboriamo con designer, aziende,
-						artigiani e privati per sviluppare progetti personalizzati,
-						dalla fase di modellazione 3D fino alla produzione finale.
+						Collaboriamo con designer, aziende, artigiani e privati per sviluppare
+						progetti personalizzati, dalla fase di modellazione 3D fino alla produzione finale.
 					</motion.p>
 
 					<motion.p
@@ -83,8 +85,8 @@ export default function Design3DPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1, delay: 1.3 }}
 					>
-						Con la nostra esperienza, ogni idea può prendere vita,
-						diventando un oggetto tangibile, funzionale e unico.
+						Con la nostra esperienza, ogni idea può prendere vita, diventando un oggetto
+						tangibile, funzionale e unico.
 					</motion.p>
 
 					<motion.p
@@ -93,10 +95,29 @@ export default function Design3DPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1, delay: 1.5 }}
 					>
-						➡️ Portaci la tua idea, noi la rendiamo reale.
+						➡️ <strong>Portaci la tua idea</strong>, noi la rendiamo reale.
 					</motion.p>
+				</div>
+
+				{/* --- VIDEO A DESTRA --- */}
+				<motion.div
+					className="design3d-video"
+					initial={{ opacity: 0, x: 40 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ duration: 1, delay: 0.8 }}
+				>
+					<video
+						className="design3d-video-player"
+						autoPlay
+						loop
+						muted
+						playsInline
+					>
+						<source src="/videosezionisingole/3dvideo.mp4" type="video/mp4" />
+						Il tuo browser non supporta i video HTML5.
+					</video>
 				</motion.div>
-			</div>
+			</motion.div>
 		</div>
 	);
 }
