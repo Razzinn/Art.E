@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './HeroSectionR.css';
 
 const HeroSectionR = ({ onOpenSubsection }) => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = React.useRef(null);
 
@@ -183,7 +184,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
                   <div className={`slide-content${slide.id === 2 || slide.id === 4 ? ' align-right' : ' align-left'}`}>
                     <h2 className="slide-title">
                       <span className="hero-decor-line" aria-hidden="true"></span>
-                      {slide.title}
+                      {t(slide.titleKey)}
                     </h2>
                     {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
                     {slide.description && <p className="slide-description">{slide.description}</p>}
