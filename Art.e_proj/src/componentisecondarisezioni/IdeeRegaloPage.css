@@ -55,7 +55,7 @@
 /* --- BOX CENTRALE CON AURA WOW --- */
 .ideeregalo-content {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 50%;
   transform: translateY(-50%);
   z-index: 7;
