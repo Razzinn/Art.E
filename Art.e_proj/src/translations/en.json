@@ -55,21 +55,33 @@
   "offers": {
     "title": "Quality personalized products and cutting-edge digital services",
     "services": {
-      "3d_printing": {
-        "title": "3D Printing",
-        "description": "Custom objects 3D printed with quality materials."
+      "3d_design": {
+        "title": "3D Design & 3D Printing",
+        "subtitle": "From idea to finished product realization",
+        "description": "From digital model to real object: unique creations, prototypes, gadgets and custom designs for every need.",
+        "promotional": "🚀 Turn your ideas into reality with professional 3D technology!",
+        "hero_note": "You can attach sketches, visual references or existing 3D files."
       },
       "gifts_pranks": {
-        "title": "Gifts & Pranks",
-        "description": "Original birthday gifts and fun pranks."
+        "title": "Gift Ideas",
+        "subtitle": "Personalized surprises for every occasion",
+        "description": "Describe the type of gift or prank, the recipient and the desired tone. We can start from your concept or create one from scratch.",
+        "promotional": "🎁 Create unforgettable memories with original and personalized gifts!",
+        "hero_note": "You can attach photos of the recipient or examples of the style you prefer."
       },
       "apparel": {
         "title": "Apparel & Custom",
-        "description": "Custom clothing and accessories for every style and occasion."
+        "subtitle": "Custom clothing and accessories",
+        "description": "Indicate type, quantity, colors, sizes and any graphic reference to develop your personalized project.",
+        "promotional": "👕 Express your style with unique and made-to-measure clothing!",
+        "hero_note": "We accept mockups, logos and size charts in PDF, PNG, SVG or AI."
       },
-      "websites_apps": {
-        "title": "Websites & Apps",
-        "description": "Digital marketing, social media management and advertising graphics."
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",
+        "promotional": "💻 Build your digital success with professional and innovative solutions!",
+        "hero_note": "Share design examples you like or your existing brand."
       }
     }
   },
@@ -128,7 +140,7 @@
         "hero_note": "Upload your current logo, any sketches or reference moodboards."
       },
       "gifts_pranks": {
-        "title": "Gifts & Pranks",
+        "title": "Gift Ideas",
         "subtitle": "Personalized surprises for every occasion",
         "description": "Describe the type of gift or prank, the recipient and the desired tone. We can start from your concept or create one from scratch.",
         "hero_note": "You can attach photos of the recipient or examples of the style you prefer."
@@ -156,33 +168,36 @@
     "not_found_title": "Service not found",
     "not_found_description": "The requested section is not available. Return to the home page or choose another service from those available.",
     "back_to_home": "Back to home",
-    "name_label": "Name *",
+    "name_label": "Full Name",
     "name_placeholder": "Enter your full name",
-    "email_label": "Email *",
+    "email_label": "Email",
     "email_placeholder": "Enter your email address",
-    "phone_label": "Phone",
+    "phone_label": "Phone Number",
     "phone_placeholder": "Enter your phone number",
-    "company_label": "Company",
-    "company_placeholder": "Enter your company name",
-    "details_label": "Project Details *",
-    "details_placeholder": "Describe your project in detail...",
+    "company_label": "Company/Brand",
+    "company_placeholder": "Enter your company or brand name",
+    "details_label": "Project Description",
+    "details_placeholder": "Describe your project, goals, specific requirements...",
     "budget_label": "Budget",
-    "file_label": "Attach File",
-    "file_button": "Choose File",
-    "no_file": "No file selected",
+    "file_label": "Upload Files",
+    "file_button": "📎 Choose Files",
+    "no_file": "No files selected",
+    "files_selected": "{{count}} files selected",
     "submit_button": "Send Request",
-    "reset_button": "Reset Form",
+    "reset_button": "Clear",
     "submitting": "Sending...",
     "success_title": "Request sent successfully!",
-    "success_message": "We will contact you soon to discuss your project.",
+    "success_message": "✅ Request sent successfully! We will contact you within 24 hours.",
     "error_title": "Error sending request",
-    "error_message": "Please try again or contact us directly.",
+    "error_message": "❌ Error during sending. Try again or contact us directly.",
     "required_fields": "* Required fields",
     "suggestion": "Tip",
     "file_selected": "File selected",
     "max_files_error": "You can select a maximum of 5 files",
     "remove_file": "Remove file",
-    "file_info_note": "Files will be shared with you via email or other secure channel after form submission"
+    "file_info_note": "Supported: PDF, ZIP, images, documents (max 10MB)",
+    "form_header_title": "Request a quote for {{service}}",
+    "form_header_description": "Fill out the form and we will contact you within 24 hours"
   },
   "footer": {
     "sections": {

@@ -55,21 +55,33 @@
   "offers": {
     "title": "Kvalitetni personalizovani proizvodi i digitalne usluge na najvišem nivou",
     "services": {
-      "3d_printing": {
-        "title": "3D Štampa",
-        "description": "Prilagođeni objekti štampani 3D tehnologijom sa kvalitetnim materijalima."
+      "3d_design": {
+        "title": "3D Design & 3D Štampa",
+        "subtitle": "Od ideje do realizacije gotovog proizvoda",
+        "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i personalizovani dizajni za sve potrebe.",
+        "promotional": "🚀 Pretvorite svoje ideje u stvarnost sa profesionalnom 3D tehnologijom!",
+        "hero_note": "Možete priložiti skice, vizuelne reference ili postojeće 3D fajlove."
       },
       "gifts_pranks": {
-        "title": "Pokloni i Šale",
-        "description": "Originalni rođendanski pokloni i zabavne šale."
+        "title": "Ideje za Poklone",
+        "subtitle": "Personalizovana iznenađenja za svaku priliku",
+        "description": "Opišite tip poklona ili šale, primaoca i željeni ton. Možemo krenuti od vašeg koncepta ili kreirati jedan ispočetka.",
+        "promotional": "🎁 Stvorite nezaboravne uspomene sa originalnim i personalizovanim poklonima!",
+        "hero_note": "Možete priložiti fotografije primaoca ili primere stila koji preferirate."
       },
       "apparel": {
         "title": "Odeća i Prilagođeni Proizvodi",
-        "description": "Prilagođena odeća i dodaci za svaki stil i priliku."
+        "subtitle": "Odeća i dodaci po meri",
+        "description": "Navedite tip, količinu, boje, veličine i sve grafičke reference za razvoj vašeg personalizovanog projekta.",
+        "promotional": "👕 Izrazite svoj stil sa jedinstvenom odećom po meri!",
+        "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
       },
-      "websites_apps": {
-        "title": "Sajtovi i Aplikacije",
-        "description": "Digitalni marketing, upravljanje društvenim mrežama i reklamna grafika."
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Efikasna digitalna iskustva",
+        "description": "Moderni web sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online i postizanje vaših ciljeva.",
+        "promotional": "💻 Izgradite svoj digitalni uspeh sa profesionalnim i inovativnim rešenjima!",
+        "hero_note": "Podelite primere dizajna koji vam se sviđaju ili vaš postojeći brend."
       }
     }
   },
@@ -128,7 +140,7 @@
         "hero_note": "Otpremi trenutni logo, eventualne skice ili referentne moodboard-ove."
       },
       "gifts_pranks": {
-        "title": "Pokloni i Šale",
+        "title": "Ideje za Poklone",
         "subtitle": "Personalizovana iznenađenja za svaku priliku",
         "description": "Opiši tip poklona ili šale, primaoca i željeni ton. Možemo početi od tvog koncepta ili kreirati novi od nule.",
         "hero_note": "Možeš priložiti fotografije primaoca ili primere stila koji preferirate."
@@ -156,28 +168,37 @@
     "not_found_title": "Usluga nije pronađena",
     "not_found_description": "Tražena sekcija nije dostupna. Vratite se na početnu stranicu ili izaberite drugu uslugu iz dostupnih.",
     "back_to_home": "Nazad na početnu",
-    "name_label": "Ime *",
+    "name_label": "Puno Ime",
     "name_placeholder": "Unesite vaše puno ime",
-    "email_label": "Email *",
+    "email_label": "Email",
     "email_placeholder": "Unesite vašu email adresu",
-    "phone_label": "Telefon",
+    "phone_label": "Broj Telefona",
     "phone_placeholder": "Unesite vaš broj telefona",
-    "company_label": "Kompanija",
-    "company_placeholder": "Unesite ime vaše kompanije",
-    "details_label": "Detalji Projekta *",
-    "details_placeholder": "Opišite vaš projekat detaljno...",
+    "company_label": "Kompanija/Brend",
+    "company_placeholder": "Unesite ime vaše kompanije ili brenda",
+    "details_label": "Opis Projekta",
+    "details_placeholder": "Opišite vaš projekat, ciljeve, specifične zahteve...",
     "budget_label": "Budžet",
-    "file_label": "Priložite Fajl",
-    "file_button": "Izaberite Fajl",
+    "file_label": "Učitajte Fajlove",
+    "file_button": "📎 Izaberite Fajlove",
     "no_file": "Nijedan fajl nije izabran",
+    "files_selected": "{{count}} fajlova izabrano",
     "submit_button": "Pošaljite Zahtev",
-    "reset_button": "Resetujte Formu",
+    "reset_button": "Obriši",
     "submitting": "Slanje u toku...",
     "success_title": "Zahtev je uspešno poslat!",
-    "success_message": "Uskoro ćemo vas kontaktirati da razgovaramo o vašem projektu.",
+    "success_message": "✅ Zahtev je uspešno poslat! Kontaktiraćemo vas u roku od 24 sata.",
     "error_title": "Greška pri slanju zahteva",
-    "error_message": "Molimo pokušajte ponovo ili nas kontaktirajte direktno.",
+    "error_message": "❌ Greška tokom slanja. Pokušajte ponovo ili nas kontaktirajte direktno.",
     "required_fields": "* Obavezna polja",
+    "suggestion": "Savet",
+    "file_selected": "Fajl izabran",
+    "max_files_error": "Možete izabrati maksimalno 5 fajlova",
+    "remove_file": "Ukloni fajl",
+    "file_info_note": "Podržano: PDF, ZIP, slike, dokumenti (max 10MB)",
+    "form_header_title": "Zatražite ponudu za {{service}}",
+    "form_header_description": "Popunite formu i kontaktiraćemo vas u roku od 24 sata"
+  },
     "suggestion": "Savet",
     "file_selected": "Izabran fajl",
     "max_files_error": "Možete izabrati maksimalno 5 fajlova",

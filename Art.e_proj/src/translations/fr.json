@@ -55,21 +55,33 @@
   "offers": {
     "title": "Produits personnalisés de qualité et services numériques de pointe",
     "services": {
-      "3d_printing": {
-        "title": "Impression 3D",
-        "description": "Objets personnalisés imprimés en 3D avec des matériaux de qualité."
+      "3d_design": {
+        "title": "3D Design & Impression 3D",
+        "subtitle": "De l'idée à la réalisation du produit fini",
+        "description": "Du modèle numérique à l'objet réel : créations uniques, prototypes, gadgets et designs personnalisés pour tous les besoins.",
+        "promotional": "🚀 Transformez vos idées en réalité avec la technologie 3D professionnelle !",
+        "hero_note": "Vous pouvez joindre des croquis, des références visuelles ou des fichiers 3D existants."
       },
       "gifts_pranks": {
-        "title": "Cadeaux & Farces",
-        "description": "Cadeaux d'anniversaire originaux et farces amusantes."
+        "title": "Idées Cadeaux",
+        "subtitle": "Surprises personnalisées pour chaque occasion",
+        "description": "Décrivez le type de cadeau ou de farce, le destinataire et le ton souhaité. Nous pouvons partir de votre concept ou en créer un de zéro.",
+        "promotional": "🎁 Créez des souvenirs inoubliables avec des cadeaux originaux et personnalisés !",
+        "hero_note": "Vous pouvez joindre des photos du destinataire ou des exemples du style que vous préférez."
       },
       "apparel": {
         "title": "Vêtements & Personnalisation",
-        "description": "Vêtements et accessoires personnalisés pour chaque style et occasion."
+        "subtitle": "Vêtements et accessoires sur mesure",
+        "description": "Indiquez le type, la quantité, les couleurs, les tailles et toute référence graphique pour développer votre projet personnalisé.",
+        "promotional": "👕 Exprimez votre style avec des vêtements uniques et sur mesure !",
+        "hero_note": "Nous acceptons les maquettes, logos et tableaux de tailles en PDF, PNG, SVG ou AI."
       },
-      "websites_apps": {
-        "title": "Sites Web & Apps",
-        "description": "Marketing numérique, gestion des réseaux sociaux et graphisme publicitaire."
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Expériences numériques efficaces",
+        "description": "Sites Web modernes, applications intuitives et solutions graphiques pour faire croître votre marque en ligne et atteindre vos objectifs.",
+        "promotional": "💻 Construisez votre succès numérique avec des solutions professionnelles et innovantes !",
+        "hero_note": "Partagez des exemples de design que vous aimez ou votre marque existante."
       }
     }
   },
@@ -128,7 +140,7 @@
         "hero_note": "Téléchargez votre logo actuel, d'éventuelles esquisses ou moodboards de référence."
       },
       "gifts_pranks": {
-        "title": "Cadeaux & Farces",
+        "title": "Idées Cadeaux",
         "subtitle": "Surprises personnalisées pour chaque occasion",
         "description": "Décrivez le type de cadeau ou farce, le destinataire et le ton souhaité. Nous pouvons partir de votre concept ou en créer un de zéro.",
         "hero_note": "Vous pouvez joindre des photos du destinataire ou des exemples du style que vous préférez."
@@ -156,28 +168,37 @@
     "not_found_title": "Service non trouvé",
     "not_found_description": "La section demandée n'est pas disponible. Retournez à l'accueil ou choisissez un autre service parmi ceux disponibles.",
     "back_to_home": "Retour à l'accueil",
-    "name_label": "Nom *",
+    "name_label": "Nom Complet",
     "name_placeholder": "Entrez votre nom complet",
-    "email_label": "Email *",
+    "email_label": "Email",
     "email_placeholder": "Entrez votre adresse email",
-    "phone_label": "Téléphone",
+    "phone_label": "Numéro de Téléphone",
     "phone_placeholder": "Entrez votre numéro de téléphone",
-    "company_label": "Entreprise",
-    "company_placeholder": "Entrez le nom de votre entreprise",
-    "details_label": "Détails du Projet *",
-    "details_placeholder": "Décrivez votre projet en détail...",
+    "company_label": "Entreprise/Marque",
+    "company_placeholder": "Entrez le nom de votre entreprise ou marque",
+    "details_label": "Description du Projet",
+    "details_placeholder": "Décrivez votre projet, objectifs, exigences spécifiques...",
     "budget_label": "Budget",
-    "file_label": "Joindre un Fichier",
-    "file_button": "Choisir un Fichier",
+    "file_label": "Télécharger des Fichiers",
+    "file_button": "📎 Choisir des Fichiers",
     "no_file": "Aucun fichier sélectionné",
+    "files_selected": "{{count}} fichiers sélectionnés",
     "submit_button": "Envoyer la Demande",
-    "reset_button": "Réinitialiser le Formulaire",
+    "reset_button": "Effacer",
     "submitting": "Envoi en cours...",
     "success_title": "Demande envoyée avec succès !",
-    "success_message": "Nous vous contacterons bientôt pour discuter de votre projet.",
+    "success_message": "✅ Demande envoyée avec succès ! Nous vous contacterons dans les 24 heures.",
     "error_title": "Erreur lors de l'envoi de la demande",
-    "error_message": "Veuillez réessayer ou nous contacter directement.",
+    "error_message": "❌ Erreur lors de l'envoi. Réessayez ou contactez-nous directement.",
     "required_fields": "* Champs obligatoires",
+    "suggestion": "Conseil",
+    "file_selected": "Fichier sélectionné",
+    "max_files_error": "Vous pouvez sélectionner un maximum de 5 fichiers",
+    "remove_file": "Supprimer le fichier",
+    "file_info_note": "Supportés : PDF, ZIP, images, documents (max 10MB)",
+    "form_header_title": "Demander un devis pour {{service}}",
+    "form_header_description": "Remplissez le formulaire et nous vous contacterons dans les 24 heures"
+  },
     "suggestion": "Conseil",
     "file_selected": "Fichier sélectionné",
     "max_files_error": "Vous pouvez sélectionner un maximum de 5 fichiers",

@@ -38,43 +38,74 @@ npm run lint
 npm run lint:fix
 ```
 
-### Configurazione invio email (EmailJS)
+### Configurazione invio email (Nodemailer)
 
-1. Crea un account su [EmailJS](https://www.emailjs.com/) e prendi nota di:
-	- **Service ID** (es. `service_creo`)
-	- **Template ID** per il template che userai
-	- **Public Key** (es. `ABCD1234xyz`)
-2. Duplica il file `.env.example` in `.env.local` e inserisci i valori EmailJS:
+1. **Configurazione Backend:**
+   - Il backend Node.js è nella cartella `backend/`
+   - Configura il file `backend/.env` con le credenziali SMTP:
 
-```powershell
-copy .env.example .env.local
+```env
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=tua-email@gmail.com
+EMAIL_APP_PASSWORD=password-app-gmail
+EMAIL_TO=destinatario@gmail.com
+EMAIL_TO_NAME=Nome Destinatario
 ```
 
-3. Compila in `.env.local` solo gli ID obbligatori (`VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`).
-	- I campi `VITE_EMAILJS_TO_EMAIL` e `VITE_EMAILJS_TO_NAME` sono facoltativi: usali se vuoi sovrascrivere il destinatario definito nel template EmailJS.
-4. Riavvia il server di sviluppo (`npm run dev`).
+2. **Avvio dei server:**
+```powershell
+# Terminal 1 - Backend
+cd backend
+npm install
+npm start
 
-> ℹ️ Nel template EmailJS assicurati di mappare le variabili: `service_id`, `service_title`, `service_subtitle`, `requester_name`, `requester_email`, `requester_phone`, `requester_company`, `project_budget`, `project_details`, `file_name`, `file_attachment`, `reply_to`, `from_name`, `from_email`. I placeholder `to_email` e `to_name` sono necessari solo se imposti anche le relative variabili facoltative nel file `.env.local`.
+# Terminal 2 - Frontend  
+npm run dev
+```
+
+3. **Password App Gmail:**
+   - Attiva la verifica in due passaggi su Gmail
+   - Genera una password app dalle impostazioni di sicurezza
+   - Usa quella password nel campo `EMAIL_APP_PASSWORD`
 
 ## 📁 Struttura Progetto
 
 ```
 src/
 ├── components/
-│   ├── NavbarSectionR.jsx    # Navbar con dropdown categorie
+│   ├── NavbarSectionR.jsx    # Navbar con dropdown categorie e traduzione
 │   ├── NavbarSectionR.css    # Stili navbar
 │   ├── HeroSectionR.jsx      # Carosello hero con animazioni
 │   ├── HeroSectionR.css      # Stili carosello
 │   ├── footer.jsx            # Footer completo con newsletter
 │   ├── footer.css            # Stili footer
-│   ├── ServiceForms.jsx      # Form di richiesta progetto per servizio
-│   ├── ServiceForms.css      # Stili form servizio
-│   └── Offers.jsx            # Card offerte con animazioni hover
+│   ├── Offers.jsx            # Card offerte con animazioni hover
+│   ├── Offers.css            # Stili offerte ottimizzati
+│   └── LanguageSwitcher.jsx  # Selettore lingua con bandiere
 ├── services/
-│   └── emailClient.js        # Integrazione EmailJS per invio form
+│   └── nodemailerClient.js   # Client per invio email via backend
+├── contexts/
+│   └── LanguageContext.js    # Context per sistema traduzioni
+├── translations/
+│   ├── it.json               # Traduzioni italiane
+│   ├── en.json               # Traduzioni inglesi
+│   ├── sr.json               # Traduzioni serbe
+│   ├── de.json               # Traduzioni tedesche
+│   └── fr.json               # Traduzioni francesi
+├── pages/
+│   └── ServiceRequestPage.jsx # Pagina form servizi con upload file
+├── data/
+│   └── serviceSections.js    # Configurazione servizi
 ├── App.jsx                   # Componente principale
 ├── main.jsx                  # Entry point
 └── index.css                 # Stili globali
+
+backend/
+├── server.js                 # Server Express con Nodemailer
+├── package.json              # Dipendenze backend
+├── .env                      # Configurazione SMTP
+└── uploads/                  # Cartella file temporanei
 ```
 
 ## 🎨 Design System

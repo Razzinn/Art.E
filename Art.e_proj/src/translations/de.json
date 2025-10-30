@@ -55,21 +55,33 @@
   "offers": {
     "title": "Hochwertige personalisierte Produkte und modernste digitale Dienstleistungen",
     "services": {
-      "3d_printing": {
-        "title": "3D Druck",
-        "description": "Maßgeschneiderte Objekte im 3D-Druck mit hochwertigen Materialien."
+      "3d_design": {
+        "title": "3D Design & 3D Druck",
+        "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
+        "description": "Vom digitalen Modell zum realen Objekt: einzigartige Kreationen, Prototypen, Gadgets und personalisierte Designs für jeden Bedarf.",
+        "promotional": "🚀 Verwandeln Sie Ihre Ideen mit professioneller 3D-Technologie in die Realität!",
+        "hero_note": "Sie können Skizzen, visuelle Referenzen oder vorhandene 3D-Dateien anhängen."
       },
       "gifts_pranks": {
-        "title": "Geschenke & Streiche",
-        "description": "Originelle Geburtstagsgeschenke und lustige Streiche."
+        "title": "Geschenkideen",
+        "subtitle": "Personalisierte Überraschungen für jeden Anlass",
+        "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
+        "promotional": "🎁 Schaffen Sie unvergessliche Erinnerungen mit originellen und personalisierten Geschenken!",
+        "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
       },
       "apparel": {
         "title": "Kleidung & Maßanfertigung",
-        "description": "Maßgeschneiderte Kleidung und Accessoires für jeden Stil und Anlass."
+        "subtitle": "Maßgeschneiderte Kleidung und Accessoires",
+        "description": "Geben Sie Typ, Menge, Farben, Größen und grafische Referenzen an, um Ihr personalisiertes Projekt zu entwickeln.",
+        "promotional": "👕 Drücken Sie Ihren Stil mit einzigartiger und maßgeschneiderter Kleidung aus!",
+        "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF, PNG, SVG oder AI."
       },
-      "websites_apps": {
-        "title": "Websites & Apps",
-        "description": "Digitales Marketing, Social Media Management und Werbegrafik."
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erfahrungen",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",
+        "promotional": "💻 Bauen Sie Ihren digitalen Erfolg mit professionellen und innovativen Lösungen auf!",
+        "hero_note": "Teilen Sie Design-Beispiele, die Ihnen gefallen, oder Ihre bestehende Marke mit."
       }
     }
   },
@@ -128,7 +140,7 @@
         "hero_note": "Laden Sie Ihr aktuelles Logo, eventuelle Skizzen oder Referenz-Moodboards hoch."
       },
       "gifts_pranks": {
-        "title": "Geschenke & Streiche",
+        "title": "Geschenkideen",
         "subtitle": "Personalisierte Überraschungen für jeden Anlass",
         "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
         "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
@@ -156,33 +168,36 @@
     "not_found_title": "Service nicht gefunden",
     "not_found_description": "Der angeforderte Bereich ist nicht verfügbar. Kehren Sie zur Startseite zurück oder wählen Sie einen anderen verfügbaren Service.",
     "back_to_home": "Zurück zur Startseite",
-    "name_label": "Name *",
+    "name_label": "Vollständiger Name",
     "name_placeholder": "Geben Sie Ihren vollständigen Namen ein",
-    "email_label": "E-Mail *",
+    "email_label": "E-Mail",
     "email_placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
-    "phone_label": "Telefon",
+    "phone_label": "Telefonnummer",
     "phone_placeholder": "Geben Sie Ihre Telefonnummer ein",
-    "company_label": "Unternehmen",
-    "company_placeholder": "Geben Sie Ihren Firmennamen ein",
-    "details_label": "Projektdetails *",
-    "details_placeholder": "Beschreiben Sie Ihr Projekt im Detail...",
+    "company_label": "Unternehmen/Marke",
+    "company_placeholder": "Geben Sie Ihren Firmen- oder Markennamen ein",
+    "details_label": "Projektbeschreibung",
+    "details_placeholder": "Beschreiben Sie Ihr Projekt, Ziele, spezifische Anforderungen...",
     "budget_label": "Budget",
-    "file_label": "Datei anhängen",
-    "file_button": "Datei auswählen",
-    "no_file": "Keine Datei ausgewählt",
+    "file_label": "Dateien hochladen",
+    "file_button": "📎 Dateien auswählen",
+    "no_file": "Keine Dateien ausgewählt",
+    "files_selected": "{{count}} Dateien ausgewählt",
     "submit_button": "Anfrage senden",
-    "reset_button": "Formular zurücksetzen",
+    "reset_button": "Löschen",
     "submitting": "Wird gesendet...",
     "success_title": "Anfrage erfolgreich gesendet!",
-    "success_message": "Wir werden Sie bald kontaktieren, um Ihr Projekt zu besprechen.",
+    "success_message": "✅ Anfrage erfolgreich gesendet! Wir werden Sie innerhalb von 24 Stunden kontaktieren.",
     "error_title": "Fehler beim Senden der Anfrage",
-    "error_message": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
+    "error_message": "❌ Fehler beim Senden. Versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
     "required_fields": "* Pflichtfelder",
     "suggestion": "Tipp",
     "file_selected": "Datei ausgewählt",
     "max_files_error": "Sie können maximal 5 Dateien auswählen",
     "remove_file": "Datei entfernen",
-    "file_info_note": "Dateien werden nach dem Absenden des Formulars per E-Mail oder anderen sicheren Kanal mit Ihnen geteilt"
+    "file_info_note": "Unterstützt: PDF, ZIP, Bilder, Dokumente (max 10MB)",
+    "form_header_title": "Angebot anfordern für {{service}}",
+    "form_header_description": "Füllen Sie das Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden"
   },
   "footer": {
     "sections": {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getServiceBySlug } from '../data/serviceSections';
-import { sendServiceFormEmail } from '../services/emailClient';
+import { sendServiceFormEmail } from '../services/nodemailerClient';
 import { useTranslation } from '../contexts/LanguageContext';
 import '../components/ServiceForms.css';
 
@@ -105,7 +105,7 @@ export default function ServiceRequestPage() {
     <section className="service-forms" aria-labelledby="service-request-title">
       <div className="service-forms__container">
         <nav className="service-forms__breadcrumbs" aria-label="Percorso di navigazione">
-          <Link to="/">{t('navbar.home')}</Link>
+          <Link to="/">Home</Link>
           <span aria-hidden="true">/</span>
           <span>{service.title}</span>
         </nav>
@@ -114,7 +114,7 @@ export default function ServiceRequestPage() {
           <h2 id="service-request-title">{service.title}</h2>
           <p>{service.subtitle}</p>
           {service.heroNote && (
-            <p className="service-forms__note">{t('service_form.suggestion')}: {service.heroNote}</p>
+            <p className="service-forms__note">Suggerimento: {service.heroNote}</p>
           )}
         </header>
 

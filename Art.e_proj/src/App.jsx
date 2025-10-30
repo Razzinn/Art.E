@@ -6,7 +6,7 @@ import HeroSectionR from './components/HeroSectionR';
 import Offers from './components/Offers';
 import Design3D from './componentisecondarisezioni/3DDesignStampa3D.jsx';
 import Footer from './components/footer';
-import ServiceRequestPage from './pages/ServiceRequestPage';
+import ServiceRequestPage from './pages/ServiceRequestPageNew';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 

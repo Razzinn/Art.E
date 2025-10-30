@@ -36,7 +36,7 @@ const NAV_CATEGORIES = {
 
 const SERVICE_ROUTE_MAP = {
   'Restyling Logo': '/servizi/restyling-logo',
-  'Regali e Prank': '/servizi/regali-e-prank',
+  'Idee Regalo': '/servizi/regali-e-prank',
   'Abbigliamento Custom': '/servizi/abbigliamento-e-custom',
   'Servizi Digitali': '/servizi/servizi-digitali',
 };
@@ -59,8 +59,6 @@ const NavbarSectionR = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // Rimosso l'autofocus per evitare il bordo fisso sul primo elemento
-
   const handleCategoryClick = (mainCategory, subCategory) => {
     setSelectedCategory(subCategory);
     setIsDropdownOpen(false);
@@ -70,7 +68,6 @@ const NavbarSectionR = () => {
     }
   };
 
-  // Suggerimenti di ricerca basati sulle categorie
   useEffect(() => {
     const term = (searchTerm || '').trim().toLowerCase();
     if (!term) {

@@ -55,21 +55,33 @@
   "offers": {
     "title": "Prodotti personalizzati di qualità e servizi digitali all'avanguardia",
     "services": {
-      "3d_printing": {
-        "title": "Stampa 3D",
-        "description": "Oggetti personalizzati stampati 3D con materiali di qualità."
+      "3d_design": {
+        "title": "3D Design & Stampa 3D",
+        "subtitle": "Dall'idea alla realizzazione del prodotto finito",
+        "description": "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati per ogni esigenza.",
+        "promotional": "🚀 Trasforma le tue idee in realtà con la tecnologia 3D professionale!",
+        "hero_note": "Puoi allegare schizzi, riferimenti visivi o file 3D esistenti."
       },
       "gifts_pranks": {
-        "title": "Regali e Prank",
-        "description": "Regali di compleanno originali e scherzi divertenti."
+        "title": "Idee Regalo",
+        "subtitle": "Sorprese personalizzate per ogni occasione",
+        "description": "Descrivi il tipo di regalo o scherzo, il destinatario e il tono desiderato. Possiamo partire da un tuo concept o crearne uno da zero.",
+        "promotional": "🎁 Crea ricordi indimenticabili con regali originali e personalizzati!",
+        "hero_note": "Puoi allegare foto del destinatario o esempi dallo stile che preferisci."
       },
       "apparel": {
-        "title": "Abbigliamento & Custom",
-        "description": "Abbigliamento e accessori personalizzati per ogni stile e occasione."
+        "title": "Abbigliamento e Custom",
+        "subtitle": "Capi e accessori su misura",
+        "description": "Indica tipologia, quantità, colori, taglie e qualsiasi riferimento grafico per sviluppare il tuo progetto personalizzato.",
+        "promotional": "👕 Esprimi il tuo stile con abbigliamento unico e su misura!",
+        "hero_note": "Accettiamo mockup, loghi e tabelle taglie in PDF, PNG, SVG o AI."
       },
-      "websites_apps": {
-        "title": "Siti Web & App",
-        "description": "Digital marketing, social media management e grafica pubblicitaria."
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Esperienze digitali efficaci",
+        "description": "Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online e raggiungere i tuoi obiettivi.",
+        "promotional": "💻 Costruisci il tuo successo digitale con soluzioni professionali e innovative!",
+        "hero_note": "Condividi esempi di design che ti piacciono o il tuo brand esistente."
       }
     }
   },
@@ -128,7 +140,7 @@
         "hero_note": "Carica il logo attuale, eventuali bozzetti o moodboard di riferimento."
       },
       "gifts_pranks": {
-        "title": "Regali e Prank",
+        "title": "Idee Regalo",
         "subtitle": "Sorprese personalizzate per ogni occasione",
         "description": "Descrivi il tipo di regalo o scherzo, il destinatario e il tono desiderato. Possiamo partire da un tuo concept o crearne uno da zero.",
         "hero_note": "Puoi allegare foto del destinatario o esempi dallo stile che preferisci."
@@ -156,33 +168,36 @@
     "not_found_title": "Servizio non trovato",
     "not_found_description": "La sezione richiesta non è disponibile. Torna alla home o scegli un altro servizio tra quelli disponibili.",
     "back_to_home": "Torna alla home",
-    "name_label": "Nome *",
-    "name_placeholder": "Inserisci il tuo nome completo",
-    "email_label": "Email *",
-    "email_placeholder": "Inserisci il tuo indirizzo email",
-    "phone_label": "Telefono",
-    "phone_placeholder": "Inserisci il tuo numero di telefono",
-    "company_label": "Azienda",
-    "company_placeholder": "Inserisci il nome della tua azienda",
-    "details_label": "Dettagli del Progetto *",
-    "details_placeholder": "Descrivi il tuo progetto in dettaglio...",
+    "name_label": "Nome e Cognome",
+    "name_placeholder": "Mario Rossi",
+    "email_label": "Email",
+    "email_placeholder": "mario.rossi@email.com",
+    "phone_label": "Numero di Telefono",
+    "phone_placeholder": "+39 123 456 7890",
+    "company_label": "Azienda/Brand",
+    "company_placeholder": "Nome azienda o brand",
+    "details_label": "Descrizione del Progetto",
+    "details_placeholder": "Descrivi il tuo progetto, obiettivi, requisiti specifici...",
     "budget_label": "Budget",
-    "file_label": "Allega File",
-    "file_button": "Scegli File",
+    "file_label": "Carica File",
+    "file_button": "📎 Scegli File",
     "no_file": "Nessun file selezionato",
+    "files_selected": "{{count}} file selezionati",
     "submit_button": "Invia Richiesta",
-    "reset_button": "Resetta Modulo",
+    "reset_button": "Cancella",
     "submitting": "Invio in corso...",
     "success_title": "Richiesta inviata con successo!",
-    "success_message": "Ti contatteremo presto per discutere del tuo progetto.",
+    "success_message": "✅ Richiesta inviata con successo! Ti contatteremo entro 24 ore.",
     "error_title": "Errore nell'invio della richiesta",
-    "error_message": "Riprova o contattaci direttamente.",
+    "error_message": "❌ Errore durante l'invio. Riprova o contattaci direttamente.",
     "required_fields": "* Campi obbligatori",
     "suggestion": "Suggerimento",
     "file_selected": "File selezionato",
     "max_files_error": "Puoi selezionare massimo 5 file",
     "remove_file": "Rimuovi file",
-    "file_info_note": "I file verranno condivisi con te tramite email o altro canale sicuro dopo l'invio del modulo"
+    "file_info_note": "Supportati: PDF, ZIP, immagini, documenti (max 10MB)",
+    "form_header_title": "Richiedi un preventivo per {{service}}",
+    "form_header_description": "Compila il form e ti contatteremo entro 24 ore"
   },
   "footer": {
     "sections": {

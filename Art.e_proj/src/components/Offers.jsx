@@ -7,7 +7,7 @@ const SERVICE_ITEMS = [
   {
     titleKey: 'offers.services.3d_printing.title',
     descriptionKey: 'offers.services.3d_printing.description',
-    slug: null,
+    slug: '3d-design-stampa-3d',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -43,7 +43,7 @@ const SERVICE_ITEMS = [
   {
     titleKey: 'offers.services.websites_apps.title',
     descriptionKey: 'offers.services.websites_apps.description',
-    slug: null,
+    slug: 'web-e-app-design',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
