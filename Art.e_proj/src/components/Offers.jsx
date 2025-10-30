@@ -70,7 +70,15 @@ export default function Offers() {
   const services = useMemo(() => SERVICE_ITEMS, []);
 
   const goToService = (slug) => {
-    navigate(`/servizi/${slug}`);
+    if (!slug) return;
+    
+    // Solo "Stampa 3D" ha una pagina dedicata, tutti gli altri usano il ServiceRequestPage
+    if (slug === 'stampa-3d') {
+      navigate('/stampa-3d');
+    } else {
+      // Tutti gli altri servizi (inclusi regali-e-prank) usano il form
+      navigate(`/servizi/${slug}`);
+    }
   };
 
   const handleCardKeyDown = (event, slug) => {

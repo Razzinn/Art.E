@@ -1,0 +1,303 @@
+/* --- HERO BASE --- */
+.design3d-hero {
+  position: relative;
+  height: 88vh;
+  min-height: 440px;
+  max-height: 900px;
+  overflow: hidden;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- SFONDO CON MOVIMENTO --- */
+.design3d-hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 88vh;
+  background-image: url('/sfondoslide1creo.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.85) contrast(1.1) saturate(1.2);
+  transform: scale(1.04);
+  animation: hero-zoom 14s ease-in-out infinite alternate;
+  transition: transform 0.3s ease-out;
+  z-index: 0;
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1); filter: brightness(0.85) contrast(1.1); }
+  to { transform: scale(1.06); filter: brightness(0.95) contrast(1.2); }
+}
+
+/* --- LUCE IN MOVIMENTO --- */
+.design3d-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 70%);
+  mix-blend-mode: overlay;
+  animation: hero-light-move 22s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hero-light-move {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(10%, -8%) rotate(12deg); }
+}
+
+/* --- CONTENUTO PRINCIPALE --- */
+.design3d-content-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 88%;
+  z-index: 7;
+  flex-wrap: nowrap;
+}
+
+/* --- BOX TESTO CON AURA --- */
+.design3d-content {
+  flex: 1;
+  max-width: 55%;
+  padding: 38px 46px;
+  background: rgba(15, 23, 42, 0.78);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    0 0 25px rgba(59, 130, 246, 0.15),
+    0 0 60px rgba(96, 165, 250, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  overflow: hidden;
+  animation: hero-glow 12s ease-in-out infinite alternate;
+  transition: transform 0.6s cubic-bezier(.19,1,.22,1), box-shadow 0.6s ease;
+  position: relative;
+}
+
+/* --- AURA CIRCOLARE --- */
+.design3d-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.18), transparent 60%);
+  filter: blur(60px);
+  animation: aura-pulse 14s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes aura-pulse {
+  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* --- RESPIRO LUMINOSO --- */
+@keyframes hero-glow {
+  0% {
+    box-shadow:
+      0 0 25px rgba(59, 130, 246, 0.15),
+      0 0 60px rgba(96, 165, 250, 0.08),
+      inset 0 0 8px rgba(255, 255, 255, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 0 35px rgba(96, 165, 250, 0.25),
+      0 0 80px rgba(59, 130, 246, 0.15),
+      inset 0 0 12px rgba(255, 255, 255, 0.08);
+  }
+  100% {
+    box-shadow:
+      0 0 25px rgba(59, 130, 246, 0.15),
+      0 0 60px rgba(96, 165, 250, 0.08),
+      inset 0 0 8px rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* --- HOVER GLOW --- */
+.design3d-content:hover {
+  box-shadow:
+    0 0 45px rgba(96, 165, 250, 0.25),
+    0 0 85px rgba(59, 130, 246, 0.15),
+    inset 0 0 14px rgba(255, 255, 255, 0.1);
+}
+
+/* --- TESTI --- */
+.design3d-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 0 0 14px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #f97316, #fde047);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 8s ease-in-out infinite alternate;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  line-height: 1.1;
+}
+
+@keyframes gradient-move {
+  from { background-position: 0%; }
+  to { background-position: 100%; }
+}
+
+.design3d-subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin: 0 0 18px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  letter-spacing: 0.02em;
+}
+
+.design3d-description,
+.design3d-description-two,
+.design3d-description-three,
+.design3d-description-four {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: #f8fafc;
+  font-weight: 400;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+.design3d-description strong,
+.design3d-description-two strong {
+  color: #60a5fa;
+}
+
+.design3d-description em,
+.design3d-description-two em {
+  color: #fbbf24;
+  font-style: normal;
+}
+
+.design3d-description-important {
+  font-weight: 600;
+  color: #fde047;
+  font-size: 1.15rem;
+  margin-top: 16px;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.4);
+}
+
+.design3d-description-important span {
+  color: #f97316;
+}
+
+/* --- VIDEO --- */
+.design3d-video {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 5;
+  position: relative;
+}
+
+/* Effetto morbido senza zoom sul video */
+.design3d-video:hover {
+  transform: scale(1.015); /* leggerissimo ingrandimento generale */
+}
+
+/* Player video perfettamente visibile */
+.design3d-video-player {
+  width: 100%;
+  height: 100%;
+  max-width: 640px; /* leggermente più grande per più impatto */
+  max-height: 440px;
+  object-fit: contain; /* mostra tutto il video */
+  object-position: right center; /* allineato a destra */
+  border-radius: 20px;
+  filter: brightness(0.98) contrast(1.08) saturate(1.1);
+  background-color: transparent;
+  transition: filter 0.3s ease; /* solo lieve variazione luminosa */
+  pointer-events: none; /* disabilita ogni interazione (niente overlay o controlli che spuntano) */
+}
+
+/* Nessun effetto di zoom o movimento */
+.design3d-video-player:hover {
+  filter: brightness(1) contrast(1.1) saturate(1.15);
+  transform: none; /* garantisce che non si muova mai */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .design3d-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .design3d-content {
+    max-width: 85%;
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  .design3d-video {
+    justify-content: center;
+  }
+
+  .design3d-video-player {
+    max-width: 540px;
+  }
+
+  .design3d-title { font-size: 2.2rem; }
+  .design3d-subtitle { font-size: 1.2rem; }
+}
+
+@media (max-width: 768px) {
+  .design3d-hero,
+  .design3d-hero-slide {
+    height: 65vh;
+  }
+
+  .design3d-content {
+    max-width: 92%;
+    padding: 20px;
+  }
+
+  .design3d-video-player {
+    max-width: 420px;
+  }
+
+  .design3d-title { font-size: 1.8rem; }
+  .design3d-subtitle { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .design3d-hero,
+  .design3d-hero-slide {
+    height: 50vh;
+  }
+
+  .design3d-content {
+    padding: 14px;
+  }
+
+  .design3d-video-player {
+    max-width: 320px;
+  }
+
+  .design3d-title { font-size: 1.3rem; }
+  .design3d-subtitle { font-size: 0.9rem; }
+  .design3d-description { font-size: 0.83rem; }
+}

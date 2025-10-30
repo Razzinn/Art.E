@@ -76,28 +76,19 @@ const NavbarSectionR = () => {
       return;
     }
 
-    const results = [];
-    Object.entries(NAV_CATEGORIES).forEach(([mainCategory, subCategories]) => {
-      subCategories.forEach((subCategory) => {
-        const sub = String(subCategory);
-        if (sub.toLowerCase().includes(term)) {
-          results.push({ mainCategory, subCategory: sub });
-        }
-      });
-    });
+    const results = MENU_ITEMS.filter(item => 
+      item.label.toLowerCase().includes(term)
+    ).slice(0, 8);
 
-    setSearchSuggestions(results.slice(0, 8));
+    setSearchSuggestions(results);
     setIsSuggestOpen(results.length > 0);
   }, [searchTerm]);
 
   const handleSuggestionClick = (suggestion) => {
-    setSelectedCategory(suggestion.subCategory);
+    setSelectedCategory(suggestion.label);
     setSearchTerm('');
     setIsSuggestOpen(false);
-    const targetRoute = SERVICE_ROUTE_MAP[suggestion.subCategory];
-    if (targetRoute) {
-      navigate(targetRoute);
-    }
+    navigate(suggestion.route);
   };
 
   // Chiude il dropdown quando si clicca fuori o si preme ESC
@@ -128,7 +119,11 @@ const NavbarSectionR = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="logo" aria-label="CREO - Torna alla homepage">
-          <span aria-hidden="true">CREO😊</span>
+          <span aria-hidden="true" className="logo-inner">
+            <span className="logo-text">CREO</span>
+            <span className="ink-particles" aria-hidden="true"></span>
+            <span className="logo-emoji">😉</span>
+          </span>
           <span className="sr-only">CREO Marketplace</span>
         </Link>
 
@@ -150,29 +145,28 @@ const NavbarSectionR = () => {
             
             {isDropdownOpen && (
               <div 
-                className="dropdown-menu" 
+                className="dropdown-menu single-column" 
                 id="categories-menu"
                 role="menu"
                 aria-labelledby="categories-label"
               >
-                {Object.entries(NAV_CATEGORIES).map(([mainCategory, subCategories]) => (
-                  <div key={mainCategory} className="dropdown-section">
-                    <h3 className="dropdown-section-title">{mainCategory}</h3>
-                    <div className="dropdown-section-items" role="group" aria-label={mainCategory}>
-                      {subCategories.map((subCategory) => (
-                        <button
-                          key={subCategory}
-                          className="dropdown-item"
-                          onClick={() => handleCategoryClick(mainCategory, subCategory)}
-                          role="menuitem"
-                          tabIndex={0}
-                        >
-                          {subCategory}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                <div className="menu-items">
+                  {MENU_ITEMS.map((item) => (
+                    <button
+                      key={item.label}
+                      className="menu-item"
+                      onClick={() => {
+                        setSelectedCategory(item.label);
+                        setIsDropdownOpen(false);
+                        navigate(item.route);
+                      }}
+                      role="menuitem"
+                      tabIndex={0}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>
