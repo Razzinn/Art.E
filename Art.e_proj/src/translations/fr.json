@@ -199,12 +199,6 @@
     "form_header_title": "Demander un devis pour {{service}}",
     "form_header_description": "Remplissez le formulaire et nous vous contacterons dans les 24 heures"
   },
-    "suggestion": "Conseil",
-    "file_selected": "Fichier sélectionné",
-    "max_files_error": "Vous pouvez sélectionner un maximum de 5 fichiers",
-    "remove_file": "Supprimer le fichier",
-    "file_info_note": "Les fichiers seront partagés avec vous par e-mail ou autre canal sécurisé après soumission du formulaire"
-  },
   "footer": {
     "sections": {
       "products": "Produits",

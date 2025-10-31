@@ -1,23 +1,23 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HeroSectionR.css';
 
 const HeroSectionR = ({ onOpenSubsection }) => {
-  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = React.useRef(null);
 
 
-  const slides = [
+  const slides = useMemo(() => [
     {
       id: 1,
       image: '/sfondoslide1creo.jpeg',
       alt: 'Progettazione 3D',
       title: '3D Design & Stampa 3D',
-      subtitle: 'Dall’idea alla realizzazione del prodotto finito',
+      subtitle: 'Dall\'idea alla realizzazione del prodotto finito',
       description:
         "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.",
       section: '3DDesignStampa3D',
+      colors: ['#2563EB', '#3B82F6', '#60A5FA'], // Blu per 3D/Tech
     },
     {
       id: 2,
@@ -28,6 +28,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
       section: 'Abbigliamento',
+      colors: ['#DC2626', '#EF4444', '#F87171'], // Rosso per abbigliamento
     },
     {
       id: 3,
@@ -38,6 +39,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
       section: 'WebAppDesign',
+      colors: ['#059669', '#10B981', '#34D399'], // Verde per digital/web
     },
     {
       id: 4,
@@ -48,8 +50,9 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
       section: 'IdeeRegalo',
+      colors: ['#7C3AED', '#8B5CF6', '#A78BFA'], // Viola per regali/creatività
     },
-  ];
+  ], []);
 
   const goToSlide = useCallback((index) => setCurrentSlide(index), []);
   const nextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % slides.length), [slides.length]);
@@ -59,6 +62,23 @@ const HeroSectionR = ({ onOpenSubsection }) => {
     const interval = setInterval(nextSlide, 3500);
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+  // Emetti evento quando cambia la slide per sincronizzare i colori con Offers
+  useEffect(() => {
+    const currentSlideData = slides[currentSlide];
+    if (currentSlideData && currentSlideData.colors) {
+      const event = new CustomEvent('carousel-change', {
+        detail: {
+          slide: {
+            colors: currentSlideData.colors,
+            id: currentSlideData.id,
+            section: currentSlideData.section
+          }
+        }
+      });
+      window.dispatchEvent(event);
+    }
+  }, [currentSlide, slides]);
 
   useEffect(() => {
     const handleKeyPress = (e) => {
@@ -184,7 +204,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
                   <div className={`slide-content${slide.id === 2 || slide.id === 4 ? ' align-right' : ' align-left'}`}>
                     <h2 className="slide-title">
                       <span className="hero-decor-line" aria-hidden="true"></span>
-                      {t(slide.titleKey)}
+                      {slide.title}
                     </h2>
                     {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
                     {slide.description && <p className="slide-description">{slide.description}</p>}

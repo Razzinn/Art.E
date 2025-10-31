@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
+import { SERVICE_SECTIONS } from '../data/serviceSections';
 import './NavbarSectionR.css';
 
 const NAV_CATEGORIES = {
@@ -41,6 +42,22 @@ const SERVICE_ROUTE_MAP = {
   'Servizi Digitali': '/servizi/servizi-digitali',
 };
 
+// Create menu items from service sections and nav categories
+const MENU_ITEMS = [
+  ...SERVICE_SECTIONS.map(section => ({
+    label: section.title,
+    slug: section.slug,
+    route: `/servizi/${section.slug}`
+  })),
+  ...Object.entries(NAV_CATEGORIES).flatMap(([category, items]) =>
+    items.map(item => ({
+      label: item,
+      category,
+      route: SERVICE_ROUTE_MAP[item] || '#'
+    }))
+  )
+];
+
 const NavbarSectionR = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -57,15 +74,6 @@ const NavbarSectionR = () => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const handleCategoryClick = (mainCategory, subCategory) => {
-    setSelectedCategory(subCategory);
-    setIsDropdownOpen(false);
-    const targetRoute = SERVICE_ROUTE_MAP[subCategory];
-    if (targetRoute) {
-      navigate(targetRoute);
-    }
   };
 
   useEffect(() => {

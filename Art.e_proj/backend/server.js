@@ -167,7 +167,7 @@ app.post('/api/send-email', upload.array('files', 5), async (req, res) => {
     let serviceData;
     try {
       serviceData = typeof service === 'string' ? JSON.parse(service) : service;
-    } catch (e) {
+    } catch {
       serviceData = { title: 'Servizio non specificato' };
     }
 
@@ -289,7 +289,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Gestione errori Multer
-app.use((error, req, res, next) => {
+app.use((error, req, res, _next) => {
   if (error instanceof multer.MulterError) {
     if (error.code === 'LIMIT_FILE_SIZE') {
       return res.status(400).json({ error: 'File troppo grande (max 10MB)' });

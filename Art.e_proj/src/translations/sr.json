@@ -199,12 +199,6 @@
     "form_header_title": "Zatražite ponudu za {{service}}",
     "form_header_description": "Popunite formu i kontaktiraćemo vas u roku od 24 sata"
   },
-    "suggestion": "Savet",
-    "file_selected": "Izabran fajl",
-    "max_files_error": "Možete izabrati maksimalno 5 fajlova",
-    "remove_file": "Ukloni fajl",
-    "file_info_note": "Fajlovi će biti podeljeni sa vama preko email-a ili drugog sigurnog kanala nakon slanja forme"
-  },
   "footer": {
     "sections": {
       "products": "Proizvodi",

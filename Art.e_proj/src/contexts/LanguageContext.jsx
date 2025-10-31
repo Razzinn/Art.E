@@ -50,7 +50,7 @@ export const LanguageProvider = ({ children }) => {
       const translationModule = await import(`../translations/${langCode}.json`);
       setTranslations(translationModule.default);
     } catch (error) {
-      console.warn(`Traduzioni non trovate per ${langCode}, utilizzo inglese`);
+      console.warn(`Traduzioni non trovate per ${langCode}, utilizzo inglese`, error);
       // Fallback all'inglese se la lingua non è disponibile
       if (langCode !== 'en') {
         const fallbackModule = await import(`../translations/en.json`);
@@ -88,6 +88,11 @@ export const LanguageProvider = ({ children }) => {
 
   // Funzione per ottenere una traduzione
   const t = (key, fallback = key) => {
+    // Controllo di sicurezza per valori undefined/null
+    if (!key || typeof key !== 'string') {
+      return fallback || '';
+    }
+    
     const keys = key.split('.');
     let value = translations;
     
