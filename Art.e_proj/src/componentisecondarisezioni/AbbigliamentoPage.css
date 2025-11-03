@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-/* --- SFONDO CON MOVIMENTO --- */
+/* --- SFONDO HERO --- */
 .abbigliamento-hero-slide {
   position: absolute;
   top: 0;
@@ -23,9 +23,8 @@
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(0.85) contrast(1.1) saturate(1.2);
-  transform: scale(1.04);
   animation: hero-zoom 14s ease-in-out infinite alternate;
-  transition: transform 0.3s ease-out;
+  z-index: 0;
 }
 
 @keyframes hero-zoom {
@@ -33,7 +32,7 @@
   to { transform: scale(1.06); filter: brightness(0.95) contrast(1.2); }
 }
 
-/* --- LUCE IN MOVIMENTO --- */
+/* --- LUCE DECORATIVA --- */
 .abbigliamento-hero::before {
   content: "";
   position: absolute;
@@ -45,51 +44,61 @@
   mix-blend-mode: overlay;
   animation: hero-light-move 22s ease-in-out infinite alternate;
   pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes hero-light-move {
   from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(10%, -8%) rotate(12deg); }
+  to { transform: translate(8%, -6%) rotate(10deg); }
 }
 
-/* --- WRAPPER CONTENUTO + VIDEO --- */
+/* --- CONTENUTO HERO --- */
 .abbigliamento-content-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   z-index: 7;
   display: flex;
   align-items: center;
-  gap: 40px;
-  max-width: 90%;
-  width: 100%;
+  justify-content: space-between;
+  width: 88%;
+  max-width: 1300px;
+  gap: 3rem;
+  height: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
-/* --- VIDEO --- */
+/* --- VIDEO AREA --- */
 .abbigliamento-video {
   flex: 1;
-  max-width: 500px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow:
-    0 0 25px rgba(59, 130, 246, 0.2),
-    0 0 60px rgba(96, 165, 250, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  height: auto;
 }
 
 .abbigliamento-video-player {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 24px;
+  max-height: 78vh; /* ✅ rientra nella hero */
+  object-fit: contain; /* ✅ mostra tutto il video senza tagliare */
+  object-position: center;
+  border-radius: 20px;
+  filter: brightness(0.98) contrast(1.06) saturate(1.08);
+  pointer-events: none;
+  transition: filter 0.3s ease;
 }
 
-/* --- BOX CONTENUTO --- */
+.abbigliamento-video-player:hover {
+  filter: brightness(1) contrast(1.1);
+}
+
+/* --- BOX TESTO --- */
 .abbigliamento-content {
   flex: 1;
-  max-width: 600px;
-  padding: 38px 46px;
-  background: rgba(15, 23, 42, 0.78);
+  max-width: 560px;
+  padding: 42px 48px;
+  background: rgba(15, 23, 42, 0.8);
   border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow:
@@ -99,69 +108,39 @@
   backdrop-filter: blur(10px);
   color: #fff;
   overflow: hidden;
-  position: relative;
   animation: hero-glow 12s ease-in-out infinite alternate;
   transition: transform 0.6s cubic-bezier(.19,1,.22,1), box-shadow 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* --- Effetto aura circolare WOW --- */
-.abbigliamento-content::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.18), transparent 60%);
-  filter: blur(60px);
-  animation: aura-pulse 14s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes aura-pulse {
-  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
-  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-}
-
-/* --- “Respiro” luminoso interno --- */
 @keyframes hero-glow {
   0% {
     box-shadow:
-      0 0 25px rgba(59, 130, 246, 0.15),
-      0 0 60px rgba(96, 165, 250, 0.08),
-      inset 0 0 8px rgba(255, 255, 255, 0.04);
+      0 0 25px rgba(59,130,246,0.15),
+      0 0 60px rgba(96,165,250,0.08),
+      inset 0 0 8px rgba(255,255,255,0.04);
   }
   50% {
     box-shadow:
-      0 0 35px rgba(96, 165, 250, 0.25),
-      0 0 80px rgba(59, 130, 246, 0.15),
-      inset 0 0 12px rgba(255, 255, 255, 0.08);
+      0 0 35px rgba(96,165,250,0.25),
+      0 0 80px rgba(59,130,246,0.15),
+      inset 0 0 12px rgba(255,255,255,0.08);
   }
   100% {
     box-shadow:
-      0 0 25px rgba(59, 130, 246, 0.15),
-      0 0 60px rgba(96, 165, 250, 0.08),
-      inset 0 0 8px rgba(255, 255, 255, 0.04);
+      0 0 25px rgba(59,130,246,0.15),
+      0 0 60px rgba(96,165,250,0.08),
+      inset 0 0 8px rgba(255,255,255,0.04);
   }
-}
-
-/* --- HOVER: sollevamento e profondità --- */
-.abbigliamento-content:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow:
-    0 0 45px rgba(96, 165, 250, 0.25),
-    0 0 85px rgba(59, 130, 246, 0.15),
-    inset 0 0 14px rgba(255, 255, 255, 0.1);
 }
 
 /* --- TESTI --- */
 .abbigliamento-title {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 900;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   background: linear-gradient(90deg, #3b82f6, #60a5fa, #f97316, #fde047);
   background-size: 300%;
   -webkit-background-clip: text;
@@ -178,10 +157,10 @@
 }
 
 .abbigliamento-subtitle {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #93c5fd;
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.35);
   letter-spacing: 0.02em;
 }
@@ -225,14 +204,21 @@
 @media (max-width: 1024px) {
   .abbigliamento-content-wrapper {
     flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     max-width: 85%;
+    padding: 0;
   }
   .abbigliamento-content {
-    max-width: 100%;
-    padding: 26px 30px;
+    max-width: 90%;
+    padding: 30px;
+    text-align: center;
   }
   .abbigliamento-video {
-    max-width: 100%;
+    max-width: 640px;
+  }
+  .abbigliamento-video-player {
+    max-height: 60vh;
   }
   .abbigliamento-title { font-size: 2.2rem; }
 }
@@ -240,15 +226,17 @@
 @media (max-width: 768px) {
   .abbigliamento-hero,
   .abbigliamento-hero-slide {
-    height: 65vh;
+    height: 70vh;
   }
   .abbigliamento-content-wrapper {
-    gap: 20px;
+    gap: 1.6rem;
     max-width: 95%;
   }
   .abbigliamento-content {
-    padding: 20px;
-    text-align: left;
+    padding: 22px;
+  }
+  .abbigliamento-video-player {
+    max-height: 50vh;
   }
   .abbigliamento-title { font-size: 1.8rem; }
   .abbigliamento-subtitle { font-size: 1rem; }
@@ -257,15 +245,15 @@
 @media (max-width: 480px) {
   .abbigliamento-hero,
   .abbigliamento-hero-slide {
-    height: 50vh;
-  }
-  .abbigliamento-content-wrapper {
-    gap: 15px;
+    height: 55vh;
   }
   .abbigliamento-content {
-    padding: 14px;
+    padding: 16px;
   }
-  .abbigliamento-title { font-size: 1.3rem; }
+  .abbigliamento-video-player {
+    max-height: 38vh;
+  }
+  .abbigliamento-title { font-size: 1.4rem; }
   .abbigliamento-subtitle { font-size: 0.9rem; }
-  .abbigliamento-description { font-size: 0.83rem; }
+  .abbigliamento-description { font-size: 0.85rem; }
 }
