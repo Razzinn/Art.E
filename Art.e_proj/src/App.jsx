@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import NavbarSectionR from './components/NavbarSectionR';
@@ -14,12 +13,6 @@ import IdeeRegalo from './componentisecondarisezioni/IdeeRegaloPage';
 import './App.css';
 
 function App() {
-  const [showSubsection, setShowSubsection] = useState(null);
-
-  const handleOpenSubsection = (subsectionId) => {
-    setShowSubsection(subsectionId);
-  };
-
   return (
     <LanguageProvider>
       <BrowserRouter>
@@ -27,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              {!showSubsection && <HeroSectionR onOpenSubsection={handleOpenSubsection} />}
+              <HeroSectionR />
               <Offers />
             </>
           } />

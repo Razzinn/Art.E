@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HeroSectionR.css';
 
-const HeroSectionR = ({ onOpenSubsection }) => {
+const HeroSectionR = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = React.useRef(null);
 
@@ -129,13 +129,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
     content?.classList.add('fade-out');
     sideImg.classList.add('zoom-center');
     setTimeout(() => {
-      // Se è passato un callback esterno, mantenerlo per retrocompatibilità
-      if (onOpenSubsection && sectionName) {
-        onOpenSubsection(sectionName);
-        return;
-      }
-
-      // Altrimenti mappiamo la sezione alla rotta corrispondente
+      // Mappiamo la sezione alla rotta corrispondente
       const routeMap = {
         '3DDesignStampa3D': '/stampa-3d',
         'Abbigliamento': '/abbigliamento',

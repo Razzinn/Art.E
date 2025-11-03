@@ -2,60 +2,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
-import { SERVICE_SECTIONS } from '../data/serviceSections';
 import './NavbarSectionR.css';
 
-const NAV_CATEGORIES = {
-  Prodotti: [
-    'Stampa 3D',
-    'Prototipi Rapidi',
-    'Miniature Personalizzate',
-    'Gadget Aziendali',
-    'Oggetti Decorativi',
-    'Tutti i Prodotti 3D',
-  ],
-  Abbigliamento: [
-    'Felpe personalizzate',
-    'Cappellini personalizzati',
-    'Polo personalizzate',
-    'Merchandising',
-    'Abbigliamento Custom',
-    'Tutti i Prodotti',
-  ],
-  'Servizi Digital': [
-    'Creazione Siti Web',
-    'Creazione App Intuitive',
-    'E-commerce',
-    'Restyling Logo',
-    'Brand Identity',
-    'Social Media Marketing',
-    'Graphic Design',
-    'Servizi Digitali',
-    'Consulenza Digital',
-  ],
-};
-
-const SERVICE_ROUTE_MAP = {
-  'Restyling Logo': '/servizi/restyling-logo',
-  'Idee Regalo': '/servizi/regali-e-prank',
-  'Abbigliamento Custom': '/servizi/abbigliamento-e-custom',
-  'Servizi Digitali': '/servizi/servizi-digitali',
-};
-
-// Create menu items from service sections and nav categories
-const MENU_ITEMS = [
-  ...SERVICE_SECTIONS.map(section => ({
-    label: section.title,
-    slug: section.slug,
-    route: `/servizi/${section.slug}`
-  })),
-  ...Object.entries(NAV_CATEGORIES).flatMap(([category, items]) =>
-    items.map(item => ({
-      label: item,
-      category,
-      route: SERVICE_ROUTE_MAP[item] || '#'
-    }))
-  )
+// Main categories for dropdown - matching Hero sections
+const MAIN_CATEGORIES = [
+  {
+    label: 'Design & 3D Prints',
+    route: '/stampa-3d'
+  },
+  {
+    label: 'Abbigliamento Personalizzato',
+    route: '/abbigliamento'
+  },
+  {
+    label: 'Web & App Design',
+    route: '/webapp-design'
+  },
+  {
+    label: 'Idee Regalo',
+    route: '/idee-regalo'
+  }
 ];
 
 const NavbarSectionR = () => {
@@ -84,7 +50,7 @@ const NavbarSectionR = () => {
       return;
     }
 
-    const results = MENU_ITEMS.filter(item => 
+    const results = MAIN_CATEGORIES.filter(item => 
       item.label.toLowerCase().includes(term)
     ).slice(0, 8);
 
@@ -159,7 +125,7 @@ const NavbarSectionR = () => {
                 aria-labelledby="categories-label"
               >
                 <div className="menu-items">
-                  {MENU_ITEMS.map((item) => (
+                  {MAIN_CATEGORIES.map((item) => (
                     <button
                       key={item.label}
                       className="menu-item"
@@ -204,15 +170,13 @@ const NavbarSectionR = () => {
             <div className="search-suggestions" role="listbox" aria-label="Suggerimenti di ricerca">
               {searchSuggestions.map((s) => (
                 <button
-                  key={`${s.mainCategory}-${s.subCategory}`}
+                  key={s.label}
                   type="button"
                   className="search-suggestion-item"
                   role="option"
                   onClick={() => handleSuggestionClick(s)}
                 >
-                  <span className="suggest-main">{s.mainCategory}</span>
-                  <span className="suggest-sep">·</span>
-                  <span className="suggest-sub">{s.subCategory}</span>
+                  <span className="suggest-main">{s.label}</span>
                 </button>
               ))}
             </div>
