@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-/* --- SFONDO CON MOVIMENTO --- */
+/* --- SFONDO STATICO (niente movimento o zoom) --- */
 .webapp-hero-slide {
   position: absolute;
   top: 0;
@@ -23,17 +23,11 @@
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(0.85) contrast(1.1) saturate(1.2);
-  transform: scale(1.04);
-  animation: hero-zoom 14s ease-in-out infinite alternate;
-  transition: transform 0.3s ease-out;
+  transition: none;
+  z-index: 0;
 }
 
-@keyframes hero-zoom {
-  from { transform: scale(1); filter: brightness(0.85) contrast(1.1); }
-  to { transform: scale(1.06); filter: brightness(0.95) contrast(1.2); }
-}
-
-/* --- LUCE IN MOVIMENTO --- */
+/* --- LUCE MORBIDA (disattivato movimento) --- */
 .webapp-hero::before {
   content: "";
   position: absolute;
@@ -43,23 +37,61 @@
   height: 160%;
   background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 70%);
   mix-blend-mode: overlay;
-  animation: hero-light-move 22s ease-in-out infinite alternate;
   pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes hero-light-move {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(10%, -8%) rotate(12deg); }
-}
-
-/* --- BOX CENTRALE CON AURA WOW --- */
-.webapp-content {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translateY(-50%);
+/* --- CONTENUTO PRINCIPALE (VIDEO + TESTO) --- */
+.webapp-content-wrapper {
+  position: relative;
   z-index: 7;
-  max-width: min(680px, 52%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88%;
+  gap: 3rem;
+  flex-wrap: nowrap;
+}
+
+/* --- VIDEO --- */
+.webapp-video {
+  flex: 1;
+  max-width: 500px;
+  max-height: 650px;
+  border-radius: 24px;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* --- PLAYER VIDEO (nessun taglio, nessun zoom) --- */
+.webapp-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ✅ mostra tutto il video */
+  object-position: center center;
+  border-radius: 20px;
+  background-color: transparent;
+  filter: brightness(0.97) contrast(1.05) saturate(1.1);
+  transition: filter 0.35s ease;
+  pointer-events: none; /* ✅ niente overlay o quadrati */
+  -webkit-transform: translateZ(0);
+  image-rendering: auto;
+}
+
+/* --- LEGGERA LUMINOSITÀ ALL’HOVER (senza zoom) --- */
+.webapp-video-player:hover {
+  filter: brightness(1) contrast(1.1) saturate(1.15);
+  transform: none;
+}
+
+/* --- BOX TESTO --- */
+.webapp-content {
+  flex: 1;
+  max-width: 55%;
   padding: 38px 46px;
   background: rgba(15, 23, 42, 0.78);
   border-radius: 24px;
@@ -73,10 +105,9 @@
   overflow: hidden;
   position: relative;
   animation: hero-glow 12s ease-in-out infinite alternate;
-  transition: transform 0.6s cubic-bezier(.19,1,.22,1), box-shadow 0.6s ease;
 }
 
-/* --- Effetto aura circolare WOW --- */
+/* --- EFFETTO AURA --- */
 .webapp-content::before {
   content: "";
   position: absolute;
@@ -98,7 +129,7 @@
   100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
 }
 
-/* --- "Respiro" luminoso interno --- */
+/* --- GLOW DOLCE --- */
 @keyframes hero-glow {
   0% {
     box-shadow:
@@ -118,14 +149,6 @@
       0 0 60px rgba(96, 165, 250, 0.08),
       inset 0 0 8px rgba(255, 255, 255, 0.04);
   }
-}
-
-/* --- HOVER: solo glow --- */
-.webapp-content:hover {
-  box-shadow:
-    0 0 45px rgba(96, 165, 250, 0.25),
-    0 0 85px rgba(59, 130, 246, 0.15),
-    inset 0 0 14px rgba(255, 255, 255, 0.1);
 }
 
 /* --- TESTI --- */
@@ -157,24 +180,7 @@
   letter-spacing: 0.02em;
 }
 
-.webapp-description {
-  font-size: 1.06rem;
-  line-height: 1.7;
-  color: #f8fafc;
-  font-weight: 400;
-  margin-bottom: 12px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
-}
-
-.webapp-description strong {
-  color: #60a5fa;
-}
-
-.webapp-description em {
-  color: #fbbf24;
-  font-style: normal;
-}
-
+.webapp-description,
 .webapp-description-two,
 .webapp-description-three {
   font-size: 1.06rem;
@@ -185,11 +191,13 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
+.webapp-description strong,
 .webapp-description-two strong,
 .webapp-description-three strong {
   color: #60a5fa;
 }
 
+.webapp-description em,
 .webapp-description-two em,
 .webapp-description-three em {
   color: #fbbf24;
@@ -210,11 +218,28 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
-  .webapp-content {
-    max-width: 70%;
-    padding: 26px 30px;
+  .webapp-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
+
+  .webapp-content {
+    max-width: 85%;
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  .webapp-video {
+    justify-content: center;
+  }
+
+  .webapp-video-player {
+    max-width: 540px;
+  }
+
   .webapp-title { font-size: 2.2rem; }
+  .webapp-subtitle { font-size: 1.2rem; }
 }
 
 @media (max-width: 768px) {
@@ -222,11 +247,16 @@
   .webapp-hero-slide {
     height: 65vh;
   }
+
   .webapp-content {
     max-width: 92%;
     padding: 20px;
-    text-align: left;
   }
+
+  .webapp-video-player {
+    max-width: 420px;
+  }
+
   .webapp-title { font-size: 1.8rem; }
   .webapp-subtitle { font-size: 1rem; }
 }
@@ -236,44 +266,16 @@
   .webapp-hero-slide {
     height: 50vh;
   }
+
   .webapp-content {
     padding: 14px;
   }
+
+  .webapp-video-player {
+    max-width: 320px;
+  }
+
   .webapp-title { font-size: 1.3rem; }
   .webapp-subtitle { font-size: 0.9rem; }
   .webapp-description { font-size: 0.83rem; }
-}
-
-/* Stili per la griglia dei servizi sotto l'hero */
-.webapp-services-grid {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.webapp-services-grid .service-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #FACC15;
-}
-
-.webapp-services-grid .service-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.webapp-services-grid .service-card li {
-  margin: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.webapp-services-grid .service-card li:before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #60A5FA;
 }
