@@ -55,6 +55,34 @@
   "offers": {
     "title": "Hochwertige personalisierte Produkte und modernste digitale Dienstleistungen",
     "services": {
+      "design_3d": {
+        "title": "Design & 3D Druck",
+        "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
+        "description": "Vom digitalen Modell zum realen Objekt: einzigartige Kreationen, Prototypen, Gadgets und personalisierte Designs für jeden Bedarf.",
+        "promotional": "🚀 Verwandeln Sie Ihre Ideen mit professioneller 3D-Technologie in die Realität!",
+        "hero_note": "Sie können Skizzen, visuelle Referenzen oder vorhandene 3D-Dateien anhängen."
+      },
+      "gift_ideas": {
+        "title": "Geschenkideen",
+        "subtitle": "Personalisierte Überraschungen für jeden Anlass",
+        "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
+        "promotional": "🎁 Schaffen Sie unvergessliche Erinnerungen mit originellen und personalisierten Geschenken!",
+        "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
+      },
+      "apparel_custom": {
+        "title": "Kleidung & Maßanfertigung",
+        "subtitle": "Maßgeschneiderte Kleidung und Accessoires",
+        "description": "Geben Sie Typ, Menge, Farben, Größen und grafische Referenzen an, um Ihr personalisiertes Projekt zu entwickeln.",
+        "promotional": "👕 Drücken Sie Ihren Stil mit einzigartiger und maßgeschneiderter Kleidung aus!",
+        "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF, PNG, SVG oder AI."
+      },
+      "web_app_design": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erfahrungen",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",
+        "promotional": "💻 Bauen Sie Ihren digitalen Erfolg mit professionellen und innovativen Lösungen auf!",
+        "hero_note": "Teilen Sie Design-Beispiele, die Ihnen gefallen, oder Ihre bestehende Marke mit."
+      },
       "3d_design": {
         "title": "3D Design & 3D Druck",
         "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
@@ -77,6 +105,13 @@
         "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF, PNG, SVG oder AI."
       },
       "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erfahrungen",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",
+        "promotional": "💻 Bauen Sie Ihren digitalen Erfolg mit professionellen und innovativen Lösungen auf!",
+        "hero_note": "Teilen Sie Design-Beispiele, die Ihnen gefallen, oder Ihre bestehende Marke mit."
+      },
+      "websites_apps": {
         "title": "Web & App Design",
         "subtitle": "Effektive digitale Erfahrungen",
         "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",

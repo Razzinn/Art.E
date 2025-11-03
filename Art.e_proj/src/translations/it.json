@@ -55,6 +55,34 @@
   "offers": {
     "title": "Prodotti personalizzati di qualità e servizi digitali all'avanguardia",
     "services": {
+      "design_3d": {
+        "title": "Design e Stampe 3D",
+        "subtitle": "Dall'idea alla realizzazione del prodotto finito",
+        "description": "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati per ogni esigenza.",
+        "promotional": "🚀 Trasforma le tue idee in realtà con la tecnologia 3D professionale!",
+        "hero_note": "Puoi allegare schizzi, riferimenti visivi o file 3D esistenti."
+      },
+      "gift_ideas": {
+        "title": "Idee Regalo",
+        "subtitle": "Sorprese personalizzate per ogni occasione",
+        "description": "Descrivi il tipo di regalo o scherzo, il destinatario e il tono desiderato. Possiamo partire da un tuo concept o crearne uno da zero.",
+        "promotional": "🎁 Crea ricordi indimenticabili con regali originali e personalizzati!",
+        "hero_note": "Puoi allegare foto del destinatario o esempi dallo stile che preferisci."
+      },
+      "apparel_custom": {
+        "title": "Abbigliamento e Custom",
+        "subtitle": "Capi e accessori su misura",
+        "description": "Indica tipologia, quantità, colori, taglie e qualsiasi riferimento grafico per sviluppare il tuo progetto personalizzato.",
+        "promotional": "👕 Esprimi il tuo stile con abbigliamento unico e su misura!",
+        "hero_note": "Accettiamo mockup, loghi e tabelle taglie in PDF, PNG, SVG o AI."
+      },
+      "web_app_design": {
+        "title": "Web & App Design",
+        "subtitle": "Esperienze digitali efficaci",
+        "description": "Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online e raggiungere i tuoi obiettivi.",
+        "promotional": "💻 Costruisci il tuo successo digitale con soluzioni professionali e innovative!",
+        "hero_note": "Condividi esempi di design che ti piacciono o il tuo brand esistente."
+      },
       "3d_design": {
         "title": "3D Design & Stampa 3D",
         "subtitle": "Dall'idea alla realizzazione del prodotto finito",
@@ -77,6 +105,13 @@
         "hero_note": "Accettiamo mockup, loghi e tabelle taglie in PDF, PNG, SVG o AI."
       },
       "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Esperienze digitali efficaci",
+        "description": "Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online e raggiungere i tuoi obiettivi.",
+        "promotional": "💻 Costruisci il tuo successo digitale con soluzioni professionali e innovative!",
+        "hero_note": "Condividi esempi di design che ti piacciono o il tuo brand esistente."
+      },
+      "websites_apps": {
         "title": "Web & App Design",
         "subtitle": "Esperienze digitali efficaci",
         "description": "Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online e raggiungere i tuoi obiettivi.",

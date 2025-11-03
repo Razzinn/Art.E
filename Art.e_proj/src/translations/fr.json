@@ -55,6 +55,34 @@
   "offers": {
     "title": "Produits personnalisés de qualité et services numériques de pointe",
     "services": {
+      "design_3d": {
+        "title": "Design & Impressions 3D",
+        "subtitle": "De l'idée à la réalisation du produit fini",
+        "description": "Du modèle numérique à l'objet réel : créations uniques, prototypes, gadgets et designs personnalisés pour tous les besoins.",
+        "promotional": "🚀 Transformez vos idées en réalité avec la technologie 3D professionnelle !",
+        "hero_note": "Vous pouvez joindre des croquis, des références visuelles ou des fichiers 3D existants."
+      },
+      "gift_ideas": {
+        "title": "Idées Cadeaux",
+        "subtitle": "Surprises personnalisées pour chaque occasion",
+        "description": "Décrivez le type de cadeau ou de farce, le destinataire et le ton souhaité. Nous pouvons partir de votre concept ou en créer un de zéro.",
+        "promotional": "🎁 Créez des souvenirs inoubliables avec des cadeaux originaux et personnalisés !",
+        "hero_note": "Vous pouvez joindre des photos du destinataire ou des exemples du style que vous préférez."
+      },
+      "apparel_custom": {
+        "title": "Vêtements & Personnalisation",
+        "subtitle": "Vêtements et accessoires sur mesure",
+        "description": "Indiquez le type, la quantité, les couleurs, les tailles et toute référence graphique pour développer votre projet personnalisé.",
+        "promotional": "👕 Exprimez votre style avec des vêtements uniques et sur mesure !",
+        "hero_note": "Nous acceptons les maquettes, logos et tableaux de tailles en PDF, PNG, SVG ou AI."
+      },
+      "web_app_design": {
+        "title": "Web & App Design",
+        "subtitle": "Expériences numériques efficaces",
+        "description": "Sites Web modernes, applications intuitives et solutions graphiques pour faire croître votre marque en ligne et atteindre vos objectifs.",
+        "promotional": "💻 Construisez votre succès numérique avec des solutions professionnelles et innovantes !",
+        "hero_note": "Partagez des exemples de design que vous aimez ou votre marque existante."
+      },
       "3d_design": {
         "title": "3D Design & Impression 3D",
         "subtitle": "De l'idée à la réalisation du produit fini",
@@ -77,6 +105,13 @@
         "hero_note": "Nous acceptons les maquettes, logos et tableaux de tailles en PDF, PNG, SVG ou AI."
       },
       "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Expériences numériques efficaces",
+        "description": "Sites Web modernes, applications intuitives et solutions graphiques pour faire croître votre marque en ligne et atteindre vos objectifs.",
+        "promotional": "💻 Construisez votre succès numérique avec des solutions professionnelles et innovantes !",
+        "hero_note": "Partagez des exemples de design que vous aimez ou votre marque existante."
+      },
+      "websites_apps": {
         "title": "Web & App Design",
         "subtitle": "Expériences numériques efficaces",
         "description": "Sites Web modernes, applications intuitives et solutions graphiques pour faire croître votre marque en ligne et atteindre vos objectifs.",

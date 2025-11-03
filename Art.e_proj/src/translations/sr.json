@@ -55,8 +55,36 @@
   "offers": {
     "title": "Kvalitetni personalizovani proizvodi i digitalne usluge na najvišem nivou",
     "services": {
+      "design_3d": {
+        "title": "Dizajn i 3D Štampe",
+        "subtitle": "Od ideje do realizacije gotovog proizvoda",
+        "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i personalizovani dizajni za sve potrebe.",
+        "promotional": "🚀 Pretvorite svoje ideje u stvarnost sa profesionalnom 3D tehnologijom!",
+        "hero_note": "Možete priložiti skice, vizuelne reference ili postojeće 3D fajlove."
+      },
+      "gift_ideas": {
+        "title": "Ideje za Poklone",
+        "subtitle": "Personalizovana iznenađenja za svaku priliku",
+        "description": "Opišite tip poklona ili šale, primaoca i željeni ton. Možemo krenuti od vašeg koncepta ili kreirati jedan ispočetka.",
+        "promotional": "🎁 Stvorite nezaboravne uspomene sa originalnim i personalizovanim poklonima!",
+        "hero_note": "Možete priložiti fotografije primaoca ili primere stila koji preferirate."
+      },
+      "apparel_custom": {
+        "title": "Odeća i Prilagođeni Proizvodi",
+        "subtitle": "Odeća i dodaci po meri",
+        "description": "Navedite tip, količinu, boje, veličine i sve grafičke reference za razvoj vašeg personalizovanog projekta.",
+        "promotional": "👕 Izrazite svoj stil sa jedinstvenom odećom po meri!",
+        "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
+      },
+      "web_app_design": {
+        "title": "Web & App Dizajn",
+        "subtitle": "Efikasna digitalna iskustva",
+        "description": "Moderni web sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online i postizanje vaših ciljeva.",
+        "promotional": "💻 Izgradite svoj digitalni uspeh sa profesionalnim i inovativnim rešenjima!",
+        "hero_note": "Podelite primere dizajna koji vam se sviđaju ili vaš postojeći brend."
+      },
       "3d_design": {
-        "title": "3D Design & 3D Štampa",
+        "title": "3D Dizajn & 3D Štampa",
         "subtitle": "Od ideje do realizacije gotovog proizvoda",
         "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i personalizovani dizajni za sve potrebe.",
         "promotional": "🚀 Pretvorite svoje ideje u stvarnost sa profesionalnom 3D tehnologijom!",
@@ -77,7 +105,14 @@
         "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
       },
       "web_app": {
-        "title": "Web & App Design",
+        "title": "Web & App Dizajn",
+        "subtitle": "Efikasna digitalna iskustva",
+        "description": "Moderni web sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online i postizanje vaših ciljeva.",
+        "promotional": "💻 Izgradite svoj digitalni uspeh sa profesionalnim i inovativnim rešenjima!",
+        "hero_note": "Podelite primere dizajna koji vam se sviđaju ili vaš postojeći brend."
+      },
+      "websites_apps": {
+        "title": "Web & App Dizajn",
         "subtitle": "Efikasna digitalna iskustva",
         "description": "Moderni web sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online i postizanje vaših ciljeva.",
         "promotional": "💻 Izgradite svoj digitalni uspeh sa profesionalnim i inovativnim rešenjima!",

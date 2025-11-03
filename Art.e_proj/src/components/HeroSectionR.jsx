@@ -17,7 +17,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.",
       section: '3DDesignStampa3D',
-      colors: ['#2563EB', '#3B82F6', '#60A5FA'], // Blu per 3D/Tech
+      colors: ['#1a9fc9', '#2a9fd9', '#3aafe9', '#4abff9', '#5acfff'], // Celeste profondo senza il più scuro
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
       section: 'Abbigliamento',
-      colors: ['#DC2626', '#EF4444', '#F87171'], // Rosso per abbigliamento
+      colors: ['#7dd3fc', '#a78bfa', '#f472b6', '#fb7185', '#fdba74'], // Palette dall'immagine: teal, viola, rosa, fucsia, arancione
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
       section: 'WebAppDesign',
-      colors: ['#059669', '#10B981', '#34D399'], // Verde per digital/web
+      colors: ['#4b0082', '#663399', '#7b68ee', '#9370db', '#e6e6fa'], // Viola intenso per web design
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const HeroSectionR = ({ onOpenSubsection }) => {
       description:
         'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
       section: 'IdeeRegalo',
-      colors: ['#7C3AED', '#8B5CF6', '#A78BFA'], // Viola per regali/creatività
+      colors: ['#0f172a', '#1e293b', '#0f766e', '#155e75', '#0891b2'], // Toni molto più scuri e profondi
     },
   ], []);
 

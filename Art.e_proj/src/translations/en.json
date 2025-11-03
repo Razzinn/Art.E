@@ -55,7 +55,35 @@
   "offers": {
     "title": "Quality personalized products and cutting-edge digital services",
     "services": {
-      "3d_design": {
+      "design_3d": {
+        "title": "Design & 3D Prints",
+        "subtitle": "From idea to finished product realization",
+        "description": "From digital model to real object: unique creations, prototypes, gadgets and custom designs for every need.",
+        "promotional": "🚀 Turn your ideas into reality with professional 3D technology!",
+        "hero_note": "You can attach sketches, visual references or existing 3D files."
+      },
+      "gift_ideas": {
+        "title": "Gift Ideas",
+        "subtitle": "Personalized surprises for every occasion",
+        "description": "Describe the type of gift or prank, the recipient and the desired tone. We can start from your concept or create one from scratch.",
+        "promotional": "🎁 Create unforgettable memories with original and personalized gifts!",
+        "hero_note": "You can attach photos of the recipient or examples of the style you prefer."
+      },
+      "apparel_custom": {
+        "title": "Apparel & Custom",
+        "subtitle": "Custom clothing and accessories",
+        "description": "Indicate type, quantity, colors, sizes and any graphic reference to develop your personalized project.",
+        "promotional": "👕 Express your style with unique and made-to-measure clothing!",
+        "hero_note": "We accept mockups, logos and size charts in PDF, PNG, SVG or AI."
+      },
+      "web_app_design": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",
+        "promotional": "💻 Build your digital success with professional and innovative solutions!",
+        "hero_note": "Share design examples you like or your existing brand."
+      },
+      "3d_printing": {
         "title": "3D Design & 3D Printing",
         "subtitle": "From idea to finished product realization",
         "description": "From digital model to real object: unique creations, prototypes, gadgets and custom designs for every need.",
@@ -77,6 +105,13 @@
         "hero_note": "We accept mockups, logos and size charts in PDF, PNG, SVG or AI."
       },
       "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",
+        "promotional": "💻 Build your digital success with professional and innovative solutions!",
+        "hero_note": "Share design examples you like or your existing brand."
+      },
+      "websites_apps": {
         "title": "Web & App Design",
         "subtitle": "Effective digital experiences",
         "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",

@@ -245,7 +245,7 @@
 }
 
 /* Stili per la griglia dei servizi sotto l'hero */
-.services-grid {
+.webapp-services-grid {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -253,33 +253,25 @@
   padding: 2rem;
 }
 
-.service-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.service-card h3 {
+.webapp-services-grid .service-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #FACC15;
 }
 
-.service-card ul {
+.webapp-services-grid .service-card ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0;
 }
 
-.service-card li {
+.webapp-services-grid .service-card li {
   margin: 0.5rem 0;
   padding-left: 1.5rem;
   position: relative;
 }
 
-.service-card li:before {
+.webapp-services-grid .service-card li:before {
   content: "→";
   position: absolute;
   left: 0;
