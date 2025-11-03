@@ -1,22 +1,62 @@
 // NavbarSection.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import LanguageSwitcher from './LanguageSwitcher';
+import { SERVICE_SECTIONS } from '../data/serviceSections';
 import './NavbarSectionR.css';
 
-const MENU_ITEMS = [
-  { label: '3D Design & Stampa 3D', route: '/stampa-3d' },
-  { label: 'Abbigliamento Personalizzato', route: '/abbigliamento' },
-  { label: 'Web & App Design', route: '/webapp-design' },
-  { label: 'Idee Regalo', route: '/idee-regalo' },
-];
-
-// Mappa delle rotte principali
-const CATEGORY_ROUTES = {
-  'Prodotti': '/stampa-3d',
-  'Abbigliamento': '/abbigliamento',
-  'Servizi Digital': '/webapp-design',
-  'Idee Regalo': '/idee-regalo',
+const NAV_CATEGORIES = {
+  Prodotti: [
+    'Stampa 3D',
+    'Prototipi Rapidi',
+    'Miniature Personalizzate',
+    'Gadget Aziendali',
+    'Oggetti Decorativi',
+    'Tutti i Prodotti 3D',
+  ],
+  Abbigliamento: [
+    'Felpe personalizzate',
+    'Cappellini personalizzati',
+    'Polo personalizzate',
+    'Merchandising',
+    'Abbigliamento Custom',
+    'Tutti i Prodotti',
+  ],
+  'Servizi Digital': [
+    'Creazione Siti Web',
+    'Creazione App Intuitive',
+    'E-commerce',
+    'Restyling Logo',
+    'Brand Identity',
+    'Social Media Marketing',
+    'Graphic Design',
+    'Servizi Digitali',
+    'Consulenza Digital',
+  ],
 };
+
+const SERVICE_ROUTE_MAP = {
+  'Restyling Logo': '/servizi/restyling-logo',
+  'Idee Regalo': '/servizi/regali-e-prank',
+  'Abbigliamento Custom': '/servizi/abbigliamento-e-custom',
+  'Servizi Digitali': '/servizi/servizi-digitali',
+};
+
+// Create menu items from service sections and nav categories
+const MENU_ITEMS = [
+  ...SERVICE_SECTIONS.map(section => ({
+    label: section.title,
+    slug: section.slug,
+    route: `/servizi/${section.slug}`
+  })),
+  ...Object.entries(NAV_CATEGORIES).flatMap(([category, items]) =>
+    items.map(item => ({
+      label: item,
+      category,
+      route: SERVICE_ROUTE_MAP[item] || '#'
+    }))
+  )
+];
 
 const NavbarSectionR = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,7 +76,6 @@ const NavbarSectionR = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // Suggerimenti di ricerca basati sulle categorie
   useEffect(() => {
     const term = (searchTerm || '').trim().toLowerCase();
     if (!term) {
@@ -179,6 +218,9 @@ const NavbarSectionR = () => {
             </div>
           )}
         </div>
+
+        {/* Language Switcher */}
+        <LanguageSwitcher />
 
         {/* Carrello rimosso */}
       </div>

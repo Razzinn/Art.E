@@ -1,12 +1,13 @@
 ﻿import { useEffect, useState, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import './Offers.css';
 
 const SERVICE_ITEMS = [
   {
-    title: 'Stampa 3D',
-    description: 'Oggetti personalizzati stampati 3D con materiali di qualità.',
-    slug: 'stampa-3d',
+    titleKey: 'offers.services.3d_printing.title',
+    descriptionKey: 'offers.services.3d_printing.description',
+    slug: '3d-design-stampa-3d',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -16,8 +17,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Regali e Prank',
-    description: 'Regali di compleanno originali e scherzi divertenti.',
+    titleKey: 'offers.services.gifts_pranks.title',
+    descriptionKey: 'offers.services.gifts_pranks.description',
     slug: 'regali-e-prank',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -30,22 +31,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Restyling Logo',
-    description: 'Rinnova la tua identità aziendale con logo moderni.',
-    slug: 'restyling-logo',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v6m0 6v6" />
-        <path d="M21 12h-6m-6 0H3" />
-        <path d="M18.36 6.64l-4.24 4.24m-4.24 0L5.64 6.64" />
-        <path d="M18.36 17.36l-4.24-4.24m-4.24 0l-4.24 4.24" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Abbigliamento Custom',
-    description: 'T-Shirt, felpe e accessori personalizzabili.',
+    titleKey: 'offers.services.apparel.title',
+    descriptionKey: 'offers.services.apparel.description',
     slug: 'abbigliamento-e-custom',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -54,9 +41,9 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Siti Web',
-    description: 'Siti e app professionali responsive e ottimizzati SEO.',
-    slug: 'siti-web',
+    titleKey: 'offers.services.websites_apps.title',
+    descriptionKey: 'offers.services.websites_apps.description',
+    slug: 'web-e-app-design',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -68,20 +55,11 @@ const SERVICE_ITEMS = [
       </svg>
     ),
   },
-  {
-    title: 'Servizi Digitali',
-    description: 'Digital marketing, social media management e grafica pubblicitaria.',
-    slug: 'servizi-digitali',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-      </svg>
-    ),
-  },
 ];
 
 export default function Offers() {
-  const [currentColors, setCurrentColors] = useState(['#8B5CF6', '#A855F7', '#C084FC']);
+  const { t } = useTranslation();
+  const [currentColors, setCurrentColors] = useState(['#2563EB', '#3B82F6', '#60A5FA']); // Inizia con i colori della prima slide (3D Design)
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const transitionTimeoutRef = useRef(null);
@@ -209,7 +187,7 @@ export default function Offers() {
     <section className="offers" style={dynamicBackground}>
       <div className="offers-container">
         <h2 className="offers-title">
-          Prodotti personalizzati di qualità e servizi digitali all'avanguardia
+          {t('offers.title')}
         </h2>
 
         <div className="services-grid">
@@ -226,7 +204,7 @@ export default function Offers() {
 
             return (
               <div
-                key={service.title}
+                key={service.titleKey}
                 className={cardClassName}
                 ref={(element) => {
                   cardRefs.current[index] = element;
@@ -235,8 +213,8 @@ export default function Offers() {
                 {...getCardProps(service.slug)}
               >
                 <div className="service-icon">{service.icon}</div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
+                <h3 className="service-title">{t(service.titleKey)}</h3>
+                <p className="service-description">{t(service.descriptionKey)}</p>
               </div>
             );
           })}
