@@ -238,7 +238,8 @@
     "sections": {
       "products": "Proizvodi",
       "clothing": "Odeća",
-      "digital_services": "Digitalne Usluge"
+      "digital_services": "Digitalne Usluge",
+      "gift_ideas": "Ideje za Poklone"
     },
     "links": {
       "printing_3d": "3D Štampa",
@@ -259,7 +260,11 @@
       "brand_identity": "Brand Identitet",
       "social_media_marketing": "Social Media Marketing",
       "graphic_design": "Grafički Dizajn",
-      "digital_consulting": "Digitalno Konsaltovanje"
+      "digital_consulting": "Digitalno Konsaltovanje",
+      "custom_keychains": "Prilagođeni Privesci",
+      "personalized_mugs": "Personalizovane Šolje",
+      "photo_frames": "Okviri za Slike",
+      "surprise_boxes": "Kutije Iznenađenja"
     },
     "newsletter": {
       "title": "Newsletter Creo",

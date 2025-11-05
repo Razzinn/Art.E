@@ -4,6 +4,7 @@ import NavbarSectionR from './components/NavbarSectionR';
 import HeroSectionR from './components/HeroSectionR';
 import Offers from './components/Offers';
 import Footer from './components/footer';
+import ScrollToTop from './components/ScrollToTop';
 import ServiceRequestPage from './pages/ServiceRequestPageNew';
 import NotFoundPage from './pages/NotFoundPage';
 import Design3DPage from './componentisecondarisezioni/Design3DPage';
@@ -16,6 +17,7 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <NavbarSectionR />
         <Routes>
           <Route path="/" element={

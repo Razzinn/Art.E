@@ -238,7 +238,8 @@
     "sections": {
       "products": "Prodotti",
       "clothing": "Abbigliamento", 
-      "digital_services": "Servizi Digital"
+      "digital_services": "Servizi Digital",
+      "gift_ideas": "Idee Regalo"
     },
     "links": {
       "printing_3d": "Stampa 3D",
@@ -259,7 +260,11 @@
       "brand_identity": "Brand Identity",
       "social_media_marketing": "Social Media Marketing",
       "graphic_design": "Graphic Design",
-      "digital_consulting": "Consulenza Digital"
+      "digital_consulting": "Consulenza Digital",
+      "custom_keychains": "Portachiavi Personalizzati",
+      "personalized_mugs": "Tazze Personalizzate",
+      "photo_frames": "Cornici per Foto",
+      "surprise_boxes": "Scatole Sorpresa"
     },
     "newsletter": {
       "title": "Newsletter Creo",

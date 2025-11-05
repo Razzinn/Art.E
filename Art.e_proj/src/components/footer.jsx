@@ -1,5 +1,6 @@
 // Footer.jsx
 import React, { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/LanguageContext';
 import './footer.css';
 
@@ -32,35 +33,44 @@ const Footer = ({
         {
           title: t('footer.sections.products'),
           links: [
-            { label: t('footer.links.printing_3d'), href: '#' },
-            { label: t('footer.links.rapid_prototypes'), href: '#' },
-            { label: t('footer.links.custom_miniatures'), href: '#' },
-            { label: t('footer.links.corporate_gadgets'), href: '#' },
-            { label: t('footer.links.decorative_objects'), href: '#' },
-            { label: t('footer.links.all_3d_products'), href: '#', primary: true },
+            { label: t('footer.links.printing_3d'), href: '/servizi/3d-design-stampa-3d' },
+            { label: t('footer.links.rapid_prototypes'), href: '/servizi/3d-design-stampa-3d' },
+            { label: t('footer.links.custom_miniatures'), href: '/servizi/3d-design-stampa-3d' },
+            { label: t('footer.links.corporate_gadgets'), href: '/servizi/3d-design-stampa-3d' },
+            { label: t('footer.links.decorative_objects'), href: '/servizi/3d-design-stampa-3d' },
+            { label: t('footer.links.all_3d_products'), href: '/stampa-3d', primary: true },
           ],
         },
         {
           title: t('footer.sections.clothing'),
           links: [
-            { label: t('footer.links.custom_hoodies'), href: '#' },
-            { label: t('footer.links.custom_caps'), href: '#' },
-            { label: t('footer.links.custom_polos'), href: '#' },
-            { label: t('footer.links.merchandising'), href: '#' },
-            { label: t('footer.links.all_clothing'), href: '#', primary: true },
+            { label: t('footer.links.custom_hoodies'), href: '/servizi/abbigliamento-e-custom' },
+            { label: t('footer.links.custom_caps'), href: '/servizi/abbigliamento-e-custom' },
+            { label: t('footer.links.custom_polos'), href: '/servizi/abbigliamento-e-custom' },
+            { label: t('footer.links.merchandising'), href: '/servizi/abbigliamento-e-custom' },
+            { label: t('footer.links.all_clothing'), href: '/abbigliamento', primary: true },
           ],
         },
         {
           title: t('footer.sections.digital_services'),
           links: [
-            { label: t('footer.links.website_creation'), href: '#' },
-            { label: t('footer.links.app_development'), href: '#' },
-            { label: t('footer.links.ecommerce'), href: '#' },
-            { label: t('footer.links.logo_restyling'), href: '#' },
-            { label: t('footer.links.brand_identity'), href: '#' },
-            { label: t('footer.links.social_media_marketing'), href: '#' },
-            { label: t('footer.links.graphic_design'), href: '#' },
-            { label: t('footer.links.digital_consulting'), href: '#', primary: true },
+            { label: t('footer.links.website_creation'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.app_development'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.ecommerce'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.logo_restyling'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.brand_identity'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.social_media_marketing'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.graphic_design'), href: '/servizi/web-e-app-design' },
+            { label: t('footer.links.digital_consulting'), href: '/webapp-design', primary: true },
+          ],
+        },
+        {
+          title: t('footer.sections.gift_ideas'),
+          links: [
+            { label: t('footer.links.custom_keychains'), href: '/servizi/regali-e-prank' },
+            { label: t('footer.links.personalized_mugs'), href: '/servizi/regali-e-prank' },
+            { label: t('footer.links.photo_frames'), href: '/servizi/regali-e-prank' },
+            { label: t('footer.links.surprise_boxes'), href: '/servizi/regali-e-prank' },
           ],
         },
       ]
@@ -201,27 +211,11 @@ const Footer = ({
                 </div>
               </div>
 
-              {/* SECTIONS (data-driven) */}
-              {effectiveSections.map((section, idx) => (
-                <div className="footer-section" key={section.title + idx} aria-labelledby={`footer-section-${idx}`} role="navigation">
-                  <h3 id={`footer-section-${idx}`} className="footer-title">{section.title}</h3>
-                  <ul className="footer-links">
-                    {section.links?.map((link) => (
-                      <li key={link.label}>
-                        <a href={link.href || '#'} className={link.primary ? 'footer-link-primary' : ''}>
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
-              {/* NEWSLETTER */}
-              <div className="footer-section newsletter-section">
-                <div className="newsletter-title">
+              {/* NEWSLETTER - Next to company */}
+              <div className="footer-section newsletter-section newsletter-desktop" aria-labelledby="newsletter-title">
+                <h3 id="newsletter-title" className="newsletter-title">
                   📬 {t('footer.newsletter.title')}
-                </div>
+                </h3>
                 <p className="newsletter-desc">
                   {t('footer.newsletter.description')}
                 </p>
@@ -250,31 +244,72 @@ const Footer = ({
                     {isSubmitting ? t('footer.newsletter.subscribing') : isSubscribed ? '✅ ' + t('footer.newsletter.success_message') : t('footer.newsletter.subscribe_button')}
                   </button>
                 </form>
+                
                 <div id="newsletter-status" role="status" aria-live="polite" className="visually-hidden">
                   {statusMessage}
                 </div>
                 {submitError && (
-                  <p id="newsletter-error" role="alert" style={{ color: '#FCA5A5', marginTop: 6, fontSize: '0.9rem' }}>
+                  <p id="newsletter-error" role="alert" style={{ color: '#FCA5A5', marginTop: 6, fontSize: '0.8rem' }}>
                     {submitError}
                   </p>
                 )}
                 
-                <p className="newsletter-privacy">
-                  {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a> {t('footer.newsletter.and')} 
-                  <a href="#" className="link-secondary">{t('footer.legal.terms_of_service')}</a>. 
-                  {t('footer.newsletter.unsubscribe_info')}
+                <p className="newsletter-privacy" style={{ fontSize: '0.75rem', lineHeight: '1.4' }}>
+                  {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a>
                 </p>
+              </div>
 
-                <div className="newsletter-benefits">
-                  <h4 className="benefits-title">🏆 {t('footer.newsletter.vip_benefits')}:</h4>
-                  <ul className="benefits-list">
-                    <li>✅ {t('footer.newsletter.exclusive_discounts')}</li>
-                    <li>🚀 {t('footer.newsletter.early_access')}</li>
-                    <li>🎁 {t('footer.newsletter.welcome_gift')}</li>
-                    <li>📞 {t('footer.newsletter.priority_support')}</li>
+              {/* SECTIONS (data-driven) */}
+              {effectiveSections.map((section, idx) => (
+                <div className="footer-section" key={section.title + idx} aria-labelledby={`footer-section-${idx}`} role="navigation">
+                  <h3 id={`footer-section-${idx}`} className="footer-title">{section.title}</h3>
+                  <ul className="footer-links">
+                    {section.links?.map((link) => (
+                      <li key={link.label}>
+                        <Link to={link.href || '#'} className={link.primary ? 'footer-link-primary' : ''}>
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-              </div>
+              ))}
+            </div>
+
+            {/* NEWSLETTER MOBILE - Below sections on mobile */}
+            <div className="newsletter-section newsletter-mobile" aria-labelledby="newsletter-title-mobile">
+              <h3 id="newsletter-title-mobile" className="newsletter-title">
+                📬 {t('footer.newsletter.title')}
+              </h3>
+              <p className="newsletter-desc">
+                {t('footer.newsletter.description')}
+              </p>
+              
+              <form className="newsletter-form" onSubmit={handleNewsletterSubmit} noValidate aria-busy={isSubmitting}>
+                <input 
+                  type="email" 
+                  className="newsletter-input" 
+                  placeholder={t('footer.newsletter.email_placeholder')}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  name="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  disabled={isSubmitting || isSubscribed}
+                />
+                <button 
+                  type="submit" 
+                  className="newsletter-btn"
+                  disabled={isSubmitting || isSubscribed}
+                >
+                  {isSubmitting ? t('footer.newsletter.subscribing') : isSubscribed ? '✅ ' + t('footer.newsletter.success_message') : t('footer.newsletter.subscribe_button')}
+                </button>
+              </form>
+              
+              <p className="newsletter-privacy" style={{ fontSize: '0.75rem', lineHeight: '1.4' }}>
+                {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a>
+              </p>
             </div>
           </div>
         </div>

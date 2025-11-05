@@ -237,8 +237,9 @@
   "footer": {
     "sections": {
       "products": "Produkte",
-      "clothing": "Bekleidung",
-      "digital_services": "Digitale Dienste"
+      "clothing": "Kleidung",
+      "digital_services": "Digitale Dienste",
+      "gift_ideas": "Geschenkideen"
     },
     "links": {
       "printing_3d": "3D-Druck",
@@ -259,7 +260,11 @@
       "brand_identity": "Markenidentität",
       "social_media_marketing": "Social Media Marketing",
       "graphic_design": "Grafikdesign",
-      "digital_consulting": "Digitale Beratung"
+      "digital_consulting": "Digitale Beratung",
+      "custom_keychains": "Individuelle Schlüsselanhänger",
+      "personalized_mugs": "Personalisierte Tassen",
+      "photo_frames": "Bilderrahmen",
+      "surprise_boxes": "Überraschungsboxen"
     },
     "newsletter": {
       "title": "Newsletter Creo",
