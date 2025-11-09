@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { motion, useAnimation, useMotionValue, useTransform, useReducedMotion } from 'framer-motion';
 import './Design3DPage.css';
 
 export default function Design3DPage() {
@@ -10,163 +10,304 @@ export default function Design3DPage() {
 	const heroRef = useRef(null);
 	const videoRef = useRef(null);
 	const canvasRef = useRef(null);
+	const rafRef = useRef(null);
 	const contentControls = useAnimation();
 	
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
+	const shouldReduceMotion = useReducedMotion();
 
-	// Effetto Canvas con particelle 3D
+	// Optimize particle count based on device
+	const particleCount = useMemo(() => {
+		const isMobile = window.innerWidth < 768;
+		const isLowEnd = navigator.hardwareConcurrency < 4;
+		const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+		
+		if (isMobile || isLowEnd || hasLowMemory) return 50;
+		if (window.innerWidth < 1024) return 100;
+		return 150;
+	}, []);
+
+	// Effetto Canvas con particelle 3D (ultra-ottimizzato)
 	useEffect(() => {
 		const canvas = canvasRef.current;
-		if (!canvas) return;
+		if (!canvas || shouldReduceMotion) return;
 		
-		const ctx = canvas.getContext('2d');
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+		const ctx = canvas.getContext('2d', { 
+			alpha: false,
+			desynchronized: true, // Migliora performance
+			willReadFrequently: false
+		});
+		
+		const dpr = Math.min(window.devicePixelRatio || 1, 2); // Limita DPR per performance
+		canvas.width = window.innerWidth * dpr;
+		canvas.height = window.innerHeight * dpr;
+		canvas.style.width = window.innerWidth + 'px';
+		canvas.style.height = window.innerHeight + 'px';
+		ctx.scale(dpr, dpr);
 
 		const particles = [];
-		const particleCount = 150;
 		
 		class Particle {
 			constructor() {
 				this.reset();
-				this.y = Math.random() * canvas.height;
-				this.baseSize = Math.random() * 3 + 1;
+				this.y = Math.random() * canvas.height / dpr;
+				this.baseSize = Math.random() * 2 + 1;
 			}
 			
 			reset() {
-				this.x = Math.random() * canvas.width;
+				this.x = Math.random() * canvas.width / dpr;
 				this.y = -10;
 				this.z = Math.random() * 1000;
-				this.vx = (Math.random() - 0.5) * 0.5;
-				this.vy = Math.random() * 0.5 + 0.2;
-				this.opacity = Math.random() * 0.5 + 0.3;
-				this.hue = Math.random() * 60 + 200;
+				this.vx = (Math.random() - 0.5) * 0.4;
+				this.vy = Math.random() * 0.4 + 0.2;
+				this.opacity = Math.random() * 0.4 + 0.3;
+				this.hue = Math.random() * 40 + 200;
 			}
 			
 			update() {
-				this.x += this.vx + mousePos.x * 0.02;
-				this.y += this.vy + mousePos.y * 0.01;
-				this.z -= 2;
-				if (this.y > canvas.height || this.z < 0) this.reset();
-				if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+				this.x += this.vx + mousePos.x * 0.015;
+				this.y += this.vy + mousePos.y * 0.008;
+				this.z -= 1.5;
+				if (this.y > canvas.height / dpr || this.z < 0) this.reset();
+				if (this.x < 0 || this.x > canvas.width / dpr) this.vx *= -1;
 			}
 			
 			draw() {
 				const scale = 1000 / (1000 - this.z);
-				const x = (this.x - canvas.width / 2) * scale + canvas.width / 2;
-				const y = (this.y - canvas.height / 2) * scale + canvas.height / 2;
+				const x = (this.x - canvas.width / dpr / 2) * scale + canvas.width / dpr / 2;
+				const y = (this.y - canvas.height / dpr / 2) * scale + canvas.height / dpr / 2;
 				const size = this.baseSize * scale;
 				
-				ctx.save();
 				ctx.globalAlpha = this.opacity * (1 - this.z / 1000);
-				const gradient = ctx.createRadialGradient(x, y, 0, x, y, size * 3);
-				gradient.addColorStop(0, `hsla(${this.hue}, 80%, 60%, 0.8)`);
-				gradient.addColorStop(0.5, `hsla(${this.hue}, 70%, 50%, 0.4)`);
-				gradient.addColorStop(1, `hsla(${this.hue}, 60%, 40%, 0)`);
-				ctx.fillStyle = gradient;
+				ctx.fillStyle = `hsl(${this.hue}, 80%, 60%)`;
 				ctx.beginPath();
-				ctx.arc(x, y, size * 3, 0, Math.PI * 2);
+				ctx.arc(x, y, size, 0, Math.PI * 2);
 				ctx.fill();
-				ctx.restore();
 			}
 		}
 		
 		for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 		
 		let animationId;
-		const animate = () => {
-			ctx.fillStyle = 'rgba(15, 23, 42, 0.1)';
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
-			particles.forEach((p, i) => {
-				p.update();
-				p.draw();
-				particles.forEach((p2, j) => {
-					if (i === j) return;
-					const dx = p.x - p2.x;
-					const dy = p.y - p2.y;
-					const dist = Math.sqrt(dx * dx + dy * dy);
-					if (dist < 120) {
-						ctx.strokeStyle = `hsla(210, 70%, 60%, ${0.15 * (1 - dist / 120)})`;
-						ctx.lineWidth = 0.5;
-						ctx.beginPath();
-						ctx.moveTo(p.x, p.y);
-						ctx.lineTo(p2.x, p2.y);
-						ctx.stroke();
+		let lastTime = performance.now();
+		const targetFPS = 60;
+		const frameTime = 1000 / targetFPS;
+		let frameCount = 0;
+		
+		const animate = (currentTime) => {
+			const deltaTime = currentTime - lastTime;
+			
+			if (deltaTime >= frameTime) {
+				ctx.fillStyle = 'rgba(10, 14, 26, 0.15)';
+				ctx.fillRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+				
+				// Draw particles without connections on mobile
+				const drawConnections = window.innerWidth >= 1024 && frameCount % 2 === 0;
+				
+				particles.forEach((p, i) => {
+					p.update();
+					p.draw();
+					
+					if (drawConnections && i % 3 === 0) {
+						particles.forEach((p2, j) => {
+							if (i === j || j % 3 !== 0) return;
+							const dx = p.x - p2.x;
+							const dy = p.y - p2.y;
+							const dist = Math.sqrt(dx * dx + dy * dy);
+							if (dist < 80) {
+								ctx.strokeStyle = `hsla(210, 70%, 60%, ${0.08 * (1 - dist / 80)})`;
+								ctx.lineWidth = 0.5;
+								ctx.beginPath();
+								ctx.moveTo(p.x, p.y);
+								ctx.lineTo(p2.x, p2.y);
+								ctx.stroke();
+							}
+						});
 					}
 				});
-			});
+				
+				lastTime = currentTime - (deltaTime % frameTime);
+				frameCount++;
+			}
+			
 			animationId = requestAnimationFrame(animate);
 		};
 		
-		animate();
+		animate(lastTime);
+		
+		let resizeTimeout;
 		const handleResize = () => {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(() => {
+				const dpr = Math.min(window.devicePixelRatio || 1, 2);
+				canvas.width = window.innerWidth * dpr;
+				canvas.height = window.innerHeight * dpr;
+				canvas.style.width = window.innerWidth + 'px';
+				canvas.style.height = window.innerHeight + 'px';
+				ctx.scale(dpr, dpr);
+			}, 200);
 		};
-		window.addEventListener('resize', handleResize);
+		
+		window.addEventListener('resize', handleResize, { passive: true });
 		
 		return () => {
 			cancelAnimationFrame(animationId);
 			window.removeEventListener('resize', handleResize);
+			clearTimeout(resizeTimeout);
 		};
-	}, [mousePos]);
+	}, [mousePos, particleCount, shouldReduceMotion]);
 
-	// Mouse e scroll tracking
-	useEffect(() => {
-		const handleMouseMove = (e) => {
+	// Mouse tracking ultra-ottimizzato con throttling
+	const handleMouseMove = useCallback((e) => {
+		if (rafRef.current) return;
+		
+		rafRef.current = requestAnimationFrame(() => {
 			const x = (e.clientX / window.innerWidth - 0.5);
 			const y = (e.clientY / window.innerHeight - 0.5);
-			setMousePos({ x: x * 50, y: y * 50 });
+			
+			setMousePos({ x: x * 40, y: y * 40 });
 			mouseX.set(x);
 			mouseY.set(y);
+			
 			const slide = document.querySelector(".design3d-hero-slide");
-			if (slide) slide.style.transform = `scale(1.1) translate(${x * 30}px, ${y * 30}px) rotate(${x * 2}deg)`;
-		};
-		const handleScroll = () => {
-			const progress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-			setScrollProgress(progress);
-		};
-		window.addEventListener("mousemove", handleMouseMove);
-		window.addEventListener("scroll", handleScroll);
+			if (slide && window.innerWidth >= 768) {
+				slide.style.transform = `scale(1.1) translate(${x * 20}px, ${y * 20}px)`;
+			}
+			
+			rafRef.current = null;
+		});
+	}, [mouseX, mouseY]);
+	
+	const handleScroll = useCallback(() => {
+		const progress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+		setScrollProgress(progress);
+	}, []);
+	
+	useEffect(() => {
+		window.addEventListener("mousemove", handleMouseMove, { passive: true });
+		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove);
 			window.removeEventListener("scroll", handleScroll);
+			if (rafRef.current) {
+				cancelAnimationFrame(rafRef.current);
+			}
 		};
-	}, [mouseX, mouseY]);
+	}, [handleMouseMove, handleScroll]);
 
-	// Testo animato
-	const textVariants = {
-		hidden: { opacity: 0, y: 50, rotateX: -90 },
+	// Varianti animate ottimizzate
+	const textVariants = useMemo(() => ({
+		hidden: { 
+			opacity: 0, 
+			y: shouldReduceMotion ? 0 : 50, 
+			rotateX: shouldReduceMotion ? 0 : -90 
+		},
 		visible: (i) => ({
 			opacity: 1,
 			y: 0,
 			rotateX: 0,
-			transition: { delay: i * 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+			transition: { 
+				delay: shouldReduceMotion ? 0 : i * 0.1, 
+				duration: shouldReduceMotion ? 0.3 : 0.8, 
+				ease: [0.22, 1, 0.36, 1] 
+			}
 		})
-	};
+	}), [shouldReduceMotion]);
+
+	// Video preload e lazy loading
+	useEffect(() => {
+		if (videoRef.current) {
+			videoRef.current.load();
+			// Preload hint
+			const link = document.createElement('link');
+			link.rel = 'preload';
+			link.as = 'video';
+			link.href = '/videosezionisingole/3dvideo.mp4';
+			document.head.appendChild(link);
+		}
+	}, []);
+
+	// Pause animations when tab not visible
+	useEffect(() => {
+		const handleVisibilityChange = () => {
+			if (document.hidden && videoRef.current) {
+				videoRef.current.pause();
+			} else if (videoRef.current) {
+				videoRef.current.play();
+			}
+		};
+		document.addEventListener('visibilitychange', handleVisibilityChange);
+		return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+	}, []);
 
 	return (
 		<div className="design3d-hero" ref={heroRef}>
 			<canvas ref={canvasRef} className="design3d-canvas" />
 			<div className="design3d-hero-slide"></div>
 
+			{/* Orbs con animazioni semplificate */}
 			<div className="gradient-orbs">
-				<motion.div className="orb orb-1" animate={{ x: [0, 100, 0], y: [0, -100, 0], scale: [1, 1.2, 1] }} transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }} />
-				<motion.div className="orb orb-2" animate={{ x: [0, -150, 0], y: [0, 100, 0], scale: [1, 1.3, 1] }} transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }} />
-				<motion.div className="orb orb-3" animate={{ x: [0, 80, 0], y: [0, 150, 0], scale: [1, 1.1, 1] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} />
+				<motion.div 
+					className="orb orb-1" 
+					animate={shouldReduceMotion ? {} : { 
+						x: [0, 80, 0], 
+						y: [0, -80, 0] 
+					}} 
+					transition={{ 
+						duration: 25, 
+						repeat: Infinity, 
+						ease: "linear",
+						repeatType: "reverse"
+					}} 
+				/>
+				<motion.div 
+					className="orb orb-2" 
+					animate={shouldReduceMotion ? {} : { 
+						x: [0, -120, 0], 
+						y: [0, 80, 0] 
+					}} 
+					transition={{ 
+						duration: 30, 
+						repeat: Infinity, 
+						ease: "linear",
+						repeatType: "reverse"
+					}} 
+				/>
+				<motion.div 
+					className="orb orb-3" 
+					animate={shouldReduceMotion ? {} : { 
+						x: [0, 60, 0], 
+						y: [0, 120, 0] 
+					}} 
+					transition={{ 
+						duration: 22, 
+						repeat: Infinity, 
+						ease: "linear",
+						repeatType: "reverse"
+					}} 
+				/>
 			</div>
 
-			<motion.div className="scan-line" animate={{ y: ["-100%", "200%"] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} />
+			{!shouldReduceMotion && (
+				<motion.div 
+					className="scan-line" 
+					animate={{ y: ["-100%", "200%"] }} 
+					transition={{ 
+						duration: 10, 
+						repeat: Infinity, 
+						ease: "linear" 
+					}} 
+				/>
+			)}
 
 			<motion.div className="design3d-content-wrapper" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-				{/* ✅ Box fisso, nessun movimento con mouse */}
 				<motion.div 
 					className="design3d-content"
 					style={{ transformStyle: "preserve-3d" }}
 					whileHover={{ 
-						scale: 1.02,
-						boxShadow: "0 30px 90px rgba(59, 130, 246, 0.4)"
+						scale: 1.01,
+						transition: { duration: 0.3 }
 					}}
 				>
 					<div className="holographic-overlay" />
@@ -181,7 +322,7 @@ export default function Design3DPage() {
 
 					{[
 						"La stampa 3D è il cuore di <strong>CREO</strong>. Realizziamo prototipi, gadget, accessori e componenti tecnici con precisione e materiali di qualità.",
-						"Utilizziamo tecnologie avanzate <strong>FDM</strong> e <strong>resin-based</strong> per garantire ottima resistenza, dettagli perfetti e finiture curate.",
+						"Utilizziamo tecnologie avanzate per garantire ottima resistenza, dettagli perfetti e finiture curate.",
 						"Collaboriamo con designer, aziende, artigiani e privati per sviluppare progetti personalizzati, dalla fase di modellazione 3D fino alla produzione finale.",
 						"Con la nostra esperienza, ogni idea può prendere vita, diventando un oggetto tangibile, funzionale e unico."
 					].map((text, i) => (
@@ -222,50 +363,59 @@ export default function Design3DPage() {
 					</motion.div>
 				</motion.div>
 
-				{/* Video */}
+				{/* Video ottimizzato */}
 				<motion.div
 					className="design3d-video"
-					initial={{ opacity: 0, x: 100, rotateY: -30 }}
-					animate={{ opacity: 1, x: 0, rotateY: 0 }}
-					transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+					initial={{ opacity: 0, x: 100 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
 					whileHover={{ 
-						scale: 1.05,
-						rotateY: 5,
+						scale: 1.02,
 						transition: { duration: 0.4 }
 					}}
 					onHoverStart={() => setIsVideoHovered(true)}
 					onHoverEnd={() => setIsVideoHovered(false)}
-					style={{ transformStyle: "preserve-3d" }}
 				>
-					<motion.div
-						className="video-container"
-						animate={{ rotateY: isVideoHovered ? [0, 2, 0, -2, 0] : 0 }}
-						transition={{ duration: 4, repeat: isVideoHovered ? Infinity : 0 }}
-					>
+					<motion.div className="video-container">
 						<div className="holo-border holo-border-1" />
-						<div className="holo-border holo-border-2" />
-						<div className="holo-border holo-border-3" />
-						<motion.div
-							className="video-glow-ring"
-							animate={{
-								scale: isVideoHovered ? [1, 1.15, 1] : 1,
-								opacity: isVideoHovered ? [0.3, 0.7, 0.3] : 0.2
-							}}
-							transition={{ duration: 2, repeat: Infinity }}
-						/>
-						<video ref={videoRef} className="design3d-video-player" autoPlay loop muted playsInline>
+						{window.innerWidth >= 1024 && (
+							<>
+								<div className="holo-border holo-border-2" />
+								<div className="holo-border holo-border-3" />
+							</>
+						)}
+						<video 
+							ref={videoRef} 
+							className="design3d-video-player" 
+							autoPlay 
+							loop 
+							muted 
+							playsInline
+							preload="metadata"
+							poster="/videosezionisingole/3dvideo-poster.jpg"
+						>
 							<source src="/videosezionisingole/3dvideo.mp4" type="video/mp4" />
-							Il tuo browser non supporta i video HTML5.
 						</video>
-						<motion.div className="video-reflection" animate={{ opacity: [0.1, 0.3, 0.1] }} transition={{ duration: 4, repeat: Infinity }} />
 					</motion.div>
 				</motion.div>
 			</motion.div>
 
-			<motion.div className="custom-cursor-advanced" animate={{ x: mousePos.x * 10, y: mousePos.y * 10 }} transition={{ type: "spring", damping: 20, stiffness: 300 }}>
-				<div className="cursor-ring" />
-				<div className="cursor-dot" />
-			</motion.div>
+			{/* Cursor solo su desktop */}
+			{window.innerWidth >= 1024 && (
+				<motion.div 
+					className="custom-cursor-advanced" 
+					animate={{ x: mousePos.x * 8, y: mousePos.y * 8 }} 
+					transition={{ 
+						type: "spring", 
+						damping: 25, 
+						stiffness: 200,
+						mass: 0.5
+					}}
+				>
+					<div className="cursor-ring" />
+					<div className="cursor-dot" />
+				</motion.div>
+			)}
 
 			<motion.div className="scroll-progress" style={{ scaleX: scrollProgress }} />
 		</div>
