@@ -127,14 +127,14 @@
 /* --- BOX TESTO HOLOGRAFICO --- */
 .design3d-content {
   flex: 1;
-  max-width: 55%;
-  padding: 50px 60px;
+  max-width: 50%;
+  padding: 30px 40px;
   background: linear-gradient(135deg, 
     rgba(15, 23, 42, 0.95) 0%, 
     rgba(30, 41, 59, 0.9) 50%,
     rgba(15, 23, 42, 0.95) 100%
   );
-  border-radius: 30px;
+  border-radius: 25px;
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
@@ -147,6 +147,7 @@
   backdrop-filter: blur(20px) saturate(180%);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   transform-style: preserve-3d;
+  transform: translateY(-30px);
 }
 
 /* Bordo animato gradient */
@@ -154,7 +155,7 @@
   content: "";
   position: absolute;
   inset: -2px;
-  border-radius: 30px;
+  border-radius: 25px;
   padding: 2px;
   background: linear-gradient(135deg, 
     #3b82f6, 
@@ -190,7 +191,7 @@
     rgba(59, 130, 246, 0.03) 4px
   );
   pointer-events: none;
-  border-radius: 30px;
+  border-radius: 25px;
   mix-blend-mode: overlay;
   animation: holo-scan 3s linear infinite;
 }
@@ -222,9 +223,9 @@
 
 /* --- TESTI CON EFFETTI --- */
 .design3d-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   background: linear-gradient(135deg, 
     #60a5fa 0%, 
     #a78bfa 25%, 
@@ -272,10 +273,10 @@
 }
 
 .design3d-subtitle {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #93c5fd;
-  margin: 0 0 30px;
+  margin: 0 0 22px;
   text-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -287,11 +288,11 @@
 .design3d-description-two,
 .design3d-description-three,
 .design3d-description-four {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
   color: #e0f2fe;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
   cursor: pointer;
