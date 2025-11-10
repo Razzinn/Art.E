@@ -5,7 +5,7 @@
   min-height: 440px;
   max-height: 900px;
   overflow: hidden;
-  background-color: #0f172a;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a2e 50%, #0f0f23 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,49 +15,267 @@
   will-change: auto;
 }
 
-/* --- SFONDO HERO --- */
+/* --- SFONDO HERO CON IMMAGINE --- */
 .abbigliamento-hero-slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 88vh;
+  top: -5%;
+  left: -5%;
+  width: 110vw;
+  height: 110vh;
   background-image: url('/abbigliamentopersonalizzato.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.85) contrast(1.1) saturate(1.2);
-  animation: hero-zoom 14s ease-in-out infinite alternate;
+  filter: none;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
   /* Hardware acceleration */
+  will-change: transform;
   transform: translateZ(0) scale(1);
   backface-visibility: hidden;
-  will-change: transform;
+  -webkit-backface-visibility: hidden;
 }
 
-@keyframes hero-zoom {
-  from { transform: scale(1); filter: brightness(0.85) contrast(1.1); }
-  to { transform: scale(1.06); filter: brightness(0.95) contrast(1.2); }
+.abbigliamento-hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  mix-blend-mode: normal;
 }
 
-/* --- LUCE DECORATIVA --- */
+/* --- LUCE SOFISTICATA --- */
 .abbigliamento-hero::before {
   content: "";
   position: absolute;
-  top: -30%;
-  left: -30%;
-  width: 160%;
-  height: 160%;
-  background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 70%);
-  mix-blend-mode: overlay;
-  animation: hero-light-move 22s ease-in-out infinite alternate;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  mix-blend-mode: normal;
+  animation: none;
   pointer-events: none;
   z-index: 1;
 }
 
-@keyframes hero-light-move {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(8%, -6%) rotate(10deg); }
+@keyframes premium-light-flow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.6; }
+  33% { transform: translate(10%, -10%) rotate(120deg) scale(1.1); opacity: 0.8; }
+  66% { transform: translate(-10%, 10%) rotate(240deg) scale(1.05); opacity: 0.7; }
+}
+
+/* --- 🎨 PATTERN TESSILE LUXURY ESAGONALE --- */
+.fabric-pattern-luxury {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(30deg, rgba(251, 191, 36, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(251, 191, 36, 0.03) 87.5%),
+    linear-gradient(150deg, rgba(251, 191, 36, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(251, 191, 36, 0.03) 87.5%),
+    linear-gradient(30deg, rgba(251, 191, 36, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(251, 191, 36, 0.03) 87.5%),
+    linear-gradient(150deg, rgba(251, 191, 36, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(251, 191, 36, 0.03) 87.5%),
+    linear-gradient(60deg, rgba(217, 119, 6, 0.04) 25%, transparent 25.5%, transparent 75%, rgba(217, 119, 6, 0.04) 75%),
+    linear-gradient(60deg, rgba(217, 119, 6, 0.04) 25%, transparent 25.5%, transparent 75%, rgba(217, 119, 6, 0.04) 75%);
+  background-size: 70px 120px;
+  background-position: 0 0, 0 0, 35px 60px, 35px 60px, 0 0, 35px 60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.5;
+  animation: fabric-pattern-shift 20s ease-in-out infinite;
+}
+
+@keyframes fabric-pattern-shift {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; filter: brightness(1.2); }
+}
+
+/* --- 🧵 FILI TESSILI PREMIUM (ORO E ARGENTO) --- */
+.fabric-threads {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+  contain: layout style paint;
+}
+
+.fabric-thread {
+  position: absolute;
+  height: 30px;
+  border-radius: 2px;
+  filter: blur(0.5px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.thread-gold {
+  background: linear-gradient(180deg, 
+    transparent,
+    rgba(251, 191, 36, 0.8) 30%,
+    rgba(245, 158, 11, 1) 50%,
+    rgba(251, 191, 36, 0.8) 70%,
+    transparent
+  );
+  box-shadow: 
+    0 0 10px rgba(251, 191, 36, 0.8),
+    0 0 20px rgba(245, 158, 11, 0.5),
+    0 0 30px rgba(217, 119, 6, 0.3);
+}
+
+.thread-silver {
+  background: linear-gradient(180deg, 
+    transparent,
+    rgba(226, 232, 240, 0.7) 30%,
+    rgba(203, 213, 225, 0.9) 50%,
+    rgba(226, 232, 240, 0.7) 70%,
+    transparent
+  );
+  box-shadow: 
+    0 0 8px rgba(226, 232, 240, 0.7),
+    0 0 16px rgba(203, 213, 225, 0.4);
+}
+
+/* --- ✨ SHIMMER SETA/RASO WAVES --- */
+.silk-shimmer-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.silk-shimmer-wave {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  top: 50%;
+  transform: translateY(-50%) skewY(-8deg);
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(251, 191, 36, 0.15) 20%,
+    rgba(245, 158, 11, 0.3) 40%,
+    rgba(251, 191, 36, 0.4) 50%,
+    rgba(245, 158, 11, 0.3) 60%,
+    rgba(251, 191, 36, 0.15) 80%,
+    transparent
+  );
+  filter: blur(25px);
+  box-shadow: 0 0 80px rgba(251, 191, 36, 0.3);
+}
+
+/* --- 🪡 NODI CUCITURA DECORATIVI --- */
+.stitch-nodes-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.stitch-node-decorative {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle,
+    rgba(251, 191, 36, 1) 0%,
+    rgba(245, 158, 11, 0.8) 40%,
+    transparent 70%
+  );
+  border: 2px solid rgba(251, 191, 36, 0.6);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.8),
+    0 0 40px rgba(245, 158, 11, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+  filter: brightness(1.3);
+}
+
+/* --- 🌊 ONDE TESSUTO ELEGANTI --- */
+.fabric-waves-elegant {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.fabric-wave-elegant {
+  position: absolute;
+  width: 200%;
+  height: 120px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(251, 191, 36, 0.2) 30%,
+    rgba(245, 158, 11, 0.3) 50%,
+    rgba(251, 191, 36, 0.2) 70%,
+    transparent
+  );
+  filter: blur(20px);
+  transform: skewY(-5deg);
+}
+
+.wave-1 {
+  top: 15%;
+  height: 100px;
+}
+
+.wave-2 {
+  top: 50%;
+  transform: translateY(-50%) skewY(3deg);
+  height: 140px;
+}
+
+.wave-3 {
+  bottom: 15%;
+  height: 110px;
+}
+
+/* --- 💎 ORBS GRADIENT MODA LUXURY (ORO, AMBRA, BRONZO) --- */
+.gradient-orbs-fashion-luxury {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+  opacity: 0.45;
+}
+
+.orb-fashion-lux {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+}
+
+.orb-fashion-lux-1 {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.7), transparent 70%);
+  top: 20%;
+  left: 10%;
+  box-shadow: 0 0 120px rgba(251, 191, 36, 0.4);
+}
+
+.orb-fashion-lux-2 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.6), transparent 70%);
+  bottom: 15%;
+  right: 8%;
+  box-shadow: 0 0 120px rgba(245, 158, 11, 0.4);
+}
+
+.orb-fashion-lux-3 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.5), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 100px rgba(217, 119, 6, 0.3);
 }
 
 /* --- CONTENUTO HERO --- */
@@ -68,7 +286,7 @@
   align-items: center;
   justify-content: space-between;
   width: 88%;
-  max-width: 1300px;
+  max-width: 1400px;
   gap: 3rem;
   height: 100%;
   padding: 0 2rem;
@@ -79,141 +297,416 @@
   will-change: transform;
 }
 
-/* --- VIDEO AREA --- */
+/* --- VIDEO CON FRAME ELEGANTE --- */
 .abbigliamento-video {
+  position: relative;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 640px;
   height: auto;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+/* --- 🧵 FRAME TESSUTO LUXURY CON CUCITURE E BOTTONI --- */
+.fabric-frame-luxury {
+  position: absolute;
+  inset: -25px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cuciture angolari dorate */
+.frame-corner-stitch {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(251, 191, 36, 0.9);
+  box-shadow: 
+    0 0 30px rgba(251, 191, 36, 0.8),
+    0 0 60px rgba(245, 158, 11, 0.5),
+    inset 0 0 20px rgba(251, 191, 36, 0.3);
+  filter: brightness(1.3);
+  animation: stitch-corner-glow 4s ease-in-out infinite;
+}
+
+.corner-tl {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  animation-delay: 0s;
+}
+
+.corner-tr {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 6px;
+  animation-delay: 1s;
+}
+
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  animation-delay: 2s;
+}
+
+.corner-br {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 6px;
+  animation-delay: 3s;
+}
+
+@keyframes stitch-corner-glow {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1);
+    filter: brightness(1.2);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.08);
+    filter: brightness(1.6);
+  }
+}
+
+/* Bottoni decorativi dorati */
+.frame-button-deco {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle,
+    rgba(251, 191, 36, 1) 0%,
+    rgba(245, 158, 11, 0.9) 40%,
+    rgba(217, 119, 6, 0.8) 70%,
+    transparent 100%
+  );
+  border: 2px solid rgba(251, 191, 36, 0.8);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 25px rgba(251, 191, 36, 0.9),
+    0 0 50px rgba(245, 158, 11, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: button-sparkle 3s ease-in-out infinite;
+}
+
+.button-tl {
+  top: 25px;
+  left: 25px;
+  animation-delay: 0s;
+}
+
+.button-tr {
+  top: 25px;
+  right: 25px;
+  animation-delay: 0.75s;
+}
+
+.button-bl {
+  bottom: 25px;
+  left: 25px;
+  animation-delay: 1.5s;
+}
+
+.button-br {
+  bottom: 25px;
+  right: 25px;
+  animation-delay: 2.25s;
+}
+
+@keyframes button-sparkle {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    box-shadow: 
+      0 0 25px rgba(251, 191, 36, 0.9),
+      0 0 50px rgba(245, 158, 11, 0.6),
+      inset 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% { 
+    transform: scale(1.3) rotate(180deg);
+    box-shadow: 
+      0 0 40px rgba(251, 191, 36, 1),
+      0 0 80px rgba(245, 158, 11, 0.8),
+      0 0 120px rgba(217, 119, 6, 0.5),
+      inset 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Aura tessuto premium oro */
+.fabric-aura {
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(
+    ellipse,
+    rgba(251, 191, 36, 0.2) 0%,
+    rgba(245, 158, 11, 0.15) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .abbigliamento-video-player {
   width: 100%;
   height: auto;
-  max-height: 78vh; /* ✅ rientra nella hero */
-  object-fit: contain; /* ✅ mostra tutto il video senza tagliare */
+  max-height: 78vh;
+  object-fit: contain;
   object-position: center;
-  border-radius: 20px;
-  filter: brightness(0.98) contrast(1.06) saturate(1.08);
+  border-radius: 16px;
+  filter: brightness(1.05) contrast(1.12) saturate(1.05);
+  background-color: transparent;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
+  /* Hardware acceleration - ottimizzato per performance */
   transition: filter 0.2s ease;
-  /* Hardware acceleration */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: filter;
+  box-shadow: 
+    0 30px 80px rgba(251, 191, 36, 0.25),
+    0 10px 40px rgba(245, 158, 11, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
-.abbigliamento-video-player:hover {
-  filter: brightness(1) contrast(1.1);
-}
-
-/* --- BOX TESTO --- */
+/* --- BOX TESTO PREMIUM --- */
 .abbigliamento-content {
+  position: relative;
   flex: 1;
   max-width: 560px;
-  padding: 42px 48px;
-  background: rgba(15, 23, 42, 0.8);
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow:
-    0 0 25px rgba(59, 130, 246, 0.15),
-    0 0 60px rgba(96, 165, 250, 0.1),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  overflow: hidden;
-  animation: hero-glow 12s ease-in-out infinite alternate;
-  transition: transform 0.6s cubic-bezier(.19,1,.22,1), box-shadow 0.6s ease;
+  padding: 36px 44px;
+  max-height: 76vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.95) 0%, 
+    rgba(26, 26, 46, 0.92) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  border-radius: 28px;
+  border: 1px solid rgba(251, 191, 36, 0.15);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(251, 191, 36, 0.15),
+    0 0 120px rgba(245, 158, 11, 0.08),
+    inset 0 0 30px rgba(251, 191, 36, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  color: #fff;
+  overflow: hidden;
+  animation: fashion-glow-luxury 15s ease-in-out infinite alternate;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes hero-glow {
-  0% {
+/* Bordo animato elegante oro */
+.abbigliamento-content::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, 
+    rgba(251, 191, 36, 0.5), 
+    rgba(245, 158, 11, 0.3), 
+    rgba(217, 119, 6, 0.2),
+    rgba(245, 158, 11, 0.3),
+    rgba(251, 191, 36, 0.5)
+  );
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: gold-shine 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes gold-shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fashion-glow-luxury {
+  0%, 100% {
     box-shadow:
-      0 0 25px rgba(59,130,246,0.15),
-      0 0 60px rgba(96,165,250,0.08),
-      inset 0 0 8px rgba(255,255,255,0.04);
+      0 30px 80px rgba(0, 0, 0, 0.4),
+      0 0 50px rgba(251, 191, 36, 0.12),
+      0 0 100px rgba(245, 158, 11, 0.06),
+      inset 0 0 25px rgba(251, 191, 36, 0.04);
   }
   50% {
     box-shadow:
-      0 0 35px rgba(96,165,250,0.25),
-      0 0 80px rgba(59,130,246,0.15),
-      inset 0 0 12px rgba(255,255,255,0.08);
-  }
-  100% {
-    box-shadow:
-      0 0 25px rgba(59,130,246,0.15),
-      0 0 60px rgba(96,165,250,0.08),
-      inset 0 0 8px rgba(255,255,255,0.04);
+      0 35px 100px rgba(0, 0, 0, 0.5),
+      0 0 70px rgba(251, 191, 36, 0.2),
+      0 0 140px rgba(245, 158, 11, 0.1),
+      inset 0 0 35px rgba(251, 191, 36, 0.08);
   }
 }
 
-/* --- TESTI --- */
+/* --- TESTI PREMIUM --- */
 .abbigliamento-title {
-  font-size: 2.6rem;
+  position: relative;
+  font-size: 2.2rem;
   font-weight: 900;
-  margin: 0 0 16px;
-  background: linear-gradient(90deg, #3b82f6, #60a5fa, #f97316, #fde047);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-move 8s ease-in-out infinite alternate;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-@keyframes gradient-move {
-  from { background-position: 0%; }
-  to { background-position: 100%; }
+.title-line {
+  display: inline-block;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706, #f59e0b);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-gold 6s ease infinite;
+  filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.4));
+}
+
+.title-underline {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(251, 191, 36, 0.8), 
+    rgba(245, 158, 11, 0.8),
+    transparent
+  );
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+}
+
+@keyframes gradient-flow-gold {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
 }
 
 .abbigliamento-subtitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #93c5fd;
-  margin: 0 0 20px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
-  letter-spacing: 0.02em;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fde047;
+  margin: 0 0 18px;
+  text-shadow: 0 2px 15px rgba(253, 224, 71, 0.4);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  opacity: 0.95;
 }
 
 .abbigliamento-description,
 .abbigliamento-description-two {
-  font-size: 1.06rem;
-  line-height: 1.7;
-  color: #f8fafc;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #e2e8f0;
   font-weight: 400;
   margin-bottom: 12px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  position: relative;
+  padding-left: 20px;
+  opacity: 0.92;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.abbigliamento-description strong {
-  color: #60a5fa;
+.abbigliamento-description::before,
+.abbigliamento-description-two::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 3px;
+  height: calc(100% - 16px);
+  background: linear-gradient(180deg, 
+    rgba(251, 191, 36, 0.7), 
+    rgba(245, 158, 11, 0.4),
+    transparent
+  );
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.abbigliamento-description:hover,
+.abbigliamento-description-two:hover {
+  transform: translateX(5px);
+  opacity: 1;
+  color: #f8fafc;
+}
+
+.abbigliamento-description:hover::before,
+.abbigliamento-description-two:hover::before {
+  width: 4px;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
+}
+
+.abbigliamento-description strong,
+.abbigliamento-description-two strong {
+  color: #fbbf24;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
 }
 
 .abbigliamento-description-two em {
-  color: #fbbf24;
+  color: #f59e0b;
   font-style: normal;
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
 
-.abbigliamento-description-two strong {
-  color: #facc15;
+.abbigliamento-cta {
+  margin-top: 18px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, 
+    rgba(251, 191, 36, 0.08), 
+    rgba(245, 158, 11, 0.06)
+  );
+  border-radius: 14px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.abbigliamento-description-important {
-  font-weight: 600;
+.abbigliamento-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.4);
+  box-shadow: 
+    0 15px 40px rgba(251, 191, 36, 0.2),
+    0 0 30px rgba(245, 158, 11, 0.1);
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  font-weight: 500;
   color: #fde047;
-  font-size: 1.15rem;
-  margin-top: 16px;
-  text-shadow: 0 0 12px rgba(250, 204, 21, 0.4);
+  text-shadow: 0 0 20px rgba(253, 224, 71, 0.4);
 }
 
-.abbigliamento-description-important span {
-  color: #f97316;
+.cta-highlight {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-gold 4s ease infinite;
+  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.4));
 }
 
 /* Remove focus outline for links */
@@ -224,58 +717,183 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
+  .abbigliamento-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+  
   .abbigliamento-content-wrapper {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    max-width: 85%;
-    padding: 0;
-  }
-  .abbigliamento-content {
     max-width: 90%;
-    padding: 30px;
+    padding: 2rem 1rem;
+  }
+  
+  .abbigliamento-content {
+    max-width: 100%;
+    padding: 30px 25px;
+    min-height: auto;
     text-align: center;
   }
+  
   .abbigliamento-video {
-    max-width: 640px;
+    max-width: 100%;
+    order: -1;
   }
+  
   .abbigliamento-video-player {
-    max-height: 60vh;
+    max-height: 50vh;
   }
-  .abbigliamento-title { font-size: 2.2rem; }
+  
+  .abbigliamento-title { font-size: 2rem; }
+  .abbigliamento-subtitle { font-size: 1.1rem; }
+  
+  .fabric-threads,
+  .silk-shimmer-layer,
+  .stitch-nodes-layer { opacity: 0.5; }
 }
 
 @media (max-width: 768px) {
   .abbigliamento-hero,
   .abbigliamento-hero-slide {
-    height: 70vh;
+    height: auto;
+    min-height: 100vh;
   }
+  
   .abbigliamento-content-wrapper {
-    gap: 1.6rem;
+    gap: 1.5rem;
     max-width: 95%;
+    padding: 1.5rem 0.5rem;
   }
+  
   .abbigliamento-content {
-    padding: 22px;
+    padding: 22px 18px;
+    min-height: auto;
+    border-radius: 20px;
   }
+  
   .abbigliamento-video-player {
-    max-height: 50vh;
+    max-height: 40vh;
+    border-radius: 12px;
   }
-  .abbigliamento-title { font-size: 1.8rem; }
+  
+  .abbigliamento-title { font-size: 1.7rem; }
   .abbigliamento-subtitle { font-size: 1rem; }
+  
+  .abbigliamento-description,
+  .abbigliamento-description-two {
+    font-size: 0.9rem;
+    padding-left: 15px;
+  }
+  
+  .abbigliamento-cta {
+    padding: 12px 16px;
+    margin-top: 15px;
+  }
+  
+  .cta-text { font-size: 1rem; }
+  .cta-highlight { font-size: 1.1rem; }
+  
+  .fabric-frame-luxury { inset: -15px; }
+  .frame-corner-stitch { 
+    width: 50px;
+    height: 50px;
+  }
+  .frame-button-deco { 
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .abbigliamento-hero,
   .abbigliamento-hero-slide {
-    height: 55vh;
+    height: auto;
+    min-height: 100vh;
   }
+  
   .abbigliamento-content {
-    padding: 16px;
+    padding: 16px 12px;
+    min-height: auto;
+    border-radius: 18px;
   }
+  
   .abbigliamento-video-player {
-    max-height: 38vh;
+    max-height: 35vh;
+    border-radius: 10px;
   }
-  .abbigliamento-title { font-size: 1.4rem; }
-  .abbigliamento-subtitle { font-size: 0.9rem; }
-  .abbigliamento-description { font-size: 0.85rem; }
+  
+  .abbigliamento-content-wrapper {
+    width: 98%;
+  }
+  
+  .abbigliamento-title { 
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .abbigliamento-subtitle { 
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  
+  .abbigliamento-description,
+  .abbigliamento-description-two { 
+    font-size: 0.83rem;
+    padding-left: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .abbigliamento-cta {
+    padding: 10px 12px;
+    margin-top: 12px;
+  }
+  
+  .cta-text { font-size: 0.95rem; }
+  .cta-highlight { font-size: 1.05rem; }
+  
+  .fabric-threads,
+  .silk-shimmer-layer,
+  .stitch-nodes-layer,
+  .fabric-waves-elegant { display: none; }
+  
+  .fabric-frame-luxury { display: none; }
+  .fabric-aura { inset: -40px; }
+}
+
+@media (max-width: 360px) {
+  .abbigliamento-content {
+    padding: 12px 8px;
+  }
+  
+  .abbigliamento-title { font-size: 1.2rem; }
+  .abbigliamento-subtitle { font-size: 0.85rem; }
+  
+  .abbigliamento-description,
+  .abbigliamento-description-two {
+    font-size: 0.78rem;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .abbigliamento-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .abbigliamento-content-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .abbigliamento-content,
+  .abbigliamento-video {
+    max-width: 48%;
+  }
+  
+  .abbigliamento-video-player {
+    max-height: 70vh;
+  }
 }
