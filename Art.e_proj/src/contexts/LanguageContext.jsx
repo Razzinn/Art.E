@@ -37,8 +37,8 @@ export const LANGUAGES = {
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  // Lingua di default: inglese
-  const [currentLanguage, setCurrentLanguage] = useState('en');
+  // Lingua di default: serbo
+  const [currentLanguage, setCurrentLanguage] = useState('sr');
   const [translations, setTranslations] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,18 +46,28 @@ export const LanguageProvider = ({ children }) => {
   const loadTranslations = async (langCode) => {
     try {
       setIsLoading(true);
+      console.log(`🔄 Loading translations for: ${langCode}`);
+      
       // Importa dinamicamente il file di traduzione
       const translationModule = await import(`../translations/${langCode}.json`);
-      setTranslations(translationModule.default);
+      const translations = translationModule?.default || translationModule;
+      
+      console.log(`✅ Translations loaded for ${langCode}:`, translations);
+      setTranslations(translations);
     } catch (error) {
-      console.warn(`Traduzioni non trovate per ${langCode}, utilizzo inglese`, error);
+      console.error(`❌ Error loading translations for ${langCode}:`, error);
+      console.warn(`Fallback to English...`);
+      
       // Fallback all'inglese se la lingua non è disponibile
       if (langCode !== 'en') {
         const fallbackModule = await import(`../translations/en.json`);
-        setTranslations(fallbackModule.default);
+        const fallbackTranslations = fallbackModule?.default || fallbackModule;
+        console.log('📝 Fallback translations loaded:', fallbackTranslations);
+        setTranslations(fallbackTranslations);
       }
     } finally {
       setIsLoading(false);
+      console.log(`🏁 Loading completed for ${langCode}`);
     }
   };
 
@@ -93,6 +103,11 @@ export const LanguageProvider = ({ children }) => {
       return fallback || '';
     }
     
+    // Se stiamo ancora caricando o non abbiamo traduzioni, restituisci fallback
+    if (isLoading || !translations || Object.keys(translations).length === 0) {
+      return fallback;
+    }
+    
     const keys = key.split('.');
     let value = translations;
     
@@ -104,7 +119,15 @@ export const LanguageProvider = ({ children }) => {
       }
     }
     
-    return typeof value === 'string' ? value : fallback;
+    // IMPORTANTE: Assicuriamoci che il valore finale sia una stringa
+    if (typeof value === 'string') {
+      return value;
+    } else if (typeof value === 'object') {
+      console.warn(`⚠️ Translation key "${key}" points to an object, not a string:`, value);
+      return fallback;
+    } else {
+      return String(value) || fallback;
+    }
   };
 
   // Funzione per ottenere traduzioni con parametri

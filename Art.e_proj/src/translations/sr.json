@@ -9,45 +9,68 @@
     "edit": "Izmeni",
     "close": "Zatvori",
     "back": "Nazad",
-    "next": "Sledeće",
+    "next": "Dalje",
     "previous": "Prethodno",
     "home": "Početna",
     "contact": "Kontakt",
     "about": "O nama",
     "services": "Usluge",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "select_language": "Izaberi jezik"
   },
   "navigation": {
     "home": "Početna",
     "services": "Usluge",
     "about": "O nama",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "main_navigation": "Glavna navigacija",
+    "logo_aria_label": "CREO - Povratak na početnu",
+    "logo_text": "CREO Marketplace",
+    "categories_label": "Kategorije",
+    "all_categories": "Sve Kategorije",
+    "search_label": "Pretraži proizvode",
+    "search_placeholder": "Pretraži na Creo",
+    "search_aria_label": "Pretraži proizvode u marketplace-u",
+    "search_button_aria_label": "Izvrši pretragu",
+    "search_button_text": "Pretraži",
+    "search_suggestions_aria_label": "Predlozi pretrage",
+    "categories": {
+      "design_3d": "Dizajn & 3D Štampa",
+      "apparel": "Personalizovana Odeća",
+      "web_app": "Web & App Dizajn",
+      "gift_ideas": "Ideje za Poklone"
+    }
   },
   "hero": {
     "cta_button": "Saznaj više",
+    "computer_alt": "Razvojni kompjuter",
     "slides": {
       "3d_design": {
         "title": "3D Dizajn i 3D Štampa",
         "subtitle": "Od ideje do realizacije gotovog proizvoda",
         "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i prilagođeni dizajn.",
+        "alt": "3D Dizajn",
         "cta": "Saznaj više"
       },
       "apparel": {
         "title": "Prilagođena Odeća",
         "subtitle": "Nosi svoju ideju",
         "description": "Majice, bodiji, kačketi i prilagođeni dodaci: svaki odevni predmet postaje poruka, svaki stil tvoj potpis.",
+        "alt": "Prilagođena odeća",
         "cta": "Saznaj više"
       },
       "web_app": {
         "title": "Web i App Dizajn",
         "subtitle": "Efikasna digitalna iskustva",
         "description": "Moderni sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online.",
+        "alt": "Veb razvoj i dizajn",
         "cta": "Saznaj više"
       },
       "gifts": {
         "title": "Ideje za Poklone",
         "subtitle": "Iznenadi originalnošću",
         "description": "Originalne i personalizovane kreacije, savršene za iznenađenja i ostavljanje traga u svakoj prilici.",
+        "alt": "Personalizovane ideje za poklone",
         "cta": "Saznaj više"
       }
     }
@@ -235,10 +258,16 @@
     "form_header_description": "Popunite formu i kontaktiraćemo vas u roku od 24 sata"
   },
   "footer": {
+    "company": {
+      "description": "Transformišemo vaše ideje u realnost sa 3D štampom, personalizovanom odećom, digitalnim uslugama i italijanskom kreativnošću vrhunskog kvaliteta.",
+      "address": "Via Roma 123, 20121 Milano, Italija",
+      "hours": "Svakog dana: 08:00–20:00"
+    },
     "sections": {
       "products": "Proizvodi",
       "clothing": "Odeća",
-      "digital_services": "Digitalne Usluge"
+      "digital_services": "Digitalne Usluge",
+      "gift_ideas": "Ideje za Poklone"
     },
     "links": {
       "printing_3d": "3D Štampa",
@@ -259,7 +288,11 @@
       "brand_identity": "Brand Identitet",
       "social_media_marketing": "Social Media Marketing",
       "graphic_design": "Grafički Dizajn",
-      "digital_consulting": "Digitalno Konsaltovanje"
+      "digital_consulting": "Digitalno Konsaltovanje",
+      "custom_keychains": "Prilagođeni Privesci",
+      "personalized_mugs": "Personalizovane Šolje",
+      "photo_frames": "Okviri za Slike",
+      "surprise_boxes": "Kutije Iznenađenja"
     },
     "newsletter": {
       "title": "Newsletter Creo",
@@ -288,17 +321,42 @@
       "hours": "Radno vreme"
     },
     "legal": {
-      "all_rights_reserved": "Sva prava zadržana",
-      "privacy_policy": "Politika Privatnosti",
-      "terms_of_service": "Uslovi Korišćenja",
-      "cookie_policy": "Cookie Politika",
-      "returns_refunds": "Povraćaj & Refundiranje",
-      "shipping": "Dostava",
-      "faq": "Često Postavljana Pitanja"
+      "all_rights_reserved": "Sva prava zadržana"
     },
-    "payment": {
-      "secure_payments": "Sigurna plaćanja"
-    },
-    "back_to_top": "Nazad na vrh"
+    "back_to_top": "Nazad na vrh",
+    "winking_face": "namigivanje"
+  },
+  "pages": {
+      "abbigliamento": {
+        "title": "Personalizovana Odeća",
+        "subtitle": "Istakni se onim što nosiš.",
+        "description1": "Sa <strong>CREO</strong> možeš transformisati jednostavan komad odeće u jedinstveno sredstvo izražavanja ili promocije. Personalizujemo majice, dukseve, kačkete i radnu odeću sa visokokvalitetnim štampom i odabranim materijalima.",
+        "description2": "Bilo da želiš da kreiraš profesionalne firmske uniforme, event merchandising ili personalizovane poklone, <em>brinemo o svakom detaljuu</em>: od grafike do finalnog štampanja. Zahvaljujući modernim tehnikama štampe – kao što su DTF, sito štampa ili termo transfer – garantujemo <strong>sjajne boje, trajnost i udobnost</strong> na svakom proizvodu.",
+        "cta": "➡️ Prikaži svoj identitet. <span>Nosi svoje ideje.</span>"
+      },
+      "design3d": {
+        "title": "3D ŠTAMPA",
+        "subtitle": "Od prototipa do gotovog objekta: dajemo oblik mašti.",
+        "description1": "3D štampa je srce <strong>CREO</strong>-a. Realizujemo prototipove, gadžete, dodatke i tehničke komponente sa preciznošću i kvalitetnim materijalima.",
+        "description2": "Koristimo napredne <strong>FDM</strong> i <strong>smola-bazne</strong> tehnologije da garantujemo odličnu otpornost, savršene detalje i negovane završne obradu.",
+        "description3": "Sarađujemo sa dizajnerima, kompanijama, zanatlicama i privatnim licima da razvijemo personalizovane projekte, od faze 3D modelovanja do finalne proizvodnje.",
+        "description4": "Sa našim iskustvom, svaka ideja može da oživi, postajući opipljiv, funkcionalan i jedinstven objekat.",
+        "cta": "➡️ <strong>Donesi svoju ideju</strong>, mi je pretvaramo u stvarnost."
+      },
+      "ideeregalo": {
+        "title": "Ideje za Poklone",
+        "subtitle": "Pokloni nešto što ne postoji nigde drugde.",
+        "description1": "Naše ideje za poklone su kreimane da iznenade. Od dekorativnih objekata do personalizovanih kreacija štampanih u 3D-u, svaki artikal nastaje da prenese emociju, originalnost i pažnju na detalje. Savršene za rođendane, godišnjice, praznike ili korporativne događaje, naši predlozi spajaju kreativnost i tehnologiju.",
+        "description2": "Možeš birati između već gotovih dizajna ili zatražiti kreiranje po meri, transformišući ideju u jedinstven i neponovljiv poklon.",
+        "cta": "➡️ Nemoj poklanjati nešto obično. Kreiraj uspomenu koja ostaje."
+      },
+      "webapp": {
+        "title": "Web & App Design",
+        "subtitle": "Gradimo digitalna iskustva koja ostavljaju trag.",
+        "description1": "U sve više povezanom svetu, tvoja online prisutnost je ključ da se učiniš poznatim, prodaješ i rastuš. U <strong>CREO</strong>-u realizujemo moderne, responsive i SEO optimizovane veb sajtove, osmišljene da privuku i konvertuju tvoje posetioce.",
+        "description2": "Od korporativne izloge do e-commerce-a, pa do razvoja personalizovanih aplikacija, naš cilj je da tvoju ideju prevedemo u funkcionalnu, sigurnu platformu sa dizajnom obrađenim do najmanjih detalja.",
+        "description3": "Nudimo rešenja po meri za kompanije, freelance-re i start-up-ove, garantujući podršku, ažuriranja i skalabilnost kroz vreme.",
+        "cta": "➡️ Nemoj se ograničiti na to da budeš online. <span>Istakni se, sa stilom.</span>"
+      }
+    }
   }
-}

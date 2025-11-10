@@ -13,41 +13,64 @@
     "previous": "Precedente",
     "home": "Home",
     "contact": "Contatti",
-    "about": "Chi siamo",
+    "about": "Chi Siamo",
     "services": "Servizi",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "select_language": "Seleziona lingua"
   },
   "navigation": {
     "home": "Home",
     "services": "Servizi",
-    "about": "Chi siamo",
-    "contact": "Contatti"
+    "about": "Chi Siamo",
+    "contact": "Contatti",
+    "main_navigation": "Navigazione principale",
+    "logo_aria_label": "CREO - Torna alla homepage",
+    "logo_text": "CREO Marketplace",
+    "categories_label": "Categorie",
+    "all_categories": "Tutte le Categorie",
+    "search_label": "Cerca prodotti",
+    "search_placeholder": "Cerca su Creo",
+    "search_aria_label": "Cerca prodotti nel marketplace",
+    "search_button_aria_label": "Esegui ricerca",
+    "search_button_text": "Cerca",
+    "search_suggestions_aria_label": "Suggerimenti di ricerca",
+    "categories": {
+      "design_3d": "Design & Stampa 3D",
+      "apparel": "Abbigliamento Personalizzato",
+      "web_app": "Web & App Design",
+      "gift_ideas": "Idee Regalo"
+    }
   },
   "hero": {
     "cta_button": "Scopri di più",
+    "computer_alt": "Computer per sviluppo",
     "slides": {
       "3d_design": {
         "title": "3D Design & Stampa 3D",
         "subtitle": "Dall'idea alla realizzazione del prodotto finito",
         "description": "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.",
+        "alt": "Progettazione 3D",
         "cta": "Scopri di più"
       },
       "apparel": {
         "title": "Abbigliamento Personalizzato",
         "subtitle": "Indossa la tua idea",
         "description": "T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.",
+        "alt": "Abbigliamento personalizzato",
         "cta": "Scopri di più"
       },
       "web_app": {
         "title": "Web & App Design",
         "subtitle": "Esperienze digitali efficaci",
         "description": "Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.",
+        "alt": "Web development e design",
         "cta": "Scopri di più"
       },
       "gifts": {
         "title": "Idee Regalo",
         "subtitle": "Sorprendi con originalità",
         "description": "Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.",
+        "alt": "Idee regalo personalizzate",
         "cta": "Scopri di più"
       }
     }
@@ -235,10 +258,16 @@
     "form_header_description": "Compila il form e ti contatteremo entro 24 ore"
   },
   "footer": {
+    "company": {
+      "description": "Trasformiamo le tue idee in realtà con stampa 3D, abbigliamento personalizzato, servizi digitali e creatività italiana di qualità superiore.",
+      "address": "Via Roma 123, 20121 Milano, Italia",
+      "hours": "Tutti i giorni: 08:00–20:00"
+    },
     "sections": {
       "products": "Prodotti",
       "clothing": "Abbigliamento", 
-      "digital_services": "Servizi Digital"
+      "digital_services": "Servizi Digital",
+      "gift_ideas": "Idee Regalo"
     },
     "links": {
       "printing_3d": "Stampa 3D",
@@ -259,7 +288,11 @@
       "brand_identity": "Brand Identity",
       "social_media_marketing": "Social Media Marketing",
       "graphic_design": "Graphic Design",
-      "digital_consulting": "Consulenza Digital"
+      "digital_consulting": "Consulenza Digital",
+      "custom_keychains": "Portachiavi Personalizzati",
+      "personalized_mugs": "Tazze Personalizzate",
+      "photo_frames": "Cornici per Foto",
+      "surprise_boxes": "Scatole Sorpresa"
     },
     "newsletter": {
       "title": "Newsletter Creo",
@@ -288,17 +321,42 @@
       "hours": "Orari"
     },
     "legal": {
-      "all_rights_reserved": "Tutti i diritti riservati",
-      "privacy_policy": "Privacy Policy",
-      "terms_of_service": "Termini di Servizio",
-      "cookie_policy": "Cookie Policy",
-      "returns_refunds": "Resi & Rimborsi",
-      "shipping": "Spedizioni",
-      "faq": "FAQ"
+      "all_rights_reserved": "Tutti i diritti riservati"
     },
-    "payment": {
-      "secure_payments": "Pagamenti sicuri"
+    "back_to_top": "Torna su",
+    "winking_face": "faccina che strizza l'occhio"
+  },
+  "pages": {
+    "abbigliamento": {
+      "title": "Abbigliamento Personalizzato",
+      "subtitle": "Distinguiti con ciò che indossi.",
+      "description1": "Con <strong>CREO</strong> puoi trasformare un semplice capo in un mezzo di espressione o promozione unica. Personalizziamo T-shirt, felpe, cappellini e abbigliamento da lavoro con stampe di alta qualità e materiali selezionati.",
+      "description2": "Che tu voglia creare divise aziendali professionali, merchandising per eventi o regali personalizzati, <em>curiamo ogni dettaglio</em>: dalla grafica alla stampa finale. Grazie a tecniche moderne di stampa – come DTF, serigrafia o termostampa – garantiamo <strong>colori brillanti, durata e comfort</strong> su ogni prodotto.",
+      "cta": "➡️ Mostra la tua identità. <span>Indossa le tue idee.</span>"
     },
-    "back_to_top": "Torna su"
+    "design3d": {
+      "title": "STAMPA 3D",
+      "subtitle": "Dal prototipo all'oggetto finito: diamo forma all'immaginazione.",
+      "description1": "La stampa 3D è il cuore di <strong>CREO</strong>. Realizziamo prototipi, gadget, accessori e componenti tecnici con precisione e materiali di qualità.",
+      "description2": "Utilizziamo tecnologie avanzate <strong>FDM</strong> e <strong>resin-based</strong> per garantire ottima resistenza, dettagli perfetti e finiture curate.",
+      "description3": "Collaboriamo con designer, aziende, artigiani e privati per sviluppare progetti personalizzati, dalla fase di modellazione 3D fino alla produzione finale.",
+      "description4": "Con la nostra esperienza, ogni idea può prendere vita, diventando un oggetto tangibile, funzionale e unico.",
+      "cta": "➡️ <strong>Portaci la tua idea</strong>, noi la rendiamo reale."
+    },
+    "ideeregalo": {
+      "title": "Idee Regalo",
+      "subtitle": "Regala qualcosa che non esiste da nessun'altra parte.",
+      "description1": "Le nostre idee regalo sono create per sorprendere. Da oggetti decorativi a creazioni personalizzate stampate in 3D, ogni articolo nasce per trasmettere emozione, originalità e attenzione al dettaglio. Perfette per compleanni, anniversari, festività o eventi aziendali, le nostre proposte uniscono creatività e tecnologia.",
+      "description2": "Puoi scegliere tra design già pronti o richiedere la creazione su misura, trasformando un'idea in un regalo unico e irripetibile.",
+      "cta": "➡️ Non regalare qualcosa di comune. Crea un ricordo che resta."
+    },
+    "webappdesign": {
+      "title": "Web & App Design",
+      "subtitle": "Costruiamo esperienze digitali che lasciano il segno.",
+      "description1": "In un mondo sempre più connesso, la tua presenza online è la chiave per farti conoscere, vendere e crescere. In <strong>CREO</strong> realizziamo siti web moderni, responsive e ottimizzati SEO, pensati per attirare e convertire i tuoi visitatori.",
+      "description2": "Dalla vetrina aziendale all'e-commerce, fino ad arrivare allo sviluppo di app personalizzate, il nostro obiettivo è tradurre la tua idea in una piattaforma funzionale, sicura e dal design curato nei minimi dettagli.",
+      "description3": "Offriamo soluzioni su misura per aziende, freelance e start-up, garantendo assistenza, aggiornamenti e scalabilità nel tempo.",
+      "cta": "➡️ Non limitarti a essere online. <span>Fatti notare, con stile.</span>"
+    }
   }
 }

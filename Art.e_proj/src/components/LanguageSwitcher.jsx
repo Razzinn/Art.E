@@ -3,7 +3,7 @@ import { useTranslation } from '../contexts/LanguageContext';
 import './LanguageSwitcher.css';
 
 const LanguageSwitcher = () => {
-  const { currentLanguage, changeLanguage, languages, currentLanguageInfo } = useTranslation();
+  const { currentLanguage, changeLanguage, languages, currentLanguageInfo, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -88,7 +88,7 @@ const LanguageSwitcher = () => {
         <ul 
           className="language-switcher__dropdown"
           role="listbox"
-          aria-label="Select language"
+          aria-label={t('common.select_language')}
         >
           {Object.values(languages).map((language) => (
             <li key={language.code} role="option">

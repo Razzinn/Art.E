@@ -2,38 +2,34 @@ export const SERVICE_SECTIONS = [
   {
     id: '3d-design',
     slug: '3d-design-stampa-3d',
-    title: '3D Design & Stampa 3D',
-    subtitle: 'Dall\'idea alla realizzazione del prodotto finito',
-    description:
-      'Dal modello digitale all\'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati per ogni esigenza.',
-    heroNote: 'Puoi allegare schizzi, riferimenti visivi o file 3D esistenti.',
+    titleKey: 'offers.services.design_3d.title',
+    subtitleKey: 'offers.services.design_3d.subtitle',
+    descriptionKey: 'offers.services.design_3d.description',
+    heroNoteKey: 'offers.services.design_3d.hero_note',
   },
   {
     id: 'pranks',
     slug: 'regali-e-prank',
-    title: 'Idee Regalo',
-    subtitle: 'Sorprese personalizzate per ogni occasione',
-    description:
-      'Descrivi il tipo di regalo o scherzo, il destinatario e il tono desiderato. Possiamo partire da un tuo concept o crearne uno da zero.',
-    heroNote: 'Puoi allegare foto del destinatario o esempi dallo stile che preferisci.',
+    titleKey: 'offers.services.gift_ideas.title',
+    subtitleKey: 'offers.services.gift_ideas.subtitle', 
+    descriptionKey: 'offers.services.gift_ideas.description',
+    heroNoteKey: 'offers.services.gift_ideas.hero_note',
   },
   {
     id: 'apparel',
     slug: 'abbigliamento-e-custom',
-    title: 'Abbigliamento e Custom',
-    subtitle: 'Capi e accessori su misura',
-    description:
-      'Indica tipologia, quantità, colori, taglie e qualsiasi riferimento grafico per sviluppare il tuo progetto personalizzato.',
-    heroNote: 'Accettiamo mockup, loghi e tabelle taglie in PDF, PNG, SVG o AI.',
+    titleKey: 'offers.services.apparel_custom.title',
+    subtitleKey: 'offers.services.apparel_custom.subtitle',
+    descriptionKey: 'offers.services.apparel_custom.description',
+    heroNoteKey: 'offers.services.apparel_custom.hero_note',
   },
   {
     id: 'web-app',
-    slug: 'web-e-app-design',
-    title: 'Web & App Design',
-    subtitle: 'Esperienze digitali efficaci',
-    description:
-      'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online e raggiungere i tuoi obiettivi.',
-    heroNote: 'Condividi esempi di design che ti piacciono o il tuo brand esistente.',
+    slug: 'web-e-app-design', 
+    titleKey: 'offers.services.web_app_design.title',
+    subtitleKey: 'offers.services.web_app_design.subtitle',
+    descriptionKey: 'offers.services.web_app_design.description',
+    heroNoteKey: 'offers.services.web_app_design.hero_note',
   },
 ];
 
