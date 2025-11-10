@@ -55,10 +55,27 @@ body {
   border: 0;
 }
 
-/* Focus styles */
+/* Focus styles - Remove blue outline for links */
 :focus {
+  outline: none;
+}
+
+/* Only show focus for keyboard navigation */
+:focus-visible {
   outline: 2px solid #2563EB;
   outline-offset: 2px;
+}
+
+/* Remove focus outline specifically for links */
+a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus for clickable elements */
+button:focus,
+.clickable:focus {
+  outline: none;
 }
 
 /* Reduced motion */
@@ -68,6 +85,111 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ===============================================
+   RESPONSIVE BASE STYLES
+   =============================================== */
+
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Viewport meta tag enforcement */
+@viewport {
+  width: device-width;
+  initial-scale: 1;
+  user-scalable: yes;
+}
+
+/* High DPI screens optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch-friendly hover replacements */
+  .service-card:hover,
+  .service-card:focus {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
+  
+  /* Larger touch targets */
+  button, 
+  a, 
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .offers {
+    padding: 20px 0;
+  }
+  
+  .navbar {
+    padding: 8px 0;
+  }
+  
+  .footer {
+    padding: 40px 0 0;
+  }
+}
+
+/* Very large screens */
+@media (min-width: 1920px) {
+  body {
+    font-size: 18px;
+  }
+  
+  .offers-container,
+  .navbar-container,
+  .footer-container {
+    max-width: 1600px;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  .navbar,
+  .footer,
+  .offers {
+    display: none;
   }
 }
 

@@ -1,38 +1,78 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../contexts/LanguageContext';
 import './IdeeRegaloPage.css';
 
 export default function IdeeRegaloPage() {
-  useEffect(() => {
+  const { t, isLoading } = useTranslation();
+
+  // Memoized animation variants for better performance
+  const animationVariants = useMemo(() => ({
+    container: {
+      initial: { opacity: 0, y: 30 },
+      animate: { opacity: 1, y: 0 }
+    },
+    video: {
+      initial: { opacity: 0, x: -20 },
+      animate: { opacity: 1, x: 0 }
+    },
+    text: {
+      initial: { opacity: 0, y: 10 },
+      animate: { opacity: 1, y: 0 }
+    }
+  }), []);
+
+  // Throttled mouse move handler for better performance
+  const throttledMouseMove = useCallback((e) => {
     const hero = document.querySelector(".ideeregalo-hero");
     const slide = document.querySelector(".ideeregalo-hero-slide");
+    
+    if (hero && slide) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 10; // Reduced movement intensity
+      const y = (e.clientY / window.innerHeight - 0.5) * 10;
+      
+      requestAnimationFrame(() => {
+        slide.style.transform = `scale(1.02) translate(${x}px, ${y}px)`;
+        hero.style.backgroundPosition = `${50 + x / 6}% ${50 + y / 6}%`;
+      });
+    }
+  }, []);
 
+  useEffect(() => {
+    let throttleTimer = null;
     const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      slide.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
-      hero.style.backgroundPosition = `${50 + x / 3}% ${50 + y / 3}%`;
+      if (throttleTimer === null) {
+        throttleTimer = setTimeout(() => {
+          throttledMouseMove(e);
+          throttleTimer = null;
+        }, 16); // ~60fps
+      }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (throttleTimer) clearTimeout(throttleTimer);
+    };
+  }, [throttledMouseMove]);
 
   return (
 	<div className="ideeregalo-hero">
 		<div className="ideeregalo-hero-slide">
 			<motion.div
 				className="ideeregalo-content-wrapper"
-				initial={{ opacity: 0, y: 40, scale: 0.96 }}
-				animate={{ opacity: 1, y: 0, scale: 1 }}
-				transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+				variants={animationVariants.container}
+				initial="initial"
+				animate="animate"
+				transition={{ duration: 0.8, ease: "easeOut" }}
 			>
 				<motion.div
 					className="ideeregalo-video"
-					initial={{ opacity: 0, x: -40 }}
-					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 1, delay: 0.5 }}
+					variants={animationVariants.video}
+					initial="initial"
+					animate="animate"
+					transition={{ duration: 0.6, delay: 0.2 }}
 				>
 					<video
 						className="ideeregalo-video-player"
@@ -40,6 +80,7 @@ export default function IdeeRegaloPage() {
 						loop
 						muted
 						playsInline
+						preload="metadata"
 					>
 						<source src="/videosezionisingole/ideeregalo.mp4" type="video/mp4" />
 					</video>
@@ -48,52 +89,54 @@ export default function IdeeRegaloPage() {
 				<div className="ideeregalo-content">
 					<motion.h1
 						className="ideeregalo-title"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.3 }}
+						variants={animationVariants.text}
+						initial="initial"
+						animate="animate"
+						transition={{ duration: 0.6, delay: 0.1 }}
 					>
-						Idee Regalo
+						{t('pages.ideeregalo.title')}
 					</motion.h1>
 
 					<motion.h2
 						className="ideeregalo-subtitle"
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.5 }}
+						variants={animationVariants.text}
+						initial="initial"
+						animate="animate"
+						transition={{ duration: 0.6, delay: 0.2 }}
 					>
-						Regala qualcosa che non esiste da nessun'altra parte.
+						{t('pages.ideeregalo.subtitle')}
 					</motion.h2>
 
 					<motion.p
 						className="ideeregalo-description"
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.7 }}
-					>
-						Le nostre idee regalo sono create per sorprendere.
-						Da oggetti decorativi a creazioni personalizzate stampate in 3D,
-						ogni articolo nasce per trasmettere emozione, originalità e attenzione al dettaglio.
-						Perfette per compleanni, anniversari, festività o eventi aziendali, le nostre proposte uniscono creatività e tecnologia.
-					</motion.p>
+						variants={animationVariants.text}
+						initial="initial"
+						animate="animate"
+						transition={{ duration: 0.6, delay: 0.3 }}
+						dangerouslySetInnerHTML={{ __html: t('pages.ideeregalo.description1') }}
+					/>
 
 					<motion.p
 						className="ideeregalo-description-two"
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.9 }}
-					>
-						Puoi scegliere tra design già pronti o richiedere la creazione su misura,
-						trasformando un'idea in un regalo unico e irripetibile.
-					</motion.p>
+						variants={animationVariants.text}
+						initial="initial"
+						animate="animate"
+						transition={{ duration: 0.6, delay: 0.4 }}
+						dangerouslySetInnerHTML={{ __html: t('pages.ideeregalo.description2') }}
+					/>
 
 					<motion.p
 						className="ideeregalo-description-important"
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 1.1 }}
-					>
-						➡️ Non regalare qualcosa di comune. Crea un ricordo che resta.
-					</motion.p>
+						variants={animationVariants.text}
+						initial="initial"
+						animate="animate"
+						transition={{ duration: 0.6, delay: 0.5 }}
+						whileHover={{ 
+							scale: 1.02,
+							transition: { duration: 0.2 }
+						}}
+						dangerouslySetInnerHTML={{ __html: t('pages.ideeregalo.cta') }}
+					/>
 				</div>
 			</motion.div>
 		</div>

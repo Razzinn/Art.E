@@ -9,6 +9,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: auto;
 }
 
 /* --- SFONDO STATICO (niente movimento o zoom) --- */
@@ -25,6 +29,10 @@
   filter: brightness(0.85) contrast(1.1) saturate(1.2);
   transition: none;
   z-index: 0;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: auto;
 }
 
 /* --- LUCE MORBIDA (disattivato movimento) --- */
@@ -51,6 +59,10 @@
   width: 88%;
   gap: 3rem;
   flex-wrap: nowrap;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* --- VIDEO --- */
@@ -76,13 +88,17 @@
   border-radius: 20px;
   background-color: transparent;
   filter: brightness(0.97) contrast(1.05) saturate(1.1);
-  transition: filter 0.35s ease;
+  transition: filter 0.2s ease;
   pointer-events: none; /* ✅ niente overlay o quadrati */
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: filter;
   -webkit-transform: translateZ(0);
   image-rendering: auto;
 }
 
-/* --- LEGGERA LUMINOSITÀ ALL’HOVER (senza zoom) --- */
+/* --- LEGGERA LUMINOSITÀ ALL'HOVER (senza zoom) --- */
 .webapp-video-player:hover {
   filter: brightness(1) contrast(1.1) saturate(1.15);
   transform: none;
@@ -214,6 +230,12 @@
 
 .webapp-description-important span {
   color: #f97316;
+}
+
+/* Remove focus outline for links */
+.webapp-description-important a:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* --- RESPONSIVE --- */

@@ -80,13 +80,13 @@ const ServiceRequestPage = () => {
             {t('common.home')}
           </Link>
           <span style={{ margin: '0 8px' }}>/</span>
-          <span style={{ color: '#e2e8f0' }}>{service.title}</span>
+          <span style={{ color: '#e2e8f0' }}>{t(service.titleKey)}</span>
         </nav>
       </div>
 
       <ServiceForm 
         serviceType={service.slug} 
-        serviceTitle={service.title} 
+        serviceTitle={t(service.titleKey)} 
       />
     </div>
   );

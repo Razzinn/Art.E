@@ -8,18 +8,17 @@ const Footer = ({
   company = {
     name: 'CREO',
     logoLetter: 'C',
-    description:
-      'Trasformiamo le tue idee in realtà con stampa 3D, abbigliamento personalizzato, servizi digitali e creatività italiana di qualità superiore.',
-    address: 'Via Roma 123, 20121 Milano, Italia',
+    description: '',
+    address: '',
     phone: '+381 60 3005439',
-    email: 'info@creo-marketplace.it',
-    hours: 'Tutti i giorni: 08:00–20:00',
+    email: 'creo3dshop@gmail.com',
+    hours: '',
   },
   sections,
   onSubscribe,
   theme = 'light',
 }) => {
-  const { t } = useTranslation();
+  const { t, isLoading } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -28,8 +27,13 @@ const Footer = ({
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   const defaultSections = useMemo(
-    () => (
-      [
+    () => {
+      // Se le traduzioni non sono ancora caricate, restituisci array vuoto
+      if (isLoading) {
+        return [];
+      }
+      
+      return [
         {
           title: t('footer.sections.products'),
           links: [
@@ -73,9 +77,9 @@ const Footer = ({
             { label: t('footer.links.surprise_boxes'), href: '/servizi/regali-e-prank' },
           ],
         },
-      ]
-    ),
-    [t]
+      ];
+    },
+    [t, isLoading] // Aggiungo isLoading come dipendenza
   );
 
   const effectiveSections = sections && Array.isArray(sections) ? sections : defaultSections;
@@ -83,9 +87,8 @@ const Footer = ({
   const brandEmoji = '😉';
   const brandParts = useMemo(() => {
     const name = (company?.name || '').toString();
-    const endsWithO = /[Oo]$/.test(name);
     return {
-      base: endsWithO ? name.slice(0, -1) : name,
+      base: name,
       withEmoji: true,
     };
   }, [company?.name]);
@@ -162,24 +165,24 @@ const Footer = ({
                   <div className="footer-logo-icon" aria-hidden="true">{company.logoLetter}</div>
                   <div className="footer-logo-text" aria-label={company.name}>
                     <span>{brandParts.base}</span>
-                    <span className="footer-logo-emoji" role="img" aria-label="winking face">{brandEmoji}</span>
+                    <span className="footer-logo-emoji" role="img" aria-label={t('footer.winking_face')}>{brandEmoji}</span>
                   </div>
                 </div>
                 <p className="footer-description">
-                  {company.description}
+                  {t('footer.company.description')}
                 </p>
                 
                 <div className="contact-info">
                   <div className="contact-item">
                     <span className="contact-icon">📍</span>
                     <a
-                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(company.address)}`}
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t('footer.company.address'))}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="link-secondary"
-                      aria-label={`Apri su Maps: ${company.address}`}
+                      aria-label={`Apri su Maps: ${t('footer.company.address')}`}
                     >
-                      {company.address}
+                      {t('footer.company.address')}
                     </a>
                   </div>
                   <div className="contact-item">
@@ -192,7 +195,7 @@ const Footer = ({
                   </div>
                   <div className="contact-item">
                     <span className="contact-icon">🕒</span>
-                    <span>{company.hours}</span>
+                    <span>{t('footer.company.hours')}</span>
                   </div>
                 </div>
 
@@ -308,7 +311,7 @@ const Footer = ({
               </form>
               
               <p className="newsletter-privacy" style={{ fontSize: '0.75rem', lineHeight: '1.4' }}>
-                {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a>
+                {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">Privacy Policy</a>
               </p>
             </div>
           </div>
@@ -319,24 +322,7 @@ const Footer = ({
           <div className="footer-container">
             <div className="footer-bottom-content">
               <div className="footer-copyright">
-                © 2024 Creo Marketplace. {t('footer.legal.all_rights_reserved')}. | P.IVA: 12345678901
-              </div>
-              
-              <div className="footer-legal">
-                <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a>
-                <a href="#" className="link-secondary">{t('footer.legal.terms_of_service')}</a>
-                <a href="#" className="link-secondary">{t('footer.legal.cookie_policy')}</a>
-                <a href="#" className="link-secondary">{t('footer.legal.returns_refunds')}</a>
-                <a href="#" className="link-secondary">{t('footer.legal.shipping')}</a>
-                <a href="#" className="link-secondary">{t('footer.legal.faq')}</a>
-              </div>
-              
-              <div className="footer-payment">
-                <span className="payment-text">{t('footer.payment.secure_payments')}:</span>
-                <div className="payment-icons">
-                  <div className="payment-icon">VISA</div>
-                  <div className="payment-icon">PayPal</div>
-                </div>
+                © 2024 Creo Marketplace. {t('footer.legal.all_rights_reserved')}.
               </div>
             </div>
           </div>

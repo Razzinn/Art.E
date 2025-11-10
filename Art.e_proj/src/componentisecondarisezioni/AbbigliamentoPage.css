@@ -9,6 +9,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: auto;
 }
 
 /* --- SFONDO HERO --- */
@@ -25,6 +29,10 @@
   filter: brightness(0.85) contrast(1.1) saturate(1.2);
   animation: hero-zoom 14s ease-in-out infinite alternate;
   z-index: 0;
+  /* Hardware acceleration */
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 @keyframes hero-zoom {
@@ -65,6 +73,10 @@
   height: 100%;
   padding: 0 2rem;
   box-sizing: border-box;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* --- VIDEO AREA --- */
@@ -86,7 +98,11 @@
   border-radius: 20px;
   filter: brightness(0.98) contrast(1.06) saturate(1.08);
   pointer-events: none;
-  transition: filter 0.3s ease;
+  transition: filter 0.2s ease;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: filter;
 }
 
 .abbigliamento-video-player:hover {
@@ -198,6 +214,12 @@
 
 .abbigliamento-description-important span {
   color: #f97316;
+}
+
+/* Remove focus outline for links */
+.abbigliamento-description-important a:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* --- RESPONSIVE --- */

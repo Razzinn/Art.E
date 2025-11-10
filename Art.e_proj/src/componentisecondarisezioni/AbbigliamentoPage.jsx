@@ -1,9 +1,36 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import "./AbbigliamentoPage.css";
 
 export default function AbbigliamentoPage() {
+  const { t, isLoading } = useTranslation();
+  
+  // Ottimizzazione: Varianti memoizzate per prestazioni migliori
+  const animationVariants = useMemo(() => ({
+    container: {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
+    },
+    video: {
+      initial: { opacity: 0, x: -30 },
+      animate: { opacity: 1, x: 0 },
+      transition: { duration: 0.8, delay: 0.2 }
+    },
+    content: {
+      initial: { opacity: 0, x: 30 },
+      animate: { opacity: 1, x: 0 },
+      transition: { duration: 0.8, delay: 0.3 }
+    },
+    text: {
+      initial: { opacity: 0, y: 15 },
+      animate: { opacity: 1, y: 0 }
+    }
+  }), []);
+
   return (
     <div className="abbigliamento-hero">
       {/* --- SFONDO HERO --- */}
@@ -12,16 +39,12 @@ export default function AbbigliamentoPage() {
       {/* --- CONTENUTO HERO (VIDEO + TESTO) --- */}
       <motion.div
         className="abbigliamento-content-wrapper"
-        initial={{ opacity: 0, y: 40, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+        {...animationVariants.container}
       >
-        {/* --- VIDEO --- */}
+        {/* --- VIDEO OTTIMIZZATO --- */}
         <motion.div
           className="abbigliamento-video"
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
+          {...animationVariants.video}
         >
           <video
             className="abbigliamento-video-player"
@@ -29,6 +52,7 @@ export default function AbbigliamentoPage() {
             loop
             muted
             playsInline
+            preload="metadata" // Ottimizzazione: Carica solo metadata
           >
             <source
               src="/videosezionisingole/abbigliamentopersonalizzato.mp4"
@@ -37,66 +61,72 @@ export default function AbbigliamentoPage() {
           </video>
         </motion.div>
 
-        {/* --- TESTO --- */}
+        {/* --- TESTO OTTIMIZZATO --- */}
         <motion.div
           className="abbigliamento-content"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
+          {...animationVariants.content}
         >
           <motion.h1
             className="abbigliamento-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            variants={animationVariants.text}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Abbigliamento Personalizzato
+            {t('pages.abbigliamento.title')}
           </motion.h1>
 
           <motion.h2
             className="abbigliamento-subtitle"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            variants={animationVariants.text}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Distinguiti con ciò che indossi.
+            {t('pages.abbigliamento.subtitle')}
           </motion.h2>
 
           <motion.p
             className="abbigliamento-description"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-          >
-            Con <strong>CREO</strong> puoi trasformare un semplice capo in un
-            mezzo di espressione o promozione unica. Personalizziamo T-shirt,
-            felpe, cappellini e abbigliamento da lavoro con stampe di alta
-            qualità e materiali selezionati.
-          </motion.p>
+            variants={animationVariants.text}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            dangerouslySetInnerHTML={{ __html: t('pages.abbigliamento.description1') }}
+          />
 
           <motion.p
             className="abbigliamento-description-two"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.9 }}
-          >
-            Che tu voglia creare divise aziendali professionali, merchandising
-            per eventi o regali personalizzati,
-            <em> curiamo ogni dettaglio</em>: dalla grafica alla stampa finale.
-            Grazie a tecniche moderne di stampa – come DTF, serigrafia o
-            termostampa – garantiamo
-            <strong> colori brillanti, durata e comfort</strong> su ogni
-            prodotto.
-          </motion.p>
+            variants={animationVariants.text}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            dangerouslySetInnerHTML={{ __html: t('pages.abbigliamento.description2') }}
+          />
 
-          <motion.p
+          <motion.div
             className="abbigliamento-description-important"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.1 }}
+            variants={animationVariants.text}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            whileHover={{ 
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
           >
-            ➡️ Mostra la tua identità. <span>Indossa le tue idee.</span>
-          </motion.p>
+            <Link 
+              to="/servizi/abbigliamento-e-custom"
+              style={{
+                color: 'inherit',
+                textDecoration: 'none',
+                display: 'block',
+                width: '100%'
+              }}
+            >
+              <span dangerouslySetInnerHTML={{ __html: t('pages.abbigliamento.cta') }} />
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>

@@ -1,58 +1,63 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import './HeroSectionR.css';
 
 const HeroSectionR = () => {
+  const { t, isLoading } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = React.useRef(null);
 
 
-  const slides = useMemo(() => [
-    {
-      id: 1,
-      image: '/sfondoslide1creo.jpeg',
-      alt: 'Progettazione 3D',
-      title: '3D Design & Stampa 3D',
-      subtitle: 'Dall\'idea alla realizzazione del prodotto finito',
-      description:
-        "Dal modello digitale all'oggetto reale: creazioni uniche, prototipi, gadget e design personalizzati.",
-      section: '3DDesignStampa3D',
-      colors: ['#1a9fc9', '#2a9fd9', '#3aafe9', '#4abff9', '#5acfff'], // Celeste profondo senza il più scuro
-    },
-    {
-      id: 2,
-      image: '/abbigliamentopersonalizzato.jpeg',
-      alt: 'Abbigliamento personalizzato',
-      title: 'Abbigliamento Personalizzato',
-      subtitle: 'Indossa la tua idea',
-      description:
-        'T-shirt, body, cappellini e accessori personalizzati: ogni capo diventa un messaggio, ogni stile la tua firma.',
-      section: 'Abbigliamento',
-      colors: ['#7dd3fc', '#a78bfa', '#f472b6', '#fb7185', '#fdba74'], // Palette dall'immagine: teal, viola, rosa, fucsia, arancione
-    },
-    {
-      id: 3,
-      image: '/webdevelopement.jpeg',
-      alt: 'Web development/design',
-      title: 'Web & App Design',
-      subtitle: 'Esperienze digitali efficaci',
-      description:
-        'Siti Web moderni, App intuitive e soluzioni grafiche per far crescere il tuo brand online.',
-      section: 'WebAppDesign',
-      colors: ['#4b0082', '#663399', '#7b68ee', '#9370db', '#e6e6fa'], // Viola intenso per web design
-    },
-    {
-      id: 4,
-      image: '/prankservice.jpeg',
-      alt: 'Prank service',
-      title: 'Idee Regalo',
-      subtitle: 'Sorprendi con originalità',
-      description:
-        'Creazioni originali e personalizzate, perfette per sorprendere e lasciare il segno in ogni occasione.',
-      section: 'IdeeRegalo',
-      colors: ['#0f172a', '#1e293b', '#0f766e', '#155e75', '#0891b2'], // Toni molto più scuri e profondi
-    },
-  ], []);
+  const slides = useMemo(() => {
+    // Se le traduzioni non sono ancora caricate, restituisci array vuoto
+    if (isLoading) {
+      return [];
+    }
+    
+    return [
+      {
+        id: 1,
+        image: '/sfondoslide1creo.jpeg',
+        alt: t('hero.slides.3d_design.alt') || 'Progettazione 3D',
+        title: t('hero.slides.3d_design.title'),
+        subtitle: t('hero.slides.3d_design.subtitle'),
+        description: t('hero.slides.3d_design.description'),
+        section: '3DDesignStampa3D',
+        colors: ['#1a9fc9', '#2a9fd9', '#3aafe9', '#4abff9', '#5acfff'], // Celeste profondo senza il più scuro
+      },
+      {
+        id: 2,
+        image: '/abbigliamentopersonalizzato.jpeg',
+        alt: t('hero.slides.apparel.alt') || 'Abbigliamento personalizzato',
+        title: t('hero.slides.apparel.title'),
+        subtitle: t('hero.slides.apparel.subtitle'),
+        description: t('hero.slides.apparel.description'),
+        section: 'Abbigliamento',
+        colors: ['#7dd3fc', '#a78bfa', '#f472b6', '#fb7185', '#fdba74'], // Palette dall'immagine: teal, viola, rosa, fucsia, arancione
+      },
+      {
+        id: 3,
+        image: '/webdevelopement.jpeg',
+        alt: t('hero.slides.web_app.alt') || 'Web development/design',
+        title: t('hero.slides.web_app.title'),
+        subtitle: t('hero.slides.web_app.subtitle'),
+        description: t('hero.slides.web_app.description'),
+        section: 'WebAppDesign',
+        colors: ['#4b0082', '#663399', '#7b68ee', '#9370db', '#e6e6fa'], // Viola intenso per web design
+      },
+      {
+        id: 4,
+        image: '/prankservice.jpeg',
+        alt: t('hero.slides.gifts.alt') || 'Prank service',
+        title: t('hero.slides.gifts.title'),
+        subtitle: t('hero.slides.gifts.subtitle'),
+        description: t('hero.slides.gifts.description'),
+        section: 'IdeeRegalo',
+        colors: ['#0f172a', '#1e293b', '#0f766e', '#155e75', '#0891b2'], // Toni molto più scuri e profondi
+      },
+    ];
+  }, [t, isLoading]);
 
   const goToSlide = useCallback((index) => setCurrentSlide(index), []);
   const nextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % slides.length), [slides.length]);
@@ -150,6 +155,29 @@ const HeroSectionR = () => {
 
   return (
     <section ref={heroRef} className="hero-carousel" aria-label="Hero con carosello immagini">
+      {isLoading || slides.length === 0 ? (
+        <div className="hero-loading" style={{ 
+          minHeight: '80vh', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          backgroundColor: '#f8fafc'
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ 
+              fontSize: '2rem',
+              marginBottom: '1rem',
+              animation: 'pulse 2s infinite'
+            }}>
+              🎨
+            </div>
+            <p style={{ fontSize: '1.2rem', color: '#64748b' }}>
+              Caricamento...
+            </p>
+          </div>
+        </div>
+      ) : (
+      <>
       <div className="carousel-container">
         {slides.map((slide, index) => {
           let extraClass = '';
@@ -181,7 +209,7 @@ const HeroSectionR = () => {
                   {slide.id === 3 && (
                     <img
                       src="/pcdevnuovo.png"
-                      alt="Computer Dev"
+                      alt={t('hero.computer_alt')}
                       className="hero-side-img-full right pc"
                     />
                   )}
@@ -203,7 +231,7 @@ const HeroSectionR = () => {
                     {slide.subtitle && <h3 className="slide-subtitle">{slide.subtitle}</h3>}
                     {slide.description && <p className="slide-description">{slide.description}</p>}
                     <button className="hero-cta-btn" onClick={() => handleCtaClick(slide.section)}>
-                      Scopri di più
+                      {t('hero.cta_button')}
                     </button>
                   </div>
                 </>
@@ -226,6 +254,8 @@ const HeroSectionR = () => {
       </nav>
 
       <div className="progress-bar" key={currentSlide}></div>
+      </>
+      )}
     </section>
   );
 };

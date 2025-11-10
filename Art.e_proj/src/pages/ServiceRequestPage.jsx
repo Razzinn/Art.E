@@ -107,14 +107,14 @@ export default function ServiceRequestPage() {
         <nav className="service-forms__breadcrumbs" aria-label="Percorso di navigazione">
           <Link to="/">Home</Link>
           <span aria-hidden="true">/</span>
-          <span>{service.title}</span>
+          <span>{t(service.titleKey)}</span>
         </nav>
 
         <header className="service-forms__intro">
-          <h2 id="service-request-title">{service.title}</h2>
-          <p>{service.subtitle}</p>
-          {service.heroNote && (
-            <p className="service-forms__note">Suggerimento: {service.heroNote}</p>
+          <h2 id="service-request-title">{t(service.titleKey)}</h2>
+          <p>{t(service.subtitleKey)}</p>
+          {service.heroNoteKey && (
+            <p className="service-forms__note">Suggerimento: {t(service.heroNoteKey)}</p>
           )}
         </header>
 
