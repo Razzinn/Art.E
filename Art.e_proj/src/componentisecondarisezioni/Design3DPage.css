@@ -11,7 +11,7 @@
   perspective: 2000px;
 }
 
-/* --- CANVAS PARTICELLE 3D --- */
+/* --- CANVAS 3D --- */
 .design3d-canvas {
   position: absolute;
   top: 0;
@@ -20,6 +20,8 @@
   height: 100%;
   z-index: 1;
   pointer-events: none;
+  will-change: contents;
+  transform: translateZ(0);
 }
 
 /* --- SFONDO DINAMICO --- */
@@ -37,6 +39,10 @@
   transition: transform 0.2s ease-out, filter 0.3s ease;
   z-index: 0;
   animation: hero-pulse 20s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes hero-pulse {
@@ -121,14 +127,14 @@
 /* --- BOX TESTO HOLOGRAFICO --- */
 .design3d-content {
   flex: 1;
-  max-width: 55%;
-  padding: 50px 60px;
+  max-width: 50%;
+  padding: 30px 40px;
   background: linear-gradient(135deg, 
     rgba(15, 23, 42, 0.95) 0%, 
     rgba(30, 41, 59, 0.9) 50%,
     rgba(15, 23, 42, 0.95) 100%
   );
-  border-radius: 30px;
+  border-radius: 25px;
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
@@ -141,6 +147,7 @@
   backdrop-filter: blur(20px) saturate(180%);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   transform-style: preserve-3d;
+  transform: translateY(-30px);
 }
 
 /* Bordo animato gradient */
@@ -148,7 +155,7 @@
   content: "";
   position: absolute;
   inset: -2px;
-  border-radius: 30px;
+  border-radius: 25px;
   padding: 2px;
   background: linear-gradient(135deg, 
     #3b82f6, 
@@ -160,6 +167,7 @@
   background-size: 300% 300%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   animation: border-rotate 8s linear infinite;
   z-index: -1;
@@ -183,7 +191,7 @@
     rgba(59, 130, 246, 0.03) 4px
   );
   pointer-events: none;
-  border-radius: 30px;
+  border-radius: 25px;
   mix-blend-mode: overlay;
   animation: holo-scan 3s linear infinite;
 }
@@ -215,9 +223,9 @@
 
 /* --- TESTI CON EFFETTI --- */
 .design3d-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   background: linear-gradient(135deg, 
     #60a5fa 0%, 
     #a78bfa 25%, 
@@ -265,10 +273,10 @@
 }
 
 .design3d-subtitle {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #93c5fd;
-  margin: 0 0 30px;
+  margin: 0 0 22px;
   text-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -280,11 +288,11 @@
 .design3d-description-two,
 .design3d-description-three,
 .design3d-description-four {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
   color: #e0f2fe;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -514,26 +522,42 @@
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
 }
 
-/* --- RESPONSIVE --- */
+/* --- RESPONSIVE OTTIMIZZATO --- */
 @media (max-width: 1400px) {
-  .design3d-content { max-width: 52%; padding: 40px 50px; }
+  .design3d-content { 
+    max-width: 52%; 
+    padding: 40px 50px; 
+  }
   .design3d-title { font-size: 3rem; }
   .design3d-video-player { max-width: 600px; }
 }
 
 @media (max-width: 1024px) {
+  .design3d-hero {
+    height: 100vh;
+    min-height: 700px;
+  }
+  
   .design3d-content-wrapper {
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+    padding: 2rem 0;
   }
   
   .design3d-content {
-    max-width: 90%;
+    max-width: 85%;
     padding: 35px 40px;
+    max-height: none;
   }
   
   .design3d-video {
     justify-content: center;
+    max-width: 100%;
+  }
+  
+  .design3d-video-player {
+    max-width: 85%;
+    max-height: 50vh;
   }
   
   .design3d-title { font-size: 2.5rem; }
@@ -545,30 +569,138 @@
 }
 
 @media (max-width: 768px) {
-  .design3d-hero { height: 100vh; min-height: 600px; }
-  
-  .design3d-content {
-    max-width: 95%;
-    padding: 25px 30px;
+  .design3d-hero { 
+    height: auto;
+    min-height: 100vh;
+    padding: 1rem 0;
   }
   
-  .design3d-video-player { max-width: 450px; }
-  .design3d-title { font-size: 2rem; }
+  .design3d-content-wrapper {
+    gap: 1.5rem;
+    width: 95%;
+  }
+  
+  .design3d-content {
+    max-width: 100%;
+    padding: 25px 20px;
+    max-height: none;
+  }
+  
+  .design3d-video-player { 
+    max-width: 100%;
+    max-height: 40vh;
+  }
+  
+  .design3d-title { 
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
   .design3d-subtitle { font-size: 1.2rem; }
-  .design3d-description { font-size: 1rem; }
+  
+  .design3d-description,
+  .design3d-description-two,
+  .design3d-description-three,
+  .design3d-description-four { 
+    font-size: 0.95rem;
+    padding-left: 15px;
+  }
+  
+  .design3d-description-important {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
   
   .design3d-canvas { opacity: 0.5; }
   .custom-cursor-advanced { display: none; }
   .gradient-orbs { display: none; }
+  
+  .holo-border-2,
+  .holo-border-3 { display: none; }
 }
 
 @media (max-width: 480px) {
-  .design3d-content { padding: 20px; }
-  .design3d-video-player { max-width: 100%; }
-  .design3d-title { font-size: 1.6rem; }
-  .design3d-subtitle { font-size: 1rem; }
-  .design3d-description { font-size: 0.9rem; padding-left: 15px; }
+  .design3d-hero {
+    min-height: 100vh;
+    padding: 0.5rem 0;
+  }
+  
+  .design3d-content { 
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+  
+  .design3d-video-player { 
+    max-width: 100%;
+    max-height: 35vh;
+    border-radius: 15px;
+  }
+  
+  .design3d-title { 
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+  }
+  
+  .design3d-subtitle { 
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .design3d-description,
+  .design3d-description-two,
+  .design3d-description-three,
+  .design3d-description-four { 
+    font-size: 0.85rem;
+    padding-left: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .design3d-description-important {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    margin-top: 15px;
+  }
   
   .holo-border { display: none; }
   .video-reflection { display: none; }
+  .video-glow-ring { display: none; }
+}
+
+@media (max-width: 360px) {
+  .design3d-content {
+    padding: 15px 10px;
+  }
+  
+  .design3d-title { font-size: 1.4rem; }
+  .design3d-subtitle { font-size: 0.9rem; }
+  
+  .design3d-description,
+  .design3d-description-two,
+  .design3d-description-three,
+  .design3d-description-four { 
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 600px) and (orientation: landscape) {
+  .design3d-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .design3d-content-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .design3d-content,
+  .design3d-video {
+    max-width: 48%;
+  }
+  
+  .design3d-video-player {
+    max-height: 60vh;
+  }
 }
