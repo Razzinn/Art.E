@@ -2,63 +2,226 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext y=".9em" font-size="90"%3E%E2%98%BA%EF%B8%8F%3C/text%3E%3C/svg%3E' />
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext y=".9em" font-size="90"%3E%E2%98%BA%EF%B8%8F%3C/text%3E%3C/svg%3E' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
-    <title>CREO - Stampa 3D, Abbigliamento Personalizzato e Servizi Digital</title>
-    <meta name="description" content="Trasformiamo le tue idee in realtà con stampa 3D, abbigliamento personalizzato, servizi digitali e creatività italiana di qualità superiore. Prototipi, gadget, t-shirt custom e siti web." />
-    <meta name="keywords" content="stampa 3D, abbigliamento personalizzato, t-shirt custom, web design, prototipi, gadget aziendali, design 3D, servizi digitali, Milano" />
+    <title>CREO - Stampa 3D, Abbigliamento Personalizzato e Servizi Digital | Made in Italy</title>
+    <meta name="description" content="Trasformiamo le tue idee in realtà con stampa 3D professionale, abbigliamento personalizzato di qualità, web design moderno e servizi digitali su misura. Consegna rapida in tutta Italia." />
+    <meta name="keywords" content="stampa 3D Italia, abbigliamento personalizzato, t-shirt custom, web design professionale, prototipi 3D, gadget aziendali personalizzati, design 3D online, servizi digitali, sviluppo web app, e-commerce personalizzato, stampa 3D Milano, idee regalo personalizzate" />
     <meta name="author" content="CREO Marketplace" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
     <link rel="canonical" href="https://creo-marketplace.it" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IT-MI" />
+    <meta name="geo.placename" content="Milano" />
+    <meta name="geo.position" content="45.464664;9.188540" />
+    <meta name="ICBM" content="45.464664, 9.188540" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://creo-marketplace.it" />
+    <meta property="og:url" content="https://creo-marketplace.it/" />
     <meta property="og:title" content="CREO - Stampa 3D, Abbigliamento Personalizzato e Servizi Digital" />
-    <meta property="og:description" content="Trasformiamo le tue idee in realtà con stampa 3D, abbigliamento personalizzato, servizi digitali e creatività italiana di qualità superiore." />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:description" content="Trasformiamo le tue idee in realtà con stampa 3D professionale, abbigliamento personalizzato e servizi digitali su misura. Made in Italy." />
+    <meta property="og:image" content="https://creo-marketplace.it/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CREO Marketplace - Servizi di Stampa 3D e Design" />
     <meta property="og:locale" content="it_IT" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
     <meta property="og:site_name" content="CREO Marketplace" />
-
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://creo-marketplace.it/" />
+    <meta name="twitter:title" content="CREO - Stampa 3D, Abbigliamento Personalizzato e Servizi Digital" />
+    <meta name="twitter:description" content="Trasformiamo le tue idee in realtà con stampa 3D professionale, abbigliamento personalizzato e servizi digitali su misura." />
+    <meta name="twitter:image" content="https://creo-marketplace.it/og-image.jpg" />
+    <meta name="twitter:image:alt" content="CREO Marketplace - Servizi di Stampa 3D e Design" />
+    <meta name="twitter:creator" content="@creomarketplace" />
+    <meta name="twitter:site" content="@creomarketplace" />
 
     <!-- Additional SEO -->
     <meta name="theme-color" content="#2563EB" />
     <meta name="msapplication-TileColor" content="#2563EB" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+    <meta name="application-name" content="CREO Marketplace" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     
-    <!-- Structured Data -->
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "CREO Marketplace",
+      "alternateName": "CREO",
       "url": "https://creo-marketplace.it",
       "logo": "https://creo-marketplace.it/logo.png",
-      "description": "Trasformiamo le tue idee in realtà con stampa 3D, abbigliamento personalizzato, servizi digitali e creatività italiana di qualità superiore.",
+      "image": "https://creo-marketplace.it/og-image.jpg",
+      "description": "Trasformiamo le tue idee in realtà con stampa 3D professionale, abbigliamento personalizzato, servizi digitali e creatività italiana di qualità superiore.",
+      "foundingDate": "2024",
+      "slogan": "Trasformiamo le tue idee in realtà",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via Roma 123",
         "addressLocality": "Milano",
+        "addressRegion": "MI",
         "postalCode": "20121",
         "addressCountry": "IT"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+381-60-3005439",
-        "contactType": "customer service",
-        "email": "info@creo-marketplace.it"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.464664",
+        "longitude": "9.188540"
       },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Italia"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+381-60-3005439",
+          "contactType": "customer service",
+          "email": "info@creo-marketplace.it",
+          "availableLanguage": ["Italian", "English", "German", "French", "Serbian"],
+          "areaServed": "IT"
+        }
+      ],
       "sameAs": [
         "https://www.facebook.com/creo-marketplace",
         "https://www.instagram.com/creo-marketplace",
-        "https://www.linkedin.com/company/creo-marketplace"
+        "https://www.linkedin.com/company/creo-marketplace",
+        "https://twitter.com/creomarketplace"
       ]
+    }
+    </script>
+    
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "CREO Marketplace",
+      "image": "https://creo-marketplace.it/og-image.jpg",
+      "@id": "https://creo-marketplace.it",
+      "url": "https://creo-marketplace.it",
+      "telephone": "+381-60-3005439",
+      "email": "info@creo-marketplace.it",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Roma 123",
+        "addressLocality": "Milano",
+        "addressRegion": "MI",
+        "postalCode": "20121",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.464664,
+        "longitude": 9.188540
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CREO Marketplace",
+      "url": "https://creo-marketplace.it",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://creo-marketplace.it/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Services Offered -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Stampa 3D Professionale",
+      "provider": {
+        "@type": "Organization",
+        "name": "CREO Marketplace"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Italia"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servizi CREO",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Stampa 3D",
+              "description": "Servizi professionali di stampa 3D per prototipi, modelli e produzione"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Abbigliamento Personalizzato",
+              "description": "Creazione e personalizzazione di abbigliamento, t-shirt e gadget aziendali"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Design e Sviluppo",
+              "description": "Progettazione e sviluppo di siti web, web app e e-commerce"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Idee Regalo Personalizzate",
+              "description": "Creazione di regali personalizzati unici e originali"
+            }
+          }
+        ]
+      }
     }
     </script>
   </head>

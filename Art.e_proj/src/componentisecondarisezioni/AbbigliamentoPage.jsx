@@ -3,10 +3,17 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/LanguageContext';
+import SEO from '../components/SEO';
+import { seoConfig, generateBreadcrumbSchema } from '../data/seoConfig';
 import "./AbbigliamentoPage.css";
 
 export default function AbbigliamentoPage() {
   const { t, isLoading } = useTranslation();
+  
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Abbigliamento Personalizzato', url: '/abbigliamento' }
+  ];
   
   // Ottimizzazione: Varianti memoizzate per prestazioni migliori
   const animationVariants = useMemo(() => ({
@@ -32,7 +39,19 @@ export default function AbbigliamentoPage() {
   }), []);
 
   return (
-    <div className="abbigliamento-hero">
+    <>
+      <SEO 
+        title={seoConfig.abbigliamento.title}
+        description={seoConfig.abbigliamento.description}
+        keywords={seoConfig.abbigliamento.keywords}
+        image={seoConfig.abbigliamento.image}
+        canonicalUrl="https://creo-marketplace.it/abbigliamento"
+        structuredData={{
+          ...seoConfig.abbigliamento.structuredData,
+          breadcrumb: generateBreadcrumbSchema(breadcrumbs)
+        }}
+      />
+      <div className="abbigliamento-hero">
       {/* --- SFONDO HERO --- */}
       <div className="abbigliamento-hero-slide"></div>
 
@@ -130,5 +149,6 @@ export default function AbbigliamentoPage() {
         </motion.div>
       </motion.div>
     </div>
+    </>
   );
 }

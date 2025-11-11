@@ -1,0 +1,29 @@
+# Sitemap per CREO Marketplace
+# https://creo-marketplace.it/sitemap.xml
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (se presenti in futuro)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://creo-marketplace.it/sitemap.xml
+
+# Crawl delay (optional - be polite to search engines)
+Crawl-delay: 1
+
+# Specific rules for different bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

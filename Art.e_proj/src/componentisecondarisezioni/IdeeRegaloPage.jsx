@@ -2,10 +2,17 @@
 import React, { useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../contexts/LanguageContext';
+import SEO from '../components/SEO';
+import { seoConfig, generateBreadcrumbSchema } from '../data/seoConfig';
 import './IdeeRegaloPage.css';
 
 export default function IdeeRegaloPage() {
   const { t, isLoading } = useTranslation();
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Idee Regalo', url: '/idee-regalo' }
+  ];
 
   // Memoized animation variants for better performance
   const animationVariants = useMemo(() => ({
@@ -58,7 +65,19 @@ export default function IdeeRegaloPage() {
   }, [throttledMouseMove]);
 
   return (
-	<div className="ideeregalo-hero">
+    <>
+      <SEO 
+        title={seoConfig.ideeRegalo.title}
+        description={seoConfig.ideeRegalo.description}
+        keywords={seoConfig.ideeRegalo.keywords}
+        image={seoConfig.ideeRegalo.image}
+        canonicalUrl="https://creo-marketplace.it/idee-regalo"
+        structuredData={{
+          ...seoConfig.ideeRegalo.structuredData,
+          breadcrumb: generateBreadcrumbSchema(breadcrumbs)
+        }}
+      />
+      <div className="ideeregalo-hero">
 		<div className="ideeregalo-hero-slide">
 			<motion.div
 				className="ideeregalo-content-wrapper"
@@ -141,5 +160,6 @@ export default function IdeeRegaloPage() {
 			</motion.div>
 		</div>
 	</div>
+    </>
   );
 }

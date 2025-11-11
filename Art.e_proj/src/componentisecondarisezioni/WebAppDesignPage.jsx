@@ -3,10 +3,17 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/LanguageContext';
+import SEO from '../components/SEO';
+import { seoConfig, generateBreadcrumbSchema } from '../data/seoConfig';
 import "./WebAppDesignPage.css";
 
 export default function WebAppDesignPage() {
   const { t, isLoading } = useTranslation();
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Web Design', url: '/webapp-design' }
+  ];
 
   // Memoized animation variants for better performance
   const animationVariants = useMemo(() => ({
@@ -25,7 +32,19 @@ export default function WebAppDesignPage() {
   }), []);
 
   return (
-    <div className="webapp-hero">
+    <>
+      <SEO 
+        title={seoConfig.webDesign.title}
+        description={seoConfig.webDesign.description}
+        keywords={seoConfig.webDesign.keywords}
+        image={seoConfig.webDesign.image}
+        canonicalUrl="https://creo-marketplace.it/webapp-design"
+        structuredData={{
+          ...seoConfig.webDesign.structuredData,
+          breadcrumb: generateBreadcrumbSchema(breadcrumbs)
+        }}
+      />
+      <div className="webapp-hero">
       {/* --- SFONDO HERO --- */}
       <div className="webapp-hero-slide"></div>
 
@@ -138,5 +157,6 @@ export default function WebAppDesignPage() {
         </motion.div>
       </motion.div>
     </div>
+    </>
   );
 }

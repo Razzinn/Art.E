@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../contexts/LanguageContext';
+import SEO from '../components/SEO';
+import { seoConfig, generateBreadcrumbSchema } from '../data/seoConfig';
 import './Design3DPage.css';
 
 export default function Design3DPage() {
@@ -18,6 +20,12 @@ export default function Design3DPage() {
 	
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
+
+	// SEO Breadcrumbs
+	const breadcrumbs = [
+		{ name: 'Home', url: '/' },
+		{ name: 'Stampa 3D', url: '/stampa-3d' }
+	];
 
 	// Ottimizzazione: Configurazione particelle ultra-leggera
 	const particleConfig = useMemo(() => ({
@@ -230,7 +238,19 @@ export default function Design3DPage() {
 	}), []);
 
 	return (
-		<div className="design3d-hero" ref={heroRef}>
+		<>
+			<SEO 
+				title={seoConfig.stampa3d.title}
+				description={seoConfig.stampa3d.description}
+				keywords={seoConfig.stampa3d.keywords}
+				image={seoConfig.stampa3d.image}
+				canonicalUrl="https://creo-marketplace.it/stampa-3d"
+				structuredData={{
+					...seoConfig.stampa3d.structuredData,
+					breadcrumb: generateBreadcrumbSchema(breadcrumbs)
+				}}
+			/>
+			<div className="design3d-hero" ref={heroRef}>
 			<canvas ref={canvasRef} className="design3d-canvas" />
 			<div className="design3d-hero-slide"></div>
 
@@ -386,5 +406,6 @@ export default function Design3DPage() {
 			{/* Progress bar ultra-ottimizzata */}
 			<div className="scroll-progress" style={{ transform: `scaleX(${scrollProgress})` }} />
 		</div>
+		</>
 	);
 }
