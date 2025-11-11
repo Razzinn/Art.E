@@ -1,46 +1,32 @@
 // NavbarSection.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 import './NavbarSectionR.css';
 
-const NAV_CATEGORIES = {
-  Prodotti: [
-    'Stampa 3D',
-    'Prototipi Rapidi',
-    'Miniature Personalizzate',
-    'Gadget Aziendali',
-    'Oggetti Decorativi',
-    'Tutti i Prodotti 3D',
-  ],
-  Abbigliamento: [
-    'Felpe personalizzate',
-    'Cappellini personalizzati',
-    'Polo personalizzate',
-    'Merchandising',
-    'Abbigliamento Custom',
-    'Tutti i Prodotti',
-  ],
-  'Servizi Digital': [
-    'Creazione Siti Web',
-    'Creazione App Intuitive',
-    'E-commerce',
-    'Restyling Logo',
-    'Brand Identity',
-    'Social Media Marketing',
-    'Graphic Design',
-    'Servizi Digitali',
-    'Consulenza Digital',
-  ],
-};
-
-const SERVICE_ROUTE_MAP = {
-  'Restyling Logo': '/servizi/restyling-logo',
-  'Regali e Prank': '/servizi/regali-e-prank',
-  'Abbigliamento Custom': '/servizi/abbigliamento-e-custom',
-  'Servizi Digitali': '/servizi/servizi-digitali',
-};
+// Main categories for dropdown - matching Hero sections
+const MAIN_CATEGORIES = [
+  {
+    label: 'Design & 3D Prints',
+    route: '/stampa-3d'
+  },
+  {
+    label: 'Abbigliamento Personalizzato',
+    route: '/abbigliamento'
+  },
+  {
+    label: 'Web & App Design',
+    route: '/webapp-design'
+  },
+  {
+    label: 'Idee Regalo',
+    route: '/idee-regalo'
+  }
+];
 
 const NavbarSectionR = () => {
+  const { t, isLoading } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -48,6 +34,26 @@ const NavbarSectionR = () => {
   const [isSuggestOpen, setIsSuggestOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+
+  // Main categories for dropdown - using translations
+  const MAIN_CATEGORIES = useMemo(() => [
+    {
+      label: t('navigation.categories.design_3d'),
+      route: '/stampa-3d'
+    },
+    {
+      label: t('navigation.categories.apparel'),
+      route: '/abbigliamento'
+    },
+    {
+      label: t('navigation.categories.web_app'),
+      route: '/webapp-design'
+    },
+    {
+      label: t('navigation.categories.gift_ideas'),
+      route: '/idee-regalo'
+    }
+  ], [t]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -58,18 +64,6 @@ const NavbarSectionR = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // Rimosso l'autofocus per evitare il bordo fisso sul primo elemento
-
-  const handleCategoryClick = (mainCategory, subCategory) => {
-    setSelectedCategory(subCategory);
-    setIsDropdownOpen(false);
-    const targetRoute = SERVICE_ROUTE_MAP[subCategory];
-    if (targetRoute) {
-      navigate(targetRoute);
-    }
-  };
-
-  // Suggerimenti di ricerca basati sulle categorie
   useEffect(() => {
     const term = (searchTerm || '').trim().toLowerCase();
     if (!term) {
@@ -78,28 +72,19 @@ const NavbarSectionR = () => {
       return;
     }
 
-    const results = [];
-    Object.entries(NAV_CATEGORIES).forEach(([mainCategory, subCategories]) => {
-      subCategories.forEach((subCategory) => {
-        const sub = String(subCategory);
-        if (sub.toLowerCase().includes(term)) {
-          results.push({ mainCategory, subCategory: sub });
-        }
-      });
-    });
+    const results = MAIN_CATEGORIES.filter(item => 
+      item.label.toLowerCase().includes(term)
+    ).slice(0, 8);
 
-    setSearchSuggestions(results.slice(0, 8));
+    setSearchSuggestions(results);
     setIsSuggestOpen(results.length > 0);
-  }, [searchTerm]);
+  }, [searchTerm, MAIN_CATEGORIES]);
 
   const handleSuggestionClick = (suggestion) => {
-    setSelectedCategory(suggestion.subCategory);
+    setSelectedCategory(suggestion.label);
     setSearchTerm('');
     setIsSuggestOpen(false);
-    const targetRoute = SERVICE_ROUTE_MAP[suggestion.subCategory];
-    if (targetRoute) {
-      navigate(targetRoute);
-    }
+    navigate(suggestion.route);
   };
 
   // Chiude il dropdown quando si clicca fuori o si preme ESC
@@ -126,17 +111,21 @@ const NavbarSectionR = () => {
   }, [isDropdownOpen]);
 
   return (
-    <nav className="navbar" role="navigation" aria-label="Navigazione principale">
+    <nav className="navbar" role="navigation" aria-label={t('navigation.main_navigation')}>
       <div className="navbar-container">
         {/* Logo */}
-        <Link to="/" className="logo" aria-label="CREO - Torna alla homepage">
-          <span aria-hidden="true">CREO😊</span>
-          <span className="sr-only">CREO Marketplace</span>
+        <Link to="/" className="logo" aria-label={t('navigation.logo_aria_label')}>
+          <span aria-hidden="true" className="logo-inner">
+            <span className="logo-text">CREO</span>
+            <span className="ink-particles" aria-hidden="true"></span>
+            <span className="logo-emoji">😉</span>
+          </span>
+          <span className="sr-only">{t('navigation.logo_text')}</span>
         </Link>
 
         {/* Categories */}
         <div className="categories" ref={dropdownRef}>
-          <span className="categories-label" id="categories-label">Categorie</span>
+          <span className="categories-label" id="categories-label">{t('navigation.categories_label')}</span>
           <div className="categories-dropdown">
             <button 
               className={`dropdown-btn ${isDropdownOpen ? 'active' : ''}`} 
@@ -146,35 +135,34 @@ const NavbarSectionR = () => {
               aria-labelledby="categories-label"
               aria-controls="categories-menu"
             >
-              {selectedCategory || 'Tutte le Categorie'}
+              {selectedCategory || t('navigation.all_categories')}
               <span className={`dropdown-arrow ${isDropdownOpen ? 'rotated' : ''}`} aria-hidden="true"></span>
             </button>
             
             {isDropdownOpen && (
               <div 
-                className="dropdown-menu" 
+                className="dropdown-menu single-column" 
                 id="categories-menu"
                 role="menu"
                 aria-labelledby="categories-label"
               >
-                {Object.entries(NAV_CATEGORIES).map(([mainCategory, subCategories]) => (
-                  <div key={mainCategory} className="dropdown-section">
-                    <h3 className="dropdown-section-title">{mainCategory}</h3>
-                    <div className="dropdown-section-items" role="group" aria-label={mainCategory}>
-                      {subCategories.map((subCategory) => (
-                        <button
-                          key={subCategory}
-                          className="dropdown-item"
-                          onClick={() => handleCategoryClick(mainCategory, subCategory)}
-                          role="menuitem"
-                          tabIndex={0}
-                        >
-                          {subCategory}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                <div className="menu-items">
+                  {MAIN_CATEGORIES.map((item) => (
+                    <button
+                      key={item.label}
+                      className="menu-item"
+                      onClick={() => {
+                        setSelectedCategory(item.label);
+                        setIsDropdownOpen(false);
+                        navigate(item.route);
+                      }}
+                      role="menuitem"
+                      tabIndex={0}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -183,41 +171,42 @@ const NavbarSectionR = () => {
         {/* Search Bar */}
         <div className="search-container">
           <form className="search-form" onSubmit={handleSearchSubmit} role="search">
-            <label htmlFor="search-input" className="sr-only">Cerca prodotti</label>
+            <label htmlFor="search-input" className="sr-only">{t('navigation.search_label')}</label>
             <input 
               id="search-input"
               type="search" 
               className="search-input" 
-              placeholder="Cerca su Creo"
+              placeholder={t('navigation.search_placeholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              aria-label="Cerca prodotti nel marketplace"
+              aria-label={t('navigation.search_aria_label')}
               autoComplete="off"
               onFocus={() => { if (searchSuggestions.length > 0) setIsSuggestOpen(true); }}
             />
-            <button type="submit" className="search-btn" aria-label="Esegui ricerca">
+            <button type="submit" className="search-btn" aria-label={t('navigation.search_button_aria_label')}>
               <span aria-hidden="true">🔍</span>
-              <span className="sr-only">Cerca</span>
+              <span className="sr-only">{t('navigation.search_button_text')}</span>
             </button>
           </form>
           {isSuggestOpen && searchSuggestions.length > 0 && (
-            <div className="search-suggestions" role="listbox" aria-label="Suggerimenti di ricerca">
+            <div className="search-suggestions" role="listbox" aria-label={t('navigation.search_suggestions_aria_label')}>
               {searchSuggestions.map((s) => (
                 <button
-                  key={`${s.mainCategory}-${s.subCategory}`}
+                  key={s.label}
                   type="button"
                   className="search-suggestion-item"
                   role="option"
                   onClick={() => handleSuggestionClick(s)}
                 >
-                  <span className="suggest-main">{s.mainCategory}</span>
-                  <span className="suggest-sep">·</span>
-                  <span className="suggest-sub">{s.subCategory}</span>
+                  <span className="suggest-main">{s.label}</span>
                 </button>
               ))}
             </div>
           )}
         </div>
+
+        {/* Language Switcher */}
+        <LanguageSwitcher />
 
         {/* Carrello rimosso */}
       </div>

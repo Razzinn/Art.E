@@ -1,39 +1,35 @@
 export const SERVICE_SECTIONS = [
   {
-    id: 'logo',
-    slug: 'restyling-logo',
-    title: 'Restyling Logo',
-    subtitle: 'Rinnova la tua identità visiva',
-    description:
-      'Raccontaci la storia del tuo brand, gli elementi da mantenere e le nuove direzioni estetiche che vorresti esplorare.',
-    heroNote: 'Carica il logo attuale, eventuali bozzetti o moodboard di riferimento.',
+    id: '3d-design',
+    slug: '3d-design-stampa-3d',
+    titleKey: 'offers.services.design_3d.title',
+    subtitleKey: 'offers.services.design_3d.subtitle',
+    descriptionKey: 'offers.services.design_3d.description',
+    heroNoteKey: 'offers.services.design_3d.hero_note',
   },
   {
     id: 'pranks',
     slug: 'regali-e-prank',
-    title: 'Regali e Prank',
-    subtitle: 'Sorprese personalizzate per ogni occasione',
-    description:
-      'Descrivi il tipo di regalo o scherzo, il destinatario e il tono desiderato. Possiamo partire da un tuo concept o crearne uno da zero.',
-    heroNote: 'Puoi allegare foto del destinatario o esempi dallo stile che preferisci.',
+    titleKey: 'offers.services.gift_ideas.title',
+    subtitleKey: 'offers.services.gift_ideas.subtitle', 
+    descriptionKey: 'offers.services.gift_ideas.description',
+    heroNoteKey: 'offers.services.gift_ideas.hero_note',
   },
   {
     id: 'apparel',
     slug: 'abbigliamento-e-custom',
-    title: 'Abbigliamento e Custom',
-    subtitle: 'Capi e accessori su misura',
-    description:
-      'Indica tipologia, quantità, colori, taglie e qualsiasi riferimento grafico per sviluppare il tuo progetto personalizzato.',
-    heroNote: 'Accettiamo mockup, loghi e tabelle taglie in PDF, PNG, SVG o AI.',
+    titleKey: 'offers.services.apparel_custom.title',
+    subtitleKey: 'offers.services.apparel_custom.subtitle',
+    descriptionKey: 'offers.services.apparel_custom.description',
+    heroNoteKey: 'offers.services.apparel_custom.hero_note',
   },
   {
-    id: 'digital',
-    slug: 'servizi-digitali',
-    title: 'Servizi Digitali',
-    subtitle: 'Web, app e marketing digitale',
-    description:
-      'Spiegaci gli obiettivi digitali, il pubblico di riferimento e le funzionalità chiave che desideri implementare.',
-    heroNote: 'Carica documenti di brief, sitemap, wireframe o esempi di riferimento.',
+    id: 'web-app',
+    slug: 'web-e-app-design', 
+    titleKey: 'offers.services.web_app_design.title',
+    subtitleKey: 'offers.services.web_app_design.subtitle',
+    descriptionKey: 'offers.services.web_app_design.description',
+    heroNoteKey: 'offers.services.web_app_design.hero_note',
   },
 ];
 

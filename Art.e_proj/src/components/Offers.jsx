@@ -1,12 +1,46 @@
 ﻿import { useEffect, useState, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import './Offers.css';
+
+// -------- Color helpers (module scope) --------
+const hexToRgb = (hex) => {
+  if (!hex) return { r: 0, g: 0, b: 0 };
+  let h = ('' + hex).replace('#', '');
+  if (h.length === 3) h = h.split('').map((c) => c + c).join('');
+  const num = parseInt(h, 16);
+  return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+};
+
+const clamp = (v, min = 0, max = 255) => Math.max(min, Math.min(max, v));
+
+const darkenHex = (hex, factor = 0.7) => {
+  const { r, g, b } = hexToRgb(hex);
+  const dr = clamp(Math.round(r * factor));
+  const dg = clamp(Math.round(g * factor));
+  const db = clamp(Math.round(b * factor));
+  return `rgb(${dr}, ${dg}, ${db})`;
+};
+
+const toRgba = (hexOrRgb, alpha = 1) => {
+  if (!hexOrRgb) return `rgba(0,0,0,${alpha})`;
+  if (hexOrRgb.startsWith('rgb(')) {
+    const parts = hexOrRgb
+      .replace('rgb(', '')
+      .replace(')', '')
+      .split(',')
+      .map((p) => parseInt(p.trim(), 10));
+    return `rgba(${parts[0] || 0}, ${parts[1] || 0}, ${parts[2] || 0}, ${alpha})`;
+  }
+  const { r, g, b } = hexToRgb(hexOrRgb);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
 
 const SERVICE_ITEMS = [
   {
-    title: 'Stampa 3D',
-    description: 'Oggetti personalizzati stampati 3D con materiali di qualità.',
-    slug: null,
+    titleKey: 'offers.services.design_3d.title',
+    descriptionKey: 'offers.services.design_3d.description',
+    slug: '3d-design-stampa-3d',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -16,8 +50,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Regali e Prank',
-    description: 'Regali di compleanno originali e scherzi divertenti.',
+    titleKey: 'offers.services.gift_ideas.title',
+    descriptionKey: 'offers.services.gift_ideas.description',
     slug: 'regali-e-prank',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -30,22 +64,8 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Restyling Logo',
-    description: 'Rinnova la tua identità aziendale con logo moderni.',
-    slug: 'restyling-logo',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v6m0 6v6" />
-        <path d="M21 12h-6m-6 0H3" />
-        <path d="M18.36 6.64l-4.24 4.24m-4.24 0L5.64 6.64" />
-        <path d="M18.36 17.36l-4.24-4.24m-4.24 0l-4.24 4.24" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Abbigliamento Custom',
-    description: 'T-Shirt, felpe e accessori personalizzabili.',
+    titleKey: 'offers.services.apparel_custom.title',
+    descriptionKey: 'offers.services.apparel_custom.description',
     slug: 'abbigliamento-e-custom',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -54,9 +74,9 @@ const SERVICE_ITEMS = [
     ),
   },
   {
-    title: 'Siti Web',
-    description: 'Siti e app professionali responsive e ottimizzati SEO.',
-    slug: null,
+    titleKey: 'offers.services.web_app_design.title',
+    descriptionKey: 'offers.services.web_app_design.description',
+    slug: 'web-e-app-design',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -68,20 +88,11 @@ const SERVICE_ITEMS = [
       </svg>
     ),
   },
-  {
-    title: 'Servizi Digitali',
-    description: 'Digital marketing, social media management e grafica pubblicitaria.',
-    slug: 'servizi-digitali',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-      </svg>
-    ),
-  },
 ];
 
 export default function Offers() {
-  const [currentColors, setCurrentColors] = useState(['#8B5CF6', '#A855F7', '#C084FC']);
+  const { t, isLoading } = useTranslation();
+  const [currentColors, setCurrentColors] = useState(['#1a9fc9', '#2a9fd9', '#3aafe9', '#4abff9', '#5acfff']); // Inizia con i colori della prima slide (3D Design)
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const transitionTimeoutRef = useRef(null);
@@ -92,7 +103,15 @@ export default function Offers() {
   const services = useMemo(() => SERVICE_ITEMS, []);
 
   const goToService = (slug) => {
-    navigate(`/servizi/${slug}`);
+    if (!slug) return;
+    
+    // Solo "Stampa 3D" ha una pagina dedicata, tutti gli altri usano il ServiceRequestPage
+    if (slug === 'stampa-3d') {
+      navigate('/stampa-3d');
+    } else {
+      // Tutti gli altri servizi (inclusi regali-e-prank) usano il form
+      navigate(`/servizi/${slug}`);
+    }
   };
 
   const handleCardKeyDown = (event, slug) => {
@@ -130,7 +149,7 @@ export default function Offers() {
 
         transitionTimeoutRef.current = setTimeout(() => {
           isTransitioningRef.current = false;
-        }, 4200);
+        }, 3200); // Ridotto per essere più reattivo
       }
     };
 
@@ -193,24 +212,49 @@ export default function Offers() {
     return () => observer.disconnect();
   }, [isMobile, services.length]);
 
-  const dynamicBackground = {
-    background: `linear-gradient(135deg, ${currentColors[0]} 0%, ${currentColors[1] || currentColors[0]} 50%, ${currentColors[2] || currentColors[0]} 100%)`,
-  };
+  // (color helpers defined at module scope)
+
+  const bgColors = useMemo(() => (
+    currentColors.map((c, i) => darkenHex(c, [0.6, 0.65, 0.7, 0.68, 0.62][i] || 0.65))
+  ), [currentColors]);
+
+  const dynamicBackground = useMemo(() => ({
+    background: `
+      /* colored layers with transparency on top */
+      radial-gradient(ellipse at center left, ${toRgba(bgColors[4], 0.55)} 0%, ${toRgba(bgColors[2], 0.35)} 40%, ${toRgba('#000000', 0)} 70%),
+      radial-gradient(ellipse at top left, ${toRgba(bgColors[0], 0.45)} 0%, ${toRgba('#000000', 0)} 60%),
+      radial-gradient(ellipse at top right, ${toRgba(bgColors[3], 0.42)} 0%, ${toRgba('#000000', 0)} 55%),
+      radial-gradient(ellipse at bottom center, ${toRgba(bgColors[1], 0.38)} 0%, ${toRgba('#000000', 0)} 65%),
+      linear-gradient(135deg,
+        ${toRgba(bgColors[0], 0.55)} 0%,
+        ${toRgba(bgColors[1] || bgColors[0], 0.55)} 28%,
+        ${toRgba(bgColors[2] || bgColors[1] || bgColors[0], 0.5)} 52%,
+        ${toRgba(bgColors[3] || bgColors[2] || bgColors[0], 0.5)} 72%,
+        ${toRgba(bgColors[4] || bgColors[3] || bgColors[0], 0.55)} 100%),
+      /* deep base to eliminate whites */
+      linear-gradient(180deg, #0a0f1c 0%, #070a14 100%)
+    `,
+    transition: 'background 2.5s ease-in-out',
+    // CSS variables for icon glow to keep it matching the background palette
+    '--icon-glow-0': toRgba(bgColors[2] || bgColors[1] || bgColors[0], 0.8),
+    '--icon-glow-1': toRgba(bgColors[2] || bgColors[1] || bgColors[0], 0.38),
+    '--icon-glow-2': toRgba(bgColors[2] || bgColors[1] || bgColors[0], 0.12),
+  }), [bgColors]);
+
+  // Removed per request: do not apply inline background/border on cards
 
   return (
     <section className="offers" style={dynamicBackground}>
       <div className="offers-container">
         <h2 className="offers-title">
-          Prodotti personalizzati di qualità e servizi digitali all'avanguardia
+          {t('offers.title')}
         </h2>
 
         <div className="services-grid">
           {services.map((service, index) => {
-            const isLink = Boolean(service.slug);
             const isActive = isMobile && activeIndex === index;
             const cardClassName = [
               'service-card',
-              isLink ? 'service-card--link' : '',
               isActive ? 'service-card--active' : '',
             ]
               .filter(Boolean)
@@ -218,7 +262,7 @@ export default function Offers() {
 
             return (
               <div
-                key={service.title}
+                key={service.titleKey}
                 className={cardClassName}
                 ref={(element) => {
                   cardRefs.current[index] = element;
@@ -226,9 +270,17 @@ export default function Offers() {
                 data-index={index}
                 {...getCardProps(service.slug)}
               >
-                <div className="service-icon">{service.icon}</div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
+                <div className="container">
+                  <div className="box" data-description={t(service.descriptionKey)}>
+                    <div className="icon_bg"></div>
+                  </div>
+                  <div className="icon">
+                    {service.icon}
+                  </div>
+                </div>
+                <div className="text">
+                  <h3 className="service-title">{t(service.titleKey)}</h3>
+                </div>
               </div>
             );
           })}

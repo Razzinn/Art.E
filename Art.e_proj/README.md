@@ -38,20 +38,74 @@ npm run lint
 npm run lint:fix
 ```
 
+### Configurazione invio email (Nodemailer)
+
+1. **Configurazione Backend:**
+   - Il backend Node.js è nella cartella `backend/`
+   - Configura il file `backend/.env` con le credenziali SMTP:
+
+```env
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=tua-email@gmail.com
+EMAIL_APP_PASSWORD=password-app-gmail
+EMAIL_TO=destinatario@gmail.com
+EMAIL_TO_NAME=Nome Destinatario
+```
+
+2. **Avvio dei server:**
+```powershell
+# Terminal 1 - Backend
+cd backend
+npm install
+npm start
+
+# Terminal 2 - Frontend  
+npm run dev
+```
+
+3. **Password App Gmail:**
+   - Attiva la verifica in due passaggi su Gmail
+   - Genera una password app dalle impostazioni di sicurezza
+   - Usa quella password nel campo `EMAIL_APP_PASSWORD`
+
 ## 📁 Struttura Progetto
 
 ```
 src/
 ├── components/
-│   ├── NavbarSectionR.jsx    # Navbar con dropdown categorie
+│   ├── NavbarSectionR.jsx    # Navbar con dropdown categorie e traduzione
 │   ├── NavbarSectionR.css    # Stili navbar
 │   ├── HeroSectionR.jsx      # Carosello hero con animazioni
 │   ├── HeroSectionR.css      # Stili carosello
 │   ├── footer.jsx            # Footer completo con newsletter
-│   └── footer.css            # Stili footer
+│   ├── footer.css            # Stili footer
+│   ├── Offers.jsx            # Card offerte con animazioni hover
+│   ├── Offers.css            # Stili offerte ottimizzati
+│   └── LanguageSwitcher.jsx  # Selettore lingua con bandiere
+├── services/
+│   └── nodemailerClient.js   # Client per invio email via backend
+├── contexts/
+│   └── LanguageContext.js    # Context per sistema traduzioni
+├── translations/
+│   ├── it.json               # Traduzioni italiane
+│   ├── en.json               # Traduzioni inglesi
+│   ├── sr.json               # Traduzioni serbe
+│   ├── de.json               # Traduzioni tedesche
+│   └── fr.json               # Traduzioni francesi
+├── pages/
+│   └── ServiceRequestPage.jsx # Pagina form servizi con upload file
+├── data/
+│   └── serviceSections.js    # Configurazione servizi
 ├── App.jsx                   # Componente principale
 ├── main.jsx                  # Entry point
 └── index.css                 # Stili globali
+
+backend/
+├── server.js                 # Server Express con Nodemailer
+├── package.json              # Dipendenze backend
+├── .env                      # Configurazione SMTP
+└── uploads/                  # Cartella file temporanei
 ```
 
 ## 🎨 Design System
