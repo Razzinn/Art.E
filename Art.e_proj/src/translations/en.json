@@ -260,7 +260,7 @@
   "footer": {
     "company": {
       "description": "We transform your ideas into reality with 3D printing, custom apparel, digital services and superior quality Italian creativity.",
-      "address": "Via Roma 123, 20121 Milan, Italy",
+      "address": "Trg republike 44, 18300, Pirot, Serbia",
       "hours": "Every day: 08:00–20:00"
     },
     "sections": {
@@ -292,7 +292,8 @@
       "custom_keychains": "Custom Keychains",
       "personalized_mugs": "Personalized Mugs",
       "photo_frames": "Photo Frames",
-      "surprise_boxes": "Surprise Boxes"
+      "surprise_boxes": "Surprise Boxes",
+      "all_gifts": "All Products"
     },
     "newsletter": {
       "title": "Creo Newsletter",
@@ -330,15 +331,15 @@
     "abbigliamento": {
       "title": "Custom Apparel",
       "subtitle": "Stand out with what you wear.",
-      "description1": "With <strong>CREO</strong> you can transform a simple garment into a unique means of expression or promotion. We customize T-shirts, sweatshirts, caps and workwear with high-quality prints and selected materials.",
-      "description2": "Whether you want to create professional corporate uniforms, event merchandising or personalized gifts, <em>we take care of every detail</em>: from graphics to final printing. Thanks to modern printing techniques – such as DTF, screen printing or heat transfer – we guarantee <strong>bright colors, durability and comfort</strong> on every product.",
+      "description1": "With <strong>CREO</strong> you can transform a simple garment into a unique means of expression or promotion. We customize T-shirts, sweatshirts, caps and workwear with high-quality prints and carefully selected materials.",
+      "description2": "Whether you want to create professional corporate uniforms, event merchandising or personalized gifts, <em>we take care of every detail</em>: from graphics to final printing. Thanks to modern printing techniques – such as DTF, screen printing or heat transfer – we guarantee <strong>vibrant colors, durability and comfort</strong> on every product.",
       "cta": "➡️ Show your identity. <span>Wear your ideas.</span>"
     },
     "design3d": {
       "title": "3D PRINTING",
       "subtitle": "From prototype to finished object: we give shape to imagination.",
-      "description1": "3D printing is the heart of <strong>CREO</strong>. We create prototypes, gadgets, accessories and technical components with precision and quality materials.",
-      "description2": "We use advanced <strong>FDM</strong> and <strong>resin-based</strong> technologies to ensure excellent strength, perfect details and refined finishes.",
+      "description1": "3D printing is the heart of <strong>CREO</strong>. We create prototypes, gadgets, accessories and technical components with precision and high-quality materials.",
+      "description2": "We use advanced technologies to ensure excellent strength, perfect details and carefully crafted finishes.",
       "description3": "We collaborate with designers, companies, artisans and individuals to develop customized projects, from the 3D modeling phase to final production.",
       "description4": "With our experience, every idea can come to life, becoming a tangible, functional and unique object.",
       "cta": "➡️ <strong>Bring us your idea</strong>, we make it real."
@@ -346,16 +347,16 @@
     "ideeregalo": {
       "title": "Gift Ideas",
       "subtitle": "Give something that doesn't exist anywhere else.",
-      "description1": "Our gift ideas are created to surprise. From decorative objects to custom 3D printed creations, each item is born to convey emotion, originality and attention to detail. Perfect for birthdays, anniversaries, holidays or corporate events, our proposals combine creativity and technology.",
+      "description1": "Our gift ideas are created to surprise. From decorative objects to custom 3D printed creations, each item is born to convey emotion, originality and attention to detail. Perfect for birthdays, anniversaries, holidays or corporate events, our proposals combine creativity with technology.",
       "description2": "You can choose from ready-made designs or request custom creation, transforming an idea into a unique and unrepeatable gift.",
       "cta": "➡️ Don't give something ordinary. Create a memory that lasts."
     },
     "webappdesign": {
-      "title": "Web & App Design",
+      "title": "WEB & APP DESIGN",
       "subtitle": "We build digital experiences that leave a mark.",
-      "description1": "In an increasingly connected world, your online presence is the key to making yourself known, selling and growing. At <strong>CREO</strong> we create modern, responsive and SEO-optimized websites, designed to attract and convert your visitors.",
+      "description1": "In an increasingly connected world, your online presence is the key to making yourself known, selling and growing. At <strong>CREO</strong> we create modern, responsive and SEO-optimized websites, designed to attract and convert your visitors into customers.",
       "description2": "From corporate showcase to e-commerce, up to the development of custom apps, our goal is to translate your idea into a functional, secure platform with design crafted down to the smallest details.",
-      "description3": "We offer tailor-made solutions for companies, freelancers and start-ups, guaranteeing assistance, updates and scalability over time.",
+      "description3": "We offer tailor-made solutions for companies, freelancers and start-ups, guaranteeing ongoing support, regular updates and scalability over time.",
       "cta": "➡️ Don't just be online. <span>Get noticed, with style.</span>"
     }
   }

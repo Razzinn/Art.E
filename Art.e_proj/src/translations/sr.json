@@ -35,9 +35,9 @@
     "search_button_text": "Pretraži",
     "search_suggestions_aria_label": "Predlozi pretrage",
     "categories": {
-      "design_3d": "Dizajn & 3D Štampa",
+      "design_3d": "3D Dizajn & Štampa",
       "apparel": "Personalizovana Odeća",
-      "web_app": "Web & App Dizajn",
+      "web_app": "Web & Dizajn Aplikacija",
       "gift_ideas": "Ideje za Poklone"
     }
   },
@@ -53,10 +53,10 @@
         "cta": "Saznaj više"
       },
       "apparel": {
-        "title": "Prilagođena Odeća",
+        "title": "Personalizovana Odeća",
         "subtitle": "Nosi svoju ideju",
-        "description": "Majice, bodiji, kačketi i prilagođeni dodaci: svaki odevni predmet postaje poruka, svaki stil tvoj potpis.",
-        "alt": "Prilagođena odeća",
+        "description": "Majice, bodiji, kačketi i personalizovani dodaci: svaki komad odeće postaje poruka, svaki stil tvoj potpis.",
+        "alt": "Personalizovana odeća",
         "cta": "Saznaj više"
       },
       "web_app": {
@@ -93,10 +93,10 @@
         "hero_note": "Možete priložiti fotografije primaoca ili primere stila koji preferirate."
       },
       "apparel_custom": {
-        "title": "Odeća i Prilagođeni Proizvodi",
-        "subtitle": "Odeća i dodaci po meri",
-        "description": "Navedite tip, količinu, boje, veličine i sve grafičke reference za razvoj vašeg personalizovanog projekta.",
-        "promotional": "👕 Izrazite svoj stil sa jedinstvenom odećom po meri!",
+        "title": "Personalizovana Odeća",
+        "subtitle": "Odeća i dodaci po vašoj meri",
+        "description": "Navedite tip, količinu, boje, veličine i bilo koje grafičke reference kako bismo razvili vaš personalizovani projekat.",
+        "promotional": "👕 Izrazite svoj stil sa jedinstvenom personalizovanom odećom!",
         "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
       },
       "web_app_design": {
@@ -121,10 +121,10 @@
         "hero_note": "Možete priložiti fotografije primaoca ili primere stila koji preferirate."
       },
       "apparel": {
-        "title": "Odeća i Prilagođeni Proizvodi",
-        "subtitle": "Odeća i dodaci po meri",
-        "description": "Navedite tip, količinu, boje, veličine i sve grafičke reference za razvoj vašeg personalizovanog projekta.",
-        "promotional": "👕 Izrazite svoj stil sa jedinstvenom odećom po meri!",
+        "title": "Personalizovana Odeća",
+        "subtitle": "Odeća i dodaci po vašoj meri",
+        "description": "Navedite tip, količinu, boje, veličine i bilo koje grafičke reference kako bismo razvili vaš personalizovani projekat.",
+        "promotional": "👕 Izrazite svoj stil sa jedinstvenom personalizovanom odećom!",
         "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
       },
       "web_app": {
@@ -204,10 +204,10 @@
         "hero_note": "Možeš priložiti fotografije primaoca ili primere stila koji preferirate."
       },
       "apparel_custom": {
-        "title": "Odeća i Prilagođeni Proizvodi",
-        "subtitle": "Odeća i dodaci po meri",
-        "description": "Navedi tip, količinu, boje, veličine i bilo koje grafičke reference za razvoj svog personalizovanog projekta.",
-        "hero_note": "Prihvatamo mockup-ove, logoe i tabele veličina u PDF, PNG, SVG ili AI formatu."
+        "title": "Personalizovana Odeća",
+        "subtitle": "Odeća i dodaci po vašoj meri",
+        "description": "Navedite tip, količinu, boje, veličine i bilo koje grafičke reference za razvoj vašeg personalizovanog projekta.",
+        "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
       },
       "digital_services": {
         "title": "Digitalne Usluge",
@@ -260,7 +260,7 @@
   "footer": {
     "company": {
       "description": "Transformišemo vaše ideje u realnost sa 3D štampom, personalizovanom odećom, digitalnim uslugama i italijanskom kreativnošću vrhunskog kvaliteta.",
-      "address": "Via Roma 123, 20121 Milano, Italija",
+      "address": "Trg republike 44, 18300, Pirot, Serbia",
       "hours": "Svakog dana: 08:00–20:00"
     },
     "sections": {
@@ -272,13 +272,13 @@
     "links": {
       "printing_3d": "3D Štampa",
       "rapid_prototypes": "Brzi Prototipovi",
-      "custom_miniatures": "Prilagođene Minijature",
+      "custom_miniatures": "Personalizovane Minijature",
       "corporate_gadgets": "Korporativni Gadžeti",
       "decorative_objects": "Dekorativni Objekti",
       "all_3d_products": "Svi 3D Proizvodi",
-      "custom_hoodies": "Prilagođene dukserice",
-      "custom_caps": "Prilagođene kape",
-      "custom_polos": "Prilagođene polo majice",
+      "custom_hoodies": "Personalizovane dukserice",
+      "custom_caps": "Personalizovane kape",
+      "custom_polos": "Personalizovane polo majice",
       "merchandising": "Merchandising",
       "all_clothing": "Svi Proizvodi",
       "website_creation": "Kreiranje Web Sajtova",
@@ -289,10 +289,11 @@
       "social_media_marketing": "Social Media Marketing",
       "graphic_design": "Grafički Dizajn",
       "digital_consulting": "Digitalno Konsaltovanje",
-      "custom_keychains": "Prilagođeni Privesci",
+      "custom_keychains": "Personalizovani Privesci",
       "personalized_mugs": "Personalizovane Šolje",
       "photo_frames": "Okviri za Slike",
-      "surprise_boxes": "Kutije Iznenađenja"
+      "surprise_boxes": "Kutije Iznenađenja",
+      "all_gifts": "Svi Proizvodi"
     },
     "newsletter": {
       "title": "Newsletter Creo",
@@ -330,33 +331,33 @@
       "abbigliamento": {
         "title": "Personalizovana Odeća",
         "subtitle": "Istakni se onim što nosiš.",
-        "description1": "Sa <strong>CREO</strong> možeš transformisati jednostavan komad odeće u jedinstveno sredstvo izražavanja ili promocije. Personalizujemo majice, dukseve, kačkete i radnu odeću sa visokokvalitetnim štampom i odabranim materijalima.",
-        "description2": "Bilo da želiš da kreiraš profesionalne firmske uniforme, event merchandising ili personalizovane poklone, <em>brinemo o svakom detaljuu</em>: od grafike do finalnog štampanja. Zahvaljujući modernim tehnikama štampe – kao što su DTF, sito štampa ili termo transfer – garantujemo <strong>sjajne boje, trajnost i udobnost</strong> na svakom proizvodu.",
+        "description1": "Sa <strong>CREO</strong> možeš transformisati običan komad odeće u jedinstveno sredstvo za izražavanje ili promociju. Personalizujemo majice, dukseve, kačkete i radnu odeću sa visokokvalitetnim štampanjem i pažljivo odabranim materijalima.",
+        "description2": "Bilo da želiš da kreiraš profesionalne firmske uniforme, merchandising za događaje ili personalizovane poklone, <em>brinemo o svakom detalju</em>: od grafičkog dizajna do finalnog štampanja. Zahvaljujući modernim tehnikama štampe – kao što su DTF, sito štampa ili termo transfer – garantujemo <strong>živopisne boje, trajnost i udobnost</strong> na svakom proizvodu.",
         "cta": "➡️ Prikaži svoj identitet. <span>Nosi svoje ideje.</span>"
       },
       "design3d": {
         "title": "3D ŠTAMPA",
-        "subtitle": "Od prototipa do gotovog objekta: dajemo oblik mašti.",
-        "description1": "3D štampa je srce <strong>CREO</strong>-a. Realizujemo prototipove, gadžete, dodatke i tehničke komponente sa preciznošću i kvalitetnim materijalima.",
-        "description2": "Koristimo napredne <strong>FDM</strong> i <strong>smola-bazne</strong> tehnologije da garantujemo odličnu otpornost, savršene detalje i negovane završne obradu.",
-        "description3": "Sarađujemo sa dizajnerima, kompanijama, zanatlicama i privatnim licima da razvijemo personalizovane projekte, od faze 3D modelovanja do finalne proizvodnje.",
-        "description4": "Sa našim iskustvom, svaka ideja može da oživi, postajući opipljiv, funkcionalan i jedinstven objekat.",
-        "cta": "➡️ <strong>Donesi svoju ideju</strong>, mi je pretvaramo u stvarnost."
+        "subtitle": "Od prototipa do gotovog proizvoda: oživljavamo tvoju maštu.",
+        "description1": "3D štampa je srce <strong>CREO</strong>-a. Stvaramo prototipove, gadžete, dodatke i tehničke komponente sa preciznošću i visokokvalitetnim materijalima.",
+        "description2": "Koristimo napredne tehnologije kako bismo garantovali odličnu otpornost, savršene detalje i pažljivo obrađene površine.",
+        "description3": "Sarađujemo sa dizajnerima, kompanijama, zanatlijama i privatnim licima kako bismo razvili personalizovane projekte, od faze 3D modelovanja do konačne proizvodnje.",
+        "description4": "Sa našim iskustvom, svaka ideja može da oživi i postane stvaran, funkcionalan i jedinstven objekat.",
+        "cta": "➡️ <strong>Donesi svoju ideju</strong>, mi ćemo je pretvoriti u stvarnost."
       },
       "ideeregalo": {
         "title": "Ideje za Poklone",
         "subtitle": "Pokloni nešto što ne postoji nigde drugde.",
-        "description1": "Naše ideje za poklone su kreimane da iznenade. Od dekorativnih objekata do personalizovanih kreacija štampanih u 3D-u, svaki artikal nastaje da prenese emociju, originalnost i pažnju na detalje. Savršene za rođendane, godišnjice, praznike ili korporativne događaje, naši predlozi spajaju kreativnost i tehnologiju.",
-        "description2": "Možeš birati između već gotovih dizajna ili zatražiti kreiranje po meri, transformišući ideju u jedinstven i neponovljiv poklon.",
-        "cta": "➡️ Nemoj poklanjati nešto obično. Kreiraj uspomenu koja ostaje."
+        "description1": "Naše ideje za poklone su stvorene da iznenade. Od dekorativnih objekata do personalizovanih kreacija 3D štampanih, svaki artikal nastaje da prenese emociju, originalnost i pažnju prema detaljima. Savršene za rođendane, godišnjice, praznike ili korporativne događaje, naši predlozi spajaju kreativnost sa tehnologijom.",
+        "description2": "Možeš birati između već gotovih dizajna ili zatražiti izradu po meri, pretvarajući ideju u jedinstven i neponovljiv poklon.",
+        "cta": "➡️ Nemoj poklanjati nešto obično. Kreiraj uspomenu koja traje."
       },
-      "webapp": {
-        "title": "Web & App Design",
-        "subtitle": "Gradimo digitalna iskustva koja ostavljaju trag.",
-        "description1": "U sve više povezanom svetu, tvoja online prisutnost je ključ da se učiniš poznatim, prodaješ i rastuš. U <strong>CREO</strong>-u realizujemo moderne, responsive i SEO optimizovane veb sajtove, osmišljene da privuku i konvertuju tvoje posetioce.",
-        "description2": "Od korporativne izloge do e-commerce-a, pa do razvoja personalizovanih aplikacija, naš cilj je da tvoju ideju prevedemo u funkcionalnu, sigurnu platformu sa dizajnom obrađenim do najmanjih detalja.",
-        "description3": "Nudimo rešenja po meri za kompanije, freelance-re i start-up-ove, garantujući podršku, ažuriranja i skalabilnost kroz vreme.",
-        "cta": "➡️ Nemoj se ograničiti na to da budeš online. <span>Istakni se, sa stilom.</span>"
+      "webappdesign": {
+        "title": "WEB & DIZAJN APLIKACIJA",
+        "subtitle": "Gradimo digitalna iskustva koja ostavljaju utisak.",
+        "description1": "U sve više povezanom svetu, tvoja online prisutnost je ključ za uspeh, prodaju i rast. U <strong>CREO</strong>-u kreiramo moderne, responzivne i SEO optimizovane veb sajtove, osmišljene da privuku i pretvore tvoje posetioce u klijente.",
+        "description2": "Od korporativne prezentacije do e-commerce-a, pa do razvoja personalizovanih aplikacija, naš cilj je da tvoju ideju pretvorimo u funkcionalnu, bezbednu platformu sa dizajnom brižljivo obrađenim do najmanjih detalja.",
+        "description3": "Nudimo rešenja po meri za kompanije, freelance-re i start-up-ove, garantujući stalnu podršku, redovna ažuriranja i mogućnost proširenja.",
+        "cta": "➡️ Nemoj se ograničiti samo na to da budeš online. <span>Istakni se, sa stilom.</span>"
       }
     }
   }
