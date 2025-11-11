@@ -260,7 +260,7 @@
   "footer": {
     "company": {
       "description": "Nous transformons vos idées en réalité avec l'impression 3D, les vêtements personnalisés, les services numériques et la créativité italienne de qualité supérieure.",
-      "address": "Via Roma 123, 20121 Milan, Italie",
+      "address": "Trg republike 44, 18300, Pirot, Serbia",
       "hours": "Tous les jours : 08h00–20h00"
     },
     "sections": {
@@ -292,7 +292,8 @@
       "custom_keychains": "Porte-clés Personnalisés",
       "personalized_mugs": "Tasses Personnalisées",
       "photo_frames": "Cadres Photo",
-      "surprise_boxes": "Boîtes Surprise"
+      "surprise_boxes": "Boîtes Surprise",
+      "all_gifts": "Tous les Produits"
     },
     "newsletter": {
       "title": "Newsletter Creo",
@@ -330,15 +331,15 @@
       "abbigliamento": {
         "title": "Vêtements Personnalisés",
         "subtitle": "Distinguez-vous avec ce que vous portez.",
-        "description1": "Avec <strong>CREO</strong> vous pouvez transformer un simple vêtement en un moyen d'expression ou de promotion unique. Nous personnalisons T-shirts, sweats, casquettes et vêtements de travail avec des impressions de haute qualité et des matériaux sélectionnés.",
-        "description2": "Que vous souhaitiez créer des uniformes d'entreprise professionnels, du merchandising d'événement ou des cadeaux personnalisés, <em>nous prenons soin de chaque détail</em> : de la conception graphique à l'impression finale. Grâce aux techniques d'impression modernes – comme DTF, sérigraphie ou thermocollage – nous garantissons <strong>des couleurs vives, durabilité et confort</strong> sur chaque produit.",
+        "description1": "Avec <strong>CREO</strong> vous pouvez transformer un simple vêtement en un moyen d'expression ou de promotion unique. Nous personnalisons T-shirts, sweats, casquettes et vêtements de travail avec des impressions de haute qualité et des matériaux soigneusement sélectionnés.",
+        "description2": "Que vous souhaitiez créer des uniformes d'entreprise professionnels, du merchandising d'événement ou des cadeaux personnalisés, <em>nous prenons soin de chaque détail</em> : de la conception graphique à l'impression finale. Grâce aux techniques d'impression modernes – comme le DTF, la sérigraphie ou le thermocollage – nous garantissons <strong>des couleurs éclatantes, durabilité et confort</strong> sur chaque produit.",
         "cta": "➡️ Montrez votre identité. <span>Portez vos idées.</span>"
       },
       "design3d": {
         "title": "IMPRESSION 3D",
         "subtitle": "Du prototype à l'objet fini : nous donnons forme à l'imagination.",
-        "description1": "L'impression 3D est le cœur de <strong>CREO</strong>. Nous réalisons prototypes, gadgets, accessoires et composants techniques avec précision et matériaux de qualité.",
-        "description2": "Nous utilisons des technologies avancées <strong>FDM</strong> et <strong>à base de résine</strong> pour garantir une excellente résistance, des détails parfaits et des finitions soignées.",
+        "description1": "L'impression 3D est le cœur de <strong>CREO</strong>. Nous réalisons prototypes, gadgets, accessoires et composants techniques avec précision et matériaux de haute qualité.",
+        "description2": "Nous utilisons des technologies avancées pour garantir une excellente résistance, des détails parfaits et des finitions soigneusement travaillées.",
         "description3": "Nous collaborons avec designers, entreprises, artisans et particuliers pour développer des projets personnalisés, de la phase de modélisation 3D jusqu'à la production finale.",
         "description4": "Avec notre expérience, chaque idée peut prendre vie, devenant un objet tangible, fonctionnel et unique.",
         "cta": "➡️ <strong>Apportez-nous votre idée</strong>, nous la rendons réelle."
@@ -346,16 +347,16 @@
       "ideeregalo": {
         "title": "Idées Cadeaux",
         "subtitle": "Offrez quelque chose qui n'existe nulle part ailleurs.",
-        "description1": "Nos idées cadeaux sont créées pour surprendre. Des objets décoratifs aux créations personnalisées imprimées en 3D, chaque article naît pour transmettre émotion, originalité et attention aux détails. Parfaites pour anniversaires, commémorations, fêtes ou événements d'entreprise, nos propositions allient créativité et technologie.",
+        "description1": "Nos idées cadeaux sont créées pour surprendre. Des objets décoratifs aux créations personnalisées imprimées en 3D, chaque article naît pour transmettre émotion, originalité et attention aux détails. Parfaites pour anniversaires, commémorations, fêtes ou événements d'entreprise, nos propositions allient créativité avec technologie.",
         "description2": "Vous pouvez choisir parmi des designs déjà prêts ou demander la création sur mesure, transformant une idée en un cadeau unique et irremplaçable.",
         "cta": "➡️ N'offrez pas quelque chose de commun. Créez un souvenir qui reste."
       },
       "webappdesign": {
-        "title": "Web & App Design",
+        "title": "WEB & APP DESIGN",
         "subtitle": "Nous construisons des expériences numériques qui marquent.",
-        "description1": "Dans un monde de plus en plus connecté, votre présence en ligne est la clé pour vous faire connaître, vendre et grandir. Chez <strong>CREO</strong> nous réalisons des sites web modernes, responsives et optimisés SEO, pensés pour attirer et convertir vos visiteurs.",
-        "description2": "De la vitrine d'entreprise à l'e-commerce, jusqu'au développement d'applications personnalisées, notre objectif est de traduire votre idée en une plateforme fonctionnelle, sécurisée et au design soigné dans les moindres détails.",
-        "description3": "Nous offrons des solutions sur mesure pour entreprises, freelances et start-ups, garantissant assistance, mises à jour et évolutivité dans le temps.",
+        "description1": "Dans un monde de plus en plus connecté, votre présence en ligne est la clé pour vous faire connaître, vendre et grandir. Chez <strong>CREO</strong> nous réalisons des sites web modernes, responsives et optimisés SEO, pensés pour attirer et convertir vos visiteurs en clients.",
+        "description2": "De la vitrine d'entreprise à l'e-commerce, jusqu'au développement d'applications personnalisées, notre objectif est de traduire votre idée en une plateforme fonctionnelle, sécurisée et avec un design soigné dans les moindres détails.",
+        "description3": "Nous offrons des solutions sur mesure pour entreprises, freelances et start-ups, garantissant un support continu, des mises à jour régulières et une évolutivité dans le temps.",
         "cta": "➡️ Ne vous contentez pas d'être en ligne. <span>Faites-vous remarquer, avec style.</span>"
       }
     }

@@ -64,7 +64,7 @@ const HeroSectionR = () => {
   const prevSlide = useCallback(() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1)), [slides.length]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3500);
+    const interval = setInterval(nextSlide, 6500);
     return () => clearInterval(interval);
   }, [nextSlide]);
 

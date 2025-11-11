@@ -56,7 +56,7 @@ export default function WebAppDesignPage() {
         animate="animate"
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* --- VIDEO --- */}
+        {/* --- VIDEO CON FRAME ELEGANTE --- */}
         <motion.div
           className="webapp-video"
           variants={animationVariants.video}
@@ -64,6 +64,21 @@ export default function WebAppDesignPage() {
           animate="animate"
           transition={{ duration: 0.6, delay: 0.2 }}
         >
+          {/* Frame Tech Luxury */}
+          <div className="tech-frame-luxury">
+            {/* Angoli con circuiti */}
+            <div className="frame-corner-circuit corner-tl"></div>
+            <div className="frame-corner-circuit corner-tr"></div>
+            <div className="frame-corner-circuit corner-bl"></div>
+            <div className="frame-corner-circuit corner-br"></div>
+            {/* LED decorativi */}
+            <div className="frame-led-deco led-tl"></div>
+            <div className="frame-led-deco led-tr"></div>
+            <div className="frame-led-deco led-bl"></div>
+            <div className="frame-led-deco led-br"></div>
+            {/* Aura tech */}
+            <div className="tech-aura"></div>
+          </div>
           <video
             className="webapp-video-player"
             autoPlay
@@ -91,7 +106,10 @@ export default function WebAppDesignPage() {
             animate="animate"
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {t('pages.webappdesign.title')}
+            <span className="title-line">
+              {t('pages.webappdesign.title')}
+            </span>
+            <div className="title-underline"></div>
           </motion.h1>
 
           <motion.h2
@@ -132,27 +150,42 @@ export default function WebAppDesignPage() {
           />
 
           <motion.div
-            className="webapp-description-important"
+            className="cta-wrapper"
             variants={animationVariants.text}
             initial="initial"
             animate="animate"
             transition={{ duration: 0.6, delay: 0.6 }}
-            whileHover={{ 
-              scale: 1.02,
-              transition: { duration: 0.2 }
-            }}
           >
-            <Link 
-              to="/servizi/web-e-app-design"
-              style={{
-                color: 'inherit',
-                textDecoration: 'none',
-                display: 'block',
-                width: '100%'
+            <div className="cta-decorative-frame">
+              <div className="cta-corner cta-corner-tl"></div>
+              <div className="cta-corner cta-corner-tr"></div>
+              <div className="cta-corner cta-corner-bl"></div>
+              <div className="cta-corner cta-corner-br"></div>
+              <div className="cta-pulse-line cta-pulse-top"></div>
+              <div className="cta-pulse-line cta-pulse-right"></div>
+              <div className="cta-pulse-line cta-pulse-bottom"></div>
+              <div className="cta-pulse-line cta-pulse-left"></div>
+            </div>
+            
+            <motion.div
+              className="webapp-description-important"
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.2 }
               }}
             >
-              <span dangerouslySetInnerHTML={{ __html: t('pages.webappdesign.cta') }} />
-            </Link>
+              <Link 
+                to="/servizi/web-e-app-design"
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  display: 'block',
+                  width: '100%'
+                }}
+              >
+                <span dangerouslySetInnerHTML={{ __html: t('pages.webappdesign.cta') }} />
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>

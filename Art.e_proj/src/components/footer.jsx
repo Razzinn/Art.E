@@ -9,7 +9,7 @@ const Footer = ({
     name: 'CREO',
     logoLetter: 'C',
     description: '',
-    address: '',
+    address: 'Trg republike 44, 18300, Pirot, Serbia',
     phone: '+381 60 3005439',
     email: 'creo3dshop@gmail.com',
     hours: '',
@@ -75,6 +75,7 @@ const Footer = ({
             { label: t('footer.links.personalized_mugs'), href: '/servizi/regali-e-prank' },
             { label: t('footer.links.photo_frames'), href: '/servizi/regali-e-prank' },
             { label: t('footer.links.surprise_boxes'), href: '/servizi/regali-e-prank' },
+            { label: t('footer.links.all_gifts'), href: '/idee-regalo', primary: true },
           ],
         },
       ];
@@ -200,17 +201,15 @@ const Footer = ({
                 </div>
 
                 <div className="social-links" aria-label="Seguici sui social">
-                  <a href="#" className="social-link facebook" aria-label="Facebook">📘</a>
-                  <a href="#" className="social-link instagram" aria-label="Instagram">📷</a>
-                  <a href="#" className="social-link twitter" aria-label="Twitter">🐦</a>
-                  <a href="#" className="social-link linkedin" aria-label="LinkedIn">💼</a>
-                  <a href="#" className="social-link youtube" aria-label="YouTube">📺</a>
-                </div>
-
-                <div className="certifications">
-                  <div className="cert-badge">🔒 SSL Secure</div>
-                  <div className="cert-badge">✅ ISO 9001</div>
-                  <div className="cert-badge">🇪🇺 GDPR</div>
+                  <a href="https://www.facebook.com/share/17TrZqnD7A/" target="_blank" rel="noopener noreferrer" className="social-link facebook" aria-label="Facebook">
+                    <img src="/fb.png" alt="Facebook" className="social-icon" />
+                  </a>
+                  <a href="https://www.instagram.com/creo_3d_shop?igsh=MTcycXB6dWlzMjZxdg==" target="_blank" rel="noopener noreferrer" className="social-link instagram" aria-label="Instagram">
+                    <img src="/insta.png" alt="Instagram" className="social-icon" />
+                  </a>
+                  <a href="https://wa.me/381603005439" target="_blank" rel="noopener noreferrer" className="social-link whatsapp" aria-label="WhatsApp">
+                    <img src="/wts.png" alt="WhatsApp" className="social-icon" />
+                  </a>
                 </div>
               </div>
 
@@ -256,10 +255,6 @@ const Footer = ({
                     {submitError}
                   </p>
                 )}
-                
-                <p className="newsletter-privacy" style={{ fontSize: '0.75rem', lineHeight: '1.4' }}>
-                  {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">{t('footer.legal.privacy_policy')}</a>
-                </p>
               </div>
 
               {/* SECTIONS (data-driven) */}
@@ -309,10 +304,6 @@ const Footer = ({
                   {isSubmitting ? t('footer.newsletter.subscribing') : isSubscribed ? '✅ ' + t('footer.newsletter.success_message') : t('footer.newsletter.subscribe_button')}
                 </button>
               </form>
-              
-              <p className="newsletter-privacy" style={{ fontSize: '0.75rem', lineHeight: '1.4' }}>
-                {t('footer.newsletter.privacy_consent')} <a href="#" className="link-secondary">Privacy Policy</a>
-              </p>
             </div>
           </div>
         </div>
