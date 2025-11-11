@@ -72,7 +72,7 @@ export default function WebAppDesignPage() {
             animate="animate"
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {t('pages.webappdesign.title')}
+            {t('webappdesign.title')}
           </motion.h1>
 
           <motion.h2
@@ -82,7 +82,7 @@ export default function WebAppDesignPage() {
             animate="animate"
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {t('pages.webappdesign.subtitle')}
+            {t('webappdesign.subtitle')}
           </motion.h2>
 
           <motion.p
@@ -91,8 +91,18 @@ export default function WebAppDesignPage() {
             initial="initial"
             animate="animate"
             transition={{ duration: 0.6, delay: 0.3 }}
-            dangerouslySetInnerHTML={{ __html: t('pages.webappdesign.description1') }}
-          />
+          >
+            {t('webappdesign.description1').split('<strong>').map((part, index) => {
+              if (index === 0) return part;
+              const [boldText, rest] = part.split('</strong>');
+              return (
+                <React.Fragment key={index}>
+                  <strong>{boldText}</strong>
+                  {rest}
+                </React.Fragment>
+              );
+            })}
+          </motion.p>
 
           <motion.p
             className="webapp-description-two"
@@ -100,8 +110,9 @@ export default function WebAppDesignPage() {
             initial="initial"
             animate="animate"
             transition={{ duration: 0.6, delay: 0.4 }}
-            dangerouslySetInnerHTML={{ __html: t('pages.webappdesign.description2') }}
-          />
+          >
+            {t('webappdesign.description2')}
+          </motion.p>
 
           <motion.p
             className="webapp-description-three"
@@ -109,8 +120,9 @@ export default function WebAppDesignPage() {
             initial="initial"
             animate="animate"
             transition={{ duration: 0.6, delay: 0.5 }}
-            dangerouslySetInnerHTML={{ __html: t('pages.webappdesign.description3') }}
-          />
+          >
+            {t('webappdesign.description3')}
+          </motion.p>
 
           <motion.div
             className="webapp-description-important"
@@ -132,7 +144,16 @@ export default function WebAppDesignPage() {
                 width: '100%'
               }}
             >
-              <span dangerouslySetInnerHTML={{ __html: t('pages.webappdesign.cta') }} />
+              {t('webappdesign.cta').split('<span>').map((part, index) => {
+                if (index === 0) return part;
+                const [spanText, rest] = part.split('</span>');
+                return (
+                  <React.Fragment key={index}>
+                    <span>{spanText}</span>
+                    {rest}
+                  </React.Fragment>
+                );
+              })}
             </Link>
           </motion.div>
         </motion.div>
