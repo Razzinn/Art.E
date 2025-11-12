@@ -1,0 +1,363 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "submit": "Senden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "home": "Startseite",
+    "contact": "Kontakt",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "portfolio": "Portfolio",
+    "select_language": "Sprache auswählen"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "main_navigation": "Hauptnavigation",
+    "logo_aria_label": "CREO - Zurück zur Startseite",
+    "logo_text": "CREO Marketplace",
+    "categories_label": "Kategorien",
+    "all_categories": "Alle Kategorien",
+    "search_label": "Produkte suchen",
+    "search_placeholder": "Auf Creo suchen",
+    "search_aria_label": "Produkte im Marktplatz suchen",
+    "search_button_aria_label": "Suche ausführen",
+    "search_button_text": "Suchen",
+    "search_suggestions_aria_label": "Suchvorschläge",
+    "categories": {
+      "design_3d": "Design & 3D Druck",
+      "apparel": "Personalisierte Kleidung",
+      "web_app": "Web & App Design",
+      "gift_ideas": "Geschenkideen"
+    }
+  },
+  "hero": {
+    "cta_button": "Mehr erfahren",
+    "computer_alt": "Entwicklungscomputer",
+    "slides": {
+      "3d_design": {
+        "title": "3D Design & 3D Druck",
+        "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
+        "description": "Vom digitalen Modell zum realen Objekt: einzigartige Kreationen, Prototypen, Gadgets und maßgeschneiderte Designs.",
+        "alt": "3D Design",
+        "cta": "Mehr erfahren"
+      },
+      "apparel": {
+        "title": "Maßgeschneiderte Kleidung",
+        "subtitle": "Tragen Sie Ihre Idee",
+        "description": "T-Shirts, Bodys, Mützen und maßgeschneiderte Accessoires: jedes Kleidungsstück wird zur Botschaft, jeder Stil zu Ihrer Signatur.",
+        "alt": "Maßgeschneiderte Kleidung",
+        "cta": "Mehr erfahren"
+      },
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erlebnisse",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen für das Wachstum Ihrer Marke online.",
+        "alt": "Webentwicklung und Design",
+        "cta": "Mehr erfahren"
+      },
+      "gifts": {
+        "title": "Geschenkideen",
+        "subtitle": "Überraschen Sie mit Originalität",
+        "description": "Originelle und personalisierte Kreationen, perfekt zum Überraschen und Eindruck hinterlassen bei jeder Gelegenheit.",
+        "alt": "Personalisierte Geschenkideen",
+        "cta": "Mehr erfahren"
+      }
+    }
+  },
+  "offers": {
+    "title": "Hochwertige personalisierte Produkte und modernste digitale Dienstleistungen",
+    "services": {
+      "design_3d": {
+        "title": "Design & 3D Druck",
+        "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
+        "description": "Vom digitalen Modell zum realen Objekt: einzigartige Kreationen, Prototypen, Gadgets und personalisierte Designs für jeden Bedarf.",
+        "promotional": "🚀 Verwandeln Sie Ihre Ideen mit professioneller 3D-Technologie in die Realität!",
+        "hero_note": "Sie können Skizzen, visuelle Referenzen oder vorhandene 3D-Dateien anhängen."
+      },
+      "gift_ideas": {
+        "title": "Geschenkideen",
+        "subtitle": "Personalisierte Überraschungen für jeden Anlass",
+        "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
+        "promotional": "🎁 Schaffen Sie unvergessliche Erinnerungen mit originellen und personalisierten Geschenken!",
+        "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
+      },
+      "apparel_custom": {
+        "title": "Kleidung & Maßanfertigung",
+        "subtitle": "Maßgeschneiderte Kleidung und Accessoires",
+        "description": "Geben Sie Typ, Menge, Farben, Größen und grafische Referenzen an, um Ihr personalisiertes Projekt zu entwickeln.",
+        "promotional": "👕 Drücken Sie Ihren Stil mit einzigartiger und maßgeschneiderter Kleidung aus!",
+        "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF, PNG, SVG oder AI."
+      },
+      "web_app_design": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erfahrungen",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",
+        "promotional": "💻 Bauen Sie Ihren digitalen Erfolg mit professionellen und innovativen Lösungen auf!",
+        "hero_note": "Teilen Sie Design-Beispiele, die Ihnen gefallen, oder Ihre bestehende Marke mit."
+      },
+      "3d_design": {
+        "title": "3D Design & 3D Druck",
+        "subtitle": "Von der Idee zur Realisierung des fertigen Produkts",
+        "description": "Vom digitalen Modell zum realen Objekt: einzigartige Kreationen, Prototypen, Gadgets und personalisierte Designs für jeden Bedarf.",
+        "promotional": "🚀 Verwandeln Sie Ihre Ideen mit professioneller 3D-Technologie in die Realität!",
+        "hero_note": "Sie können Skizzen, visuelle Referenzen oder vorhandene 3D-Dateien anhängen."
+      },
+      "gifts_pranks": {
+        "title": "Geschenkideen",
+        "subtitle": "Personalisierte Überraschungen für jeden Anlass",
+        "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
+        "promotional": "🎁 Schaffen Sie unvergessliche Erinnerungen mit originellen und personalisierten Geschenken!",
+        "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
+      },
+      "apparel": {
+        "title": "Kleidung & Maßanfertigung",
+        "subtitle": "Maßgeschneiderte Kleidung und Accessoires",
+        "description": "Geben Sie Typ, Menge, Farben, Größen und grafische Referenzen an, um Ihr personalisiertes Projekt zu entwickeln.",
+        "promotional": "👕 Drücken Sie Ihren Stil mit einzigartiger und maßgeschneiderter Kleidung aus!",
+        "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF, PNG, SVG oder AI."
+      },
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erfahrungen",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",
+        "promotional": "💻 Bauen Sie Ihren digitalen Erfolg mit professionellen und innovativen Lösungen auf!",
+        "hero_note": "Teilen Sie Design-Beispiele, die Ihnen gefallen, oder Ihre bestehende Marke mit."
+      },
+      "websites_apps": {
+        "title": "Web & App Design",
+        "subtitle": "Effektive digitale Erfahrungen",
+        "description": "Moderne Websites, intuitive Apps und grafische Lösungen, um Ihre Marke online wachsen zu lassen und Ihre Ziele zu erreichen.",
+        "promotional": "💻 Bauen Sie Ihren digitalen Erfolg mit professionellen und innovativen Lösungen auf!",
+        "hero_note": "Teilen Sie Design-Beispiele, die Ihnen gefallen, oder Ihre bestehende Marke mit."
+      }
+    }
+  },
+  "forms": {
+    "title": "Fordern Sie ein maßgeschneidertes Projekt an",
+    "subtitle": "Füllen Sie das Formular für die gewünschte Dienstleistung aus. Sie können Referenzdateien, Skizzen oder Materialien anhängen, die uns helfen, Ihre Idee besser zu verstehen.",
+    "fields": {
+      "name": "Vor- und Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "company": "Unternehmen / Marke",
+      "budget": "Ungefährer Budget",
+      "details": "Projektdetails",
+      "file": "Referenzdatei anhängen",
+      "required": "Erforderlich"
+    },
+    "placeholders": {
+      "name": "Max Mustermann",
+      "email": "name@firma.de",
+      "phone": "+49 177 123 4567",
+      "company": "Markenname",
+      "details": "Beschreiben Sie Ziele, Zeitpläne, Referenzen und alle nützlichen Informationen."
+    },
+    "budget_options": {
+      "select": "Bereich auswählen",
+      "up_to_500": "Bis zu 500 €",
+      "500_1500": "500 € - 1.500 €",
+      "1500_5000": "1.500 € - 5.000 €",
+      "over_5000": "Über 5.000 €"
+    },
+    "actions": {
+      "clear": "Felder leeren",
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet...",
+      "submitted": "Anfrage erhalten! Wir werden Sie innerhalb von 24 Arbeitsstunden kontaktieren."
+    },
+    "file": {
+      "selected": "Ausgewählte Datei: {{fileName}}",
+      "accepted_formats": "Akzeptierte Formate: .pdf, .zip, .png, .jpg, .jpeg, .svg, .ai"
+    }
+  },
+  "service_pages": {
+    "not_found": {
+      "title": "Service nicht gefunden",
+      "description": "Der angeforderte Bereich ist nicht verfügbar. Kehren Sie zur Startseite zurück oder wählen Sie einen anderen verfügbaren Service.",
+      "back_to_home": "Zurück zur Startseite"
+    },
+    "breadcrumbs": {
+      "home": "Startseite"
+    },
+    "services": {
+      "logo_restyling": {
+        "title": "Logo Restyling",
+        "subtitle": "Erneuern Sie Ihre visuelle Identität",
+        "description": "Erzählen Sie uns die Geschichte Ihrer Marke, die zu behaltenden Elemente und die neuen ästhetischen Richtungen, die Sie erkunden möchten.",
+        "hero_note": "Laden Sie Ihr aktuelles Logo, eventuelle Skizzen oder Referenz-Moodboards hoch."
+      },
+      "gifts_pranks": {
+        "title": "Geschenkideen",
+        "subtitle": "Personalisierte Überraschungen für jeden Anlass",
+        "description": "Beschreiben Sie die Art des Geschenks oder Streichs, den Empfänger und den gewünschten Ton. Wir können von Ihrem Konzept ausgehen oder eines von Grund auf erstellen.",
+        "hero_note": "Sie können Fotos des Empfängers oder Beispiele des bevorzugten Stils anhängen."
+      },
+      "apparel_custom": {
+        "title": "Kleidung & Maßanfertigung",
+        "subtitle": "Maßgeschneiderte Kleidung und Accessoires",
+        "description": "Geben Sie Typ, Menge, Farben, Größen und grafische Referenzen an, um Ihr personalisiertes Projekt zu entwickeln.",
+        "hero_note": "Wir akzeptieren Mockups, Logos und Größentabellen in PDF-, PNG-, SVG- oder AI-Format."
+      },
+      "digital_services": {
+        "title": "Digitale Dienstleistungen",
+        "subtitle": "Web, Apps und digitales Marketing",
+        "description": "Erklären Sie Ihre digitalen Ziele, Zielgruppe und Kernfunktionalitäten, die Sie implementieren möchten.",
+        "hero_note": "Laden Sie Briefing-Dokumente, Sitemap, Wireframes oder Referenzbeispiele hoch."
+      }
+    }
+  },
+  "service_form": {
+    "budget_placeholder": "Bereich auswählen",
+    "budget_up_to_500": "Bis zu 500 €",
+    "budget_500_1500": "500 € - 1.500 €",
+    "budget_1500_5000": "1.500 € - 5.000 €",
+    "budget_over_5000": "Über 5.000 €",
+    "not_found_title": "Service nicht gefunden",
+    "not_found_description": "Der angeforderte Bereich ist nicht verfügbar. Kehren Sie zur Startseite zurück oder wählen Sie einen anderen verfügbaren Service.",
+    "back_to_home": "Zurück zur Startseite",
+    "name_label": "Vollständiger Name",
+    "name_placeholder": "Geben Sie Ihren vollständigen Namen ein",
+    "email_label": "E-Mail",
+    "email_placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "phone_label": "Telefonnummer",
+    "phone_placeholder": "Geben Sie Ihre Telefonnummer ein",
+    "company_label": "Unternehmen/Marke",
+    "company_placeholder": "Geben Sie Ihren Firmen- oder Markennamen ein",
+    "details_label": "Projektbeschreibung",
+    "details_placeholder": "Beschreiben Sie Ihr Projekt, Ziele, spezifische Anforderungen...",
+    "budget_label": "Budget",
+    "file_label": "Dateien hochladen",
+    "file_button": "📎 Dateien auswählen",
+    "no_file": "Keine Dateien ausgewählt",
+    "files_selected": "{{count}} Dateien ausgewählt",
+    "submit_button": "Anfrage senden",
+    "reset_button": "Löschen",
+    "submitting": "Wird gesendet...",
+    "success_title": "Anfrage erfolgreich gesendet!",
+    "success_message": "✅ Anfrage erfolgreich gesendet! Wir werden Sie innerhalb von 24 Stunden kontaktieren.",
+    "error_title": "Fehler beim Senden der Anfrage",
+    "error_message": "❌ Fehler beim Senden. Versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
+    "required_fields": "* Pflichtfelder",
+    "suggestion": "Tipp",
+    "file_selected": "Datei ausgewählt",
+    "max_files_error": "Sie können maximal 5 Dateien auswählen",
+    "remove_file": "Datei entfernen",
+    "file_info_note": "Unterstützt: PDF, ZIP, Bilder, Dokumente (max 10MB)",
+    "form_header_title": "Angebot anfordern für {{service}}",
+    "form_header_description": "Füllen Sie das Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden"
+  },
+  "footer": {
+    "company": {
+      "description": "Wir verwandeln Ihre Ideen in Realität mit 3D-Druck, personalisierten Kleidungsstücken, digitalen Dienstleistungen und italienischer Kreativität von höchster Qualität.",
+      "address": "Trg republike 44, 18300, Pirot, Serbia",
+      "hours": "Täglich: 08:00–20:00"
+    },
+    "sections": {
+      "products": "Produkte",
+      "clothing": "Kleidung",
+      "digital_services": "Digitale Dienste",
+      "gift_ideas": "Geschenkideen"
+    },
+    "links": {
+      "printing_3d": "3D-Druck",
+      "rapid_prototypes": "Schnelle Prototypen",
+      "custom_miniatures": "Benutzerdefinierte Miniaturen",
+      "corporate_gadgets": "Firmen-Gadgets",
+      "decorative_objects": "Dekorative Objekte",
+      "all_3d_products": "Alle 3D-Produkte",
+      "custom_hoodies": "Benutzerdefinierte Hoodies",
+      "custom_caps": "Benutzerdefinierte Kappen",
+      "custom_polos": "Benutzerdefinierte Polos",
+      "merchandising": "Merchandising",
+      "all_clothing": "Alle Produkte",
+      "website_creation": "Website-Erstellung",
+      "app_development": "Intuitive App-Erstellung",
+      "ecommerce": "E-Commerce",
+      "logo_restyling": "Logo-Restyling",
+      "brand_identity": "Markenidentität",
+      "social_media_marketing": "Social Media Marketing",
+      "graphic_design": "Grafikdesign",
+      "digital_consulting": "Digitale Beratung",
+      "custom_keychains": "Personalisierte Schlüsselanhänger",
+      "personalized_mugs": "Personalisierte Tassen",
+      "photo_frames": "Bilderrahmen",
+      "surprise_boxes": "Überraschungsboxen",
+      "all_gifts": "Alle Produkte"
+    },
+    "newsletter": {
+      "title": "Newsletter Creo",
+      "description": "Erhalten Sie exklusive Angebote, Produktneuigkeiten und kreative Tipps direkt in Ihrem E-Mail-Postfach.",
+      "email_placeholder": "Ihre E-Mail...",
+      "subscribe_button": "Abonnieren",
+      "subscribing": "Abonnierung...",
+      "success_message": "Abonniert!",
+      "invalid_email": "Ungültige E-Mail.",
+      "enter_email": "E-Mail eingeben.",
+      "subscription_error": "Es ist ein Fehler aufgetreten. Versuchen Sie es erneut.",
+      "privacy_consent": "Mit dem Abonnement akzeptieren Sie unsere",
+      "and": "und",
+      "unsubscribe_info": "Sie können sich jederzeit abmelden.",
+      "vip_benefits": "VIP-Vorteile",
+      "exclusive_discounts": "Exklusive Rabatte bis zu 20%",
+      "early_access": "Früher Zugang zu neuen Produkten",
+      "welcome_gift": "Willkommensgeschenk",
+      "priority_support": "Prioritärer Kundensupport"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "hours": "Öffnungszeiten"
+    },
+    "legal": {
+      "all_rights_reserved": "Alle Rechte vorbehalten"
+    },
+    "back_to_top": "Nach oben",
+    "winking_face": "zwinkerndes Gesicht"
+  },
+  "pages": {
+      "abbigliamento": {
+        "title": "Personalisierte Kleidung",
+        "subtitle": "Heben Sie sich mit dem ab, was Sie tragen.",
+        "description1": "Mit <strong>CREO</strong> können Sie ein einfaches Kleidungsstück in ein einzigartiges Mittel des Ausdrucks oder der Werbung verwandeln. Wir personalisieren T-Shirts, Sweatshirts, Mützen und Arbeitskleidung mit hochwertigen Drucken und sorgfältig ausgewählten Materialien.",
+        "description2": "Ob Sie professionelle Firmenuniformen, Event-Merchandising oder personalisierte Geschenke erstellen möchten, <em>wir kümmern uns um jedes Detail</em>: von der Grafik bis zum finalen Druck. Dank moderner Drucktechniken – wie DTF, Siebdruck oder Thermotransfer – garantieren wir <strong>leuchtende Farben, Langlebigkeit und Komfort</strong> bei jedem Produkt.",
+        "cta": "➡️ Zeigen Sie Ihre Identität. <span>Tragen Sie Ihre Ideen.</span>"
+      },
+      "design3d": {
+        "title": "3D-DRUCK",
+        "subtitle": "Vom Prototyp zum fertigen Objekt: Wir geben der Vorstellung Form.",
+        "description1": "3D-Druck ist das Herz von <strong>CREO</strong>. Wir erstellen Prototypen, Gadgets, Zubehör und technische Komponenten mit Präzision und hochwertigen Materialien.",
+        "description2": "Wir verwenden fortschrittliche Technologien, um ausgezeichnete Festigkeit, perfekte Details und sorgfältig bearbeitete Oberflächen zu gewährleisten.",
+        "description3": "Wir arbeiten mit Designern, Unternehmen, Handwerkern und Privatpersonen zusammen, um maßgeschneiderte Projekte zu entwickeln, von der 3D-Modellierungsphase bis zur finalen Produktion.",
+        "description4": "Mit unserer Erfahrung kann jede Idee zum Leben erweckt werden und zu einem greifbaren, funktionalen und einzigartigen Objekt werden.",
+        "cta": "➡️ <strong>Bringen Sie uns Ihre Idee</strong>, wir machen sie Wirklichkeit."
+      },
+      "ideeregalo": {
+        "title": "Geschenkideen",
+        "subtitle": "Schenken Sie etwas, das nirgendwo anders existiert.",
+        "description1": "Unsere Geschenkideen sind geschaffen, um zu überraschen. Von dekorativen Objekten bis zu personalisierten 3D-gedruckten Kreationen, jeder Artikel entsteht, um Emotion, Originalität und Aufmerksamkeit für Details zu vermitteln. Perfekt für Geburtstage, Jubiläen, Feiertage oder Firmenveranstaltungen, vereinen unsere Vorschläge Kreativität mit Technologie.",
+        "description2": "Sie können zwischen bereits fertigen Designs wählen oder eine maßgeschneiderte Kreation anfordern, eine Idee in ein einzigartiges und unwiederholbares Geschenk verwandeln.",
+        "cta": "➡️ Schenken Sie nichts Gewöhnliches. Schaffen Sie eine Erinnerung, die bleibt."
+      },
+      "webappdesign": {
+        "title": "WEB & APP DESIGN",
+        "subtitle": "Wir bauen digitale Erfahrungen, die Spuren hinterlassen.",
+        "description1": "In einer zunehmend vernetzten Welt ist Ihre Online-Präsenz der Schlüssel, um sich bekannt zu machen, zu verkaufen und zu wachsen. Bei <strong>CREO</strong> erstellen wir moderne, responsive und SEO-optimierte Websites, die darauf ausgelegt sind, Ihre Besucher anzuziehen und in Kunden zu konvertieren.",
+        "description2": "Vom Firmen-Schaufenster zum E-Commerce, bis hin zur Entwicklung personalisierter Apps, unser Ziel ist es, Ihre Idee in eine funktionale, sichere Plattform mit bis ins kleinste Detail durchdachtem Design umzusetzen.",
+        "description3": "Wir bieten maßgeschneiderte Lösungen für Unternehmen, Freelancer und Start-ups und garantieren kontinuierliche Unterstützung, regelmäßige Updates und Skalierbarkeit über die Zeit.",
+        "cta": "➡️ Beschränken Sie sich nicht darauf, online zu sein. <span>Fallen Sie auf, mit Stil.</span>"
+      }
+    }
+  }

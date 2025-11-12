@@ -1,0 +1,1185 @@
+/* --- HERO BASE --- */
+.webapp-hero {
+  position: relative;
+  height: 88vh;
+  min-height: 440px;
+  max-height: 900px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0e1a 0%, #0f172a 50%, #1e1b4b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: auto;
+}
+
+/* --- SFONDO HERO CON IMMAGINE --- */
+.webapp-hero-slide {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110vw;
+  height: 110vh;
+  background-image: url('/webdevelopement.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: none;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  /* Hardware acceleration */
+  will-change: transform;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.webapp-hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  mix-blend-mode: normal;
+}
+
+/* --- LUCE SOFISTICATA --- */
+.webapp-hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  mix-blend-mode: normal;
+  animation: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- 💎 ORBS GRADIENT TECH (BLU, CYAN, INDIGO) --- */
+.gradient-orbs-tech {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(30deg, rgba(59, 130, 246, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.03) 87.5%),
+    linear-gradient(150deg, rgba(59, 130, 246, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.03) 87.5%),
+    linear-gradient(30deg, rgba(59, 130, 246, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.03) 87.5%),
+    linear-gradient(150deg, rgba(59, 130, 246, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.03) 87.5%),
+    linear-gradient(60deg, rgba(6, 182, 212, 0.04) 25%, transparent 25.5%, transparent 75%, rgba(6, 182, 212, 0.04) 75%),
+    linear-gradient(60deg, rgba(6, 182, 212, 0.04) 25%, transparent 25.5%, transparent 75%, rgba(6, 182, 212, 0.04) 75%);
+  background-size: 70px 120px;
+  background-position: 0 0, 0 0, 35px 60px, 35px 60px, 0 0, 35px 60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.5;
+  animation: tech-pattern-shift 20s ease-in-out infinite;
+}
+
+@keyframes tech-pattern-shift {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; filter: brightness(1.2); }
+}
+
+/* --- 🧵 FILI TESSILI PREMIUM (ORO E ARGENTO) --- */
+.tech-threads {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+  contain: layout style paint;
+}
+
+.tech-thread {
+  position: absolute;
+  height: 30px;
+  border-radius: 2px;
+  filter: blur(0.5px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.thread-gold {
+  background: linear-gradient(180deg, 
+    transparent,
+    rgba(59, 130, 246, 0.8) 30%,
+    rgba(96, 165, 250, 1) 50%,
+    rgba(59, 130, 246, 0.8) 70%,
+    transparent
+  );
+  box-shadow: 
+    0 0 10px rgba(59, 130, 246, 0.8),
+    0 0 20px rgba(96, 165, 250, 0.5),
+    0 0 30px rgba(6, 182, 212, 0.3);
+}
+
+.thread-silver {
+  background: linear-gradient(180deg, 
+    transparent,
+    rgba(226, 232, 240, 0.7) 30%,
+    rgba(203, 213, 225, 0.9) 50%,
+    rgba(226, 232, 240, 0.7) 70%,
+    transparent
+  );
+  box-shadow: 
+    0 0 8px rgba(226, 232, 240, 0.7),
+    0 0 16px rgba(203, 213, 225, 0.4);
+}
+
+/* --- ✨ SHIMMER SETA/RASO WAVES --- */
+.silk-shimmer-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.silk-shimmer-wave {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  top: 50%;
+  transform: translateY(-50%) skewY(-8deg);
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(59, 130, 246, 0.15) 20%,
+    rgba(96, 165, 250, 0.3) 40%,
+    rgba(59, 130, 246, 0.4) 50%,
+    rgba(96, 165, 250, 0.3) 60%,
+    rgba(59, 130, 246, 0.15) 80%,
+    transparent
+  );
+  filter: blur(25px);
+  box-shadow: 0 0 80px rgba(59, 130, 246, 0.3);
+}
+
+/* --- 🪡 NODI CUCITURA DECORATIVI --- */
+.stitch-nodes-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.stitch-node-decorative {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle,
+    rgba(59, 130, 246, 1) 0%,
+    rgba(96, 165, 250, 0.8) 40%,
+    transparent 70%
+  );
+  border: 2px solid rgba(59, 130, 246, 0.6);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.8),
+    0 0 40px rgba(96, 165, 250, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+  filter: brightness(1.3);
+}
+
+/* --- 🌊 ONDE TESSUTO ELEGANTI --- */
+.tech-waves-elegant {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.tech-wave-elegant {
+  position: absolute;
+  width: 200%;
+  height: 120px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(59, 130, 246, 0.2) 30%,
+    rgba(96, 165, 250, 0.3) 50%,
+    rgba(59, 130, 246, 0.2) 70%,
+    transparent
+  );
+  filter: blur(20px);
+  transform: skewY(-5deg);
+}
+
+.wave-1 {
+  top: 15%;
+  height: 100px;
+}
+
+.wave-2 {
+  top: 50%;
+  transform: translateY(-50%) skewY(3deg);
+  height: 140px;
+}
+
+.wave-3 {
+  bottom: 15%;
+  height: 110px;
+}
+
+/* --- 💎 ORBS GRADIENT MODA LUXURY (ORO, AMBRA, BRONZO) --- */
+.gradient-orbs-fashion-luxury {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+  opacity: 0.45;
+}
+
+.orb-fashion-lux {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+}
+
+.orb-fashion-lux-1 {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.7), transparent 70%);
+  top: 20%;
+  left: 10%;
+  box-shadow: 0 0 120px rgba(59, 130, 246, 0.4);
+}
+
+.orb-fashion-lux-2 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.6), transparent 70%);
+  bottom: 15%;
+  right: 8%;
+  box-shadow: 0 0 120px rgba(96, 165, 250, 0.4);
+}
+
+.orb-fashion-lux-3 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.5), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 100px rgba(6, 182, 212, 0.3);
+}
+
+/* --- CONTENUTO HERO --- */
+.webapp-content-wrapper {
+  position: relative;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88%;
+  max-width: 1400px;
+  gap: 3rem;
+  height: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  flex-direction: row-reverse;
+}
+
+/* --- VIDEO CON FRAME ELEGANTE --- */
+.webapp-video {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  height: auto;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+/* --- 🧵 FRAME TESSUTO LUXURY CON CUCITURE E BOTTONI --- */
+.tech-frame-luxury {
+  position: absolute;
+  inset: -25px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cuciture angolari dorate */
+.frame-corner-circuit {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(59, 130, 246, 0.9);
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.8),
+    0 0 60px rgba(96, 165, 250, 0.5),
+    inset 0 0 20px rgba(59, 130, 246, 0.3);
+  filter: brightness(1.3);
+  animation: circuit-corner-glow 4s ease-in-out infinite;
+}
+
+.corner-tl {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  animation-delay: 0s;
+}
+
+.corner-tr {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 6px;
+  animation-delay: 1s;
+}
+
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  animation-delay: 2s;
+}
+
+.corner-br {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 6px;
+  animation-delay: 3s;
+}
+
+@keyframes circuit-corner-glow {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1);
+    filter: brightness(1.2);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.08);
+    filter: brightness(1.6);
+  }
+}
+
+/* Bottoni decorativi dorati */
+.frame-led-deco {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle,
+    rgba(59, 130, 246, 1) 0%,
+    rgba(96, 165, 250, 0.9) 40%,
+    rgba(6, 182, 212, 0.8) 70%,
+    transparent 100%
+  );
+  border: 2px solid rgba(59, 130, 246, 0.8);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 25px rgba(59, 130, 246, 0.9),
+    0 0 50px rgba(96, 165, 250, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: led-sparkle 3s ease-in-out infinite;
+}
+
+.led-tl {
+  top: 25px;
+  left: 25px;
+  animation-delay: 0s;
+}
+
+.led-tr {
+  top: 25px;
+  right: 25px;
+  animation-delay: 0.75s;
+}
+
+.led-bl {
+  bottom: 25px;
+  left: 25px;
+  animation-delay: 1.5s;
+}
+
+.led-br {
+  bottom: 25px;
+  right: 25px;
+  animation-delay: 2.25s;
+}
+
+@keyframes led-sparkle {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    box-shadow: 
+      0 0 25px rgba(59, 130, 246, 0.9),
+      0 0 50px rgba(96, 165, 250, 0.6),
+      inset 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% { 
+    transform: scale(1.3) rotate(180deg);
+    box-shadow: 
+      0 0 40px rgba(59, 130, 246, 1),
+      0 0 80px rgba(96, 165, 250, 0.8),
+      0 0 120px rgba(6, 182, 212, 0.5),
+      inset 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Aura tessuto premium oro */
+.tech-aura {
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(
+    ellipse,
+    rgba(59, 130, 246, 0.2) 0%,
+    rgba(96, 165, 250, 0.15) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.webapp-video-player {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 16px;
+  filter: brightness(1.05) contrast(1.12) saturate(1.05);
+  background-color: transparent;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  /* Hardware acceleration - ottimizzato per performance */
+  transition: filter 0.2s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: filter;
+  box-shadow: 
+    0 30px 80px rgba(59, 130, 246, 0.25),
+    0 10px 40px rgba(96, 165, 250, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* --- BOX TESTO PREMIUM --- */
+.webapp-content {
+  position: relative;
+  flex: 1;
+  max-width: 560px;
+  padding: 32px 40px;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.95) 0%, 
+    rgba(26, 26, 46, 0.92) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  border-radius: 28px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(59, 130, 246, 0.15),
+    0 0 120px rgba(96, 165, 250, 0.08),
+    inset 0 0 30px rgba(59, 130, 246, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  color: #fff;
+  overflow: visible;
+  animation: tech-glow-luxury 15s ease-in-out infinite alternate;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Bordo animato elegante oro */
+.webapp-content::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.5), 
+    rgba(96, 165, 250, 0.3), 
+    rgba(6, 182, 212, 0.2),
+    rgba(96, 165, 250, 0.3),
+    rgba(59, 130, 246, 0.5)
+  );
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: tech-shine 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes tech-shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes tech-glow-luxury {
+  0%, 100% {
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.4),
+      0 0 50px rgba(59, 130, 246, 0.12),
+      0 0 100px rgba(96, 165, 250, 0.06),
+      inset 0 0 25px rgba(59, 130, 246, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 35px 100px rgba(0, 0, 0, 0.5),
+      0 0 70px rgba(59, 130, 246, 0.2),
+      0 0 140px rgba(96, 165, 250, 0.1),
+      inset 0 0 35px rgba(59, 130, 246, 0.08);
+  }
+}
+
+/* --- TESTI PREMIUM --- */
+.webapp-title {
+  position: relative;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.title-line {
+  display: inline-block;
+  background: linear-gradient(135deg, #60a5fa, #22d3ee, #3b82f6, #06b6d4);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-tech 8s ease infinite;
+  filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.5));
+}
+
+.title-underline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(59, 130, 246, 0.9) 20%, 
+    rgba(96, 165, 250, 1) 50%,
+    rgba(59, 130, 246, 0.9) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  animation: underline-pulse 3s ease-in-out infinite;
+}
+
+@keyframes gradient-flow-tech {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 300% center; }
+}
+
+@keyframes underline-pulse {
+  0%, 100% { 
+    opacity: 0.8; 
+    transform: scaleX(1);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scaleX(1.03);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 1);
+  }
+}
+
+.webapp-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin: 0 0 20px;
+  text-shadow: 0 3px 20px rgba(147, 197, 253, 0.5);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  opacity: 0.98;
+  font-style: italic;
+}
+
+.webapp-description,
+.webapp-description-two,
+.webapp-description-three {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+  font-weight: 400;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  position: relative;
+  padding-left: 20px;
+  opacity: 0.94;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: justify;
+}
+
+.webapp-description::before,
+.webapp-description-two::before,
+.webapp-description-three::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 4px;
+  height: calc(100% - 12px);
+  background: linear-gradient(180deg, 
+    rgba(59, 130, 246, 0.9) 0%, 
+    rgba(96, 165, 250, 1) 50%,
+    rgba(59, 130, 246, 0.9) 100%
+  );
+  border-radius: 3px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.webapp-description:hover,
+.webapp-description-two:hover,
+.webapp-description-three:hover {
+  transform: translateX(6px);
+  opacity: 1;
+  color: #f8fafc;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.webapp-description:hover::before,
+.webapp-description-two:hover::before,
+.webapp-description-three:hover::before {
+  width: 5px;
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.9);
+  background: linear-gradient(180deg, 
+    rgba(59, 130, 246, 1) 0%, 
+    rgba(96, 165, 250, 1) 50%,
+    rgba(34, 211, 238, 1) 100%
+  );
+}
+
+.webapp-description strong,
+.webapp-description-two strong,
+.webapp-description-three strong {
+  color: #60a5fa;
+  font-weight: 700;
+  text-shadow: 0 0 25px rgba(96, 165, 250, 0.6);
+  letter-spacing: 0.3px;
+}
+
+.webapp-description em,
+.webapp-description-two em,
+.webapp-description-three em {
+  color: #22d3ee;
+  font-style: normal;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.webapp-cta {
+  margin: 0;
+  padding: 14px 18px;
+  background: 
+    linear-gradient(135deg, 
+      rgba(59, 130, 246, 0.2), 
+      rgba(34, 211, 238, 0.15),
+      rgba(99, 102, 241, 0.18)
+    ),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.2), transparent 70%),
+    radial-gradient(circle at bottom left, rgba(34, 211, 238, 0.2), transparent 70%);
+  border-radius: 14px;
+  border: 2px solid;
+  border-image: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.6), 
+    rgba(34, 211, 238, 0.5),
+    rgba(99, 102, 241, 0.6)
+  ) 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.webapp-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(59, 130, 246, 0.15),
+    rgba(34, 211, 238, 0.2),
+    rgba(99, 102, 241, 0.15)
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  animation: tech-aura-pulse 3s ease-in-out infinite;
+}
+
+.webapp-cta::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  animation: tech-shine 6s linear infinite;
+}
+
+.webapp-cta:hover::before {
+  opacity: 1;
+}
+
+.webapp-cta:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-image: linear-gradient(135deg, 
+    rgba(59, 130, 246, 1), 
+    rgba(34, 211, 238, 0.9),
+    rgba(99, 102, 241, 1)
+  ) 1;
+  box-shadow: 
+    0 25px 60px rgba(59, 130, 246, 0.4),
+    0 0 60px rgba(34, 211, 238, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cta-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, 
+    #bfdbfe 0%, 
+    #60a5fa 50%, 
+    #22d3ee 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-tech 4s ease infinite;
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.5));
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.3px;
+  transition: all 0.4s ease;
+}
+
+.webapp-cta:hover .cta-text {
+  filter: drop-shadow(0 2px 12px rgba(59, 130, 246, 0.7));
+  animation-duration: 2.5s;
+}
+
+.cta-highlight {
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, 
+    #60a5fa 0%, 
+    #22d3ee 25%, 
+    #3b82f6 50%,
+    #22d3ee 75%,
+    #60a5fa 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-tech 5s ease infinite;
+  filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.7));
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+}
+
+.webapp-cta:hover .cta-highlight {
+  filter: drop-shadow(0 0 35px rgba(59, 130, 246, 1));
+  transform: scale(1.03);
+  animation-duration: 3s;
+}
+
+/* CTA Wrapper with decorative frame */
+.cta-wrapper {
+  position: relative;
+  margin-top: 28px;
+  padding: 20px 18px;
+}
+
+.cta-decorative-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Corner decorations */
+.cta-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #60a5fa, #22d3ee) 1;
+}
+
+.cta-corner-tl {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 4px 0 0 0;
+  animation: circuit-corner-glow 2s ease-in-out infinite;
+}
+
+.cta-corner-tr {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 4px 0 0;
+  animation: circuit-corner-glow 2s ease-in-out 0.5s infinite;
+}
+
+.cta-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 4px;
+  animation: circuit-corner-glow 2s ease-in-out 1s infinite;
+}
+
+.cta-corner-br {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 4px 0;
+  animation: circuit-corner-glow 2s ease-in-out 1.5s infinite;
+}
+
+/* Pulse lines */
+.cta-pulse-line {
+  position: absolute;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(59, 130, 246, 0.8) 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+}
+
+.cta-pulse-top {
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  animation: pulse-horizontal 3s ease-in-out infinite;
+}
+
+.cta-pulse-bottom {
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  animation: pulse-horizontal 3s ease-in-out 1.5s infinite;
+}
+
+.cta-pulse-left {
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, 
+    transparent 0%,
+    rgba(34, 211, 238, 0.8) 50%,
+    transparent 100%
+  );
+  animation: pulse-vertical 3s ease-in-out 0.75s infinite;
+}
+
+.cta-pulse-right {
+  right: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg, 
+    transparent 0%,
+    rgba(34, 211, 238, 0.8) 50%,
+    transparent 100%
+  );
+  animation: pulse-vertical 3s ease-in-out 2.25s infinite;
+}
+
+@keyframes pulse-horizontal {
+  0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes pulse-vertical {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+.cta-wrapper:hover .cta-corner {
+  border-width: 3px;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+}
+
+.cta-wrapper:hover .cta-pulse-line {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 1);
+}
+
+/* CTA Content Styling */
+.webapp-description-important {
+  position: relative;
+  z-index: 1;
+}
+
+.webapp-description-important span {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  background: linear-gradient(135deg, 
+    #bfdbfe 0%, 
+    #60a5fa 30%, 
+    #22d3ee 60%,
+    #3b82f6 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow-tech 4s ease infinite;
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.5));
+  display: block;
+  transition: all 0.4s ease;
+  letter-spacing: 0.2px;
+}
+
+.webapp-cta:hover .webapp-description-important span {
+  filter: drop-shadow(0 2px 12px rgba(59, 130, 246, 0.8));
+  animation-duration: 2.5s;
+}
+
+/* Remove focus outline for links */
+.webapp-description-important a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .webapp-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .webapp-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 90%;
+    padding: 2rem 1rem;
+  }
+  
+  .webapp-content {
+    max-width: 100%;
+    padding: 30px 25px;
+    min-height: auto;
+    text-align: center;
+  }
+  
+  .webapp-video {
+    max-width: 100%;
+    order: -1;
+  }
+  
+  .webapp-video-player {
+    max-height: 50vh;
+  }
+  
+  .webapp-title { font-size: 2rem; }
+  .webapp-subtitle { font-size: 1.1rem; }
+  
+  .tech-threads,
+  .silk-shimmer-layer,
+  .stitch-nodes-layer { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+  .webapp-hero,
+  .webapp-hero-slide {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .webapp-content-wrapper {
+    gap: 1.5rem;
+    max-width: 95%;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .webapp-content {
+    padding: 22px 18px;
+    min-height: auto;
+    border-radius: 20px;
+  }
+  
+  .webapp-video-player {
+    max-height: 40vh;
+    border-radius: 12px;
+  }
+  
+  .webapp-title { font-size: 1.7rem; }
+  .webapp-subtitle { font-size: 1rem; }
+  
+  .webapp-description,
+  .webapp-description-two {
+    font-size: 0.9rem;
+    padding-left: 15px;
+  }
+  
+  .webapp-cta {
+    padding: 12px 16px;
+    margin-top: 15px;
+  }
+  
+  .cta-text { font-size: 1rem; }
+  .cta-highlight { font-size: 1.1rem; }
+  
+  .tech-frame-luxury { inset: -15px; }
+  .frame-corner-circuit { 
+    width: 50px;
+    height: 50px;
+  }
+  .frame-led-deco { 
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .webapp-hero,
+  .webapp-hero-slide {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .webapp-content {
+    padding: 16px 12px;
+    min-height: auto;
+    border-radius: 18px;
+  }
+  
+  .webapp-video-player {
+    max-height: 35vh;
+    border-radius: 10px;
+  }
+  
+  .webapp-content-wrapper {
+    width: 98%;
+  }
+  
+  .webapp-title { 
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .webapp-subtitle { 
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  
+  .webapp-description,
+  .webapp-description-two { 
+    font-size: 0.83rem;
+    padding-left: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .webapp-cta {
+    padding: 10px 12px;
+    margin-top: 12px;
+  }
+  
+  .cta-text { font-size: 0.95rem; }
+  .cta-highlight { font-size: 1.05rem; }
+  
+  .tech-threads,
+  .silk-shimmer-layer,
+  .stitch-nodes-layer,
+  .tech-waves-elegant { display: none; }
+  
+  .tech-frame-luxury { display: none; }
+  .tech-aura { inset: -40px; }
+}
+
+@media (max-width: 360px) {
+  .webapp-content {
+    padding: 12px 8px;
+  }
+  
+  .webapp-title { font-size: 1.2rem; }
+  .webapp-subtitle { font-size: 0.85rem; }
+  
+  .webapp-description,
+  .webapp-description-two {
+    font-size: 0.78rem;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .webapp-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .webapp-content-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .webapp-content,
+  .webapp-video {
+    max-width: 48%;
+  }
+  
+  .webapp-video-player {
+    max-height: 70vh;
+  }
+}
+
+
+
+
+
