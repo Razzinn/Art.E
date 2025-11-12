@@ -75,29 +75,45 @@
       }
     }
   },
+  "seo": {
+    "home_title": "CREO - 3D Štampa, Personalizovana Odeća i Digitalne Usluge | Pirot, Srbija",
+    "home_description": "Pretvaramo vaše ideje u stvarnost sa profesionalnom 3D štampom, personalizovanom odećom vrhunskog kvaliteta i modernim web dizajnom. Brza dostava širom Srbije.",
+    "design3d_title": "3D Štampa Profesionalno Online - Prototipovi i Modeli | Pirot",
+    "design3d_description": "Profesionalne usluge 3D štampe u Srbiji. Izrađujemo prototipove, funkcionalne modele, personalizovane objekte FDM i SLA tehnologijom.",
+    "apparel_title": "Personalizovana Odeća Online - Majice i Prilagođeni Dodaci | Srbija",
+    "apparel_description": "Kreirajte personalizovanu odeću vrhunskog kvaliteta: majice, dukseve, polo majice i poslovnu odeću. Porudžbine od 1 komada.",
+    "webdesign_title": "Web Dizajn i Razvoj Web Aplikacija - Profesionalni Sajtovi | Srbija",
+    "webdesign_description": "Projektujemo i razvijamo moderne web sajtove, e-commerce i prilagođene web aplikacije. Responzivan dizajn i SEO optimizacija.",
+    "gifts_title": "Personalizovani Pokloni - Jedinstveni i Originalni Pokloni | Srbija",
+    "gifts_description": "Otkrijte naše ideje za personalizovane poklone: jedinstveni objekti štampani u 3D i originalne kreacije. Savršen poklon za svaku priliku.",
+    "keywords": "3D štampa Srbija, personalizovana odeća, web dizajn, digitalne usluge Pirot"
+  },
   "offers": {
     "title": "Kvalitetni personalizovani proizvodi i digitalne usluge na najvišem nivou",
     "services": {
       "design_3d": {
-        "title": "Dizajn i 3D Štampe",
-        "subtitle": "Od ideje do realizacije gotovog proizvoda",
-        "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i personalizovani dizajni za sve potrebe.",
-        "promotional": "🚀 Pretvorite svoje ideje u stvarnost sa profesionalnom 3D tehnologijom!",
-        "hero_note": "Možete priložiti skice, vizuelne reference ili postojeće 3D fajlove."
+        "title": "3D Dizajn i 3D Štampa",
+        "subtitle": "Od ideje do realizacije gotovog proizvoda u Pirotu",
+        "description": "Od digitalnog modela do stvarnog objekta: jedinstvene kreacije, prototipovi, gadžeti i personalizovani dizajni za sve potrebe. Profesionalna 3D štampa u Srbiji sa brzom dostavom.",
+        "promotional": "🚀 Pretvorite svoje ideje u stvarnost sa profesionalnom 3D tehnologijom iz Pirota! Kvalitet i preciznost garantovani.",
+        "hero_note": "Možete priložiti skice, vizuelne reference ili postojeće 3D fajlove. Podržavamo sve popularne 3D formate.",
+        "keywords": "3D štampa Pirot, 3D prototipovi Srbija, FDM štampa, SLA štampa, 3D dizajn usluge"
       },
       "gift_ideas": {
         "title": "Ideje za Poklone",
-        "subtitle": "Personalizovana iznenađenja za svaku priliku",
-        "description": "Opišite tip poklona ili šale, primaoca i željeni ton. Možemo krenuti od vašeg koncepta ili kreirati jedan ispočetka.",
-        "promotional": "🎁 Stvorite nezaboravne uspomene sa originalnim i personalizovanim poklonima!",
-        "hero_note": "Možete priložiti fotografije primaoca ili primere stila koji preferirate."
+        "subtitle": "Personalizovana iznenađenja za svaku priliku - Jedinstveni pokloni iz Srbije",
+        "description": "Opišite tip poklona ili šale, primaoca i željeni ton. Možemo krenuti od vašeg koncepta ili kreirati jedan ispočetka. Specijalizovani za poslovne poklone, rođendanske poklone, godišnjice i korporativne događaje.",
+        "promotional": "🎁 Stvorite nezaboravne uspomene sa originalnim i personalizovanim poklonima! 3D štampani pokloni, personalizovani dodaci, kreativna rešenja za svaku priliku. Brza izrada i dostava.",
+        "hero_note": "Možete priložiti fotografije primaoca ili primere stila koji preferirate. Besplatne kreativne konsultacije.",
+        "keywords": "personalizovani pokloni Srbija, 3D štampani pokloni, kreativni pokloni, poslovni pokloni Pirot"
       },
       "apparel_custom": {
         "title": "Personalizovana Odeća",
-        "subtitle": "Odeća i dodaci po vašoj meri",
-        "description": "Navedite tip, količinu, boje, veličine i bilo koje grafičke reference kako bismo razvili vaš personalizovani projekat.",
-        "promotional": "👕 Izrazite svoj stil sa jedinstvenom personalizovanom odećom!",
-        "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu."
+        "subtitle": "Odeća i dodaci po vašoj meri - Najbrža dostava u Srbiji",
+        "description": "Navedite tip, količinu, boje, veličine i bilo koje grafičke reference kako bismo razvili vaš personalizovani projekat. Specijalizovani za poslovnu odeću sa logom, majice po želji, dukseve i promocione materijale.",
+        "promotional": "👕 Izrazite svoj stil sa jedinstvenom personalizovanom odećom! Poručite od 1 komada do velikih serija. Vrhunski kvalitet štampe i veza.",
+        "hero_note": "Prihvatamo makete, logotipove i tabele veličina u PDF, PNG, SVG ili AI formatu. Besplatne konsultacije za dizajn.",
+        "keywords": "personalizovana odeća Srbija, majice sa logom, poslovna odeća, vez na majicama, štampa majica Pirot"
       },
       "web_app_design": {
         "title": "Web & App Dizajn",
@@ -129,10 +145,11 @@
       },
       "web_app": {
         "title": "Web & App Dizajn",
-        "subtitle": "Efikasna digitalna iskustva",
-        "description": "Moderni web sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online i postizanje vaših ciljeva.",
-        "promotional": "💻 Izgradite svoj digitalni uspeh sa profesionalnim i inovativnim rešenjima!",
-        "hero_note": "Podelite primere dizajna koji vam se sviđaju ili vaš postojeći brend."
+        "subtitle": "Efikasna digitalna iskustva - SEO optimizovani sajtovi",
+        "description": "Moderni web sajtovi, intuitivne aplikacije i grafička rešenja za rast vašeg brenda online i postizanje vaših ciljeva. Specijalizovani za e-commerce platforme, online prodavnice i web aplikacije optimizovane za srpsko tržište.",
+        "promotional": "💻 Izgradite svoj digitalni uspeh sa profesionalnim i inovativnim rešenjima! SEO optimizacija, brzo učitavanje, mobilna kompatibilnost. Vaš sajt na vrhu Google pretrage u Srbiji.",
+        "hero_note": "Podelite primere dizajna koji vam se sviđaju ili vaš postojeći brend. Besplatna SEO analiza i preporuke.",
+        "keywords": "web dizajn Srbija, izrada sajtova Pirot, e-commerce Srbija, SEO optimizacija, online prodavnica"
       },
       "websites_apps": {
         "title": "Web & App Dizajn",

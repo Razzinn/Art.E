@@ -26,7 +26,7 @@ const MAIN_CATEGORIES = [
 ];
 
 const NavbarSectionR = () => {
-  const { t, isLoading } = useTranslation();
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);

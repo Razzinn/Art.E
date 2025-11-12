@@ -4,16 +4,16 @@
 
 export const seoConfig = {
   home: {
-    title: 'CREO - Stampa 3D, Abbigliamento Personalizzato e Servizi Digital',
-    description: 'Trasformiamo le tue idee in realtà con stampa 3D professionale, abbigliamento personalizzato di qualità, web design moderno e servizi digitali su misura. Consegna rapida in tutta Italia.',
-    keywords: 'stampa 3D Italia, abbigliamento personalizzato, t-shirt custom, web design professionale, prototipi 3D, gadget aziendali, design 3D, servizi digitali, Made in Italy',
+    title: 'CREO - 3D Štampa, Personalizovana Odeća i Digitalne Usluge | Pirot, Srbija',
+    description: 'Pretvaramo vaše ideje u stvarnost sa profesionalnom 3D štampom, personalizovanom odećom vrhunskog kvaliteta, modernim web dizajnom i prilagođenim digitalnim uslugama. Brza dostava širom Srbije.',
+    keywords: '3D štampa Srbija, 3D štampa Pirot, personalizovana odeća Srbija, majice po želji, profesionalni web dizajn, 3D prototipovi, poslovna odeća, 3D dizajn online, digitalne usluge Srbija, web aplikacije Pirot, personalizovani pokloni Srbija, grafički dizajn Pirot, e-commerce Srbija',
     image: '/og-image.jpg'
   },
   
   stampa3d: {
-    title: 'Stampa 3D Professionale Online - Prototipi e Modelli',
-    description: 'Servizio di stampa 3D professionale in Italia. Realizziamo prototipi, modelli funzionali, oggetti personalizzati con tecnologia FDM e SLA. Preventivo gratuito online.',
-    keywords: 'stampa 3D online, stampa 3D professionale, prototipi 3D, modelli 3D, stampa FDM, stampa SLA, servizi stampa 3D Italia, preventivo stampa 3D',
+    title: '3D Štampa Profesionalno Online - Prototipovi i Modeli | Pirot',
+    description: 'Profesionalne usluge 3D štampe u Srbiji. Izrađujemo prototipove, funkcionalne modele, personalizovane objekte FDM i SLA tehnologijom. Besplatan online predračun.',
+    keywords: '3D štampa online Srbija, profesionalna 3D štampa, 3D prototipovi, 3D modeli, FDM štampa, SLA štampa, usluge 3D štampe Pirot, predračun 3D štampa, 3D printer usluge Srbija, prototipiranje Srbija',
     image: '/images/stampa-3d-og.jpg',
     structuredData: {
       "@context": "https://schema.org",
@@ -26,9 +26,9 @@ export const seoConfig = {
       },
       "offers": {
         "@type": "AggregateOffer",
-        "priceCurrency": "EUR",
-        "lowPrice": "15",
-        "highPrice": "500",
+        "priceCurrency": "RSD",
+        "lowPrice": "1500",
+        "highPrice": "50000",
         "offerCount": "50"
       },
       "aggregateRating": {
@@ -40,9 +40,9 @@ export const seoConfig = {
   },
   
   abbigliamento: {
-    title: 'Abbigliamento Personalizzato Online - T-Shirt e Gadget Custom',
-    description: 'Crea abbigliamento personalizzato di qualità: t-shirt, felpe, polo e gadget aziendali. Stampa digitale, ricamo e serigrafia. Ordini da 1 pezzo. Consegna veloce.',
-    keywords: 'abbigliamento personalizzato, t-shirt personalizzate, felpe custom, gadget aziendali personalizzati, stampa magliette, ricamo personalizzato, polo personalizzate',
+    title: 'Personalizovana Odeća Online - Majice i Prilagođeni Dodaci | Srbija',
+    description: 'Kreirajte personalizovanu odeću vrhunskog kvaliteta: majice, dukseve, polo majice i poslovna odjeća. Digitalna štampa, vez i serigrafija. Porudžbine od 1 komada. Brza dostava.',
+    keywords: 'personalizovana odeća Srbija, majice po želji, prilagođeni duksevi, poslovna odeća sa logom, štampa majica Pirot, vez na odeći, polo majice sa logom, firmina odeća Srbija, promocioni materijali, reklamna odeća',
     image: '/images/abbigliamento-og.jpg',
     structuredData: {
       "@context": "https://schema.org",
@@ -55,9 +55,9 @@ export const seoConfig = {
       },
       "offers": {
         "@type": "AggregateOffer",
-        "priceCurrency": "EUR",
-        "lowPrice": "12",
-        "highPrice": "80",
+        "priceCurrency": "RSD",
+        "lowPrice": "1200",
+        "highPrice": "8000",
         "offerCount": "100"
       },
       "aggregateRating": {
@@ -69,9 +69,9 @@ export const seoConfig = {
   },
   
   webDesign: {
-    title: 'Web Design e Sviluppo Web App - Siti Web Professionali',
-    description: 'Progettiamo e sviluppiamo siti web moderni, e-commerce e web app personalizzate. Design responsive, SEO ottimizzato, performance elevate. Preventivo gratuito.',
-    keywords: 'web design professionale, sviluppo siti web, creazione e-commerce, web app personalizzate, siti web responsive, sviluppo web Milano, preventivo sito web',
+    title: 'Web Dizajn i Razvoj Web Aplikacija - Profesionalni Sajtovi | Srbija',
+    description: 'Projektujemo i razvijamo moderne web sajtove, e-commerce i prilagođene web aplikacije. Responzivan dizajn, SEO optimizacija, visoke performanse. Besplatan predračun.',
+    keywords: 'profesionalni web dizajn Srbija, izrada web sajtova, kreiranje e-commerce Srbija, prilagođene web aplikacije, responzivni sajtovi, razvoj web aplikacija Pirot, predračun web sajt, izrada online prodavnica, SEO optimizacija Srbija, digitalni marketing',
     image: '/images/web-design-og.jpg',
     structuredData: {
       "@context": "https://schema.org",
@@ -83,21 +83,21 @@ export const seoConfig = {
       },
       "areaServed": {
         "@type": "Country",
-        "name": "Italia"
+        "name": "Srbija"
       },
       "offers": {
         "@type": "Offer",
-        "priceCurrency": "EUR",
-        "price": "800",
+        "priceCurrency": "RSD",
+        "price": "80000",
         "priceValidUntil": "2025-12-31"
       }
     }
   },
   
   ideeRegalo: {
-    title: 'Idee Regalo Personalizzate - Regali Unici e Originali',
-    description: 'Scopri le nostre idee regalo personalizzate: oggetti unici stampati in 3D, gadget custom e creazioni originali. Il regalo perfetto per ogni occasione.',
-    keywords: 'idee regalo personalizzate, regali unici, gadget personalizzati, regali originali, stampa 3D regali, oggetti personalizzati regalo',
+    title: 'Personalizovani Pokloni - Jedinstveni i Originalni Pokloni | Srbija',
+    description: 'Otkrijte naše ideje za personalizovane poklone: jedinstveni objekti štampani u 3D, prilagođeni dodaci i originalne kreacije. Savršen poklon za svaku priliku.',
+    keywords: 'personalizovani pokloni Srbija, jedinstveni pokloni, prilagođeni dodaci, originalni pokloni, 3D štampani pokloni, personalizovani predmeti za poklon, pokloni po želji Pirot, kreativni pokloni, poslovna pažnja',
     image: '/images/idee-regalo-og.jpg',
     structuredData: {
       "@context": "https://schema.org",
@@ -110,9 +110,9 @@ export const seoConfig = {
       },
       "offers": {
         "@type": "AggregateOffer",
-        "priceCurrency": "EUR",
-        "lowPrice": "10",
-        "highPrice": "150",
+        "priceCurrency": "RSD",
+        "lowPrice": "1000",
+        "highPrice": "15000",
         "offerCount": "75"
       }
     }

@@ -16,7 +16,8 @@ const SEO = ({
   noindex = false
 }) => {
   const location = useLocation();
-  const baseUrl = 'https://creo-marketplace.it';
+  // Cambiato da .it a .rs per mercato serbo
+  const baseUrl = 'https://creo-marketplace.rs';
   const fullUrl = canonicalUrl || `${baseUrl}${location.pathname}`;
   const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
 
@@ -46,6 +47,29 @@ const SEO = ({
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', fullUrl);
+
+    // Aggiungi hreflang tags per supporto multilingue (priorità Serbia)
+    const hreflangs = [
+      { lang: 'sr-RS', url: fullUrl.replace(/\?lang=\w+/, '') },
+      { lang: 'sr', url: `${fullUrl.split('?')[0]}?lang=sr` },
+      { lang: 'en', url: `${fullUrl.split('?')[0]}?lang=en` },
+      { lang: 'it', url: `${fullUrl.split('?')[0]}?lang=it` },
+      { lang: 'de', url: `${fullUrl.split('?')[0]}?lang=de` },
+      { lang: 'fr', url: `${fullUrl.split('?')[0]}?lang=fr` },
+      { lang: 'x-default', url: fullUrl.replace(/\?lang=\w+/, '') }
+    ];
+
+    // Rimuovi hreflang esistenti
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+
+    // Aggiungi nuovi hreflang
+    hreflangs.forEach(({ lang, url }) => {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', lang);
+      link.setAttribute('href', url);
+      document.head.appendChild(link);
+    });
 
     // Aggiorna robots meta tag
     let robotsMeta = document.querySelector('meta[name="robots"]');

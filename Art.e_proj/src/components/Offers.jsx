@@ -91,7 +91,7 @@ const SERVICE_ITEMS = [
 ];
 
 export default function Offers() {
-  const { t, isLoading } = useTranslation();
+  const { t } = useTranslation();
   const [currentColors, setCurrentColors] = useState(['#1a9fc9', '#2a9fd9', '#3aafe9', '#4abff9', '#5acfff']); // Inizia con i colori della prima slide (3D Design)
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);

@@ -1,29 +1,72 @@
-# Sitemap per CREO Marketplace
-# https://creo-marketplace.it/sitemap.xml
+# Sitemap za CREO Marketplace - Srbija
+# https://creo-marketplace.rs/sitemap.xml
+# Optimizovano za Google.rs i srpsko tržište
 
 User-agent: *
 Allow: /
+Allow: /stampa-3d
+Allow: /abbigliamento
+Allow: /webapp-design
+Allow: /idee-regalo
+Allow: /servizi/
 
-# Disallow admin or private pages (se presenti in futuro)
+# Disallow admin or private pages
 # Disallow: /admin/
 # Disallow: /private/
 
-# Sitemap location
-Sitemap: https://creo-marketplace.it/sitemap.xml
+# Sitemap location - PRIORITET
+Sitemap: https://creo-marketplace.rs/sitemap.xml
 
-# Crawl delay (optional - be polite to search engines)
-Crawl-delay: 1
-
-# Specific rules for different bots
+# Serbian market specific crawlers
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /assets/
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
-# Block bad bots (optional)
+# Yandex is popular in Eastern Europe
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Local Serbian search engines
+User-agent: *
+Allow: /
+
+# Social media crawlers for better sharing
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Block bad bots
 User-agent: AhrefsBot
 Crawl-delay: 10
 
 User-agent: SemrushBot
 Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Encourage indexing of key content
+# Serbian language pages priority
+User-agent: *
+Allow: /?lang=sr
+Allow: /*?lang=sr
