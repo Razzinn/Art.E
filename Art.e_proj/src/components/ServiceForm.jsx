@@ -331,12 +331,12 @@ const ServiceForm = ({ serviceType, serviceTitle }) => {
               />
             </div>
             <div className="progress-message">
-              {sendingProgress.status === 'preparing' && '📦 Preparazione dati in corso...'}
-              {sendingProgress.status === 'uploading' && '📤 Caricamento file...'}
-              {sendingProgress.status === 'sending' && '✉️ Invio email in corso...'}
-              {sendingProgress.status === 'processing' && '⚙️ Elaborazione richiesta...'}
-              {sendingProgress.status === 'retrying' && `🔄 Nuovo tentativo (${sendingProgress.attempt + 1}/${2})...`}
-              {!sendingProgress.status && '⏳ Attendere prego...'}
+              {sendingProgress.status === 'preparing' && t('service_form.progress_preparing')}
+              {sendingProgress.status === 'uploading' && t('service_form.progress_uploading')}
+              {sendingProgress.status === 'sending' && t('service_form.progress_sending')}
+              {sendingProgress.status === 'processing' && t('service_form.progress_processing')}
+              {sendingProgress.status === 'retrying' && tWithParams('service_form.progress_retrying', { attempt: sendingProgress.attempt + 1 })}
+              {!sendingProgress.status && t('service_form.progress_wait')}
             </div>
             <div className="progress-spinner">
               <div className="spinner"></div>
