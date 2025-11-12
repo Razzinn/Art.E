@@ -18,6 +18,7 @@ const OptimizedVideo = ({
   style = {},
   ...props
 }) => {
+    
   const [isInView, setIsInView] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
   const videoRef = useRef(null);

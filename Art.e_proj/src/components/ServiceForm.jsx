@@ -30,6 +30,7 @@ const ServiceForm = ({ serviceType, serviceTitle }) => {
   
   const [status, setStatus] = useState('idle'); // idle, submitting, success, error
   const [dragActive, setDragActive] = useState(false);
+  const [sendingProgress, setSendingProgress] = useState({ status: '', progress: 0, attempt: 0 });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -89,6 +90,7 @@ const ServiceForm = ({ serviceType, serviceTitle }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('submitting');
+    setSendingProgress({ status: 'initializing', progress: 0, attempt: 0 });
 
     try {
       await sendServiceFormEmail({
@@ -103,21 +105,32 @@ const ServiceForm = ({ serviceType, serviceTitle }) => {
           company: formData.company,
           details: formData.projectDescription,
           files: formData.files
+        },
+        onProgress: (progressData) => {
+          setSendingProgress(progressData);
         }
       });
 
       setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        files: [],
-        projectDescription: ''
-      });
+      setSendingProgress({ status: 'completed', progress: 100, attempt: 0 });
+      
+      // Reset form dopo 3 secondi
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          files: [],
+          projectDescription: ''
+        });
+        setStatus('idle');
+        setSendingProgress({ status: '', progress: 0, attempt: 0 });
+      }, 3000);
     } catch (error) {
       console.error('Errore invio form:', error);
       setStatus('error');
+      setSendingProgress({ status: 'failed', progress: 0, attempt: 0 });
     }
   };
 
@@ -307,6 +320,29 @@ const ServiceForm = ({ serviceType, serviceTitle }) => {
             {status === 'submitting' ? t('service_form.submitting') : t('service_form.submit_button')}
           </button>
         </div>
+
+        {/* Loading Progress Indicator */}
+        {status === 'submitting' && (
+          <div className="sending-progress-container">
+            <div className="progress-bar-wrapper">
+              <div 
+                className="progress-bar-fill"
+                style={{ width: `${sendingProgress.progress}%` }}
+              />
+            </div>
+            <div className="progress-message">
+              {sendingProgress.status === 'preparing' && '📦 Preparazione dati in corso...'}
+              {sendingProgress.status === 'uploading' && '📤 Caricamento file...'}
+              {sendingProgress.status === 'sending' && '✉️ Invio email in corso...'}
+              {sendingProgress.status === 'processing' && '⚙️ Elaborazione richiesta...'}
+              {sendingProgress.status === 'retrying' && `🔄 Nuovo tentativo (${sendingProgress.attempt + 1}/${2})...`}
+              {!sendingProgress.status && '⏳ Attendere prego...'}
+            </div>
+            <div className="progress-spinner">
+              <div className="spinner"></div>
+            </div>
+          </div>
+        )}
 
         {/* Feedback Messages */}
         {status === 'success' && (

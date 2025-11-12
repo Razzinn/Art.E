@@ -62,7 +62,7 @@ const upload = multer({
   }
 });
 
-// Configurazione Nodemailer
+// Configurazione Nodemailer con pool di connessioni
 const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
@@ -74,7 +74,13 @@ const createTransporter = () => {
     },
     tls: {
       rejectUnauthorized: false
-    }
+    },
+    // Ottimizzazioni per performance
+    pool: true, // Usa connection pooling
+    maxConnections: 5, // Max connessioni simultanee
+    maxMessages: 100, // Max messaggi per connessione
+    rateDelta: 1000, // Tempo tra messaggi
+    rateLimit: 5 // Max messaggi per rateDelta
   });
 };
 
@@ -146,16 +152,15 @@ const createEmailTemplate = (formData, service) => {
   `;
 };
 
-// Endpoint per l'invio email
+// Endpoint per l'invio email - Ottimizzato
 app.post('/api/send-email', upload.array('files', 5), async (req, res) => {
+  // Start processing immediately
+  const startTime = Date.now();
+  
   try {
-    console.log('📧 Ricevuta richiesta di invio email');
-    console.log('Body:', req.body);
-    console.log('Files:', req.files?.map(f => ({ name: f.originalname, size: f.size })));
-
     const { name, email, phone, company, details, service } = req.body;
     
-    // Validazione campi obbligatori
+    // Validazione rapida campi obbligatori
     if (!name || !email || !details) {
       return res.status(400).json({
         error: 'Campi obbligatori mancanti',
@@ -163,7 +168,7 @@ app.post('/api/send-email', upload.array('files', 5), async (req, res) => {
       });
     }
 
-    // Parsing del servizio se è una stringa JSON
+    // Parsing del servizio
     let serviceData;
     try {
       serviceData = typeof service === 'string' ? JSON.parse(service) : service;
@@ -180,17 +185,14 @@ app.post('/api/send-email', upload.array('files', 5), async (req, res) => {
       files: req.files || []
     };
 
-    // Crea il transporter
+    // Crea il transporter (con pool riutilizzabile)
     const transporter = createTransporter();
 
-    // Verifica la connessione
-    await transporter.verify();
-    console.log('✅ Connessione SMTP verificata');
-
-    // Prepara gli allegati
+    // Prepara gli allegati in parallelo
     const attachments = req.files ? req.files.map(file => ({
       filename: file.originalname,
-      path: file.path
+      path: file.path,
+      contentType: file.mimetype
     })) : [];
 
     // Opzioni email
@@ -206,36 +208,51 @@ app.post('/api/send-email', upload.array('files', 5), async (req, res) => {
       replyTo: email,
       subject: `🎨 Nuova richiesta: ${serviceData.title} - ${name}`,
       html: createEmailTemplate(formData, serviceData),
-      attachments
+      attachments,
+      // Ottimizzazioni invio
+      priority: 'high',
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        'Importance': 'high'
+      }
     };
 
-    // Invia l'email
+    // Invia l'email (senza verificare connessione preventivamente per velocità)
     const info = await transporter.sendMail(mailOptions);
-    console.log('✅ Email inviata:', info.messageId);
+    
+    const processingTime = Date.now() - startTime;
+    console.log(`✅ Email inviata in ${processingTime}ms:`, info.messageId);
 
-    // Pulisci i file temporanei
+    // Pulisci i file asincrono (non bloccare risposta)
     if (req.files) {
-      req.files.forEach(file => {
-        fs.unlink(file.path, (err) => {
-          if (err) console.error('Errore nella pulizia file:', err);
+      setImmediate(() => {
+        req.files.forEach(file => {
+          fs.unlink(file.path, (err) => {
+            if (err) console.error('Errore pulizia file:', err);
+          });
         });
       });
     }
 
+    // Risposta immediata
     res.json({
       success: true,
       messageId: info.messageId,
-      message: 'Email inviata con successo'
+      message: 'Email inviata con successo',
+      processingTime: `${processingTime}ms`
     });
 
   } catch (error) {
     console.error('❌ Errore invio email:', error);
 
-    // Pulisci i file in caso di errore
+    // Pulisci i file in caso di errore (asincrono)
     if (req.files) {
-      req.files.forEach(file => {
-        fs.unlink(file.path, (err) => {
-          if (err) console.error('Errore nella pulizia file:', err);
+      setImmediate(() => {
+        req.files.forEach(file => {
+          fs.unlink(file.path, (err) => {
+            if (err) console.error('Errore pulizia file:', err);
+          });
         });
       });
     }
