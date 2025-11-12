@@ -255,7 +255,13 @@
     "remove_file": "Rimuovi file",
     "file_info_note": "Supportati: PDF, ZIP, immagini, documenti (max 10MB)",
     "form_header_title": "Richiedi un preventivo per {{service}}",
-    "form_header_description": "Compila il form e ti contatteremo entro 24 ore"
+    "form_header_description": "Compila il form e ti contatteremo entro 24 ore",
+    "progress_preparing": "📦 Preparazione dati in corso...",
+    "progress_uploading": "📤 Caricamento file...",
+    "progress_sending": "✉️ Invio email in corso...",
+    "progress_processing": "⚙️ Elaborazione richiesta...",
+    "progress_retrying": "🔄 Nuovo tentativo ({{attempt}}/2)...",
+    "progress_wait": "⏳ Attendere prego..."
   },
   "footer": {
     "company": {

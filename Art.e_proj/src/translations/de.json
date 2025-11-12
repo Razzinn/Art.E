@@ -255,7 +255,13 @@
     "remove_file": "Datei entfernen",
     "file_info_note": "Unterstützt: PDF, ZIP, Bilder, Dokumente (max 10MB)",
     "form_header_title": "Angebot anfordern für {{service}}",
-    "form_header_description": "Füllen Sie das Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden"
+    "form_header_description": "Füllen Sie das Formular aus und wir kontaktieren Sie innerhalb von 24 Stunden",
+    "progress_preparing": "📦 Daten werden vorbereitet...",
+    "progress_uploading": "📤 Dateien werden hochgeladen...",
+    "progress_sending": "✉️ E-Mail wird gesendet...",
+    "progress_processing": "⚙️ Anfrage wird bearbeitet...",
+    "progress_retrying": "🔄 Erneuter Versuch ({{attempt}}/2)...",
+    "progress_wait": "⏳ Bitte warten..."
   },
   "footer": {
     "company": {

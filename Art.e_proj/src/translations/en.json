@@ -255,7 +255,13 @@
     "remove_file": "Remove file",
     "file_info_note": "Supported: PDF, ZIP, images, documents (max 10MB)",
     "form_header_title": "Request a quote for {{service}}",
-    "form_header_description": "Fill out the form and we will contact you within 24 hours"
+    "form_header_description": "Fill out the form and we will contact you within 24 hours",
+    "progress_preparing": "📦 Preparing data...",
+    "progress_uploading": "📤 Uploading files...",
+    "progress_sending": "✉️ Sending email...",
+    "progress_processing": "⚙️ Processing request...",
+    "progress_retrying": "🔄 Retrying ({{attempt}}/2)...",
+    "progress_wait": "⏳ Please wait..."
   },
   "footer": {
     "company": {

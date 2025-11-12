@@ -272,7 +272,13 @@
     "remove_file": "Ukloni fajl",
     "file_info_note": "Podržano: PDF, ZIP, slike, dokumenti (max 10MB)",
     "form_header_title": "Zatražite ponudu za {{service}}",
-    "form_header_description": "Popunite formu i kontaktiraćemo vas u roku od 24 sata"
+    "form_header_description": "Popunite formu i kontaktiraćemo vas u roku od 24 sata",
+    "progress_preparing": "📦 Priprema podataka u toku...",
+    "progress_uploading": "📤 Učitavanje fajlova...",
+    "progress_sending": "✉️ Slanje email-a u toku...",
+    "progress_processing": "⚙️ Obrada zahteva...",
+    "progress_retrying": "🔄 Novi pokušaj ({{attempt}}/2)...",
+    "progress_wait": "⏳ Molimo sačekajte..."
   },
   "footer": {
     "company": {

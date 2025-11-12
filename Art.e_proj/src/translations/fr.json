@@ -255,7 +255,13 @@
     "remove_file": "Supprimer le fichier",
     "file_info_note": "Supportés : PDF, ZIP, images, documents (max 10MB)",
     "form_header_title": "Demander un devis pour {{service}}",
-    "form_header_description": "Remplissez le formulaire et nous vous contacterons dans les 24 heures"
+    "form_header_description": "Remplissez le formulaire et nous vous contacterons dans les 24 heures",
+    "progress_preparing": "📦 Préparation des données...",
+    "progress_uploading": "📤 Téléchargement des fichiers...",
+    "progress_sending": "✉️ Envoi de l'email...",
+    "progress_processing": "⚙️ Traitement de la demande...",
+    "progress_retrying": "🔄 Nouvelle tentative ({{attempt}}/2)...",
+    "progress_wait": "⏳ Veuillez patienter..."
   },
   "footer": {
     "company": {
