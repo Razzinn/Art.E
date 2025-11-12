@@ -1,7 +1,7 @@
 {
-  "name": "CREO Marketplace",
+  "name": "CREO",
   "short_name": "CREO",
-  "description": "Trasformiamo le tue idee in realtà con stampa 3D, abbigliamento personalizzato e servizi digitali",
+  "description": "Pretvaramo vaše ideje u stvarnost sa 3D štampom, personalizovanom odećom i digitalnim uslugama",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",

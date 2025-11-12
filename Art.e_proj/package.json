@@ -1,8 +1,13 @@
 {
-  "name": "art-e-proj",
+  "name": "creo-rs",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://www.creo.rs",
+  "description": "CREO - Professional 3D Printing, Custom Apparel, and Digital Services in Serbia",
+  "keywords": ["3d-printing", "custom-apparel", "web-design", "serbia", "pirot", "digital-services"],
+  "author": "CREO",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

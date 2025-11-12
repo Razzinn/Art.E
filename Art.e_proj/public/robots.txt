@@ -1,5 +1,5 @@
-# Sitemap za CREO Marketplace - Srbija
-# https://creo-marketplace.rs/sitemap.xml
+# Sitemap za CREO - Srbija
+# https://www.creo.rs/sitemap.xml
 # Optimizovano za Google.rs i srpsko tržište
 
 User-agent: *
@@ -15,7 +15,7 @@ Allow: /servizi/
 # Disallow: /private/
 
 # Sitemap location - PRIORITET
-Sitemap: https://creo-marketplace.rs/sitemap.xml
+Sitemap: https://www.creo.rs/sitemap.xml
 
 # Serbian market specific crawlers
 User-agent: Googlebot

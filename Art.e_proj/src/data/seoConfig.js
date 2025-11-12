@@ -22,7 +22,7 @@ export const seoConfig = {
       "description": "Stampa 3D professionale per prototipi, modelli e oggetti personalizzati",
       "brand": {
         "@type": "Brand",
-        "name": "CREO Marketplace"
+        "name": "CREO"
       },
       "offers": {
         "@type": "AggregateOffer",
@@ -51,7 +51,7 @@ export const seoConfig = {
       "description": "T-shirt, felpe e abbigliamento personalizzato di qualità",
       "brand": {
         "@type": "Brand",
-        "name": "CREO Marketplace"
+        "name": "CREO"
       },
       "offers": {
         "@type": "AggregateOffer",
@@ -79,7 +79,7 @@ export const seoConfig = {
       "serviceType": "Web Design e Sviluppo",
       "provider": {
         "@type": "Organization",
-        "name": "CREO Marketplace"
+        "name": "CREO"
       },
       "areaServed": {
         "@type": "Country",
@@ -106,7 +106,7 @@ export const seoConfig = {
       "description": "Regali unici e personalizzati per ogni occasione",
       "brand": {
         "@type": "Brand",
-        "name": "CREO Marketplace"
+        "name": "CREO"
       },
       "offers": {
         "@type": "AggregateOffer",
@@ -148,7 +148,7 @@ export const generateBreadcrumbSchema = (breadcrumbs) => {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": item.url ? `https://creo-marketplace.it${item.url}` : undefined
+      "item": item.url ? `https://www.creo.rs${item.url}` : undefined
     }))
   };
 };
@@ -171,10 +171,10 @@ export const generateArticleSchema = (article) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "CREO Marketplace",
+      "name": "CREO",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://creo-marketplace.it/logo.png"
+        "url": "https://www.creo.rs/logo.png"
       }
     }
   };

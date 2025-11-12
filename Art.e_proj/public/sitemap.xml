@@ -5,31 +5,31 @@
   
   <!-- Homepage - Serbian as primary -->
   <url>
-    <loc>https://creo-marketplace.rs/</loc>
+    <loc>https://www.creo.rs/</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://creo-marketplace.rs/?lang=sr" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://creo-marketplace.rs/?lang=it" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://creo-marketplace.rs/?lang=de" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://creo-marketplace.rs/?lang=fr" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://creo-marketplace.rs/" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.creo.rs/?lang=sr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.creo.rs/?lang=it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.creo.rs/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.creo.rs/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.creo.rs/" />
   </url>
 
   <!-- 3D Štampa Page -->
   <url>
-    <loc>https://creo-marketplace.rs/stampa-3d</loc>
+    <loc>https://www.creo.rs/stampa-3d</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/stampa-3d" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://creo-marketplace.rs/stampa-3d?lang=sr" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/stampa-3d?lang=en" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://creo-marketplace.rs/stampa-3d?lang=it" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/stampa-3d" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.creo.rs/stampa-3d?lang=sr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/stampa-3d?lang=en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.creo.rs/stampa-3d?lang=it" />
     <image:image>
-      <image:loc>https://creo-marketplace.rs/images/stampa-3d-og.jpg</image:loc>
+      <image:loc>https://www.creo.rs/images/stampa-3d-og.jpg</image:loc>
       <image:title>3D Štampa Profesionalno - Pirot, Srbija</image:title>
       <image:caption>Profesionalne usluge 3D štampe u Srbiji</image:caption>
     </image:image>
@@ -37,16 +37,16 @@
 
   <!-- Personalizovana Odeća Page -->
   <url>
-    <loc>https://creo-marketplace.rs/abbigliamento</loc>
+    <loc>https://www.creo.rs/abbigliamento</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/abbigliamento" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://creo-marketplace.rs/abbigliamento?lang=sr" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/abbigliamento?lang=en" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://creo-marketplace.rs/abbigliamento?lang=it" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/abbigliamento" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.creo.rs/abbigliamento?lang=sr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/abbigliamento?lang=en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.creo.rs/abbigliamento?lang=it" />
     <image:image>
-      <image:loc>https://creo-marketplace.rs/images/abbigliamento-og.jpg</image:loc>
+      <image:loc>https://www.creo.rs/images/abbigliamento-og.jpg</image:loc>
       <image:title>Personalizovana Odeća - Srbija</image:title>
       <image:caption>Majice po želji, poslovna odeća sa logom</image:caption>
     </image:image>
@@ -54,16 +54,16 @@
 
   <!-- Web Dizajn Page -->
   <url>
-    <loc>https://creo-marketplace.rs/webapp-design</loc>
+    <loc>https://www.creo.rs/webapp-design</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/webapp-design" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://creo-marketplace.rs/webapp-design?lang=sr" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/webapp-design?lang=en" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://creo-marketplace.rs/webapp-design?lang=it" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/webapp-design" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.creo.rs/webapp-design?lang=sr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/webapp-design?lang=en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.creo.rs/webapp-design?lang=it" />
     <image:image>
-      <image:loc>https://creo-marketplace.rs/images/web-design-og.jpg</image:loc>
+      <image:loc>https://www.creo.rs/images/web-design-og.jpg</image:loc>
       <image:title>Web Dizajn i Razvoj - Srbija</image:title>
       <image:caption>Profesionalni web sajtovi i e-commerce</image:caption>
     </image:image>
@@ -71,16 +71,16 @@
 
   <!-- Personalizovani Pokloni Page -->
   <url>
-    <loc>https://creo-marketplace.rs/idee-regalo</loc>
+    <loc>https://www.creo.rs/idee-regalo</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/idee-regalo" />
-    <xhtml:link rel="alternate" hreflang="sr" href="https://creo-marketplace.rs/idee-regalo?lang=sr" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/idee-regalo?lang=en" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://creo-marketplace.rs/idee-regalo?lang=it" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/idee-regalo" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://www.creo.rs/idee-regalo?lang=sr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/idee-regalo?lang=en" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.creo.rs/idee-regalo?lang=it" />
     <image:image>
-      <image:loc>https://creo-marketplace.rs/images/idee-regalo-og.jpg</image:loc>
+      <image:loc>https://www.creo.rs/images/idee-regalo-og.jpg</image:loc>
       <image:title>Personalizovani Pokloni - Srbija</image:title>
       <image:caption>Jedinstveni 3D štampani pokloni</image:caption>
     </image:image>
@@ -88,39 +88,39 @@
 
   <!-- Service Request Pages -->
   <url>
-    <loc>https://creo-marketplace.rs/servizi/3d-design-stampa-3d</loc>
+    <loc>https://www.creo.rs/servizi/3d-design-stampa-3d</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/servizi/3d-design-stampa-3d" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/servizi/3d-design-stampa-3d?lang=en" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/servizi/3d-design-stampa-3d" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/servizi/3d-design-stampa-3d?lang=en" />
   </url>
 
   <url>
-    <loc>https://creo-marketplace.rs/servizi/abbigliamento-e-custom</loc>
+    <loc>https://www.creo.rs/servizi/abbigliamento-e-custom</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/servizi/abbigliamento-e-custom" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/servizi/abbigliamento-e-custom?lang=en" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/servizi/abbigliamento-e-custom" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/servizi/abbigliamento-e-custom?lang=en" />
   </url>
 
   <url>
-    <loc>https://creo-marketplace.rs/servizi/web-e-app-design</loc>
+    <loc>https://www.creo.rs/servizi/web-e-app-design</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/servizi/web-e-app-design" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/servizi/web-e-app-design?lang=en" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/servizi/web-e-app-design" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/servizi/web-e-app-design?lang=en" />
   </url>
 
   <url>
-    <loc>https://creo-marketplace.rs/servizi/idee-regalo-personalizzate</loc>
+    <loc>https://www.creo.rs/servizi/idee-regalo-personalizzate</loc>
     <lastmod>2025-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://creo-marketplace.rs/servizi/idee-regalo-personalizzate" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://creo-marketplace.rs/servizi/idee-regalo-personalizzate?lang=en" />
+    <xhtml:link rel="alternate" hreflang="sr-RS" href="https://www.creo.rs/servizi/idee-regalo-personalizzate" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.creo.rs/servizi/idee-regalo-personalizzate?lang=en" />
   </url>
 
 </urlset>
