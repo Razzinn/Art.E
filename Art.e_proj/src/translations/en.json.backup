@@ -1,0 +1,358 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "home": "Home",
+    "contact": "Contact",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "cta_button": "Discover More",
+    "slides": {
+      "3d_design": {
+        "title": "3D Design & 3D Printing",
+        "subtitle": "From idea to finished product realization",
+        "description": "From digital model to real object: unique creations, prototypes, gadgets and custom designs.",
+        "alt": "3D Design",
+        "cta": "Learn more"
+      },
+      "apparel": {
+        "title": "Custom Apparel",
+        "subtitle": "Wear your idea",
+        "description": "T-shirts, bodysuits, caps and custom accessories: every garment becomes a message, every style your signature.",
+        "alt": "Custom apparel",
+        "cta": "Learn more"
+      },
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online.",
+        "alt": "Web development and design",
+        "cta": "Learn more"
+      },
+      "gifts": {
+        "title": "Gift Ideas",
+        "subtitle": "Surprise with originality",
+        "description": "Original and personalized creations, perfect for surprising and leaving a mark on every occasion.",
+        "alt": "Personalized gift ideas",
+        "cta": "Learn more"
+      }
+    }
+  },
+  "offers": {
+    "title": "Quality personalized products and cutting-edge digital services",
+    "services": {
+      "design_3d": {
+        "title": "Design & 3D Prints",
+        "subtitle": "From idea to finished product realization",
+        "description": "From digital model to real object: unique creations, prototypes, gadgets and custom designs for every need.",
+        "promotional": "🚀 Turn your ideas into reality with professional 3D technology!",
+        "hero_note": "You can attach sketches, visual references or existing 3D files."
+      },
+      "services": {
+      "3d_design": {
+        "title": "3D Design & 3D Printing",
+        "subtitle": "From idea to finished product realization",
+        "description": "From digital model to real object: unique creations, prototypes, gadgets and personalized designs for every need.",
+        "promotional": "🚀 Transform your ideas into reality with professional 3D technology!",
+        "hero_note": "You can attach sketches, visual references or existing 3D files."
+      },
+      "gift_ideas": {
+        "title": "Gift Ideas",
+        "subtitle": "Personalized surprises for every occasion",
+        "description": "Describe the type of gift or prank, the recipient and the desired tone. We can start from your concept or create one from scratch.",
+        "promotional": "🎁 Create unforgettable memories with original and personalized gifts!",
+        "hero_note": "You can attach photos of the recipient or examples of the style you prefer."
+      },
+      "apparel_custom": {
+        "title": "Apparel & Custom",
+        "subtitle": "Custom clothing and accessories",
+        "description": "Indicate type, quantity, colors, sizes and any graphic reference to develop your personalized project.",
+        "promotional": "👕 Express your style with unique and made-to-measure clothing!",
+        "hero_note": "We accept mockups, logos and size charts in PDF, PNG, SVG or AI."
+      },
+      "web_app_design": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",
+        "promotional": "💻 Build your digital success with professional and innovative solutions!",
+        "hero_note": "Share design examples you like or your existing brand."
+      },
+      "3d_printing": {
+        "title": "3D Design & 3D Printing",
+        "subtitle": "From idea to finished product realization",
+        "description": "From digital model to real object: unique creations, prototypes, gadgets and custom designs for every need.",
+        "promotional": "🚀 Turn your ideas into reality with professional 3D technology!",
+        "hero_note": "You can attach sketches, visual references or existing 3D files."
+      },
+      "gifts_pranks": {
+        "title": "Gift Ideas",
+        "subtitle": "Personalized surprises for every occasion",
+        "description": "Describe the type of gift or prank, the recipient and the desired tone. We can start from your concept or create one from scratch.",
+        "promotional": "🎁 Create unforgettable memories with original and personalized gifts!",
+        "hero_note": "You can attach photos of the recipient or examples of the style you prefer."
+      },
+      "apparel": {
+        "title": "Apparel & Custom",
+        "subtitle": "Custom clothing and accessories",
+        "description": "Indicate type, quantity, colors, sizes and any graphic reference to develop your personalized project.",
+        "promotional": "👕 Express your style with unique and made-to-measure clothing!",
+        "hero_note": "We accept mockups, logos and size charts in PDF, PNG, SVG or AI."
+      },
+      "web_app": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",
+        "promotional": "💻 Build your digital success with professional and innovative solutions!",
+        "hero_note": "Share design examples you like or your existing brand."
+      },
+      "websites_apps": {
+        "title": "Web & App Design",
+        "subtitle": "Effective digital experiences",
+        "description": "Modern websites, intuitive apps and graphic solutions to grow your brand online and achieve your goals.",
+        "promotional": "💻 Build your digital success with professional and innovative solutions!",
+        "hero_note": "Share design examples you like or your existing brand."
+      }
+    }
+  },
+  "forms": {
+    "title": "Request a custom project",
+    "subtitle": "Fill out the form for the service you're interested in. You can attach reference files, sketches or materials that help us better understand your idea.",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company / Brand",
+      "budget": "Indicative budget",
+      "details": "Project details",
+      "file": "Attach reference file",
+      "required": "Required"
+    },
+    "placeholders": {
+      "name": "John Doe",
+      "email": "name@company.com",
+      "phone": "+1 555 123 4567",
+      "company": "Brand name",
+      "details": "Describe objectives, timelines, references and any useful information."
+    },
+    "budget_options": {
+      "select": "Select a range",
+      "up_to_500": "Up to €500",
+      "500_1500": "€500 - €1,500",
+      "1500_5000": "€1,500 - €5,000",
+      "over_5000": "Over €5,000"
+    },
+    "actions": {
+      "clear": "Clear fields",
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "submitted": "Request received! We'll contact you within 24 working hours."
+    },
+    "file": {
+      "selected": "Selected file: {{fileName}}",
+      "accepted_formats": "Accepted formats: .pdf, .zip, .png, .jpg, .jpeg, .svg, .ai"
+    }
+  },
+  "service_pages": {
+    "not_found": {
+      "title": "Service not found",
+      "description": "The requested section is not available. Return to home or choose another service from those available.",
+      "back_to_home": "Back to home"
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    },
+    "services": {
+      "logo_restyling": {
+        "title": "Logo Restyling",
+        "subtitle": "Renew your visual identity",
+        "description": "Tell us about your brand's story, the elements to keep and the new aesthetic directions you'd like to explore.",
+        "hero_note": "Upload your current logo, any sketches or reference moodboards."
+      },
+      "gifts_pranks": {
+        "title": "Gift Ideas",
+        "subtitle": "Personalized surprises for every occasion",
+        "description": "Describe the type of gift or prank, the recipient and the desired tone. We can start from your concept or create one from scratch.",
+        "hero_note": "You can attach photos of the recipient or examples of the style you prefer."
+      },
+      "apparel_custom": {
+        "title": "Apparel & Custom",
+        "subtitle": "Custom garments and accessories",
+        "description": "Specify type, quantity, colors, sizes and any graphic reference to develop your personalized project.",
+        "hero_note": "We accept mockups, logos and size charts in PDF, PNG, SVG or AI format."
+      },
+      "digital_services": {
+        "title": "Digital Services",
+        "subtitle": "Web, app and digital marketing",
+        "description": "Explain your digital objectives, target audience and key functionalities you want to implement.",
+        "hero_note": "Upload brief documents, sitemap, wireframes or reference examples."
+      }
+    }
+  },
+  "service_form": {
+    "budget_placeholder": "Select a range",
+    "budget_up_to_500": "Up to €500",
+    "budget_500_1500": "€500 - €1,500",
+    "budget_1500_5000": "€1,500 - €5,000",
+    "budget_over_5000": "Over €5,000",
+    "not_found_title": "Service not found",
+    "not_found_description": "The requested section is not available. Return to the home page or choose another service from those available.",
+    "back_to_home": "Back to home",
+    "name_label": "Full Name",
+    "name_placeholder": "Enter your full name",
+    "email_label": "Email",
+    "email_placeholder": "Enter your email address",
+    "phone_label": "Phone Number",
+    "phone_placeholder": "Enter your phone number",
+    "company_label": "Company/Brand",
+    "company_placeholder": "Enter your company or brand name",
+    "details_label": "Project Description",
+    "details_placeholder": "Describe your project, goals, specific requirements...",
+    "budget_label": "Budget",
+    "file_label": "Upload Files",
+    "file_button": "📎 Choose Files",
+    "no_file": "No files selected",
+    "files_selected": "{{count}} files selected",
+    "submit_button": "Send Request",
+    "reset_button": "Clear",
+    "submitting": "Sending...",
+    "success_title": "Request sent successfully!",
+    "success_message": "✅ Request sent successfully! We will contact you within 24 hours.",
+    "error_title": "Error sending request",
+    "error_message": "❌ Error during sending. Try again or contact us directly.",
+    "required_fields": "* Required fields",
+    "suggestion": "Tip",
+    "file_selected": "File selected",
+    "max_files_error": "You can select a maximum of 5 files",
+    "remove_file": "Remove file",
+    "file_info_note": "Supported: PDF, ZIP, images, documents (max 10MB)",
+    "form_header_title": "Request a quote for {{service}}",
+    "form_header_description": "Fill out the form and we will contact you within 24 hours"
+  },
+  "footer": {
+    "company": {
+      "description": "We transform your ideas into reality with 3D printing, custom apparel, digital services and superior quality Italian creativity.",
+      "address": "Via Roma 123, 20121 Milan, Italy",
+      "hours": "Every day: 08:00–20:00"
+    },
+    "sections": {
+      "products": "Products",
+      "clothing": "Clothing",
+      "digital_services": "Digital Services",
+      "gift_ideas": "Gift Ideas"
+    },
+    "links": {
+      "printing_3d": "3D Printing",
+      "rapid_prototypes": "Rapid Prototypes",
+      "custom_miniatures": "Custom Miniatures",
+      "corporate_gadgets": "Corporate Gadgets",
+      "decorative_objects": "Decorative Objects",
+      "all_3d_products": "All 3D Products",
+      "custom_hoodies": "Custom Hoodies",
+      "custom_caps": "Custom Caps",
+      "custom_polos": "Custom Polos",
+      "merchandising": "Merchandising",
+      "all_clothing": "All Products",
+      "website_creation": "Website Creation",
+      "app_development": "Intuitive App Creation",
+      "ecommerce": "E-commerce",
+      "logo_restyling": "Logo Restyling",
+      "brand_identity": "Brand Identity",
+      "social_media_marketing": "Social Media Marketing",
+      "graphic_design": "Graphic Design",
+      "digital_consulting": "Digital Consulting",
+      "custom_keychains": "Custom Keychains",
+      "personalized_mugs": "Personalized Mugs",
+      "photo_frames": "Photo Frames",
+      "surprise_boxes": "Surprise Boxes"
+    },
+    "newsletter": {
+      "title": "Newsletter Creo",
+      "description": "Receive exclusive offers, product news and creative tips directly in your email inbox.",
+      "email_placeholder": "Your email...",
+      "subscribe_button": "Subscribe",
+      "subscribing": "Subscribing...",
+      "success_message": "Subscribed!",
+      "invalid_email": "Invalid email.",
+      "enter_email": "Enter an email.",
+      "subscription_error": "An error occurred. Try again.",
+      "privacy_consent": "By subscribing you accept our",
+      "and": "and",
+      "unsubscribe_info": "You can unsubscribe at any time.",
+      "vip_benefits": "VIP Benefits",
+      "exclusive_discounts": "Exclusive discounts up to 20%",
+      "early_access": "Early access to new products",
+      "welcome_gift": "Welcome gift",
+      "priority_support": "Priority customer support"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Hours"
+    },
+    "legal": {
+      "all_rights_reserved": "All rights reserved",
+      "privacy_policy": "Privacy Policy",
+      "terms_of_service": "Terms of Service",
+      "cookie_policy": "Cookie Policy",
+      "returns_refunds": "Returns & Refunds",
+      "shipping": "Shipping",
+      "faq": "FAQ"
+    },
+    "payment": {
+      "secure_payments": "Secure payments"
+    },
+    "back_to_top": "Back to top"
+  },
+  "pages": {
+    "abbigliamento": {
+      "title": "Custom Apparel",
+      "subtitle": "Stand out with what you wear.",
+      "description1": "With <strong>CREO</strong> you can transform a simple garment into a unique means of expression or promotion. We customize T-shirts, sweatshirts, caps and workwear with high-quality prints and selected materials.",
+      "description2": "Whether you want to create professional corporate uniforms, event merchandising or personalized gifts, <em>we take care of every detail</em>: from graphics to final printing. Thanks to modern printing techniques – such as DTF, screen printing or heat transfer – we guarantee <strong>bright colors, durability and comfort</strong> on every product.",
+      "cta": "➡️ Show your identity. <span>Wear your ideas.</span>"
+    },
+    "design3d": {
+      "title": "3D PRINTING",
+      "subtitle": "From prototype to finished object: we give shape to imagination.",
+      "description1": "3D printing is the heart of <strong>CREO</strong>. We create prototypes, gadgets, accessories and technical components with precision and quality materials.",
+      "description2": "We use advanced <strong>FDM</strong> and <strong>resin-based</strong> technologies to ensure excellent strength, perfect details and refined finishes.",
+      "description3": "We collaborate with designers, companies, artisans and individuals to develop customized projects, from the 3D modeling phase to final production.",
+      "description4": "With our experience, every idea can come to life, becoming a tangible, functional and unique object."
+    },
+    "ideeregalo": {
+      "title": "Gift Ideas",
+      "subtitle": "Give something that doesn't exist anywhere else.",
+      "description1": "Our gift ideas are created to surprise. From decorative objects to custom 3D printed creations, each item is born to convey emotion, originality and attention to detail. Perfect for birthdays, anniversaries, holidays or corporate events, our proposals combine creativity and technology.",
+      "description2": "You can choose from ready-made designs or request custom creation, transforming an idea into a unique and unrepeatable gift.",
+      "cta": "➡️ Don't give something ordinary. Create a memory that lasts."
+    },
+    "webappdesign": {
+      "title": "Web & App Design",
+      "subtitle": "We build digital experiences that leave a mark.",
+      "description1": "In an increasingly connected world, your online presence is the key to making yourself known, selling and growing. At <strong>CREO</strong> we create modern, responsive and SEO-optimized websites, designed to attract and convert your visitors.",
+      "description2": "From corporate showcase to e-commerce, up to the development of custom apps, our goal is to translate your idea into a functional, secure platform with design crafted down to the smallest details.",
+      "description3": "We offer tailor-made solutions for companies, freelancers and start-ups, guaranteeing assistance, updates and scalability over time.",
+      "cta": "➡️ Don't just be online. <span>Get noticed, with style.</span>"
+    }
+  }
+}
