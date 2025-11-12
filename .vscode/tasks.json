@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "analyze",
+			"path": "Art.e_proj",
+			"problemMatcher": [],
+			"label": "npm: analyze - Art.e_proj",
+			"detail": "vite build --mode analyze"
+		}
+	]
+}
