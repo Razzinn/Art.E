@@ -3,22 +3,44 @@
 ## Informazioni Dominio
 - **Dominio**: www.creo.rs
 - **TLD**: .rs (Serbia)
-- **Provider**: [Inserire nome provider]
+- **Provider**: Loopia (Svezia)
+- **Nameservers**: 
+  - ns1.loopia.se (93.188.0.20)
+  - ns2.loopia.se (93.188.0.21)
+- **Pannello Controllo**: https://customerzone.loopia.se
 
-## Configurazione DNS
+## Configurazione DNS su Loopia
 
-### Record DNS Necessari
+### Accesso al Pannello
 
-#### Per Vercel Deployment:
+1. Vai su: https://customerzone.loopia.se
+2. Login con le tue credenziali
+3. Seleziona il dominio: **creo.rs**
+4. Vai su: **DNS Settings** o **Zone Editor**
 
+### Record DNS per GitHub Pages
+
+**Nel pannello DNS di Loopia**, aggiungi questi record:
+
+```dns
+Type     Host/Name    Value/Target              TTL
+------   ----------   -----------------------   -----
+A        @            185.199.108.153          3600
+A        @            185.199.109.153          3600
+A        @            185.199.110.153          3600
+A        @            185.199.111.153          3600
+CNAME    www          razzinn.github.io.       3600
 ```
-Type    Name    Value                    TTL
------   ------  ----------------------   -----
-A       @       76.76.21.21             3600
-CNAME   www     cname.vercel-dns.com    3600
-```
 
-#### Per Netlify Deployment:
+**Istruzioni Loopia:**
+- Per i record **A**, lascia il campo "Host" vuoto oppure usa `@`
+- Per il record **CNAME**, inserisci `www` nel campo "Host"
+- Nel campo "Target/Value" del CNAME, scrivi `razzinn.github.io.` (con il punto finale)
+- TTL: 3600 secondi (1 ora) è consigliato
+
+### Record DNS Alternativi
+
+#### Per Vercel Deployment (se cambi provider):
 
 ```
 Type    Name    Value                       TTL

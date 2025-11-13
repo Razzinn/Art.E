@@ -35,21 +35,36 @@ Il deploy partirà automaticamente! ⚡
 
 ## 🌐 Configurazione Dominio Personalizzato (creo.rs)
 
-### Opzione A: www.creo.rs (Consigliato)
+### Accedi al Pannello Loopia
 
-**Nel tuo provider DNS**, configura questi record:
+Il tuo dominio è gestito da **Loopia.se**:
+- **Nameservers**: ns1.loopia.se (93.188.0.20) e ns2.loopia.se (93.188.0.21)
+- **Pannello**: https://customerzone.loopia.se
+
+### Configurazione DNS su Loopia
+
+**Login su Loopia** → Dominio creo.rs → DNS Settings
+
+Aggiungi/Modifica questi record:
+
+#### Opzione A: www.creo.rs (Consigliato)
 
 ```
-Type     Name    Value                              TTL
-------   -----   --------------------------------   -----
-CNAME    www     razzinn.github.io                 3600
-A        @       185.199.108.153                   3600
-A        @       185.199.109.153                   3600
-A        @       185.199.110.153                   3600
-A        @       185.199.111.153                   3600
+Type     Host/Name    Value/Target                    TTL
+------   ----------   ----------------------------   ------
+CNAME    www          razzinn.github.io.             3600
+A        @            185.199.108.153                3600
+A        @            185.199.109.153                3600
+A        @            185.199.110.153                3600
+A        @            185.199.111.153                3600
 ```
 
-### Opzione B: Solo creo.rs (senza www)
+**Note Loopia:**
+- Per record A con `@`, lascia il campo "Host" vuoto o inserisci `@`
+- Per CNAME `www`, inserisci `www` nel campo "Host"
+- Aggiungi il punto finale `.` dopo `github.io` nel CNAME
+
+#### Opzione B: Solo creo.rs (senza www)
 
 Se vuoi usare solo `creo.rs` (senza www):
 
