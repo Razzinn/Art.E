@@ -12,6 +12,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "build:analyze": "vite build --mode production && open dist/stats.html",
+    "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 2",
     "lint:fix": "eslint . --ext js,jsx --fix",
     "preview": "vite preview --host",
